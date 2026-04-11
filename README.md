@@ -109,7 +109,9 @@ Cada ocupación recibe una calificación continua de **0 a 1** y se clasifica en
 
 ## 🚀 Aplicación web
 
-La aplicación interactiva está construida en **R Shiny** con visualizaciones en **Plotly** y publicada en `shinyapps.io` bajo el slug `dataton_genero_2026_exposicion_ia_trabajos`.
+La aplicación interactiva está construida en **R Shiny** con visualizaciones en **Plotly** y publicada en `shinyapps.io`.
+
+🔗 **Acceso en línea:** [https://juvecamposf.shinyapps.io/dataton_genero_2026_exposicion_ia_trabajos/](https://juvecamposf.shinyapps.io/dataton_genero_2026_exposicion_ia_trabajos/)
 
 Para ejecutarla localmente:
 
