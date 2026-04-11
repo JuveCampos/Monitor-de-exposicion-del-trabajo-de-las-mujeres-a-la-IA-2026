@@ -974,6 +974,13 @@ ui <- fluidPage(
     HTML(paste0(
       "<div style='display:flex; flex-direction:column; ",
       "align-items:center; gap:6px;'>",
+      "<a href='#sec-resumen' ",
+      "style='color:#2563eb; font-family:Ubuntu; ",
+      "font-size:14px;' ",
+      "onclick=\"document.getElementById(",
+      "'sec-resumen').scrollIntoView(",
+      "{behavior:'smooth'}); return false;\">",
+      "Resumen ejecutivo</a>",
       "<a href='#sec-exposicion' ",
       "style='color:#2563eb; font-family:Ubuntu; ",
       "font-size:14px;' ",
@@ -995,13 +1002,6 @@ ui <- fluidPage(
       "'sec-normativa').scrollIntoView(",
       "{behavior:'smooth'}); return false;\">",
       "Normativa</a>",
-      "<a href='#sec-resumen' ",
-      "style='color:#2563eb; font-family:Ubuntu; ",
-      "font-size:14px;' ",
-      "onclick=\"document.getElementById(",
-      "'sec-resumen').scrollIntoView(",
-      "{behavior:'smooth'}); return false;\">",
-      "Resumen ejecutivo</a>",
       "<a href='#sec-conclusion' ",
       "style='color:#2563eb; font-family:Ubuntu; ",
       "font-size:14px;' ",
@@ -1032,6 +1032,110 @@ ui <- fluidPage(
     tags$img(
       src = "artboard_1.png.webp",
       style = "max-width: 400px; width: 100%; margin-top: 5px;"
+    )
+  ),
+
+  # ==========================================================
+  # SECCIÓN: Resumen ejecutivo
+  # ==========================================================
+  div(
+    style = paste0(
+      "padding: 20px 25px; max-width: 960px; ",
+      "margin: 20px auto;"
+    ),
+    h3(
+      id = "sec-resumen",
+      style = "font-family: 'Ubuntu';",
+      HTML("<span class='title-highlight'>Resumen ejecutivo</span>")
+    ),
+    p(
+      style = "font-family: 'Ubuntu'; color: #333; line-height: 1.6;",
+      HTML(paste0(
+        "El Monitor de Exposición a la IA permite identificar ",
+        "dónde podrían aparecer tensiones antes de que se ",
+        "vuelvan brechas más profundas. Los datos sugieren ",
+        "poner atención en ",
+        "<span class='highlight'>ocupaciones técnicas, ",
+        "administrativas y de apoyo donde las mujeres tienen ",
+        "una presencia importante</span>, especialmente cuando ",
+        "se trata de tareas más estandarizables. Al mismo ",
+        "tiempo, el análisis muestra algo importante: ",
+        "<span class='highlight'>la exposición a la IA no se ",
+        "concentra solo en los trabajos más precarios</span>, ",
+        "sino también en ocupaciones con mejores ingresos y ",
+        "mayor formalidad, es decir, en espacios clave para la ",
+        "estabilidad laboral de muchas mujeres. Más que cerrar ",
+        "la discusión, esta herramienta busca abrirla mejor: ",
+        "dar insumos para seguir el cambio, orientar decisiones ",
+        "y ayudar a que la ",
+        "<span class='highlight'>transición tecnológica no ",
+        "amplíe desigualdades</span>, sino que contribuya a ",
+        "mejorar las condiciones laborales de las mujeres."
+      ))
+    )
+  ),
+
+  # Top 10 hombres y mujeres (dentro de Resumen ejecutivo)
+  fluidRow(
+    column(
+      6,
+      div(
+        class = "chart-header",
+        p(class = "chart-title",
+          paste0(
+            "Top 10 ocupaciones masculinas en ",
+            "exposición significativa y máxima"
+          )),
+        p(class = "chart-subtitle", "Hombres | ENOE 2025-T4")
+      ),
+      plotlyOutput("g6_top10_h", height = "450px")
+    ),
+    column(
+      6,
+      div(
+        class = "chart-header",
+        p(class = "chart-title",
+          paste0(
+            "Top 10 ocupaciones femeninas en ",
+            "exposición significativa y máxima"
+          )),
+        p(class = "chart-subtitle", "Mujeres | ENOE 2025-T4")
+      ),
+      plotlyOutput("g6_top10_m", height = "450px")
+    )
+  ),
+  fluidRow(
+    column(
+      6,
+      div(
+        style = "padding: 10px 15px 30px 15px;",
+        p(
+          style = "font-family: 'Ubuntu'; color: #333; line-height: 1.6;",
+          paste0(
+            "Las 10 ocupaciones con mayor población masculina ",
+            "en las categorías de exposición significativa y ",
+            "máxima. Identificar estas ocupaciones permite ",
+            "focalizar esfuerzos de capacitación y ",
+            "reconversión laboral donde más se necesitan."
+          )
+        )
+      )
+    ),
+    column(
+      6,
+      div(
+        style = "padding: 10px 15px 30px 15px;",
+        p(
+          style = "font-family: 'Ubuntu'; color: #333; line-height: 1.6;",
+          paste0(
+            "Las 10 ocupaciones con mayor población femenina ",
+            "en las categorías de exposición significativa y ",
+            "máxima. Estas ocupaciones ponen nombre y apellido ",
+            "a los empleos de mujeres más expuestos a la ",
+            "transformación por inteligencia artificial."
+          )
+        )
+      )
     )
   ),
 
@@ -1357,70 +1461,6 @@ br(), br(),
             "impacta principalmente a ocupaciones que requieren ",
             "formación especializada."
           ))
-        )
-      )
-    )
-  ),
-
-  # Fila 4: Top 10 hombres y mujeres (separadas)
-  fluidRow(
-    column(
-      6,
-      div(
-        class = "chart-header",
-        p(class = "chart-title",
-          paste0(
-            "Top 10 ocupaciones masculinas en ",
-            "exposición significativa y máxima"
-          )),
-        p(class = "chart-subtitle", "Hombres | ENOE 2025-T4")
-      ),
-      plotlyOutput("g6_top10_h", height = "450px")
-    ),
-    column(
-      6,
-      div(
-        class = "chart-header",
-        p(class = "chart-title",
-          paste0(
-            "Top 10 ocupaciones femeninas en ",
-            "exposición significativa y máxima"
-          )),
-        p(class = "chart-subtitle", "Mujeres | ENOE 2025-T4")
-      ),
-      plotlyOutput("g6_top10_m", height = "450px")
-    )
-  ),
-  fluidRow(
-    column(
-      6,
-      div(
-        style = "padding: 10px 15px 30px 15px;",
-        p(
-          style = "font-family: 'Ubuntu'; color: #333; line-height: 1.6;",
-          paste0(
-            "Las 10 ocupaciones con mayor población masculina ",
-            "en las categorías de exposición significativa y ",
-            "máxima. Identificar estas ocupaciones permite ",
-            "focalizar esfuerzos de capacitación y ",
-            "reconversión laboral donde más se necesitan."
-          )
-        )
-      )
-    ),
-    column(
-      6,
-      div(
-        style = "padding: 10px 15px 30px 15px;",
-        p(
-          style = "font-family: 'Ubuntu'; color: #333; line-height: 1.6;",
-          paste0(
-            "Las 10 ocupaciones con mayor población femenina ",
-            "en las categorías de exposición significativa y ",
-            "máxima. Estas ocupaciones ponen nombre y apellido ",
-            "a los empleos de mujeres más expuestos a la ",
-            "transformación por inteligencia artificial."
-          )
         )
       )
     )
@@ -1867,46 +1907,6 @@ br(), br(),
   ),
 
   # ==========================================================
-  # SECCIÓN: Resumen ejecutivo
-  # ==========================================================
-  div(
-    style = paste0(
-      "padding: 20px 25px; max-width: 960px; ",
-      "margin: 20px auto;"
-    ),
-    h3(
-      id = "sec-resumen",
-      style = "font-family: 'Ubuntu';",
-      HTML("<span class='title-highlight'>Resumen ejecutivo</span>")
-    ),
-    p(
-      style = "font-family: 'Ubuntu'; color: #333; line-height: 1.6;",
-      HTML(paste0(
-        "El Monitor de Exposición a la IA permite identificar ",
-        "dónde podrían aparecer tensiones antes de que se ",
-        "vuelvan brechas más profundas. Los datos sugieren ",
-        "poner atención en ",
-        "<span class='highlight'>ocupaciones técnicas, ",
-        "administrativas y de apoyo donde las mujeres tienen ",
-        "una presencia importante</span>, especialmente cuando ",
-        "se trata de tareas más estandarizables. Al mismo ",
-        "tiempo, el análisis muestra algo importante: ",
-        "<span class='highlight'>la exposición a la IA no se ",
-        "concentra solo en los trabajos más precarios</span>, ",
-        "sino también en ocupaciones con mejores ingresos y ",
-        "mayor formalidad, es decir, en espacios clave para la ",
-        "estabilidad laboral de muchas mujeres. Más que cerrar ",
-        "la discusión, esta herramienta busca abrirla mejor: ",
-        "dar insumos para seguir el cambio, orientar decisiones ",
-        "y ayudar a que la ",
-        "<span class='highlight'>transición tecnológica no ",
-        "amplíe desigualdades</span>, sino que contribuya a ",
-        "mejorar las condiciones laborales de las mujeres."
-      ))
-    )
-  ),
-
-  # ==========================================================
   # SECCIÓN 4: Conclusión
   # ==========================================================
   div(
@@ -2021,7 +2021,10 @@ br(), br(),
           ),
           HTML(paste0(
             "Puedes descargar la nota metodológica en ",
-            "<a href='#' style='color: #aac4ff;'>",
+            "<a href='https://github.com/JuveCampos/",
+            "Monitor-de-exposicion-del-trabajo-de-las-mujeres",
+            "-a-la-IA-2026/blob/main/notametodologica.pdf' ",
+            "target='_blank' style='color: #aac4ff;'>",
             "esta liga</a>. Para mayor información, ",
             "escribe a ",
             "<a href='mailto:patricia@claveigualdad.org' ",

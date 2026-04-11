@@ -5,7 +5,7 @@ account: juvecamposf
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 17099989
-bundleId: 11834508
+bundleId: 11835196
 url: https://juvecamposf.shinyapps.io/dataton_genero_2026_exposicion_ia_trabajos/
 version: 1
 asMultiple: FALSE
