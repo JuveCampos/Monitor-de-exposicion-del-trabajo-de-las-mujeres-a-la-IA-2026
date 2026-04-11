@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monitor de Exposición del Trabajo de las Mujeres a la IA · 2026</title>
+<style>
+  :root {
+    --rosa: #ff2d87;
+    --morado: #7a3cff;
+    --azul: #00c2ff;
+    --amarillo: #ffd400;
+    --bg: #0e0a1f;
+    --panel: #16102b;
+    --texto: #f4f1ff;
+    --texto-suave: #c8c0e0;
+    --borde: #2a1f4a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--texto);
+    line-height: 1.65;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 48px 28px; }
+  header.hero {
+    background: linear-gradient(135deg, var(--rosa) 0%, var(--morado) 55%, var(--azul) 100%);
+    border-radius: 22px;
+    padding: 56px 40px;
+    box-shadow: 0 20px 60px rgba(122, 60, 255, 0.35);
+    margin-bottom: 40px;
+  }
+  header.hero .badge {
+    display: inline-block;
+    background: rgba(0,0,0,0.25);
+    color: var(--amarillo);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 18px;
+  }
+  header.hero h1 {
+    margin: 0 0 14px;
+    font-size: 38px;
+    line-height: 1.15;
+    color: #fff;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.25);
+  }
+  header.hero p {
+    margin: 0;
+    font-size: 17px;
+    color: rgba(255,255,255,0.92);
+    max-width: 720px;
+  }
+  h2 {
+    font-size: 26px;
+    margin-top: 48px;
+    margin-bottom: 14px;
+    padding-left: 14px;
+    border-left: 6px solid var(--rosa);
+    color: #fff;
+  }
+  h2.morado { border-color: var(--morado); }
+  h2.azul { border-color: var(--azul); }
+  h2.amarillo { border-color: var(--amarillo); }
+  h3 {
+    color: var(--amarillo);
+    margin-top: 28px;
+    margin-bottom: 8px;
+    font-size: 18px;
+  }
+  p, li { color: var(--texto-suave); }
+  a { color: var(--azul); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--borde);
+    border-radius: 16px;
+    padding: 22px 26px;
+    margin: 16px 0;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+    margin-top: 18px;
+  }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--borde);
+    border-radius: 16px;
+    padding: 22px;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+  .card:hover { transform: translateY(-3px); border-color: var(--rosa); }
+  .card .icon {
+    font-size: 22px;
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--rosa), var(--morado));
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+  .card h4 { margin: 0 0 6px; color: #fff; font-size: 16px; }
+  .card p { margin: 0; font-size: 14px; }
+  code, pre {
+    font-family: "SF Mono", Menlo, Monaco, Consolas, monospace;
+    background: #0a0717;
+    color: #ffe0f0;
+    border-radius: 6px;
+  }
+  code { padding: 2px 6px; font-size: 13px; }
+  pre {
+    padding: 16px 18px;
+    overflow-x: auto;
+    border: 1px solid var(--borde);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  ul { padding-left: 22px; }
+  ul li { margin-bottom: 6px; }
+  .tag {
+    display: inline-block;
+    background: rgba(122, 60, 255, 0.2);
+    color: var(--azul);
+    border: 1px solid var(--borde);
+    border-radius: 999px;
+    padding: 3px 12px;
+    font-size: 12px;
+    margin: 3px 4px 3px 0;
+  }
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 14px;
+    margin-top: 18px;
+  }
+  .stat {
+    background: linear-gradient(135deg, rgba(255,45,135,0.15), rgba(122,60,255,0.15));
+    border: 1px solid var(--borde);
+    border-radius: 14px;
+    padding: 18px;
+    text-align: center;
+  }
+  .stat .num {
+    font-size: 30px;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--rosa), var(--azul));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .stat .label { font-size: 12px; color: var(--texto-suave); text-transform: uppercase; letter-spacing: 0.6px; }
+  footer {
+    margin-top: 60px;
+    padding-top: 24px;
+    border-top: 1px solid var(--borde);
+    text-align: center;
+    color: var(--texto-suave);
+    font-size: 13px;
+  }
+  blockquote {
+    border-left: 4px solid var(--amarillo);
+    margin: 18px 0;
+    padding: 8px 18px;
+    background: rgba(255, 212, 0, 0.06);
+    border-radius: 0 12px 12px 0;
+    color: var(--texto-suave);
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <span class="badge">DAT4CCIÓN · Datatón Regional para la Igualdad 2026</span>
+    <h1>Monitor de Exposición del Trabajo de las Mujeres a la Inteligencia Artificial</h1>
+    <p>Una herramienta para estimar el grado en que las ocupaciones del mercado laboral mexicano pueden ser ejecutadas o apoyadas por sistemas de IA generativa, con foco en las brechas de género, la cobertura tecnológica y la protección jurídica del trabajo.</p>
+  </header>
+
+  <h2>Sobre el proyecto</h2>
+  <p>Este repositorio contiene los datos, scripts y la aplicación web que sustentan el <strong>Monitor de Exposición del Trabajo de las Mujeres a la IA</strong>, presentado en el marco del <em>DAT4CCIÓN, Datatón Regional para la Igualdad (2026)</em>. El proyecto clasifica las 483 ocupaciones del Sistema Nacional de Clasificación de Ocupaciones (SINCO 2019) según su grado de exposición a la IA generativa, integrando información sobre brecha tecnológica de los hogares mexicanos y sobre el marco internacional de protección laboral.</p>
+
+  <div class="stat-row">
+    <div class="stat"><div class="num">483</div><div class="label">Ocupaciones SINCO clasificadas</div></div>
+    <div class="stat"><div class="num">436</div><div class="label">Ocupaciones CIUO-08 base</div></div>
+    <div class="stat"><div class="num">52k+</div><div class="label">Validaciones humanas</div></div>
+    <div class="stat"><div class="num">0.92</div><div class="label">Correlación modelo–humanos</div></div>
+  </div>
+
+  <h2 class="morado">Metodología</h2>
+
+  <h3>Estimación de la exposición a la IA</h3>
+  <p>La <em>exposición a la inteligencia artificial</em> se refiere al grado en que las tareas principales de una ocupación pueden ser ejecutadas o apoyadas por sistemas de IA, especialmente generativa. El concepto permite distinguir escenarios de <strong>sustitución</strong> y de <strong>complementariedad</strong> tecnológica.</p>
+  <p>La clasificación se basa en la metodología desarrollada por <strong>Gmyrek, Berg y Bescond (2025)</strong> para la OIT, publicada en el <em>Working Paper 140: Generative AI and Jobs: A Refined Global Index of Occupational Exposure</em>.</p>
+
+  <h3>Mapeo SINCO ↔ CIUO-08</h3>
+  <p>El índice original evalúa 436 ocupaciones internacionales bajo CIUO-08. Para aplicarlo a México se construyó un mapeo entre el SINCO 2019 del INEGI y la CIUO-08, a partir de la tabla comparativa oficial del INEGI:</p>
+  <ul>
+    <li>Cuando una ocupación SINCO corresponde a múltiples códigos CIUO-08, se promedian los scores de exposición.</li>
+    <li>Para las 34 ocupaciones sin correspondencia directa se aplicó <strong>imputación jerárquica</strong> (promedio de subgrupo, grupo o división) y mapeo manual revisado por el equipo.</li>
+  </ul>
+
+  <h3>Fundamento empírico</h3>
+  <blockquote>La metodología de Gmyrek et al. combina (1) validación humana con más de 52,000 evaluaciones de trabajadores reales sobre qué tareas pueden ser automatizadas o aumentadas por IA generativa; (2) deliberación de expertos internacionales mediante el método Delphi; y (3) modelos de lenguaje entrenados sobre el corpus validado para predecir scores a escala global.</blockquote>
+
+  <h3>Gradientes de exposición</h3>
+  <p>Cada ocupación recibe una calificación continua de <strong>0 a 1</strong> y se clasifica en gradientes que van desde <em>“No expuesto”</em> (ocupaciones manuales y físicas con impacto mínimo de la IA) hasta <em>“Exposición máxima”</em> (ocupaciones administrativas, financieras y de comunicación con alto potencial de automatización). Las ocupaciones con correspondencias heterogéneas entre SINCO y CIUO-08 se clasifican como <em>“Mixto”</em>.</p>
+
+  <h3>Fuentes complementarias</h3>
+  <ul>
+    <li><strong>Brecha tecnológica:</strong> Encuesta Nacional sobre Disponibilidad y Uso de Tecnologías de la Información en los Hogares (<strong>ENDUTIH 2024</strong>, INEGI), usada para indicadores de acceso y uso como proxy de las capacidades tecnológicas de la población.</li>
+    <li><strong>Protección jurídica:</strong> bases de datos de derecho internacional provenientes de la OIT, la Oficina del Alto Comisionado de las Naciones Unidas para los Derechos Humanos y otros organismos.</li>
+    <li><strong>Microdatos laborales:</strong> ENOE cuarto trimestre de 2025 (INEGI).</li>
+  </ul>
+
+  <h2 class="azul">Herramientas técnicas</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="icon">St</div>
+      <h4>Stata</h4>
+      <p>Procesamiento de microdatos de la ENOE 2025-T4 mediante do-files reproducibles.</p>
+    </div>
+    <div class="card">
+      <div class="icon">R</div>
+      <h4>R + Shiny + Plotly</h4>
+      <p>Aplicación web interactiva y visualizaciones del monitor.</p>
+    </div>
+    <div class="card">
+      <div class="icon">Py</div>
+      <h4>Python</h4>
+      <p>Construcción del crosswalk SINCO ↔ CIUO-08 y traducción de descripciones ocupacionales.</p>
+    </div>
+    <div class="card">
+      <div class="icon">IA</div>
+      <h4>IA generativa</h4>
+      <p>Apoyo supervisado en mapeo ocupacional y documentación auxiliar, sin sustituir validación humana.</p>
+    </div>
+  </div>
+
+  <h2 class="amarillo">Estructura del repositorio</h2>
+  <pre>.
+├── 00_Códigos/
+│   └── Scripts_procesamiento_ENOE/        # Do-files de Stata para ENOE 2025-T4
+│       ├── script_enoe_ccs_ocup_SINCO.do
+│       ├── script_enoe_ccs_ocup_SINCO_cuidados.do
+│       └── script_enoe_ccs_ocup_SINCO_stem.do
+│
+├── 01_Datos/
+│   ├── 01_catalogos/                      # Catálogos, crosswalks e índices base
+│   │   ├── sinco_con_exposicion_ia.csv    # ⭐ Catálogo SINCO con scores de exposición
+│   │   ├── crosswalk_sinco_ciuo08_long.csv
+│   │   ├── sinco_2019_jerarquico.csv
+│   │   ├── sinco_descripciones_es.csv / _en.csv
+│   │   ├── mapeo_manual_propuesto.csv
+│   │   ├── INEGI_Tabla_Comparativa_SINCO_CIUO08.pdf
+│   │   ├── datasets/                      # Insumos Gmyrek et al. (2025) y WB LAC
+│   │   ├── papers/                        # ILO WP140, WP121, WP96
+│   │   └── scripts/                       # Python: crosswalk y descripciones
+│   └── 02_sinco/                          # SINCO 2019 oficial
+│
+├── 03_Archivos/
+│   └── Bibliografía/                      # Referencias (OCDE, etc.)
+│
+├── 04_Aplicación/                         # Aplicación Shiny
+│   ├── app.R                              # ⭐ Punto de entrada de la app
+│   ├── proyecto_dashboard.Rproj
+│   ├── catalogos_sinco/                   # Insumos cargados por la app
+│   ├── assets/ · www/                     # Imágenes, logos, marco jurídico
+│   ├── zcalculos_Y2025T04_4d.dta          # Resultados ENOE procesados
+│   └── rsconnect/                         # Despliegue en shinyapps.io
+│
+├── notametodologica.pdf                   # Nota metodológica completa
+└── README.html / README.md</pre>
+
+  <h2>Aplicación web</h2>
+  <div class="panel">
+    <p>La aplicación interactiva está construida en <strong>R Shiny</strong> con visualizaciones en <strong>Plotly</strong> y publicada en <code>shinyapps.io</code> bajo el slug <code>dataton_genero_2026_exposicion_ia_trabajos</code>.</p>
+    <p>Para ejecutarla localmente:</p>
+    <pre># Desde R / RStudio
+setwd("04_Aplicación")
+shiny::runApp("app.R")</pre>
+  </div>
+
+  <h2 class="morado">Insumos clave</h2>
+  <ul>
+    <li><span class="tag">SINCO 2019</span> Sistema Nacional de Clasificación de Ocupaciones (INEGI).</li>
+    <li><span class="tag">CIUO-08</span> Clasificación Internacional Uniforme de Ocupaciones.</li>
+    <li><span class="tag">ENOE 2025-T4</span> Encuesta Nacional de Ocupación y Empleo.</li>
+    <li><span class="tag">ENDUTIH 2024</span> Disponibilidad y uso de TIC en hogares.</li>
+    <li><span class="tag">ILO WP140</span> Gmyrek, Berg &amp; Bescond (2025) — Refined Global Index of Occupational Exposure.</li>
+    <li><span class="tag">ILO WP121</span> Buffer or Bottleneck — América Latina y el Caribe (2024).</li>
+    <li><span class="tag">ILO WP96</span> GenAI and Jobs — Global Analysis (2023).</li>
+  </ul>
+
+  <h2 class="azul">Reproducibilidad</h2>
+  <p>Todo el flujo —desde el procesamiento de microdatos en Stata, la construcción del crosswalk en Python, hasta la aplicación Shiny en R— está versionado en este repositorio. Las herramientas de IA generativa se utilizaron como apoyo supervisado en tareas acotadas (mapeo ocupacional y documentación auxiliar) sin reemplazar la validación humana, sirviendo como aceleración metodológica frente a la restricción de tiempo del datatón.</p>
+
+  <h2 class="amarillo">Documento metodológico</h2>
+  <div class="panel">
+    <p>📄 La nota metodológica completa se encuentra en <a href="./notametodologica.pdf"><code>notametodologica.pdf</code></a>, e incluye los detalles sobre construcción del índice, mapeo SINCO–CIUO-08, fuentes complementarias y herramientas técnicas utilizadas.</p>
+  </div>
+
+  <footer>
+    <p>Repositorio: <a href="https://github.com/JuveCampos/Monitor-de-exposicion-del-trabajo-de-las-mujeres-a-la-IA-2026">JuveCampos/Monitor-de-exposicion-del-trabajo-de-las-mujeres-a-la-IA-2026</a></p>
+    <p>Presentado en el <strong>DAT4CCIÓN · Datatón Regional para la Igualdad 2026</strong></p>
+  </footer>
+
+</div>
+</body>
+</html>
