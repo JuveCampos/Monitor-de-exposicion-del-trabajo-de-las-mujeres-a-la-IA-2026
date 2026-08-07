@@ -1,10 +1,17 @@
 # App Shiny: Treemap de exposición a la IA en el mercado laboral mexicano
-# ENOE 2025-T4 | Clasificación SINCO 4 dígitos
+# Clasificación SINCO 4 dígitos
 
 library(shiny)
 library(haven)
 library(tidyverse)
 library(plotly)
+
+# --- Parámetros del trimestre ENOE ---
+# Para actualizar la app a un nuevo trimestre solo se cambian estas dos
+# líneas (el .dta se genera con
+# 00_Códigos/Scripts_procesamiento_ENOE_R/01_procesar_enoe_sinco.R)
+periodo_enoe <- "2026-T1"
+archivo_enoe <- "zcalculos_Y2026T01_4d.dta"
 
 # --- Preparación de datos ---
 cat_1 <- read_csv(
@@ -20,11 +27,11 @@ cat_1 <- read_csv(
     division_1d, division_titulo, subgrupo_3d,
     unitario_4d, unitario_titulo, potencial_ia_2025,
     score_minimo, score_maximo, score_imputado,
-    descripcion_ia_es
+    clasificacion_provisional, descripcion_ia_es
   ) %>%
   unique()
 
-bd <- read_dta("zcalculos_Y2025T04_4d.dta") %>%
+bd <- read_dta(archivo_enoe) %>%
   mutate(
     sinco4d = str_pad(sinco4d, width = 3, side = "left", pad = "0")
   ) %>%
@@ -75,7 +82,12 @@ excepciones_inc <- c(
 # Función que transforma UNA palabra
 flexionar_palabra <- function(palabra, modo) {
   # modo: "fem", "inc", "masc"
-  if (modo == "masc") return(palabra)
+  if (modo == "masc") {
+    if (palabra %in% names(flexion_especial_masc)) {
+      return(flexion_especial_masc[palabra])
+    }
+    return(palabra)
+  }
 
   # Revisar excepciones
   if (modo == "fem" && palabra %in% names(excepciones_fem)) {
@@ -317,12 +329,35 @@ flexion_especial_inc <- c(
   "amas"      = "amos/as"
 )
 
+# El SINCO nombra en femenino genérico algunas ocupaciones
+# (Secretarias, Enfermeras, Parteras), lo que resulta confuso en la
+# vista de hombres. Estas son las únicas palabras que se transforman
+# cuando el modo es "masc"; el resto del título se deja intacto.
+flexion_especial_masc <- c(
+  "Secretarias" = "Secretarios",
+  "secretarias" = "secretarios",
+  "Enfermeras"  = "Enfermeros",
+  "enfermeras"  = "enfermeros",
+  "Parteras"    = "Parteros",
+  "parteras"    = "parteros",
+  "Amas"        = "Amos",
+  "amas"        = "amos"
+)
+
 # Función que transforma un título completo
 flexionar_titulo <- function(titulo, modo) {
-  if (modo == "masc") return(titulo)
   if (is.na(titulo)) return(NA_character_)
 
   palabras <- str_split(titulo, " ")[[1]]
+
+  # En modo masculino solo se procesan los títulos que contienen alguna
+  # de las palabras en femenino genérico del SINCO
+  if (modo == "masc") {
+    palabras_limpias <- str_remove_all(palabras, "[,()]")
+    if (!any(palabras_limpias %in% names(flexion_especial_masc))) {
+      return(titulo)
+    }
+  }
 
   # Solo flexionar palabras ANTES de la primera preposición.
   # Después de "de", "en", etc., se refiere a otros/cosas y
@@ -348,7 +383,8 @@ flexionar_titulo <- function(titulo, modo) {
     if (p_limpio %in% names(excepciones_fem) ||
         p_limpio %in% names(excepciones_inc) ||
         p_limpio %in% names(flexion_especial_fem) ||
-        p_limpio %in% names(flexion_especial_inc)) {
+        p_limpio %in% names(flexion_especial_inc) ||
+        p_limpio %in% names(flexion_especial_masc)) {
       p_flex <- flexionar_palabra(p_limpio, modo)
       sufijo <- str_extract(p, "[,()]+$")
       if (is.na(sufijo)) sufijo <- ""
@@ -562,6 +598,21 @@ bd_top10 <- bd %>%
     )
   )
 
+# Totales del top 10 por sexo: se citan en los textos que acompañan a
+# las dos gráficas del resumen ejecutivo
+totales_top10 <- bd_top10 %>%
+  group_by(sexo_label) %>%
+  summarise(total = sum(ocup, na.rm = TRUE), .groups = "drop")
+
+total_top10_h <- format(
+  round(totales_top10$total[totales_top10$sexo_label == "Hombres"]),
+  big.mark = ",", scientific = FALSE
+)
+total_top10_m <- format(
+  round(totales_top10$total[totales_top10$sexo_label == "Mujeres"]),
+  big.mark = ",", scientific = FALSE
+)
+
 # --- Función para mapear escolaridad promedio a categoría ---
 clasificar_escolaridad <- function(anios) {
   case_when(
@@ -579,9 +630,18 @@ clasificar_escolaridad <- function(anios) {
 
 # --- Función para construir texto del hover ---
 construir_hover <- function(df) {
+  # Las categorías imputadas se señalan como provisionales en el hover;
+  # la etiqueta no se altera en exposicion_ia_es porque los colores del
+  # treemap se mapean con ese texto
+  etiqueta_exposicion <- ifelse(
+    df$clasificacion_provisional %in% TRUE &
+      df$exposicion_ia_es != "Sin información",
+    paste0(df$exposicion_ia_es, " (provisional)"),
+    df$exposicion_ia_es
+  )
   paste0(
     "<b>", df$titulo_display, "</b>",
-    "<br><b>Exposición IA:</b> ", df$exposicion_ia_es,
+    "<br><b>Exposición IA:</b> ", etiqueta_exposicion,
     "<br>──────────────────",
     "<br><b>Población ocupada:</b> ",
     format(round(df$ocup), big.mark = ","),
@@ -748,21 +808,22 @@ ui <- fluidPage(
       .hero-header {
         max-width: 960px;
         margin: 30px auto 25px auto;
-        background-color: #b8b8ec;
+        background-color: #6950d8;
         border-radius: 12px;
         padding: 60px 40px;
         text-align: center;
       }
       .hero-header h2 {
-        color: #1a1a3a;
+        color: #ffffff;
         font-size: 2.2em;
         font-weight: 700;
         margin: 0 0 10px 0;
       }
       .hero-header p {
-        color: #2a2a55;
+        color: #ffffff;
         font-size: 1em;
         margin: 0;
+        opacity: 0.9;
       }
       .card-section {
         background-color: white;
@@ -901,7 +962,7 @@ ui <- fluidPage(
       "Monitor de exposición del trabajo ",
       "de las mujeres a la IA"
     )),
-    p("ENOE 2025-T4 | Clasificación SINCO a 4 dígitos")
+    p(paste0("ENOE ", periodo_enoe, " | Clasificación SINCO a 4 dígitos"))
   ),
 
   # --- Texto introductorio ---
@@ -1086,7 +1147,7 @@ ui <- fluidPage(
             "Top 10 ocupaciones masculinas en ",
             "exposición significativa y máxima"
           )),
-        p(class = "chart-subtitle", "Hombres | ENOE 2025-T4")
+        p(class = "chart-subtitle", paste0("Hombres | ENOE ", periodo_enoe))
       ),
       plotlyOutput("g6_top10_h", height = "450px")
     ),
@@ -1099,7 +1160,7 @@ ui <- fluidPage(
             "Top 10 ocupaciones femeninas en ",
             "exposición significativa y máxima"
           )),
-        p(class = "chart-subtitle", "Mujeres | ENOE 2025-T4")
+        p(class = "chart-subtitle", paste0("Mujeres | ENOE ", periodo_enoe))
       ),
       plotlyOutput("g6_top10_m", height = "450px")
     )
@@ -1111,13 +1172,16 @@ ui <- fluidPage(
         style = "padding: 10px 15px 30px 15px;",
         p(
           style = "font-family: 'Ubuntu'; color: #333; line-height: 1.6;",
-          paste0(
+          HTML(paste0(
             "Las 10 ocupaciones con mayor población masculina ",
             "en las categorías de exposición significativa y ",
-            "máxima. Identificar estas ocupaciones permite ",
-            "focalizar esfuerzos de capacitación y ",
-            "reconversión laboral donde más se necesitan."
-          )
+            "máxima concentran a ",
+            "<span class='highlight'>", total_top10_h,
+            " hombres ocupados</span>. Identificar estas ",
+            "ocupaciones permite focalizar esfuerzos de ",
+            "capacitación y reconversión laboral donde más se ",
+            "necesitan."
+          ))
         )
       )
     ),
@@ -1127,13 +1191,16 @@ ui <- fluidPage(
         style = "padding: 10px 15px 30px 15px;",
         p(
           style = "font-family: 'Ubuntu'; color: #333; line-height: 1.6;",
-          paste0(
+          HTML(paste0(
             "Las 10 ocupaciones con mayor población femenina ",
             "en las categorías de exposición significativa y ",
-            "máxima. Estas ocupaciones ponen nombre y apellido ",
-            "a los empleos de mujeres más expuestos a la ",
-            "transformación por inteligencia artificial."
-          )
+            "máxima concentran a ",
+            "<span class='highlight'>", total_top10_m,
+            " mujeres ocupadas</span>. Estas ocupaciones ponen ",
+            "nombre y apellido a los empleos de mujeres más ",
+            "expuestos a la transformación por inteligencia ",
+            "artificial."
+          ))
         )
       )
     )
@@ -1258,7 +1325,8 @@ br(), br(),
         class = "chart-header",
         p(class = "chart-title",
           "Población en exposición significativa y máxima"),
-        p(class = "chart-subtitle", "Personal ocupado, por sexo | ENOE 2025-T4"),
+        p(class = "chart-subtitle",
+          paste0("Personal ocupado, por sexo | ENOE ", periodo_enoe)),
         div(
           class = "leyenda-sexo",
           div(class = "leyenda-item",
@@ -1279,7 +1347,8 @@ br(), br(),
         class = "chart-header",
         p(class = "chart-title",
           "Distribución porcentual por grado de exposición"),
-        p(class = "chart-subtitle", "Personal ocupado, por sexo | ENOE 2025-T4"),
+        p(class = "chart-subtitle",
+          paste0("Personal ocupado, por sexo | ENOE ", periodo_enoe)),
         div(
           class = "leyenda-container",
           lapply(seq_along(colores_exposicion), function(i) {
@@ -1341,7 +1410,8 @@ br(), br(),
         class = "chart-header",
         p(class = "chart-title",
           "Ingreso mediano ponderado por gradiente"),
-        p(class = "chart-subtitle", "Personal ocupado, por sexo | ENOE 2025-T4"),
+        p(class = "chart-subtitle",
+          paste0("Personal ocupado, por sexo | ENOE ", periodo_enoe)),
         div(
           class = "leyenda-sexo",
           div(class = "leyenda-item",
@@ -1362,7 +1432,8 @@ br(), br(),
         class = "chart-header",
         p(class = "chart-title",
           "Tasa de informalidad ponderada por gradiente"),
-        p(class = "chart-subtitle", "Personal ocupado, por sexo | ENOE 2025-T4"),
+        p(class = "chart-subtitle",
+          paste0("Personal ocupado, por sexo | ENOE ", periodo_enoe)),
         div(
           class = "leyenda-sexo",
           div(class = "leyenda-item",
@@ -1425,7 +1496,8 @@ br(), br(),
         class = "chart-header",
         p(class = "chart-title",
           "Escolaridad promedio ponderada por gradiente"),
-        p(class = "chart-subtitle", "Personal ocupado, por sexo | ENOE 2025-T4"),
+        p(class = "chart-subtitle",
+          paste0("Personal ocupado, por sexo | ENOE ", periodo_enoe)),
         div(
           class = "leyenda-sexo",
           div(class = "leyenda-item",
@@ -1508,7 +1580,8 @@ br(), br(),
       p(
         class = "chart-subtitle",
         style = "font-size: 13px;",
-        "Mujeres | ENOE 2025-T4 | Clasificación SINCO 4 dígitos"
+        paste0("Mujeres | ENOE ", periodo_enoe,
+               " | Clasificación SINCO 4 dígitos")
       )
     ),
     plotlyOutput("treemap_cuidados", height = "500px")
@@ -2046,6 +2119,38 @@ br(), br(),
         )
       )
     )
+    # --- SILENCIADO: franja de adscripción a México, ¿Cómo vamos? ---
+    # Queda en espera hasta que se concrete la incorporación del
+    # monitor a la cartera de proyectos de MCV. Para reactivarla se
+    # descomenta este bloque y se agrega una coma al cierre del div
+    # anterior. El logo ya está en www/logo_mcv_blanco.svg.
+    # ,
+    # div(
+    #   style = paste0(
+    #     "max-width: 960px; margin: 25px auto 0 auto; ",
+    #     "padding: 20px 25px 0 25px; ",
+    #     "border-top: 1px solid rgba(255,255,255,0.2); ",
+    #     "display: flex; align-items: center; ",
+    #     "justify-content: center; gap: 18px; ",
+    #     "flex-wrap: wrap;"
+    #   ),
+    #   p(
+    #     style = paste0(
+    #       "color: rgba(255,255,255,0.85); font-size: 13px; ",
+    #       "margin: 0; text-align: right;"
+    #     ),
+    #     "Este monitor forma parte de la cartera de proyectos de"
+    #   ),
+    #   tags$a(
+    #     href = "https://mexicocomovamos.mx/",
+    #     target = "_blank",
+    #     tags$img(
+    #       src = "logo_mcv_blanco.svg",
+    #       style = "width: 150px; height: auto; display: block;"
+    #     )
+    #   )
+    # )
+    # --- FIN SILENCIADO ---
   )
 )
 
@@ -2077,7 +2182,7 @@ server <- function(input, output, session) {
         style = "font-size: 13px;",
         paste0(
           titulo_sexo,
-          " | ENOE 2025-T4 | Clasificación SINCO 4 dígitos",
+          " | ENOE ", periodo_enoe, " | Clasificación SINCO 4 dígitos",
           subtitulo_sector
         )
       )
@@ -2125,6 +2230,10 @@ server <- function(input, output, session) {
     nombre <- fila$unitario_titulo[1]
     exposicion <- fila$exposicion_ia_es[1]
     if (is.na(exposicion)) exposicion <- "Sin información"
+    if (isTRUE(fila$clasificacion_provisional[1]) &&
+        exposicion != "Sin información") {
+      exposicion <- paste0(exposicion, " (clasificación provisional)")
+    }
 
     if (is.na(desc) || desc == "") {
       return(
@@ -2884,13 +2993,17 @@ server <- function(input, output, session) {
         "Ocupados: ",
         format(round(ocup), big.mark = ",")
       ),
-      hoverinfo = "text"
+      hoverinfo = "text",
+      cliponaxis = FALSE
     ) %>%
       layout(
         xaxis = list(
           title = "Población ocupada",
           tickformat = ",",
-          titlefont = list(family = "Ubuntu", size = 11)
+          titlefont = list(family = "Ubuntu", size = 11),
+          # Holgura a la derecha para que la cifra de la barra más
+          # larga se lea completa sin necesidad de hacer zoom
+          range = c(0, max(df_h$ocup) * 1.22)
         ),
         yaxis = list(
           title = "",
@@ -2898,8 +3011,9 @@ server <- function(input, output, session) {
         ),
         showlegend = FALSE,
         font = list(family = "Ubuntu"),
-        margin = list(l = 250, t = 10)
-      )
+        margin = list(l = 250, r = 60, t = 10)
+      ) %>%
+      config(displayModeBar = FALSE)
   })
 
   # --- G6b: Top 10 mujeres en exposición alta ---
@@ -2937,13 +3051,17 @@ server <- function(input, output, session) {
         "Ocupadas: ",
         format(round(ocup), big.mark = ",")
       ),
-      hoverinfo = "text"
+      hoverinfo = "text",
+      cliponaxis = FALSE
     ) %>%
       layout(
         xaxis = list(
           title = "Población ocupada",
           tickformat = ",",
-          titlefont = list(family = "Ubuntu", size = 11)
+          titlefont = list(family = "Ubuntu", size = 11),
+          # Holgura a la derecha para que la cifra de la barra más
+          # larga se lea completa sin necesidad de hacer zoom
+          range = c(0, max(df_m$ocup) * 1.22)
         ),
         yaxis = list(
           title = "",
@@ -2951,8 +3069,9 @@ server <- function(input, output, session) {
         ),
         showlegend = FALSE,
         font = list(family = "Ubuntu"),
-        margin = list(l = 250, t = 10)
-      )
+        margin = list(l = 250, r = 60, t = 10)
+      ) %>%
+      config(displayModeBar = FALSE)
   })
 }
 
