@@ -105,6 +105,11 @@ IMPORTANTE: el periodo y el archivo de datos estan parametrizados al inicio de `
 - Sin barra de herramientas de plotly: `config(displayModeBar = FALSE)`
 - `xaxis$range` fijado a `max(ocup) * 1.22` mas `margin r = 60` y `cliponaxis = FALSE` para que la cifra de la barra mas larga se lea completa sin zoom
 - Los textos que las acompanan citan `total_top10_h` y `total_top10_m`, calculados junto a `bd_top10`
+### Grafica de composicion del empleo por division SINCO (g7_divisiones)
+- Tambien en el Resumen ejecutivo, debajo de los top 10. Barras apiladas al 100 % (Total, Hombres, Mujeres) con las 9 divisiones SINCO: las divisiones 1 a 3 ("de escritorio": funcionarios y directivos, profesionistas y tecnicos, oficinistas) en azules y el resto en grises. Al final del bloque azul se anota la suma (28.0 % total, 25.4 % hombres, 31.8 % mujeres en 2026-T1).
+- Datos en `bd_divisiones` y `pct_escritorio` (division = primer digito de `sinco4d`, para no perder codigos sin division en el catalogo). El titulo de la grafica y el parrafo citan `pct_escritorio_total`, `pct_escritorio_h`, `pct_escritorio_m` y `personas_escritorio_total`, asi que se actualizan solos al cambiar de trimestre.
+- Version estatica: `00_Códigos/Scripts_graficas_presentacion/02_composicion_empleo_divisiones.R` (PNG 300 DPI con y sin titulo, mas CSV de respaldo, en `03_Archivos/graficas_presentacion/`). Usa `position_stack(reverse = TRUE)` para apilar igual que plotly.
+
 - Version estatica en ggplot2 para presentaciones: `00_Códigos/Scripts_graficas_presentacion/01_top10_ocupaciones_expuestas.R`, que reevalua app.R hasta antes de `# --- UI ---` para reutilizar datos, flexion y paleta. Salidas PNG a 300 DPI en `03_Archivos/graficas_presentacion/`. Si se renombra el marcador `# --- UI ---` hay que ajustar ese script.
 
 ## Estilos CSS clave

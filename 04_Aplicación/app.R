@@ -613,6 +613,90 @@ total_top10_m <- format(
   big.mark = ",", scientific = FALSE
 )
 
+# --- Composición del empleo por división SINCO (ocupaciones de escritorio) ---
+# Las divisiones 1 a 3 del SINCO (funcionarios y directivos, profesionistas
+# y técnicos, oficinistas) agrupan las ocupaciones "de escritorio", que es
+# donde se concentra la exposición directa a la IA generativa. Aquí se
+# calcula qué proporción de la población ocupada trabaja en ellas, para el
+# total y por sexo. La división se toma del primer dígito del código a
+# 4 dígitos para no perder a quienes no tienen división en el catálogo.
+etiquetas_division <- c(
+  "1" = "Funcionarios y directivos",
+  "2" = "Profesionistas y técnicos",
+  "3" = "Oficinistas (auxiliares administrativos)",
+  "4" = "Comerciantes y ventas",
+  "5" = "Servicios personales y vigilancia",
+  "6" = "Agropecuarios",
+  "7" = "Artesanales y construcción",
+  "8" = "Operadores de maquinaria y transporte",
+  "9" = "Actividades elementales y de apoyo"
+)
+divisiones_escritorio <- c("1", "2", "3")
+
+# Azules para las divisiones de escritorio, grises para el resto
+colores_division <- c(
+  "Funcionarios y directivos"                = "#2b2dd6",
+  "Profesionistas y técnicos"                = "#3a39ff",
+  "Oficinistas (auxiliares administrativos)" = "#8a89ff",
+  "Comerciantes y ventas"                    = "#c4c4c4",
+  "Servicios personales y vigilancia"        = "#d6d6d6",
+  "Agropecuarios"                            = "#bdbdbd",
+  "Artesanales y construcción"               = "#cfcfcf",
+  "Operadores de maquinaria y transporte"    = "#b3b3b3",
+  "Actividades elementales y de apoyo"       = "#dedede"
+)
+
+etiquetas_poblacion <- c("0" = "Total", "1" = "Hombres", "2" = "Mujeres")
+
+bd_divisiones <- bd %>%
+  filter(sex %in% c(0, 1, 2), ocup > 0) %>%
+  mutate(
+    division = str_sub(sinco4d, 1, 1),
+    poblacion = etiquetas_poblacion[as.character(sex)]
+  ) %>%
+  filter(division %in% names(etiquetas_division)) %>%
+  group_by(poblacion, division) %>%
+  summarise(total_ocup = sum(ocup, na.rm = TRUE), .groups = "drop") %>%
+  group_by(poblacion) %>%
+  mutate(pct_ocup = total_ocup / sum(total_ocup) * 100) %>%
+  ungroup() %>%
+  mutate(
+    division_label = factor(
+      etiquetas_division[division],
+      levels = etiquetas_division
+    ),
+    escritorio = division %in% divisiones_escritorio,
+    # Orden de las barras de arriba hacia abajo: Total, Hombres, Mujeres
+    poblacion = factor(poblacion, levels = c("Mujeres", "Hombres", "Total"))
+  )
+
+# Participación de las ocupaciones de escritorio por población; se cita
+# en el texto y se anota sobre la gráfica
+pct_escritorio <- bd_divisiones %>%
+  filter(escritorio) %>%
+  group_by(poblacion) %>%
+  summarise(
+    total_ocup = sum(total_ocup),
+    pct = sum(pct_ocup),
+    .groups = "drop"
+  )
+
+formato_pct <- function(x) paste0(format(round(x, 1), nsmall = 1), "%")
+
+pct_escritorio_total <- formato_pct(
+  pct_escritorio$pct[pct_escritorio$poblacion == "Total"]
+)
+pct_escritorio_h <- formato_pct(
+  pct_escritorio$pct[pct_escritorio$poblacion == "Hombres"]
+)
+pct_escritorio_m <- formato_pct(
+  pct_escritorio$pct[pct_escritorio$poblacion == "Mujeres"]
+)
+personas_escritorio_total <- format(
+  round(pct_escritorio$total_ocup[pct_escritorio$poblacion == "Total"]),
+  big.mark = ",", scientific = FALSE
+)
+
 # --- Función para mapear escolaridad promedio a categoría ---
 clasificar_escolaridad <- function(anios) {
   case_when(
@@ -1200,6 +1284,64 @@ ui <- fluidPage(
             "nombre y apellido a los empleos de mujeres más ",
             "expuestos a la transformación por inteligencia ",
             "artificial."
+          ))
+        )
+      )
+    )
+  ),
+
+  # Composición del empleo por división SINCO (dentro de Resumen ejecutivo)
+  fluidRow(
+    column(
+      12,
+      div(
+        class = "chart-header",
+        p(class = "chart-title",
+          paste0(
+            "Las ocupaciones de escritorio concentran el ",
+            pct_escritorio_total, " del empleo en México"
+          )),
+        p(class = "chart-subtitle",
+          paste0(
+            "Distribución porcentual de la población ocupada por ",
+            "división SINCO | ENOE ", periodo_enoe
+          )),
+        div(
+          class = "leyenda-container",
+          lapply(seq_along(colores_division), function(i) {
+            div(class = "leyenda-item",
+              div(class = "leyenda-color",
+                style = paste0(
+                  "background-color:",
+                  colores_division[i], ";")),
+              span(names(colores_division)[i]))
+          })
+        )
+      ),
+      plotlyOutput("g7_divisiones", height = "300px")
+    )
+  ),
+  fluidRow(
+    column(
+      12,
+      div(
+        style = "padding: 10px 15px 30px 15px;",
+        p(
+          style = "font-family: 'Ubuntu'; color: #333; line-height: 1.6;",
+          HTML(paste0(
+            "El grupo expuesto de manera directa a la IA generativa ",
+            "es más pequeño en México que en las economías de ",
+            "ingresos altos. Las divisiones 1 a 3 del SINCO ",
+            "(funcionarios y directivos, profesionistas y técnicos, ",
+            "y oficinistas) reúnen a ",
+            "<span class='highlight'>", personas_escritorio_total,
+            " personas, el ", pct_escritorio_total,
+            " de la población ocupada</span>. La proporción es ",
+            "mayor entre las mujeres (", pct_escritorio_m,
+            ") que entre los hombres (", pct_escritorio_h,
+            "): el empleo femenino está más concentrado en los ",
+            "escritorios donde la IA ya puede hacer parte de las ",
+            "tareas."
           ))
         )
       )
@@ -3070,6 +3212,75 @@ server <- function(input, output, session) {
         showlegend = FALSE,
         font = list(family = "Ubuntu"),
         margin = list(l = 250, r = 60, t = 10)
+      ) %>%
+      config(displayModeBar = FALSE)
+  })
+
+  # --- G7: Composición del empleo por división SINCO ---
+  # Barras apiladas al 100 % para Total, Hombres y Mujeres. Las divisiones
+  # de escritorio (1 a 3) van en azul y el resto en gris; al final del
+  # bloque azul se anota la participación conjunta de esas tres divisiones.
+  output$g7_divisiones <- renderPlotly({
+    df <- bd_divisiones %>%
+      mutate(
+        texto_segmento = ifelse(
+          escritorio & pct_ocup >= 5, formato_pct(pct_ocup), ""
+        )
+      )
+
+    anotaciones <- lapply(seq_len(nrow(pct_escritorio)), function(i) {
+      list(
+        x = pct_escritorio$pct[i],
+        y = as.character(pct_escritorio$poblacion[i]),
+        text = paste0("<b>", formato_pct(pct_escritorio$pct[i]), "</b>"),
+        xanchor = "left",
+        xshift = 6,
+        showarrow = FALSE,
+        font = list(family = "Ubuntu", size = 13, color = "#2b2dd6"),
+        bgcolor = "white",
+        bordercolor = "#2b2dd6",
+        borderwidth = 1,
+        borderpad = 3
+      )
+    })
+
+    plot_ly(
+      df,
+      x = ~pct_ocup,
+      y = ~poblacion,
+      color = ~division_label,
+      colors = colores_division,
+      type = "bar",
+      orientation = "h",
+      text = ~texto_segmento,
+      textposition = "inside",
+      insidetextanchor = "middle",
+      textfont = list(family = "Ubuntu", size = 11, color = "white"),
+      hovertext = ~paste0(
+        division_label, "<br>",
+        poblacion, ": ", formato_pct(pct_ocup), "<br>",
+        format(round(total_ocup), big.mark = ","), " personas"
+      ),
+      hoverinfo = "text"
+    ) %>%
+      layout(
+        xaxis = list(
+          title = "Porcentaje de la población ocupada",
+          titlefont = list(family = "Ubuntu", size = 11),
+          range = c(0, 100),
+          ticksuffix = "%"
+        ),
+        yaxis = list(
+          title = "",
+          categoryorder = "array",
+          categoryarray = c("Mujeres", "Hombres", "Total"),
+          tickfont = list(family = "Ubuntu", size = 12)
+        ),
+        barmode = "stack",
+        showlegend = FALSE,
+        annotations = anotaciones,
+        font = list(family = "Ubuntu"),
+        margin = list(l = 70, r = 20, t = 10, b = 50)
       ) %>%
       config(displayModeBar = FALSE)
   })

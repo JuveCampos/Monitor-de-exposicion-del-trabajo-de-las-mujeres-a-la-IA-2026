@@ -1,0 +1,28 @@
+poblacion,division,division_label,total_ocup,pct_ocup,escritorio
+Total,1,Funcionarios y directivos,1843430,3.095462066681824,TRUE
+Total,2,Profesionistas y técnicos,10584495,17.77333707679892,TRUE
+Total,3,Oficinistas (auxiliares administrativos),4268537,7.167668077294952,TRUE
+Total,4,Comerciantes y ventas,8540613,14.341278794263765,FALSE
+Total,5,Servicios personales y vigilancia,5535699,9.295468917761188,FALSE
+Total,6,Agropecuarios,3711091,6.231612492204378,FALSE
+Total,7,Artesanales y construcción,6346092,10.656269594003023,FALSE
+Total,8,Operadores de maquinaria y transporte,6591831,11.068911111611135,FALSE
+Total,9,Actividades elementales y de apoyo,12130872,20.36999186938081,FALSE
+Hombres,1,Funcionarios y directivos,1089726,3.0898851872901543,TRUE
+Hombres,2,Profesionistas y técnicos,6100105,17.29666363876296,TRUE
+Hombres,3,Oficinistas (auxiliares administrativos),1779852,5.046716633693933,TRUE
+Hombres,4,Comerciantes y ventas,3484445,9.88003864405111,FALSE
+Hombres,5,Servicios personales y vigilancia,2607826,7.394411924126003,FALSE
+Hombres,6,Agropecuarios,3228015,9.152939117585914,FALSE
+Hombres,7,Artesanales y construcción,4769003,13.522364087708565,FALSE
+Hombres,8,Operadores de maquinaria y transporte,5237625,14.851127626651648,FALSE
+Hombres,9,Actividades elementales y de apoyo,6970927,19.765853140129714,FALSE
+Mujeres,1,Funcionarios y directivos,753704,3.1035609600868614,TRUE
+Mujeres,2,Profesionistas y técnicos,4484390,18.465574992044516,TRUE
+Mujeres,3,Oficinistas (auxiliares administrativos),2488685,10.247770488087857,TRUE
+Mujeres,4,Comerciantes y ventas,5056168,20.82001105532207,FALSE
+Mujeres,5,Servicios personales y vigilancia,2927873,12.056234727283389,FALSE
+Mujeres,6,Agropecuarios,483076,1.9891838365657084,FALSE
+Mujeres,7,Artesanales y construcción,1577089,6.494050517155844,FALSE
+Mujeres,8,Operadores de maquinaria y transporte,1354206,5.5762751338926,FALSE
+Mujeres,9,Actividades elementales y de apoyo,5159945,21.247338289561153,FALSE
