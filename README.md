@@ -52,7 +52,8 @@ Cada ocupación recibe una calificación continua de **0 a 1** y se clasifica en
 
 - **Brecha tecnológica:** Encuesta Nacional sobre Disponibilidad y Uso de Tecnologías de la Información en los Hogares (**ENDUTIH 2024**, INEGI), usada para indicadores de acceso y uso como proxy de las capacidades tecnológicas de la población.
 - **Protección jurídica:** bases de datos de derecho internacional provenientes de la OIT, la Oficina del Alto Comisionado de las Naciones Unidas para los Derechos Humanos y otros organismos.
-- **Microdatos laborales:** ENOE primer trimestre de 2026 (INEGI).
+- **Microdatos laborales:** ENOE segundo trimestre de 2026 (INEGI). La app muestra siempre el trimestre más reciente procesado.
+- **Formación STEM:** campo de formación de la carrera (variable `cs_p14_c` de la ENOE, Clasificación Mexicana de Programas de Estudio), con la definición del flujo original del proyecto (incluye economía y finanzas en ciencias; excluye ciencias de la salud).
 
 ---
 
@@ -77,11 +78,18 @@ Cada ocupación recibe una calificación continua de **0 a 1** y se clasifica en
 │   │   ├── script_enoe_ccs_ocup_SINCO.do
 │   │   ├── script_enoe_ccs_ocup_SINCO_cuidados.do
 │   │   └── script_enoe_ccs_ocup_SINCO_stem.do
-│   └── Scripts_procesamiento_ENOE_R/      # ⭐ Pipeline actual en R (desde 1T2026)
-│       └── 01_procesar_enoe_sinco.R
+│   ├── Scripts_procesamiento_ENOE_R/      # ⭐ Pipeline actual en R (desde 1T2026)
+│   │   ├── 01_procesar_enoe_sinco.R       # Colapso por sexo y SINCO (1 a 4 dígitos)
+│   │   ├── 02_ocupaciones_sin_score.R     # Diagnóstico de ocupaciones sin gradiente
+│   │   ├── 03_integrar_provisionales.R    # Clasificaciones provisionales al catálogo
+│   │   └── 04_procesar_enoe_stem.R        # Población ocupada con formación STEM
+│   └── Scripts_graficas_presentacion/     # Versiones estáticas (ggplot2, 300 DPI) de gráficas de la app
+│       ├── 01_top10_ocupaciones_expuestas.R
+│       └── 02_composicion_empleo_divisiones.R
 │
 ├── 01_Datos/
 │   ├── 03_enoe_procesada/                 # Salidas del pipeline en R (solo trimestre vigente)
+│   ├── ocupaciones_sin_score_ia_2026T1.csv # Ocupaciones sin gradiente y propuesta de clasificación
 │   ├── 01_catalogos/                      # Catálogos, crosswalks e índices base
 │   │   ├── sinco_con_exposicion_ia.csv    # ⭐ Catálogo SINCO con scores de exposición
 │   │   ├── crosswalk_sinco_ciuo08_long.csv
@@ -95,16 +103,24 @@ Cada ocupación recibe una calificación continua de **0 a 1** y se clasifica en
 │   └── 02_sinco/                          # SINCO 2019 oficial
 │
 ├── 03_Archivos/
-│   └── Bibliografía/                      # Referencias (OCDE, etc.)
+│   ├── Bibliografía/                      # Referencias (OCDE, etc.)
+│   └── graficas_presentacion/             # PNG y CSV de respaldo de las gráficas estáticas
 │
 ├── 04_Aplicación/                         # Aplicación Shiny
 │   ├── app.R                              # ⭐ Punto de entrada de la app
 │   ├── proyecto_dashboard.Rproj
 │   ├── catalogos_sinco/                   # Insumos cargados por la app
 │   ├── assets/ · www/                     # Imágenes, logos, marco jurídico
-│   ├── zcalculos_Y2026T01_4d.dta          # Resultados ENOE procesados (trimestre vigente)
+│   ├── www/ilustraciones/                 # Imágenes de las bandas de sección (provisionales, ver CREDITOS.md)
+│   ├── zcalculos_Y2026T02_4d.dta          # Resultados ENOE procesados (trimestre vigente)
+│   ├── zcalculos_Y2026T02_4d_stem.dta     # Ocupados con formación STEM por sexo y SINCO
+│   ├── zcalculos_Y2026T02_stem_campos.dta # Ocupados por sexo y campo de formación STEM
+│   ├── deploy.R                           # Despliegue con verificaciones a shinyapps.io
 │   └── rsconnect/                         # Despliegue en shinyapps.io
 │
+├── 05_Presentacion_foro/                  # Deck del foro de informalidad e IA (figuras y código)
+│
+├── notametodologica.qmd                   # Fuente de la nota metodológica (Quarto + XeLaTeX)
 ├── notametodologica.pdf                   # Nota metodológica completa
 ├── README.md
 └── README.html
@@ -132,7 +148,7 @@ shiny::runApp("app.R")
 
 - `SINCO 2019` — Sistema Nacional de Clasificación de Ocupaciones (INEGI).
 - `CIUO-08` — Clasificación Internacional Uniforme de Ocupaciones.
-- `ENOE 2026-T1` — Encuesta Nacional de Ocupación y Empleo.
+- `ENOE 2026-T2` — Encuesta Nacional de Ocupación y Empleo.
 - `ENDUTIH 2024` — Disponibilidad y uso de TIC en hogares.
 - `ILO WP140` — Gmyrek, P., Berg, J., Kamiński, K., Konopczyński, F., Ładna, A., Nafradi, B., Rosłaniec, K. y Troszyński, M. (2025), *Generative AI and Jobs: A Refined Global Index of Occupational Exposure*. https://doi.org/10.54394/HETP0387
 - `ILO WP121` — *Buffer or Bottleneck* — América Latina y el Caribe (2024).

@@ -2,21 +2,24 @@
 
 ## Que es este proyecto
 
-App Shiny interactiva tipo narrativa/scrollytelling que visualiza la exposicion a la inteligencia artificial en el mercado laboral mexicano con perspectiva de genero. Usa datos de la ENOE (trimestre vigente: 2026-T1), ENDUTIH 2024 y la clasificacion SINCO a 4 digitos. Proyecto para el dataton "DataAccion: Dataton Regional para la Igualdad 2026".
+App Shiny interactiva tipo narrativa/scrollytelling que visualiza la exposicion a la inteligencia artificial en el mercado laboral mexicano con perspectiva de genero. Usa datos de la ENOE (trimestre vigente: 2026-T2), ENDUTIH 2024 y la clasificacion SINCO a 4 digitos. Proyecto para el dataton "DataAccion: Dataton Regional para la Igualdad 2026".
 
-IMPORTANTE: el periodo y el archivo de datos estan parametrizados al inicio de `app.R` (`periodo_enoe` y `archivo_enoe`). REGLA DEL PROYECTO: la app muestra SOLO el trimestre mas reciente. Para actualizar a un nuevo trimestre: (1) generar el .dta con `00_Códigos/Scripts_procesamiento_ENOE_R/01_procesar_enoe_sinco.R`, (2) copiarlo a esta carpeta, (3) cambiar esas dos variables, (4) BORRAR los .dta del trimestre anterior (aqui y en `01_Datos/03_enoe_procesada/`; quedan recuperables en el historial de git).
+IMPORTANTE: el periodo y los archivos de datos estan parametrizados al inicio de `app.R` (`periodo_enoe`, `archivo_enoe`, `archivo_stem_campos`, `archivo_stem_4d`). REGLA DEL PROYECTO: la app muestra SOLO el trimestre mas reciente. Para actualizar a un nuevo trimestre: (1) generar los .dta con `00_Códigos/Scripts_procesamiento_ENOE_R/01_procesar_enoe_sinco.R` y `04_procesar_enoe_stem.R` (ambos aceptan `<año> <trimestre>`; el 04 acepta un tercer argumento con la carpeta de DBF), (2) copiarlos a esta carpeta, (3) cambiar esas variables, (4) BORRAR los .dta del trimestre anterior (aqui y en `01_Datos/03_enoe_procesada/`; quedan recuperables en el historial de git).
 
 ## Archivos
 
 | Archivo | Descripcion |
 |---------|-------------|
 | `app.R` | App Shiny completa (~2500 lineas). Contiene CSS, datos, funciones, UI narrativa y server |
-| `zcalculos_Y2026T01_4d.dta` | Datos ENOE 2026-T1 (trimestre vigente). 1,405 filas (484 ocupaciones x 3 sexos) |
+| `zcalculos_Y2026T02_4d.dta` | Datos ENOE 2026-T2 (trimestre vigente). 1,416 filas (sexo x ocupacion SINCO) |
+| `zcalculos_Y2026T02_4d_stem.dta` | Ocupados con formacion STEM por sexo y SINCO 4d (mismas columnas), de `04_procesar_enoe_stem.R` |
+| `zcalculos_Y2026T02_stem_campos.dta` | Ocupados por sexo y campo de formacion (`campo_stem`: 0_NoSTEM, 1_S, 2_T, 3_E, 4_M) |
+| `www/ilustraciones/*.jpg` | Imagenes del hero y de las bandas de seccion. Hoy fotos de stock provisionales (creditos en `www/ilustraciones/CREDITOS.md`); se sustituiran por ilustraciones encargadas |
 | `catalogos_sinco/sinco_con_exposicion_ia.csv` | Catalogo SINCO con 483 ocupaciones, scores de exposicion IA y columna `descripcion_ia_es` (410 con traducciones) |
 | `www/andres-siimon-BBqVpTE4vw4-unsplash.jpg` | Imagen hero header (Unsplash) |
 | `www/artboard_1.png.webp` | Logo DataAccion |
 | `www/clave_logo.png` | Logo Clave Igualdad (footer) |
-| `www/logo_mcv_blanco.svg` | Logo Mexico, Como vamos? en blanco (franja de adscripcion del footer) |
+| `www/logo_mcv_blanco.svg` | Logo Mexico, Como vamos? en blanco (hero y franja de adscripcion del footer, activa desde el 15 de octubre de 2026) |
 | `www/logo_mcv.svg` | Logo Mexico, Como vamos? a color (sin uso por ahora, disponible para fondos claros) |
 
 ## Variables clave del dataset
@@ -52,7 +55,7 @@ IMPORTANTE: el periodo y el archivo de datos estan parametrizados al inicio de `
 4. **Branding DataAccion** — Logo y descripcion del dataton
 5. **Seccion 1: Exposicion a la IA** — Treemap interactivo general (selector sexo/sector), panel click-to-show descripcion, 7 graficas comparativas por sexo
 6. **Subseccion: Cuidados** — Parrafo + treemap de 8 ocupaciones de cuidados (solo mujeres, SINCO: 2335, 2436, 2811, 2821, 5201, 5221, 5222, 9611)
-7. **Seccion 2: Brecha tecnologica** — Series de tiempo internet/celular (ENDUTIH), cards de brecha, grafica uso de apps, placeholder STEM
+7. **Seccion 2: Brecha tecnologica** — Series de tiempo internet/celular (ENDUTIH), cards de brecha, grafica uso de apps, bloque STEM (dos graficas + parrafo con cifras)
 8. **Seccion 3: Normativa** — Tablas HTML de marco juridico internacional y nacional
 9. **Seccion 4: Conclusion**
 10. **Footer** — Logo Clave Igualdad, creditos, nota metodologica
@@ -106,17 +109,28 @@ IMPORTANTE: el periodo y el archivo de datos estan parametrizados al inicio de `
 - `xaxis$range` fijado a `max(ocup) * 1.22` mas `margin r = 60` y `cliponaxis = FALSE` para que la cifra de la barra mas larga se lea completa sin zoom
 - Los textos que las acompanan citan `total_top10_h` y `total_top10_m`, calculados junto a `bd_top10`
 ### Grafica de composicion del empleo por division SINCO (g7_divisiones)
-- Tambien en el Resumen ejecutivo, debajo de los top 10. Barras apiladas al 100 % (Total, Hombres, Mujeres) con las 9 divisiones SINCO: las divisiones 1 a 3 ("de escritorio": funcionarios y directivos, profesionistas y tecnicos, oficinistas) en azules y el resto en grises. Al final del bloque azul se anota la suma (28.0 % total, 25.4 % hombres, 31.8 % mujeres en 2026-T1).
+- Tambien en el Resumen ejecutivo, debajo de los top 10. Barras apiladas al 100 % (Total, Hombres, Mujeres) con las 9 divisiones SINCO: las divisiones 1 a 3 ("de escritorio": funcionarios y directivos, profesionistas y tecnicos, oficinistas) en morados MCV y el resto en grises. Al final del bloque morado se anota la suma (27.7 % total, 25.1 % hombres, 31.3 % mujeres en 2026-T2).
 - Datos en `bd_divisiones` y `pct_escritorio` (division = primer digito de `sinco4d`, para no perder codigos sin division en el catalogo). El titulo de la grafica y el parrafo citan `pct_escritorio_total`, `pct_escritorio_h`, `pct_escritorio_m` y `personas_escritorio_total`, asi que se actualizan solos al cambiar de trimestre.
 - Version estatica: `00_Códigos/Scripts_graficas_presentacion/02_composicion_empleo_divisiones.R` (PNG 300 DPI con y sin titulo, mas CSV de respaldo, en `03_Archivos/graficas_presentacion/`). Usa `position_stack(reverse = TRUE)` para apilar igual que plotly.
 
 - Version estatica en ggplot2 para presentaciones: `00_Códigos/Scripts_graficas_presentacion/01_top10_ocupaciones_expuestas.R`, que reevalua app.R hasta antes de `# --- UI ---` para reutilizar datos, flexion y paleta. Salidas PNG a 300 DPI en `03_Archivos/graficas_presentacion/`. Si se renombra el marcador `# --- UI ---` hay que ajustar ese script.
 
+### Bloque STEM (g_stem_campos / g_stem_exposicion)
+- Al final de la seccion Brecha tecnologica. `g_stem_campos`: barras agrupadas hombres/mujeres por campo de formacion (Ciencias, Tecnologia (TIC), Ingenieria, Matematicas); la etiqueta del eje x lleva debajo el % de mujeres del campo. `g_stem_exposicion`: barras apiladas 100 % por gradiente de exposicion para hombres y mujeres con formacion STEM (cruce de `zcalculos_*_4d_stem.dta` con el gradiente de `bd`).
+- Cifras del parrafo: `personas_stem_total`, `personas_stem_m`, `pct_stem_mujeres`, `pct_mujeres_ingenieria`, `pct_mujeres_ciencias`, `pct_ocupados_stem_h/m`, `pct_stem_alta_h/m`. En 2026-T2: 4.29 millones con formacion STEM, 25.8 % mujeres; 18.4 % de las mujeres STEM estan en exposicion significativa o maxima contra 5.2 % de los hombres.
+- La definicion STEM (campo de formacion `cs_p14_c`) vive en `04_procesar_enoe_stem.R` y replica el do-file original: economia y finanzas cuentan como ciencias y las ciencias de la salud quedan fuera.
+
+### Estilo visual MCV (desde el 15 de octubre de 2026)
+- El sitio se publicara en el sitio de Mexico, ¿Como vamos?, asi que la app sigue su identidad: Ubuntu, morado #6950d8 dominante, lila #a99be9, verde #00b783, coral #ff6260, amarillo #ffbd41, texto oscuro #231f20, fondo #F4F2FB y tarjetas blancas redondeadas.
+- Hero: flex con logos (MCV blanco + Clave Igualdad en caja blanca), titulo a la izquierda e ilustracion a la derecha (`.hero-ilustracion`, `ilustraciones/hero.jpg`).
+- `banda_ilustrada(imagen, texto)`: banda de 210 px con imagen de fondo y leyenda sobre franja morada; abre las secciones Exposicion, Cuidados, Brecha tecnologica y Normativa. Las imagenes estan en `www/ilustraciones/`.
+- Hombres = verde #00b783 (opacity 0.5), Mujeres = morado #6950d8 en todas las graficas y leyendas. Tablas normativas con encabezados morados. Footer morado con ligas amarillas y la franja de adscripcion a MCV activa.
+
 ## Estilos CSS clave
 
-- **Fondo app**: #D6D6FD
+- **Fondo app**: #F4F2FB
 - **Fuente**: Ubuntu (Google Fonts), font-size base 19px
-- **span.highlight**: background #3A3CF9, color white, bold, padding 2px 6px, border-radius 3px
+- **span.highlight**: subrayado grueso #6950D8 (texto negro bold); **.title-highlight**: fondo #6950D8 con texto blanco
 - **span.title-highlight**: igual pero padding 4px 10px (para h3 de secciones)
 - **div.chart-header**: fondo blanco, border-radius top 12px, box-shadow, padding 15px 20px
 - **Hero header**: caja de 960px con fondo morado MCV #6950d8 y texto blanco

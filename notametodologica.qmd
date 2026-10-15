@@ -1,0 +1,202 @@
+---
+title: "Nota metodológica"
+subtitle: "Monitor de Exposición del Trabajo de las Mujeres a la IA · 2026"
+date: 2026-10-15
+date-format: "D [de] MMMM [de] YYYY"
+lang: es
+format:
+  pdf:
+    pdf-engine: xelatex
+    mainfont: Ubuntu
+    fontsize: 11pt
+    geometry:
+      - margin=2.4cm
+    colorlinks: true
+    linkcolor: mcvmorado
+    urlcolor: mcvmorado
+    include-in-header: nota_header.tex
+---
+
+# Metodología para estimar la exposición a la inteligencia artificial
+
+La exposición a la inteligencia artificial se refiere al grado en que las
+tareas principales de una ocupación pueden ser ejecutadas o apoyadas por
+sistemas de IA, especialmente por la IA generativa. Este concepto permite
+estimar el potencial de transformación de una ocupación ante el cambio
+tecnológico, distinguiendo entre escenarios de sustitución y de
+complementariedad.
+
+Para construir este indicador, la aplicación clasifica las 483 ocupaciones
+del Sistema Nacional de Clasificación de Ocupaciones (SINCO 2019) según su
+grado de exposición a la IA generativa. La clasificación se basa en la
+metodología desarrollada para la Organización Internacional del Trabajo
+(OIT) por Gmyrek, Berg, Kamiński, Konopczyński, Ładna, Nafradi, Rosłaniec y
+Troszyński (2025), publicada en el *Working Paper* 140, *Generative AI and
+Jobs: A Refined Global Index of Occupational Exposure*. Ese documento
+refina el índice original que propusieron Gmyrek, Berg y Bescond (2023) en
+el *Working Paper* 96.
+
+El índice evalúa 436 ocupaciones a nivel internacional utilizando la
+Clasificación Internacional Uniforme de Ocupaciones (CIUO-08). Para
+aplicarlo a México se construyó un mapeo entre el SINCO 2019 del INEGI y la
+CIUO-08, a partir de la tabla comparativa oficial del INEGI. Cuando una
+ocupación del SINCO corresponde a múltiples códigos de la CIUO-08, se
+promedian las puntuaciones de exposición. Para las 34 ocupaciones sin
+correspondencia directa se aplicaron estrategias de imputación jerárquica
+(promedio del subgrupo, grupo o división) y un mapeo manual revisado por el
+equipo.
+
+# Fundamento empírico
+
+La metodología de Gmyrek et al. (2025) combina tres fuentes de evidencia:
+(1) validación humana con más de 52,000 evaluaciones de trabajadores reales
+sobre qué tareas de su ocupación pueden ser automatizadas o aumentadas por
+IA generativa; (2) deliberación de expertos internacionales mediante el
+método Delphi; y (3) modelos de lenguaje entrenados sobre el corpus validado
+para predecir puntuaciones a escala global. La correlación entre las
+predicciones del modelo y las evaluaciones humanas es de 0.92.
+
+# Gradientes de exposición
+
+Cada ocupación recibe una calificación continua de 0 a 1 y se clasifica en
+gradientes que van desde "No expuesto" (ocupaciones manuales y físicas con
+impacto mínimo de la IA) hasta "Exposición máxima" (ocupaciones
+administrativas, financieras y de comunicación con alto potencial de
+automatización). Las ocupaciones con correspondencias heterogéneas entre el
+SINCO y la CIUO-08 se clasifican como "Mixto".
+
+# Clasificaciones provisionales
+
+Tras aplicar el mapeo SINCO-CIUO-08 y las estrategias de imputación
+descritas en las secciones anteriores, 73 ocupaciones del catálogo
+permanecían sin gradiente de exposición asignado y se mostraban en la
+aplicación como "Sin información". A ellas se sumaron cinco códigos de la
+actualización del SINCO que la ENOE ya reporta y que no formaban parte del
+catálogo original (INEGI, 2025). En conjunto, estas ocupaciones concentraban
+alrededor de 1.5 millones de personas ocupadas en el primer trimestre de
+2026 (2.5% de la población ocupada), de las cuales 709 mil eran mujeres.
+
+En julio de 2026 se incorporó al catálogo una clasificación provisional para
+68 de estas ocupaciones, construida con dos estrategias:
+
+1. **Mapeo manual a una ocupación análoga (28 ocupaciones).** Cuando la
+   tabla comparativa oficial del INEGI no ofrece una correspondencia
+   directa, el equipo asignó la ocupación de la CIUO-08 cuyo contenido de
+   tareas resulta más cercano, y la ocupación heredó la puntuación media
+   estimada por Gmyrek et al. (2025) para esa análoga. Cada asignación quedó
+   documentada con su justificación en el repositorio del proyecto. El caso
+   de mayor población es el de las enfermeras y paramédicos profesionales,
+   que se asignaron a la ocupación 2221 de la CIUO-08 (profesionales de
+   enfermería).
+
+2. **Imputación modal jerárquica (40 ocupaciones).** Cuando tampoco existe
+   una análoga evaluada, la ocupación recibió la categoría más frecuente
+   entre las ocupaciones ya clasificadas de su mismo subgrupo (tres
+   dígitos), con respaldo en el grupo principal (dos dígitos) y en la
+   división (un dígito) cuando el nivel inferior contaba con menos de dos
+   ocupaciones clasificadas. En caso de empate entre categorías se adoptó la
+   de menor exposición, como criterio conservador. La puntuación provisional
+   corresponde al promedio de las ocupaciones del nivel utilizado o, cuando
+   ya existía, a la puntuación imputada jerárquicamente que se describió en
+   la sección de mapeo.
+
+Las 10 ocupaciones restantes no admiten imputación y conservan la categoría
+"Sin información": seis corresponden a las fuerzas armadas, que el índice de
+Gmyrek et al. (2025) excluye porque el corpus de tareas de la OIT no cubre
+al gran grupo 0 de la CIUO-08; tres son códigos operativos de la ENOE que no
+describen ocupaciones de mercado; y una agrupa a las ocupaciones no
+especificadas. Tras esta actualización, la población ocupada sin
+clasificación se redujo a cerca de 122 mil personas (0.2% del total).
+
+Las clasificaciones provisionales se señalan de forma explícita en la
+aplicación: la etiqueta "(provisional)" acompaña a la categoría en las
+ventanas emergentes y el texto descriptivo de cada ocupación explica el
+método con el que se estimó. Estas clasificaciones deben leerse como una
+aproximación al perfil de exposición del grupo ocupacional y no como una
+evaluación directa de las tareas específicas de cada ocupación en México.
+La incorporación de las clasificaciones provisionales modificó de forma
+marginal los agregados por gradiente, dado que la mayoría de estas
+ocupaciones cayó en las categorías de menor exposición: en el primer
+trimestre de 2026 la proporción de mujeres ocupadas en los gradientes de
+exposición significativa y máxima se mantuvo en 7.7%.
+
+# Formación STEM
+
+La sección de brecha tecnológica identifica a las personas ocupadas con
+formación profesional en ciencias, tecnología, ingeniería y matemáticas
+(STEM, por sus siglas en inglés) a partir del campo de formación de la
+carrera que reporta la ENOE, codificado con la Clasificación Mexicana de
+Programas de Estudio del INEGI. Se consideran STEM los campos específicos de
+ciencias biológicas y ambientales, ciencias físicas y químicas, economía y
+finanzas, tecnologías de la información y la comunicación, ingenierías,
+procesos y manufacturas, y matemáticas y estadística. Esta definición
+replica la del flujo original del proyecto y tiene dos decisiones que
+conviene conocer al leer los resultados: incluye a economía y finanzas
+dentro del grupo de ciencias y excluye a las ciencias de la salud. Las
+personas así identificadas se cruzan con la ocupación que desempeñan para
+describir el gradiente de exposición a la IA en el que trabajan.
+
+# Fuentes complementarias
+
+Para la categoría de brecha tecnológica se utilizó la Encuesta Nacional
+sobre Disponibilidad y Uso de Tecnologías de la Información en los Hogares
+(ENDUTIH) 2024, realizada por el INEGI. De esta encuesta se retomaron
+indicadores de acceso a la tecnología y se emplearon indicadores de uso como
+aproximación para estimar las capacidades tecnológicas de la población.
+
+Para la tabla de protección jurídica se consultaron diversas bases de datos
+de derecho internacional, provenientes de organismos como la Organización
+Internacional del Trabajo y la Oficina del Alto Comisionado de las Naciones
+Unidas para los Derechos Humanos, entre otros.
+
+# Herramientas técnicas y código
+
+El procesamiento de los microdatos de la ENOE se realiza en R con las
+librerías del tidyverse: el flujo lee las tablas SDEM y COE1 publicadas por
+el INEGI, las fusiona con la llave estándar de persona, aplica los filtros
+de entrevista completa y residencia habitual, y colapsa los indicadores por
+sexo y código SINCO. Este flujo sustituyó en julio de 2026 al procesamiento
+original en Stata y se validó contra él fila por fila con los datos del
+cuarto trimestre de 2025, con resultados idénticos. La aplicación muestra
+siempre el trimestre más reciente disponible (al cierre de esta nota, el
+segundo trimestre de 2026). Los scripts se adjuntan en el repositorio del
+proyecto, dentro de la carpeta `00_Códigos/Scripts_procesamiento_ENOE_R/`.
+Las visualizaciones y la aplicación web se desarrollaron en R, utilizando
+las librerías Shiny y Plotly.
+
+Para el control de versiones y la publicación del código se creó un
+repositorio de GitHub, disponible en:
+<https://github.com/JuveCampos/Monitor-de-exposicion-del-trabajo-de-las-mujeres-a-la-IA-2026>
+
+Se utilizaron herramientas de IA generativa como apoyo supervisado en tareas
+acotadas, particularmente en el mapeo ocupacional y en la documentación
+auxiliar del proceso. Estas herramientas no reemplazaron la validación
+humana, sino que sirvieron como apoyo metodológico para acelerar un proceso
+técnicamente intensivo dada la restricción de tiempo del evento.
+
+# Referencias
+
+Gmyrek, P., Berg, J. y Bescond, D. (2023). *Generative AI and jobs: A
+global analysis of potential effects on job quantity and quality* (ILO
+Working Paper 96). Organización Internacional del Trabajo.
+<https://doi.org/10.54394/FHEM8239>
+
+Gmyrek, P., Berg, J., Kamiński, K., Konopczyński, F., Ładna, A., Nafradi,
+B., Rosłaniec, K. y Troszyński, M. (2025). *Generative AI and jobs: A
+refined global index of occupational exposure* (ILO Working Paper 140).
+Organización Internacional del Trabajo.
+<https://doi.org/10.54394/HETP0387>
+
+Instituto Nacional de Estadística y Geografía. (2019). *Sistema Nacional de
+Clasificación de Ocupaciones (SINCO) 2019*. INEGI.
+
+Instituto Nacional de Estadística y Geografía. (2025). *Encuesta Nacional
+de Ocupación y Empleo. Clasificaciones ENOE*. INEGI.
+<https://www.inegi.org.mx/contenidos/programas/enoe/15ymas/doc/clasificaciones_enoe_123.pdf>
+
+Instituto Nacional de Estadística y Geografía. (2025). *Encuesta Nacional
+sobre Disponibilidad y Uso de Tecnologías de la Información en los Hogares
+(ENDUTIH) 2024*. INEGI.
+
+Instituto Nacional de Estadística y Geografía. (2026). *Encuesta Nacional
+de Ocupación y Empleo (ENOE), segundo trimestre de 2026. Microdatos*. INEGI.

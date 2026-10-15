@@ -10,8 +10,11 @@ library(plotly)
 # Para actualizar la app a un nuevo trimestre solo se cambian estas dos
 # líneas (el .dta se genera con
 # 00_Códigos/Scripts_procesamiento_ENOE_R/01_procesar_enoe_sinco.R)
-periodo_enoe <- "2026-T1"
-archivo_enoe <- "zcalculos_Y2026T01_4d.dta"
+periodo_enoe <- "2026-T2"
+archivo_enoe <- "zcalculos_Y2026T02_4d.dta"
+# Formación STEM (salidas de 04_procesar_enoe_stem.R, mismo trimestre)
+archivo_stem_campos <- "zcalculos_Y2026T02_stem_campos.dta"
+archivo_stem_4d <- "zcalculos_Y2026T02_4d_stem.dta"
 
 # --- Preparación de datos ---
 cat_1 <- read_csv(
@@ -479,7 +482,7 @@ opciones_sector <- c(
 # --- Datos agregados por sexo y exposición (para gráficas comparativas) ---
 # Solo hombres y mujeres (excluir total para evitar doble conteo)
 etiquetas_sexo <- c("1" = "Hombres", "2" = "Mujeres")
-colores_sexo <- c("Hombres" = "#01b665", "Mujeres" = "#3a39ff")
+colores_sexo <- c("Hombres" = "#00b783", "Mujeres" = "#6950d8")
 
 # --- Datos ENDUTIH 2024: uso de apps en celular por sexo ---
 datos_apps <- tibble::tribble(
@@ -635,9 +638,9 @@ divisiones_escritorio <- c("1", "2", "3")
 
 # Azules para las divisiones de escritorio, grises para el resto
 colores_division <- c(
-  "Funcionarios y directivos"                = "#2b2dd6",
-  "Profesionistas y técnicos"                = "#3a39ff",
-  "Oficinistas (auxiliares administrativos)" = "#8a89ff",
+  "Funcionarios y directivos"                = "#4f3bb5",
+  "Profesionistas y técnicos"                = "#6950d8",
+  "Oficinistas (auxiliares administrativos)" = "#a99be9",
   "Comerciantes y ventas"                    = "#c4c4c4",
   "Servicios personales y vigilancia"        = "#d6d6d6",
   "Agropecuarios"                            = "#bdbdbd",
@@ -695,6 +698,100 @@ pct_escritorio_m <- formato_pct(
 personas_escritorio_total <- format(
   round(pct_escritorio$total_ocup[pct_escritorio$poblacion == "Total"]),
   big.mark = ",", scientific = FALSE
+)
+
+# --- Formación STEM (campo de formación de la carrera en la ENOE) ---
+# Personas ocupadas con formación profesional en ciencias, tecnología,
+# ingeniería o matemáticas, según el campo de formación reportado en la
+# ENOE (cs_p14_c). La definición vive en 04_procesar_enoe_stem.R y replica
+# el do-file original: incluye economía y finanzas en ciencias y excluye a
+# las ciencias de la salud.
+etiquetas_stem <- c(
+  "1_S" = "Ciencias",
+  "2_T" = "Tecnología (TIC)",
+  "3_E" = "Ingeniería",
+  "4_M" = "Matemáticas"
+)
+
+bd_stem_todos <- read_dta(archivo_stem_campos) %>%
+  filter(sex %in% c(1, 2)) %>%
+  mutate(sexo_label = etiquetas_sexo[as.character(sex)])
+
+# Proporción de la población ocupada de cada sexo con formación STEM
+stem_tasa <- bd_stem_todos %>%
+  group_by(sexo_label) %>%
+  summarise(
+    pct_stem = 100 * sum(ocup[campo_stem != "0_NoSTEM"]) / sum(ocup),
+    .groups = "drop"
+  )
+pct_ocupados_stem_h <- formato_pct(
+  stem_tasa$pct_stem[stem_tasa$sexo_label == "Hombres"]
+)
+pct_ocupados_stem_m <- formato_pct(
+  stem_tasa$pct_stem[stem_tasa$sexo_label == "Mujeres"]
+)
+
+bd_stem_campos <- bd_stem_todos %>%
+  filter(campo_stem != "0_NoSTEM") %>%
+  mutate(
+    campo_label = factor(etiquetas_stem[campo_stem], levels = etiquetas_stem)
+  )
+
+# Participación de las mujeres en cada campo STEM; se usa como etiqueta
+# del eje y en el texto
+stem_pct_mujeres <- bd_stem_campos %>%
+  group_by(campo_label) %>%
+  summarise(
+    total = sum(ocup),
+    mujeres = sum(ocup[sexo_label == "Mujeres"]),
+    .groups = "drop"
+  ) %>%
+  mutate(pct_mujeres = mujeres / total * 100)
+
+total_stem <- sum(bd_stem_campos$ocup)
+total_stem_m <- sum(bd_stem_campos$ocup[bd_stem_campos$sexo_label == "Mujeres"])
+personas_stem_total <- format(round(total_stem), big.mark = ",")
+personas_stem_m <- format(round(total_stem_m), big.mark = ",")
+pct_stem_mujeres <- formato_pct(total_stem_m / total_stem * 100)
+pct_mujeres_ingenieria <- formato_pct(
+  stem_pct_mujeres$pct_mujeres[stem_pct_mujeres$campo_label == "Ingeniería"]
+)
+pct_mujeres_ciencias <- formato_pct(
+  stem_pct_mujeres$pct_mujeres[stem_pct_mujeres$campo_label == "Ciencias"]
+)
+
+# Exposición a la IA de las personas con formación STEM, por sexo: se cruza
+# la ocupación que desempeñan con el gradiente ya calculado en `bd`
+bd_stem_exp <- read_dta(archivo_stem_4d) %>%
+  mutate(
+    sinco4d = str_pad(sinco4d, width = 3, side = "left", pad = "0")
+  ) %>%
+  left_join(
+    bd %>% distinct(sinco4d, exposicion_ia_es),
+    by = "sinco4d"
+  ) %>%
+  filter(sex %in% c(1, 2), ocup > 0, !is.na(exposicion_ia_es)) %>%
+  mutate(
+    sexo_label = etiquetas_sexo[as.character(sex)],
+    exposicion_ia_es = factor(
+      exposicion_ia_es, levels = niveles_exposicion_es
+    )
+  ) %>%
+  group_by(sexo_label, exposicion_ia_es) %>%
+  summarise(total_ocup = sum(ocup), .groups = "drop") %>%
+  group_by(sexo_label) %>%
+  mutate(pct_ocup = total_ocup / sum(total_ocup) * 100) %>%
+  ungroup()
+
+stem_alta_exp <- bd_stem_exp %>%
+  filter(exposicion_ia_es %in% niveles_alta_exp) %>%
+  group_by(sexo_label) %>%
+  summarise(pct = sum(pct_ocup), .groups = "drop")
+pct_stem_alta_h <- formato_pct(
+  stem_alta_exp$pct[stem_alta_exp$sexo_label == "Hombres"]
+)
+pct_stem_alta_m <- formato_pct(
+  stem_alta_exp$pct[stem_alta_exp$sexo_label == "Mujeres"]
 )
 
 # --- Función para mapear escolaridad promedio a categoría ---
@@ -873,6 +970,18 @@ generar_treemap <- function(datos, sexo_val, titulo_sexo,
     event_register("plotly_click")
 }
 
+# --- Banda ilustrada ---
+# Imagen de apertura de cada sección, con una leyenda corta sobre una
+# franja morada. Las imágenes viven en www/ilustraciones/; hoy son fotos
+# de stock provisionales y se sustituirán por ilustraciones encargadas.
+banda_ilustrada <- function(imagen, texto) {
+  div(
+    class = "banda-ilustrada",
+    style = paste0("background-image: url('ilustraciones/", imagen, "');"),
+    div(class = "banda-texto", texto)
+  )
+}
+
 # --- UI ---
 ui <- fluidPage(
   tags$head(
@@ -887,14 +996,80 @@ ui <- fluidPage(
       body {
         font-family: 'Ubuntu', sans-serif;
         font-size: 19px;
-        background-color: #D6D6FD;
+        background-color: #F4F2FB;
       }
       .hero-header {
         max-width: 960px;
         margin: 30px auto 25px auto;
         background-color: #6950d8;
         border-radius: 12px;
-        padding: 60px 40px;
+        padding: 40px 40px 36px 40px;
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        flex-wrap: wrap;
+      }
+      .hero-texto {
+        flex: 1 1 420px;
+        text-align: left;
+      }
+      .hero-logos {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 22px;
+      }
+      .hero-logos img {
+        height: 34px;
+        width: auto;
+        display: block;
+      }
+      .hero-logos .logo-clave {
+        background-color: white;
+        border-radius: 6px;
+        padding: 4px 8px;
+        height: 42px;
+      }
+      .hero-ilustracion {
+        flex: 0 1 300px;
+        height: 240px;
+        border-radius: 12px;
+        overflow: hidden;
+        background-size: cover;
+        background-position: center;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      }
+      /* Bandas ilustradas que abren cada sección (estilo MCV) */
+      .banda-ilustrada {
+        max-width: 960px;
+        height: 210px;
+        margin: 10px auto 0 auto;
+        border-radius: 12px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .banda-ilustrada .banda-texto {
+        position: absolute;
+        left: 0; right: 0; bottom: 0;
+        padding: 12px 20px;
+        background-color: rgba(105,80,216,0.88);
+        color: white;
+        font-size: 15px;
+        line-height: 1.4;
+      }
+      .banda-mcv {
+        max-width: 960px;
+        margin: 25px auto 0 auto;
+        background-color: #6950d8;
+        color: white;
+        border-radius: 6px;
+        padding: 8px 16px;
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
         text-align: center;
       }
       .hero-header h2 {
@@ -940,7 +1115,7 @@ ui <- fluidPage(
         font-family: 'Ubuntu', sans-serif;
         font-size: 16px;
         font-weight: 500;
-        color: #2c3e50;
+        color: #231f20;
         margin: 0 0 2px 0;
         text-align: center;
       }
@@ -955,12 +1130,12 @@ ui <- fluidPage(
         color: #000;
         font-weight: 700;
         text-decoration: underline;
-        text-decoration-color: #3A3CF9;
+        text-decoration-color: #6950D8;
         text-decoration-thickness: 3px;
         text-underline-offset: 3px;
       }
       .title-highlight {
-        background-color: #3A3CF9;
+        background-color: #6950D8;
         color: white;
         padding: 3px 10px;
         border-radius: 4px;
@@ -998,7 +1173,7 @@ ui <- fluidPage(
       .spinner {
         width: 48px; height: 48px;
         border: 5px solid #e0e0e0;
-        border-top: 5px solid #2c3e50;
+        border-top: 5px solid #231f20;
         border-radius: 50%;
         animation: spin 0.8s linear infinite;
       }
@@ -1009,7 +1184,7 @@ ui <- fluidPage(
         margin-top: 14px;
         font-family: 'Ubuntu', sans-serif;
         font-size: 14px;
-        color: #2c3e50;
+        color: #231f20;
       }
     ")),
     tags$script(HTML("
@@ -1042,11 +1217,30 @@ ui <- fluidPage(
   # --- Título general del dashboard ---
   div(
     class = "hero-header",
-    h2(paste0(
-      "Monitor de exposición del trabajo ",
-      "de las mujeres a la IA"
-    )),
-    p(paste0("ENOE ", periodo_enoe, " | Clasificación SINCO a 4 dígitos"))
+    div(
+      class = "hero-texto",
+      div(
+        class = "hero-logos",
+        tags$img(
+          src = "logo_mcv_blanco.svg",
+          alt = "México, ¿Cómo Vamos?"
+        ),
+        tags$img(
+          class = "logo-clave",
+          src = "clave_logo.png",
+          alt = "Clave Igualdad"
+        )
+      ),
+      h2(paste0(
+        "Monitor de exposición del trabajo ",
+        "de las mujeres a la IA"
+      )),
+      p(paste0("ENOE ", periodo_enoe, " | Clasificación SINCO a 4 dígitos"))
+    ),
+    div(
+      class = "hero-ilustracion",
+      style = "background-image: url('ilustraciones/hero.jpg');"
+    )
   ),
 
   # --- Texto introductorio ---
@@ -1120,35 +1314,35 @@ ui <- fluidPage(
       "<div style='display:flex; flex-direction:column; ",
       "align-items:center; gap:6px;'>",
       "<a href='#sec-resumen' ",
-      "style='color:#2563eb; font-family:Ubuntu; ",
+      "style='color:#6950d8; font-family:Ubuntu; ",
       "font-size:14px;' ",
       "onclick=\"document.getElementById(",
       "'sec-resumen').scrollIntoView(",
       "{behavior:'smooth'}); return false;\">",
       "Resumen ejecutivo</a>",
       "<a href='#sec-exposicion' ",
-      "style='color:#2563eb; font-family:Ubuntu; ",
+      "style='color:#6950d8; font-family:Ubuntu; ",
       "font-size:14px;' ",
       "onclick=\"document.getElementById(",
       "'sec-exposicion').scrollIntoView(",
       "{behavior:'smooth'}); return false;\">",
       "Exposición a la IA</a>",
       "<a href='#sec-brecha' ",
-      "style='color:#2563eb; font-family:Ubuntu; ",
+      "style='color:#6950d8; font-family:Ubuntu; ",
       "font-size:14px;' ",
       "onclick=\"document.getElementById(",
       "'sec-brecha').scrollIntoView(",
       "{behavior:'smooth'}); return false;\">",
       "Brecha tecnológica</a>",
       "<a href='#sec-normativa' ",
-      "style='color:#2563eb; font-family:Ubuntu; ",
+      "style='color:#6950d8; font-family:Ubuntu; ",
       "font-size:14px;' ",
       "onclick=\"document.getElementById(",
       "'sec-normativa').scrollIntoView(",
       "{behavior:'smooth'}); return false;\">",
       "Normativa</a>",
       "<a href='#sec-conclusion' ",
-      "style='color:#2563eb; font-family:Ubuntu; ",
+      "style='color:#6950d8; font-family:Ubuntu; ",
       "font-size:14px;' ",
       "onclick=\"document.getElementById(",
       "'sec-conclusion').scrollIntoView(",
@@ -1166,7 +1360,7 @@ ui <- fluidPage(
     ),
     p(
       style = paste0(
-        "font-family: 'Ubuntu'; color: #2c3e50; ",
+        "font-family: 'Ubuntu'; color: #231f20; ",
         "font-size: 14px; font-style: italic;"
       ),
       paste0(
@@ -1356,6 +1550,10 @@ ui <- fluidPage(
       "padding: 20px 25px; max-width: 960px; ",
       "margin: 20px auto;"
     ),
+    banda_ilustrada(
+      "exposicion.jpg",
+      "La exposición a la IA no se reparte igual entre ocupaciones ni entre hombres y mujeres."
+    ),
     h3(
       id = "sec-exposicion",
       style = "font-family: 'Ubuntu';",
@@ -1473,11 +1671,11 @@ br(), br(),
           class = "leyenda-sexo",
           div(class = "leyenda-item",
             div(class = "leyenda-color",
-              style = "background-color:#01b665;"),
+              style = "background-color:#00b783;"),
             span("Hombres")),
           div(class = "leyenda-item",
             div(class = "leyenda-color",
-              style = "background-color:#3a39ff;"),
+              style = "background-color:#6950d8;"),
             span("Mujeres"))
         )
       ),
@@ -1558,11 +1756,11 @@ br(), br(),
           class = "leyenda-sexo",
           div(class = "leyenda-item",
             div(class = "leyenda-color",
-              style = "background-color:#01b665;"),
+              style = "background-color:#00b783;"),
             span("Hombres")),
           div(class = "leyenda-item",
             div(class = "leyenda-color",
-              style = "background-color:#3a39ff;"),
+              style = "background-color:#6950d8;"),
             span("Mujeres"))
         )
       ),
@@ -1580,11 +1778,11 @@ br(), br(),
           class = "leyenda-sexo",
           div(class = "leyenda-item",
             div(class = "leyenda-color",
-              style = "background-color:#01b665;"),
+              style = "background-color:#00b783;"),
             span("Hombres")),
           div(class = "leyenda-item",
             div(class = "leyenda-color",
-              style = "background-color:#3a39ff;"),
+              style = "background-color:#6950d8;"),
             span("Mujeres"))
         )
       ),
@@ -1644,11 +1842,11 @@ br(), br(),
           class = "leyenda-sexo",
           div(class = "leyenda-item",
             div(class = "leyenda-color",
-              style = "background-color:#01b665;"),
+              style = "background-color:#00b783;"),
             span("Hombres")),
           div(class = "leyenda-item",
             div(class = "leyenda-color",
-              style = "background-color:#3a39ff;"),
+              style = "background-color:#6950d8;"),
             span("Mujeres"))
         )
       ),
@@ -1685,6 +1883,10 @@ br(), br(),
     style = paste0(
       "padding: 20px 25px; max-width: 960px; ",
       "margin: 20px auto;"
+    ),
+    banda_ilustrada(
+      "cuidados.jpg",
+      "Los cuidados son el trabajo que la IA no va a hacer, y sigue recayendo sobre las mujeres."
     ),
     h3(
       style = "font-family: 'Ubuntu';",
@@ -1737,6 +1939,10 @@ br(), br(),
       "padding: 20px 25px; max-width: 960px; ",
       "margin: 20px auto;"
     ),
+    banda_ilustrada(
+      "brecha.jpg",
+      "Sin conectividad ni formación, la misma exposición se vive desde puntos de partida distintos."
+    ),
     h3(
       id = "sec-brecha",
       style = "font-family: 'Ubuntu';",
@@ -1772,7 +1978,7 @@ br(), br(),
               class = "leyenda-item",
               div(
                 class = "leyenda-color",
-                style = "background-color:#01b665;"
+                style = "background-color:#00b783;"
               ),
               span("Hombres")
             ),
@@ -1780,7 +1986,7 @@ br(), br(),
               class = "leyenda-item",
               div(
                 class = "leyenda-color",
-                style = "background-color:#3a39ff;"
+                style = "background-color:#6950d8;"
               ),
               span("Mujeres")
             )
@@ -1789,7 +1995,7 @@ br(), br(),
         plotlyOutput("g_internet", height = "300px"),
         div(
           style = paste0(
-            "background-color: #d64f4f; color: white; ",
+            "background-color: #ff6260; color: white; ",
             "border-radius: 6px; padding: 12px 16px; ",
             "margin: 20px 15px 0 15px; ",
             "font-family: 'Ubuntu'; text-align: center;"
@@ -1822,7 +2028,7 @@ br(), br(),
               class = "leyenda-item",
               div(
                 class = "leyenda-color",
-                style = "background-color:#01b665;"
+                style = "background-color:#00b783;"
               ),
               span("Hombres")
             ),
@@ -1830,7 +2036,7 @@ br(), br(),
               class = "leyenda-item",
               div(
                 class = "leyenda-color",
-                style = "background-color:#3a39ff;"
+                style = "background-color:#6950d8;"
               ),
               span("Mujeres")
             )
@@ -1839,7 +2045,7 @@ br(), br(),
         plotlyOutput("g_celular", height = "300px"),
         div(
           style = paste0(
-            "background-color: #d64f4f; color: white; ",
+            "background-color: #ff6260; color: white; ",
             "border-radius: 6px; padding: 12px 16px; ",
             "margin: 20px 15px 0 15px; ",
             "font-family: 'Ubuntu'; text-align: center;"
@@ -1891,7 +2097,7 @@ br(), br(),
             class = "leyenda-item",
             div(
               class = "leyenda-color",
-              style = "background-color:#01b665;"
+              style = "background-color:#00b783;"
             ),
             span("Hombres")
           ),
@@ -1899,7 +2105,7 @@ br(), br(),
             class = "leyenda-item",
             div(
               class = "leyenda-color",
-              style = "background-color:#3a39ff;"
+              style = "background-color:#6950d8;"
             ),
             span("Mujeres")
           )
@@ -1907,30 +2113,114 @@ br(), br(),
       ),
       plotlyOutput("g_apps_usos", height = "420px")
     ),
-    # p(
-    #   style = "font-family: 'Ubuntu'; color: #333; line-height: 1.6;",
-    #   HTML(paste0(
-    #     "Hablar de mujeres en STEM, en este contexto, ",
-    #     "<span class='highlight'>no es un tema aparte: es ",
-    #     "parte del mismo problema</span>. Si las tecnologías ",
-    #     "que transforman el trabajo se diseñan y despliegan ",
-    #     "desde espacios donde las mujeres siguen ",
-    #     "subrepresentadas, la transición difícilmente será ",
-    #     "justa. No se trata solo de que más mujeres entren ",
-    #     "a estos campos, sino de que también puedan ",
-    #     "<span class='highlight'>incidir en las decisiones ",
-    #     "que están moldeando el futuro del trabajo</span>."
-    #   ))
-    # ),
-    # Placeholder: STEM
-    # div(
-    #   style = paste0(
-    #     "background-color: #f0f0f0; border: 2px dashed #ccc; ",
-    #     "border-radius: 8px; padding: 40px; text-align: center; ",
-    #     "margin: 20px 0; color: #999; font-family: 'Ubuntu';"
-    #   ),
-    #   p("Visualización mujeres en STEM")
-    # )
+    p(
+      style = "font-family: 'Ubuntu'; color: #333; line-height: 1.6;",
+      HTML(paste0(
+        "Hablar de mujeres en STEM, en este contexto, ",
+        "<span class='highlight'>no es un tema aparte: es ",
+        "parte del mismo problema</span>. Si las tecnologías ",
+        "que transforman el trabajo se diseñan y despliegan ",
+        "desde espacios donde las mujeres siguen ",
+        "subrepresentadas, la transición difícilmente será ",
+        "justa. No se trata solo de que más mujeres entren ",
+        "a estos campos, sino de que también puedan ",
+        "<span class='highlight'>incidir en las decisiones ",
+        "que están moldeando el futuro del trabajo</span>."
+      ))
+    ),
+    # --- Gráficas: formación STEM por sexo (ENOE) ---
+    fluidRow(
+      column(
+        6,
+        div(
+          class = "chart-header",
+          p(
+            class = "chart-title",
+            "Personas ocupadas con formación STEM"
+          ),
+          p(
+            class = "chart-subtitle",
+            paste0(
+              "Por campo de formación y sexo | ENOE ", periodo_enoe
+            )
+          ),
+          div(
+            class = "leyenda-sexo",
+            div(
+              class = "leyenda-item",
+              div(
+                class = "leyenda-color",
+                style = "background-color:#00b783;"
+              ),
+              span("Hombres")
+            ),
+            div(
+              class = "leyenda-item",
+              div(
+                class = "leyenda-color",
+                style = "background-color:#6950d8;"
+              ),
+              span("Mujeres")
+            )
+          )
+        ),
+        plotlyOutput("g_stem_campos", height = "360px")
+      ),
+      column(
+        6,
+        div(
+          class = "chart-header",
+          p(
+            class = "chart-title",
+            "Exposición a la IA de quienes tienen formación STEM"
+          ),
+          p(
+            class = "chart-subtitle",
+            paste0(
+              "Distribución porcentual por gradiente y sexo | ENOE ",
+              periodo_enoe
+            )
+          ),
+          div(
+            class = "leyenda-container",
+            lapply(seq_along(colores_exposicion), function(i) {
+              div(class = "leyenda-item",
+                div(class = "leyenda-color",
+                  style = paste0(
+                    "background-color:",
+                    colores_exposicion[i], ";")),
+                span(names(colores_exposicion)[i]))
+            })
+          )
+        ),
+        plotlyOutput("g_stem_exposicion", height = "360px")
+      )
+    ),
+    br(),
+    p(
+      style = "font-family: 'Ubuntu'; color: #333; line-height: 1.6;",
+      HTML(paste0(
+        "La ENOE permite identificar a las personas ocupadas que ",
+        "estudiaron una carrera en ciencias, tecnología, ingeniería ",
+        "o matemáticas. En el trimestre ", periodo_enoe, " son ",
+        personas_stem_total, " personas, y ",
+        "<span class='highlight'>las mujeres son apenas el ",
+        pct_stem_mujeres, " de ellas</span> (", personas_stem_m,
+        "). La brecha es más amplia en ingeniería, donde las ",
+        "mujeres representan el ", pct_mujeres_ingenieria,
+        ", y más estrecha en ciencias (", pct_mujeres_ciencias,
+        "). Visto desde cada sexo, el ", pct_ocupados_stem_m,
+        " de las mujeres ocupadas tiene formación STEM, frente al ",
+        pct_ocupados_stem_h, " de los hombres. Además, ",
+        "<span class='highlight'>las mujeres con formación STEM ",
+        "trabajan con más frecuencia en ocupaciones de exposición ",
+        "significativa o máxima a la IA</span> (", pct_stem_alta_m,
+        " contra ", pct_stem_alta_h, " de los hombres), lo que ",
+        "sugiere que su formación técnica se canaliza hacia puestos ",
+        "administrativos y de oficina más que hacia los puestos que ",
+        "diseñan la tecnología."
+      ))
+    )
   ),
 
   # ==========================================================
@@ -1940,6 +2230,10 @@ br(), br(),
     style = paste0(
       "padding: 20px 25px; max-width: 960px; ",
       "margin: 20px auto;"
+    ),
+    banda_ilustrada(
+      "normativa.jpg",
+      "Las normas que ya existen marcan el terreno para que la transición no amplíe las brechas."
     ),
     h3(
       id = "sec-normativa",
@@ -1979,7 +2273,7 @@ br(), br(),
     <table style='width:100%; border-collapse:collapse;
       font-family:Ubuntu; font-size:14px; margin-bottom:10px;'>
       <thead>
-        <tr style='background-color:#2c3e50; color:white;'>
+        <tr style='background-color:#6950d8; color:white;'>
           <th style='padding:10px 12px; text-align:left;'>País</th>
           <th style='padding:10px 12px; text-align:left;'>Subregión</th>
           <th colspan='3' style='padding:10px 12px;
@@ -1992,7 +2286,7 @@ br(), br(),
             text-align:center; border-left:2px solid #fff;'>
             IA</th>
         </tr>
-        <tr style='background-color:#3d566e; color:white;
+        <tr style='background-color:#8c7ae6; color:white;
           font-size:12px;'>
           <th style='padding:8px 12px;'></th>
           <th style='padding:8px 12px;'></th>
@@ -2075,7 +2369,7 @@ br(), br(),
     <table style='width:100%; border-collapse:collapse;
       font-family:Ubuntu; font-size:14px; margin-bottom:10px;'>
       <thead>
-        <tr style='background-color:#2c3e50; color:white;'>
+        <tr style='background-color:#6950d8; color:white;'>
           <th style='padding:10px 12px; text-align:left;'>País</th>
           <th style='padding:10px 12px; text-align:left;'>
             Subregión</th>
@@ -2184,7 +2478,7 @@ br(), br(),
     style = paste0(
       "width: 100vw; margin-left: calc(-50vw + 50%); ",
       "margin-top: 40px; padding: 30px 0; ",
-      "background-color: #3a3a3a; color: white; ",
+      "background-color: #6950d8; color: white; ",
       "font-family: 'Ubuntu';"
     ),
     div(
@@ -2239,11 +2533,11 @@ br(), br(),
             "<a href='https://github.com/JuveCampos/",
             "Monitor-de-exposicion-del-trabajo-de-las-mujeres",
             "-a-la-IA-2026/blob/main/notametodologica.pdf' ",
-            "target='_blank' style='color: #aac4ff;'>",
+            "target='_blank' style='color: #ffbd41;'>",
             "esta liga</a>. Para mayor información, ",
             "escribe a ",
             "<a href='mailto:patricia@claveigualdad.org' ",
-            "style='color: #aac4ff;'>",
+            "style='color: #ffbd41;'>",
             "patricia@claveigualdad.org</a>"
           ))
         )
@@ -2261,38 +2555,33 @@ br(), br(),
         )
       )
     )
-    # --- SILENCIADO: franja de adscripción a México, ¿Cómo vamos? ---
-    # Queda en espera hasta que se concrete la incorporación del
-    # monitor a la cartera de proyectos de MCV. Para reactivarla se
-    # descomenta este bloque y se agrega una coma al cierre del div
-    # anterior. El logo ya está en www/logo_mcv_blanco.svg.
-    # ,
-    # div(
-    #   style = paste0(
-    #     "max-width: 960px; margin: 25px auto 0 auto; ",
-    #     "padding: 20px 25px 0 25px; ",
-    #     "border-top: 1px solid rgba(255,255,255,0.2); ",
-    #     "display: flex; align-items: center; ",
-    #     "justify-content: center; gap: 18px; ",
-    #     "flex-wrap: wrap;"
-    #   ),
-    #   p(
-    #     style = paste0(
-    #       "color: rgba(255,255,255,0.85); font-size: 13px; ",
-    #       "margin: 0; text-align: right;"
-    #     ),
-    #     "Este monitor forma parte de la cartera de proyectos de"
-    #   ),
-    #   tags$a(
-    #     href = "https://mexicocomovamos.mx/",
-    #     target = "_blank",
-    #     tags$img(
-    #       src = "logo_mcv_blanco.svg",
-    #       style = "width: 150px; height: auto; display: block;"
-    #     )
-    #   )
-    # )
-    # --- FIN SILENCIADO ---
+    ,
+    # --- Franja de adscripción a México, ¿Cómo vamos? ---
+    div(
+      style = paste0(
+        "max-width: 960px; margin: 25px auto 0 auto; ",
+        "padding: 20px 25px 0 25px; ",
+        "border-top: 1px solid rgba(255,255,255,0.3); ",
+        "display: flex; align-items: center; ",
+        "justify-content: center; gap: 18px; ",
+        "flex-wrap: wrap;"
+      ),
+      p(
+        style = paste0(
+          "color: rgba(255,255,255,0.9); font-size: 13px; ",
+          "margin: 0; text-align: right;"
+        ),
+        "Este monitor forma parte de la cartera de proyectos de"
+      ),
+      tags$a(
+        href = "https://mexicocomovamos.mx/",
+        target = "_blank",
+        tags$img(
+          src = "logo_mcv_blanco.svg",
+          style = "width: 150px; height: auto; display: block;"
+        )
+      )
+    )
   )
 )
 
@@ -2417,7 +2706,7 @@ server <- function(input, output, session) {
         "max-width: 960px; margin: 15px auto; ",
         "padding: 15px 20px; ",
         "background-color: #f8f9fa; ",
-        "border-left: 4px solid #2c3e50; ",
+        "border-left: 4px solid #6950d8; ",
         "border-radius: 4px; ",
         "font-family: 'Ubuntu';"
       ),
@@ -2440,7 +2729,7 @@ server <- function(input, output, session) {
         h4(
           nombre,
           style = paste0(
-            "color: #2c3e50; margin: 0 0 3px 0; ",
+            "color: #231f20; margin: 0 0 3px 0; ",
             "font-size: 15px;"
           )
         ),
@@ -2703,7 +2992,7 @@ server <- function(input, output, session) {
         ),
         showarrow = FALSE,
         font = list(
-          family = "Ubuntu", size = 12, color = "#2c3e50"
+          family = "Ubuntu", size = 12, color = "#231f20"
         ),
         xanchor = "center",
         xref = "x",
@@ -2793,6 +3082,126 @@ server <- function(input, output, session) {
         paper_bgcolor = "white",
         bargap = 0.15,
         bargroupgap = 0.05
+      ) %>%
+      config(displayModeBar = FALSE)
+  })
+
+  # --- Gráficas STEM: campos de formación por sexo (ENOE) ---
+  output$g_stem_campos <- renderPlotly({
+    # La etiqueta del eje incluye la participación de las mujeres
+    etiquetas_eje <- stem_pct_mujeres %>%
+      mutate(
+        etiqueta = paste0(
+          campo_label, "<br><span style='font-size:10px;color:#6950d8'>",
+          formato_pct(pct_mujeres), " mujeres</span>"
+        )
+      )
+
+    df <- bd_stem_campos %>%
+      left_join(etiquetas_eje %>% select(campo_label, etiqueta),
+                by = "campo_label") %>%
+      mutate(etiqueta = factor(etiqueta, levels = etiquetas_eje$etiqueta))
+
+    df_h <- df %>% filter(sexo_label == "Hombres")
+    df_m <- df %>% filter(sexo_label == "Mujeres")
+
+    plot_ly() %>%
+      add_bars(
+        data = df_h,
+        x = ~etiqueta,
+        y = ~ocup,
+        name = "Hombres",
+        marker = list(
+          color = colores_sexo["Hombres"], opacity = 0.5
+        ),
+        text = ~format(round(ocup), big.mark = ","),
+        textposition = "outside",
+        textfont = list(size = 10),
+        hovertext = ~paste0(
+          campo_label, "<br>Hombres: ",
+          format(round(ocup), big.mark = ","), " personas"
+        ),
+        hoverinfo = "text"
+      ) %>%
+      add_bars(
+        data = df_m,
+        x = ~etiqueta,
+        y = ~ocup,
+        name = "Mujeres",
+        marker = list(
+          color = colores_sexo["Mujeres"], opacity = 1
+        ),
+        text = ~format(round(ocup), big.mark = ","),
+        textposition = "outside",
+        textfont = list(size = 10),
+        hovertext = ~paste0(
+          campo_label, "<br>Mujeres: ",
+          format(round(ocup), big.mark = ","), " personas"
+        ),
+        hoverinfo = "text"
+      ) %>%
+      layout(
+        xaxis = list(
+          title = "",
+          tickfont = list(family = "Ubuntu", size = 11)
+        ),
+        yaxis = list(
+          title = "Población ocupada",
+          titlefont = list(family = "Ubuntu"),
+          tickformat = ",",
+          range = c(0, max(df$ocup) * 1.18)
+        ),
+        barmode = "group",
+        showlegend = FALSE,
+        font = list(family = "Ubuntu"),
+        margin = list(b = 70, t = 10)
+      ) %>%
+      config(displayModeBar = FALSE)
+  })
+
+  # --- Exposición a la IA de las personas con formación STEM, por sexo ---
+  output$g_stem_exposicion <- renderPlotly({
+    df <- bd_stem_exp %>%
+      mutate(
+        texto = ifelse(
+          pct_ocup >= 4,
+          paste0(format(round(pct_ocup, 1), nsmall = 1), "%"), ""
+        )
+      )
+
+    plot_ly(
+      df,
+      x = ~sexo_label,
+      y = ~pct_ocup,
+      color = ~exposicion_ia_es,
+      colors = colores_exposicion,
+      type = "bar",
+      text = ~texto,
+      textposition = "inside",
+      textfont = list(size = 10),
+      hovertext = ~paste0(
+        exposicion_ia_es, "<br>",
+        sexo_label, "<br>",
+        format(round(pct_ocup, 1), nsmall = 1), "%<br>",
+        format(round(total_ocup), big.mark = ","),
+        " personas"
+      ),
+      hoverinfo = "text"
+    ) %>%
+      layout(
+        xaxis = list(
+          title = "",
+          tickfont = list(family = "Ubuntu")
+        ),
+        yaxis = list(
+          title = "Porcentaje (%)",
+          titlefont = list(family = "Ubuntu"),
+          range = c(0, 105)
+        ),
+        barmode = "stack",
+        showlegend = FALSE,
+        font = list(family = "Ubuntu"),
+        margin = list(t = 10)
       ) %>%
       config(displayModeBar = FALSE)
   })
@@ -3236,9 +3645,9 @@ server <- function(input, output, session) {
         xanchor = "left",
         xshift = 6,
         showarrow = FALSE,
-        font = list(family = "Ubuntu", size = 13, color = "#2b2dd6"),
+        font = list(family = "Ubuntu", size = 13, color = "#4f3bb5"),
         bgcolor = "white",
-        bordercolor = "#2b2dd6",
+        bordercolor = "#4f3bb5",
         borderwidth = 1,
         borderpad = 3
       )
