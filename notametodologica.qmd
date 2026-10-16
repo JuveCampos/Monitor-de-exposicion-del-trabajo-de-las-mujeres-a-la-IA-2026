@@ -1,7 +1,7 @@
 ---
 title: "Nota metodológica"
 subtitle: "Monitor de Exposición del Trabajo de las Mujeres a la IA · 2026"
-date: 2026-10-15
+date: 2026-10-16
 date-format: "D [de] MMMM [de] YYYY"
 lang: es
 format:
@@ -26,9 +26,10 @@ estimar el potencial de transformación de una ocupación ante el cambio
 tecnológico, distinguiendo entre escenarios de sustitución y de
 complementariedad.
 
-Para construir este indicador, la aplicación clasifica las 483 ocupaciones
-del Sistema Nacional de Clasificación de Ocupaciones (SINCO 2019) según su
-grado de exposición a la IA generativa. La clasificación se basa en la
+Para construir este indicador, la aplicación clasifica los 490 grupos
+unitarios del Sistema Nacional de Clasificación de Ocupaciones (SINCO 2019)
+que la ENOE utiliza para codificar la ocupación (INEGI, 2023), según su grado
+de exposición a la IA generativa. La clasificación se basa en la
 metodología desarrollada para la Organización Internacional del Trabajo
 (OIT) por Gmyrek, Berg, Kamiński, Konopczyński, Ładna, Nafradi, Rosłaniec y
 Troszyński (2025), publicada en el *Working Paper* 140, *Generative AI and
@@ -36,15 +37,40 @@ Jobs: A Refined Global Index of Occupational Exposure*. Ese documento
 refina el índice original que propusieron Gmyrek, Berg y Bescond (2023) en
 el *Working Paper* 96.
 
-El índice evalúa 436 ocupaciones a nivel internacional utilizando la
-Clasificación Internacional Uniforme de Ocupaciones (CIUO-08). Para
-aplicarlo a México se construyó un mapeo entre el SINCO 2019 del INEGI y la
-CIUO-08, a partir de la tabla comparativa oficial del INEGI. Cuando una
-ocupación del SINCO corresponde a múltiples códigos de la CIUO-08, se
-promedian las puntuaciones de exposición. Para las 34 ocupaciones sin
-correspondencia directa se aplicaron estrategias de imputación jerárquica
-(promedio del subgrupo, grupo o división) y un mapeo manual revisado por el
-equipo.
+El índice evalúa 427 ocupaciones de la Clasificación Internacional
+Uniforme de Ocupaciones (CIUO-08) a cuatro dígitos; no cubre a las fuerzas
+armadas. Para aplicarlo a México se construyó una correspondencia entre el
+SINCO y la CIUO-08 en dos pasos. El primero reconstruye la tabla comparativa
+SINCO-CIUO-08 del INEGI (2012), que corresponde al SINCO 2011. El segundo
+lleva esa correspondencia a los códigos del SINCO 2019 mediante la tabla de
+equivalencia entre ambas versiones que el INEGI publica como anexo del
+documento del SINCO 2019: 455 grupos unitarios conservan su código, 16
+fueron renumerados (entre ellos dentistas, enfermeras, nutriólogos,
+optometristas, fisioterapeutas y economistas) y 19 son nuevos en 2019. Los
+renumerados reciben la CIUO de su equivalente de 2011; los nuevos no tienen
+correspondencia oficial y se tratan en la sección de clasificaciones
+provisionales. Hasta octubre de 2026 el flujo aplicaba la tabla de 2011
+directamente a los códigos de 2019, lo que asignaba una CIUO ajena al bloque
+de médicos especialistas y dejaba sin correspondencia a las enfermeras; el
+hallazgo y su efecto se documentan en el anexo
+`03_Archivos/hallazgo_crosswalk_sinco_2011_2019_2026-10-16.md` del
+repositorio.
+
+En la lectura de la tabla de 2011 se adoptó una regla de herencia: cuando
+una ocupación de cuatro dígitos aparece sin código CIUO propio, recibe el
+primer código de su subgrupo, siguiendo la convención de la tabla de anotar
+la correspondencia solo en la primera fila de cada bloque. Esta regla
+resolvió 35 ocupaciones, identificadas en el catálogo con la etiqueta
+`directo_heredado_3d`. Cuando una ocupación del SINCO corresponde a varios
+códigos de la CIUO-08 (138 ocupaciones), se promedian sus puntuaciones sin
+ponderar, porque la ENOE no permite distribuir el empleo entre ellos. Con
+este procedimiento, 433 ocupaciones cuentan con alguna correspondencia y
+421 recibieron una puntuación directa. Para 35 ocupaciones residuales
+("otros... no clasificados") y de supervisión sin puntuación se imputó el
+promedio de su subgrupo (12), grupo principal (17) o división (6). Estas 35
+y otras 27 forman las 62 clasificaciones provisionales que se describen más
+adelante. El catálogo completo se regenera con los scripts de la carpeta
+`05_Reproduccion_R/` del repositorio.
 
 # Fundamento empírico
 
@@ -62,34 +88,65 @@ Cada ocupación recibe una calificación continua de 0 a 1 y se clasifica en
 gradientes que van desde "No expuesto" (ocupaciones manuales y físicas con
 impacto mínimo de la IA) hasta "Exposición máxima" (ocupaciones
 administrativas, financieras y de comunicación con alto potencial de
-automatización). Las ocupaciones con correspondencias heterogéneas entre el
-SINCO y la CIUO-08 se clasifican como "Mixto".
+automatización). La OIT asigna el gradiente a partir de la media ($\mu$) y
+la desviación estándar ($\sigma$) de las puntuaciones de las tareas de cada
+ocupación (Gmyrek et al., 2025, Tabla 5): exposición máxima si
+$\mu \geq 0.6$ y $\mu - \sigma \geq 0.5$; significativa si
+$0.5 \leq \mu < 0.6$; moderada, con alta variabilidad de tareas, si
+$0.4 \leq \mu < 0.5$ y $\mu + \sigma \geq 0.5$; baja, con alta
+variabilidad, si $\mu < 0.4$ y $\mu + \sigma \geq 0.5$; mínima si
+$\mu < 0.5$ y $\mu + \sigma > 0.4$; y no expuesta en el resto de los
+casos. Las etiquetas de la aplicación traducen estas categorías.
+
+Las ocupaciones cuyos códigos CIUO-08 pertenecen a categorías distintas se
+etiquetan como "Mixto" (53 ocupaciones, que concentran 18% de la población
+ocupada en el segundo trimestre de 2026, entre ellas la de comerciantes en
+establecimientos). Esta etiqueta señala heterogeneidad de la
+correspondencia y no un nivel intermedio de exposición; la aplicación la
+coloca entre "mínima" y "baja" solo para fines de presentación. El equipo
+evalúa una regla explícita para resolver estos casos; el anexo
+`03_Archivos/sensibilidad_mixto_2026T2.md` del repositorio cuantifica las
+alternativas.
+
+# Indicadores por gradiente
+
+Los indicadores que la aplicación muestra por gradiente y sexo se calculan a
+partir de los colapsos por ocupación. El ingreso de cada gradiente es el
+promedio, ponderado por población ocupada, de las medianas de ingreso de
+las ocupaciones que lo integran, y no la mediana de todas las personas del
+gradiente; la tasa de informalidad y la escolaridad se ponderan de la misma
+forma. La aplicación etiqueta este indicador como "ingreso mediano
+típico".
 
 # Clasificaciones provisionales
 
-Tras aplicar el mapeo SINCO-CIUO-08 y las estrategias de imputación
-descritas en las secciones anteriores, 73 ocupaciones del catálogo
-permanecían sin gradiente de exposición asignado y se mostraban en la
-aplicación como "Sin información". A ellas se sumaron cinco códigos de la
-actualización del SINCO que la ENOE ya reporta y que no formaban parte del
-catálogo original (INEGI, 2025). En conjunto, estas ocupaciones concentraban
-alrededor de 1.5 millones de personas ocupadas en el primer trimestre de
-2026 (2.5% de la población ocupada), de las cuales 709 mil eran mujeres.
+Tras aplicar la correspondencia SINCO-CIUO-08 y la imputación por promedio
+descritas en las secciones anteriores, 72 ocupaciones del catálogo
+permanecen sin gradiente de exposición asignado: 35 con puntuación imputada
+pero sin categoría, 5 cuya CIUO correspondiente no fue evaluada por Gmyrek
+et al. (2025), 22 sin correspondencia (14 sin equivalente en la tabla del
+INEGI y 8 nuevas en el SINCO 2019) y 10 que están fuera del universo del
+índice. Para 62 de ellas se construyó una clasificación provisional con dos
+estrategias:
 
-En julio de 2026 se incorporó al catálogo una clasificación provisional para
-68 de estas ocupaciones, construida con dos estrategias:
+1. **Mapeo manual a una ocupación análoga (25 ocupaciones).** Cuando no
+   existe correspondencia oficial, el equipo asignó la ocupación de la
+   CIUO-08 cuyo contenido de tareas resulta más cercano, y la ocupación
+   heredó la puntuación media estimada por Gmyrek et al. (2025) para esa
+   análoga. Cada asignación quedó documentada con su justificación en el
+   archivo `05_Reproduccion_R/insumos/mapeo_manual_ciuo.csv`, cuya columna
+   `aprobado` registra la validación del equipo (las 25 propuestas se aprobaron
+   el 16 de octubre de 2026). El caso de mayor población
+   es el de las siete especialidades médicas que el SINCO 2019 creó al
+   subdividir a los médicos especialistas (cirujanos, ginecólogos, médicos
+   internos, patólogos, pediatras, psiquiatras y radiólogos), que se
+   asignaron a la ocupación 2212 de la CIUO-08, la correspondencia oficial
+   del grupo del que se desprendieron. Las enfermeras y paramédicos
+   profesionales, que en versiones anteriores de esta nota formaban parte
+   del mapeo manual, reciben ahora su correspondencia oficial (2221,
+   profesionales de enfermería) por la tabla de equivalencia 2011-2019.
 
-1. **Mapeo manual a una ocupación análoga (28 ocupaciones).** Cuando la
-   tabla comparativa oficial del INEGI no ofrece una correspondencia
-   directa, el equipo asignó la ocupación de la CIUO-08 cuyo contenido de
-   tareas resulta más cercano, y la ocupación heredó la puntuación media
-   estimada por Gmyrek et al. (2025) para esa análoga. Cada asignación quedó
-   documentada con su justificación en el repositorio del proyecto. El caso
-   de mayor población es el de las enfermeras y paramédicos profesionales,
-   que se asignaron a la ocupación 2221 de la CIUO-08 (profesionales de
-   enfermería).
-
-2. **Imputación modal jerárquica (40 ocupaciones).** Cuando tampoco existe
+2. **Imputación modal jerárquica (37 ocupaciones).** Cuando tampoco existe
    una análoga evaluada, la ocupación recibió la categoría más frecuente
    entre las ocupaciones ya clasificadas de su mismo subgrupo (tres
    dígitos), con respaldo en el grupo principal (dos dígitos) y en la
@@ -97,16 +154,17 @@ En julio de 2026 se incorporó al catálogo una clasificación provisional para
    ocupaciones clasificadas. En caso de empate entre categorías se adoptó la
    de menor exposición, como criterio conservador. La puntuación provisional
    corresponde al promedio de las ocupaciones del nivel utilizado o, cuando
-   ya existía, a la puntuación imputada jerárquicamente que se describió en
-   la sección de mapeo.
+   ya existía, a la puntuación imputada por promedio que se describió en la
+   sección de correspondencia.
 
 Las 10 ocupaciones restantes no admiten imputación y conservan la categoría
 "Sin información": seis corresponden a las fuerzas armadas, que el índice de
 Gmyrek et al. (2025) excluye porque el corpus de tareas de la OIT no cubre
 al gran grupo 0 de la CIUO-08; tres son códigos operativos de la ENOE que no
 describen ocupaciones de mercado; y una agrupa a las ocupaciones no
-especificadas. Tras esta actualización, la población ocupada sin
-clasificación se redujo a cerca de 122 mil personas (0.2% del total).
+especificadas. En el segundo trimestre de 2026 las clasificaciones
+provisionales cubren a 796 mil personas ocupadas (1.3% del total) y la
+población sin clasificación es de 123 mil personas (0.2%).
 
 Las clasificaciones provisionales se señalan de forma explícita en la
 aplicación: la etiqueta "(provisional)" acompaña a la categoría en las
@@ -114,11 +172,13 @@ ventanas emergentes y el texto descriptivo de cada ocupación explica el
 método con el que se estimó. Estas clasificaciones deben leerse como una
 aproximación al perfil de exposición del grupo ocupacional y no como una
 evaluación directa de las tareas específicas de cada ocupación en México.
-La incorporación de las clasificaciones provisionales modificó de forma
-marginal los agregados por gradiente, dado que la mayoría de estas
-ocupaciones cayó en las categorías de menor exposición: en el primer
-trimestre de 2026 la proporción de mujeres ocupadas en los gradientes de
-exposición significativa y máxima se mantuvo en 7.7%.
+Ni la incorporación de las clasificaciones provisionales (julio de 2026) ni
+la corrección de la correspondencia al SINCO 2019 (octubre de 2026)
+modificaron los agregados por gradiente: con el catálogo corregido cambian
+de categoría 14 ocupaciones con 143 mil personas ocupadas, y la proporción
+de mujeres ocupadas en los gradientes de exposición significativa y máxima
+se mantiene en 7.9% en el segundo trimestre de 2026 (2.9% entre los
+hombres).
 
 # Formación STEM
 
@@ -140,9 +200,15 @@ describir el gradiente de exposición a la IA en el que trabajan.
 
 Para la categoría de brecha tecnológica se utilizó la Encuesta Nacional
 sobre Disponibilidad y Uso de Tecnologías de la Información en los Hogares
-(ENDUTIH) 2024, realizada por el INEGI. De esta encuesta se retomaron
-indicadores de acceso a la tecnología y se emplearon indicadores de uso como
-aproximación para estimar las capacidades tecnológicas de la población.
+(ENDUTIH) del INEGI. Las series de personas usuarias de internet y de
+teléfono celular por sexo de 2022 a 2025 y el uso de aplicaciones por sexo
+provienen del reporte de resultados de la ENDUTIH 2025 (INEGI, 2026); el
+dato de 2021 proviene de la presentación de resultados de la ENDUTIH 2024.
+De esta encuesta se retomaron indicadores de acceso a la tecnología y se
+emplearon indicadores de uso como aproximación para estimar las capacidades
+tecnológicas de la población. La comparación con las economías de ingresos
+altos que hace la aplicación (34% del empleo en alguno de los cuatro
+gradientes de exposición) proviene de Gmyrek et al. (2025).
 
 Para la tabla de protección jurídica se consultaron diversas bases de datos
 de derecho internacional, provenientes de organismos como la Organización
@@ -151,28 +217,46 @@ Unidas para los Derechos Humanos, entre otros.
 
 # Herramientas técnicas y código
 
-El procesamiento de los microdatos de la ENOE se realiza en R con las
-librerías del tidyverse: el flujo lee las tablas SDEM y COE1 publicadas por
-el INEGI, las fusiona con la llave estándar de persona, aplica los filtros
-de entrevista completa y residencia habitual, y colapsa los indicadores por
-sexo y código SINCO. Este flujo sustituyó en julio de 2026 al procesamiento
-original en Stata y se validó contra él fila por fila con los datos del
-cuarto trimestre de 2025, con resultados idénticos. La aplicación muestra
-siempre el trimestre más reciente disponible (al cierre de esta nota, el
-segundo trimestre de 2026). Los scripts se adjuntan en el repositorio del
-proyecto, dentro de la carpeta `00_Códigos/Scripts_procesamiento_ENOE_R/`.
-Las visualizaciones y la aplicación web se desarrollaron en R, utilizando
-las librerías Shiny y Plotly.
+Todo el flujo se ejecuta en R con las librerías del tidyverse y está
+reunido en la carpeta `05_Reproduccion_R/` del repositorio, con un script
+por paso y uno que los encadena. Los pasos son: colapso de las puntuaciones
+de Gmyrek et al. (2025) a una fila por ocupación CIUO-08; lectura de la
+estructura del SINCO 2019 y de la tabla de equivalencia 2011-2019 desde los
+documentos del INEGI; reconstrucción de la tabla comparativa SINCO-CIUO-08 y
+su traslado a los códigos de 2019; catálogo con puntuaciones, categorías e
+imputación; descripciones y tareas por ocupación; traducción; procesamiento
+de la ENOE; clasificaciones provisionales; bloque STEM; y verificación
+contra los archivos anteriores.
+
+El procesamiento de los microdatos de la ENOE lee las tablas SDEM y COE1
+publicadas por el INEGI, las fusiona con la llave estándar de persona,
+aplica los filtros de entrevista completa y residencia habitual, y colapsa
+los indicadores por sexo y código SINCO. Este flujo sustituyó en julio de
+2026 al procesamiento original en Stata y se validó contra él fila por fila
+con los datos del cuarto trimestre de 2025, con resultados idénticos. La
+aplicación muestra siempre el trimestre más reciente disponible (al cierre
+de esta nota, el segundo trimestre de 2026). Las visualizaciones y la
+aplicación web se desarrollaron en R, utilizando las librerías Shiny y
+Plotly.
+
+Los textos que la aplicación muestra al seleccionar una ocupación (títulos
+de las ocupaciones CIUO-08, nombres de las tareas evaluadas y justificación
+de la tarea más expuesta) se tradujeron del inglés con el modelo Claude
+(Anthropic) por lotes, con revisión por muestreo del equipo; las
+traducciones quedan guardadas en el repositorio para que el flujo sea
+reproducible sin volver a llamar al modelo. La aplicación presenta esas
+tareas como una tabla con la puntuación de cada una, tomada directamente
+del archivo de Gmyrek et al. (2025).
 
 Para el control de versiones y la publicación del código se creó un
 repositorio de GitHub, disponible en:
 <https://github.com/JuveCampos/Monitor-de-exposicion-del-trabajo-de-las-mujeres-a-la-IA-2026>
 
 Se utilizaron herramientas de IA generativa como apoyo supervisado en tareas
-acotadas, particularmente en el mapeo ocupacional y en la documentación
-auxiliar del proceso. Estas herramientas no reemplazaron la validación
-humana, sino que sirvieron como apoyo metodológico para acelerar un proceso
-técnicamente intensivo dada la restricción de tiempo del evento.
+acotadas: la propuesta de ocupaciones análogas en el mapeo manual, la
+traducción descrita arriba y la documentación auxiliar del proceso. Estas
+herramientas no reemplazaron la validación humana, sino que sirvieron como
+apoyo metodológico para acelerar un proceso técnicamente intensivo.
 
 # Referencias
 
@@ -187,16 +271,27 @@ refined global index of occupational exposure* (ILO Working Paper 140).
 Organización Internacional del Trabajo.
 <https://doi.org/10.54394/HETP0387>
 
+Instituto Nacional de Estadística y Geografía. (2012). *Sistema Nacional de
+Clasificación de Ocupaciones (SINCO), 2011. Tablas comparativas.
+Actualización noviembre de 2012* [archivo de Excel]. INEGI.
+
 Instituto Nacional de Estadística y Geografía. (2019). *Sistema Nacional de
 Clasificación de Ocupaciones (SINCO) 2019*. INEGI.
+<https://www.snieg.mx/Documentos/Normatividad/Vigente/SINCO_2019.pdf>
 
-Instituto Nacional de Estadística y Geografía. (2025). *Encuesta Nacional
-de Ocupación y Empleo. Clasificaciones ENOE*. INEGI.
+Instituto Nacional de Estadística y Geografía. (2023). *Encuesta Nacional
+de Ocupación y Empleo. ENOE. Clasificaciones* (edición 2023). INEGI.
 <https://www.inegi.org.mx/contenidos/programas/enoe/15ymas/doc/clasificaciones_enoe_123.pdf>
 
 Instituto Nacional de Estadística y Geografía. (2025). *Encuesta Nacional
 sobre Disponibilidad y Uso de Tecnologías de la Información en los Hogares
-(ENDUTIH) 2024*. INEGI.
+(ENDUTIH) 2024. Presentación de resultados*. INEGI.
+<https://inegi.org.mx/contenidos/programas/endutih/2024/doc/presentacion_endutih2024.pdf>
+
+Instituto Nacional de Estadística y Geografía. (2026). *Encuesta Nacional
+sobre Disponibilidad y Uso de Tecnologías de la Información en los Hogares
+(ENDUTIH) 2025. Reporte de resultados 19/26*. INEGI.
+<https://www.inegi.org.mx/contenidos/saladeprensa/boletines/2026/endutih/ENDUTIH_25_RR.pdf>
 
 Instituto Nacional de Estadística y Geografía. (2026). *Encuesta Nacional
 de Ocupación y Empleo (ENOE), segundo trimestre de 2026. Microdatos*. INEGI.

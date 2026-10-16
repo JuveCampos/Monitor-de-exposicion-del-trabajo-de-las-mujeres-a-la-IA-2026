@@ -1,0 +1,491 @@
+sinco_2019,titulo_2019,sinco_2011,titulo_2011,tipo
+1111,Altas autoridades gubernamentales y jurisdiccio-,1111,Altas autoridades gubernamentales y jurisdic-,mismo_codigo
+1112,Legisladores,1112,Legisladores,mismo_codigo
+1113,Presidentes y autoridades municipales,1113,Presidentes y autoridades municipales,mismo_codigo
+1121,Presidentes y directores generales en institucio-,1121,Presidentes y directores generales en institu-,mismo_codigo
+1122,Presidentes y directores generales en institucio-,1122,Presidentes y directores generales en institu-,mismo_codigo
+1129,Otros presidentes y directores generales no clasi-,1129,"Otros presidentes y directores generales, no",mismo_codigo
+1131,Directores de organizaciones políticas,1131,Directores de organizaciones políticas,mismo_codigo
+1132,Directores de organizaciones sindicales,1132,Directores de organizaciones sindicales,mismo_codigo
+1133,Directores de organizaciones empresariales,1133,Directores de organizaciones empresariales,mismo_codigo
+1134,Directores de organizaciones agrarias,1134,Directores de organizaciones agrarias,mismo_codigo
+1135,Directores de organizaciones civiles y religiosas,1135,Directores de organizaciones civiles y religiosas,mismo_codigo
+1211,"Directores y gerentes en administración, recursos",1211,"Directores y gerentes en administración, recur-",mismo_codigo
+1212,"Directores y gerentes en servicios contables, fi-",1212,"Directores y gerentes en servicios contables,",mismo_codigo
+1221,"Directores y gerentes en servicios de salud, pro-",1221,"Directores y gerentes en servicios de salud,",mismo_codigo
+1222,Directores y gerentes en desarrollo social,1222,Directores y gerentes en desarrollo social,mismo_codigo
+1223,Directores y gerentes en centros de enseñanza y,1223,Directores y gerentes en centros de enseñan-,mismo_codigo
+1224,"Jueces de juzgado, directores y gerentes en ser-",1224,"Jueces de juzgado, directores y gerentes en",mismo_codigo
+1225,"Comandantes de la Armada, Ejército y Fuerza",1225,"Comandantes de la Armada, Ejército y Fuerza",mismo_codigo
+1226,Directores en servicios de vigilancia,1226,Directores en servicios de vigilancia,mismo_codigo
+1311,Directores y gerentes en producción agropecua-,1311,Directores y gerentes en producción agrope-,mismo_codigo
+1312,"Directores y gerentes en producción minera, pe-",1312,"Directores y gerentes en producción minera,",mismo_codigo
+1313,Directores y gerentes en generación y provisión,1313,Directores y gerentes en generación y provi-,mismo_codigo
+1314,Directores y gerentes en producción manufacture-,1314,Directores y gerentes en producción manufac-,mismo_codigo
+1315,"Directores y gerentes en construcción, reparación",1315,"Directores y gerentes en construcción, repara-",mismo_codigo
+1319,Otros directores y gerentes de área en produc-,,,nuevo_en_2019
+1321,Directores y gerentes en informática,1321,Directores y gerentes en informática,mismo_codigo
+1322,Directores y gerentes en comunicación y teleco-,1322,Directores y gerentes en comunicación y tele-,mismo_codigo
+1323,Directores y gerentes en servicios de transporte,1323,Directores y gerentes en servicios de,mismo_codigo
+1324,Directores y gerentes en centros de investigación,1324,Directores y gerentes en centros de investiga-,mismo_codigo
+1329,"Otros directores y gerentes en informática, teleco-",,,nuevo_en_2019
+1411,"Directores y gerentes de ventas, comercializa-",1411,"Directores y gerentes de ventas, comercializa-",mismo_codigo
+1412,Directores y gerentes de restaurantes y hoteles,1412,Directores y gerentes de restaurantes,mismo_codigo
+1421,"Directores y productores artísticos de cine, teatro",1421,"Directores y productores artísticos de cine,",mismo_codigo
+1422,"Directores y gerentes de museos, cines y otros",1422,"Directores y gerentes de museos, cines y otros",mismo_codigo
+1423,Directores y gerentes en servicios funerarios,1423,Directores y gerentes en servicios funerarios y,mismo_codigo
+1511,"Coordinadores y jefes de área en administración,",1511,Coordinadores y jefes de área en administra-,mismo_codigo
+1512,Coordinadores y jefes de área en servicios conta-,1512,Coordinadores y jefes de área en servicios,mismo_codigo
+1521,Coordinadores y jefes de área en servicios de sa-,1521,Coordinadores y jefes de área en servicios de,mismo_codigo
+1522,Coordinadores y jefes de área en desarrollo,1522,Coordinadores y jefes de área en desarrollo,mismo_codigo
+1523,Coordinadores y jefes de área en centros de en-,1523,Coordinadores y jefes de área en centros,mismo_codigo
+1524,Coordinadores y jefes de área en servicios lega-,1524,Coordinadores y jefes de área en servicios le-,mismo_codigo
+1525,"Capitanes, tenientes coroneles y jefes de área de",1525,"Capitanes, tenientes y jefes de área de las",mismo_codigo
+1526,Coordinadores y jefes de área en servicios de vi-,1526,Coordinadores y jefes de área en servicios de,mismo_codigo
+1611,Coordinadores y jefes de área en producción,1611,Coordinadores y jefes de área en producción,mismo_codigo
+1612,Coordinadores y jefes de área en producción mi-,1612,Coordinadores y jefes de área en producción,mismo_codigo
+1613,Coordinadores y jefes de área en generación y,1613,Coordinadores y jefes de área en generación y,mismo_codigo
+1614,Coordinadores y jefes de área en producción ma-,1614,Coordinadores y jefes de área en producción,mismo_codigo
+1615,"Coordinadores y jefes de área en construcción,",1615,Coordinadores y jefes de área en construc-,mismo_codigo
+1619,Otros coordinadores y jefes de área en produc-,1619,Otros coordinadores y jefes de área en pro-,mismo_codigo
+1621,Coordinadores y jefes de área en informática,1621,Coordinadores y jefes de área en informática,mismo_codigo
+1622,Coordinadores y jefes de área en comunicación y,1622,Coordinadores y jefes de área en comunica-,mismo_codigo
+1623,Coordinadores y jefes de área en servicios de,1623,Coordinadores y jefes de área en servicios,mismo_codigo
+1624,Coordinadores y jefes de área en centros de in-,1624,Coordinadores y jefes de área en centros,mismo_codigo
+1629,Otros coordinadores y jefes de área en informá-,1629,Otros coordinadores y jefes de área en,mismo_codigo
+1711,"Coordinadores y jefes de área de ventas, comer-",1711,"Coordinadores y jefes de área de ventas,",mismo_codigo
+1712,Coordinadores y jefes de área de restaurantes y,1712,Coordinadores y jefes de área de restaurantes,mismo_codigo
+1721,Coordinadores y jefes de área en actividades ar-,1721,Coordinadores y jefes de área en actividades,mismo_codigo
+1722,"Coordinadores y jefes de área en museos, cines,",1722,"Coordinadores y jefes de área en museos, ci-",mismo_codigo
+1723,Coordinadores y jefes de área en servicios fune-,1723,Coordinadores y jefes de área en servicios fu-,mismo_codigo
+1999,"Otros directores, funcionarios, gerentes, coordi-",1999,"Otros directores, funcionarios, gerentes, coor-",mismo_codigo
+2111,Administradores y profesionistas en recursos hu-,2111,Administradores y especialistas en recursos,mismo_codigo
+2112,"Profesionistas y consultores en mercadotecnia,",2112,"Especialistas y consultores en mercadotecnia,",mismo_codigo
+2113,Profesionistas en hotelería y turismo,2113,Especialistas en hotelería y turismo,mismo_codigo
+2121,Contadores y auditores,2121,Contadores y auditores,mismo_codigo
+2122,Asesores y analistas en finanzas,2122,Asesores y analistas en finanzas,mismo_codigo
+2131,"Antropólogos, arqueólogos e historiadores",2131,"Antropólogos, arqueólogos e historiadores",mismo_codigo
+2132,Investigadores y profesionistas en sociología y,2132,Investigadores y especialistas en sociología,mismo_codigo
+2133,Investigadores y profesionistas en ciencias polí-,2133,Investigadores y especialistas en ciencias po-,mismo_codigo
+2134,Geógrafos,2134,Geógrafos,mismo_codigo
+2135,Abogados,2135,Abogados,mismo_codigo
+2136,"Economistas, consultores e investigadores en",2123,"Economistas, consultores e investigadores en",renumerado
+2141,Investigadores y profesionistas en filosofía y le-,2141,Investigadores y especialistas en filosofía y le-,mismo_codigo
+2142,Psicólogos,2142,Psicólogos,mismo_codigo
+2143,Profesionistas en trabajo social,2143,Especialistas en trabajo social,mismo_codigo
+2144,"Profesionistas en archivonomía, biblioteconomía",2144,"Especialistas en archivonomía, bibliotecono-",mismo_codigo
+2145,"Sacerdotes, pastores y otros teólogos",2145,"Sacerdotes, pastores y otros teólogos",mismo_codigo
+2151,Escritores y críticos literarios,2151,Escritores y críticos literarios,mismo_codigo
+2152,Periodistas y redactores,2152,Periodistas y redactores,mismo_codigo
+2153,Traductores e intérpretes,2153,Traductores e intérpretes,mismo_codigo
+2161,Pintores,2161,Pintores,mismo_codigo
+2162,"Dibujantes y diseñadores artísticos, ilustradores",2162,"Dibujantes y diseñadores artísticos, ilustrado-",mismo_codigo
+2163,Escultores,2163,Escultores,mismo_codigo
+2164,Escenógrafos,2164,Escenógrafos,mismo_codigo
+2171,Compositores y arreglistas,2171,Compositores y arreglistas,mismo_codigo
+2172,Músicos,2172,Músicos,mismo_codigo
+2173,Cantantes,2173,Cantantes,mismo_codigo
+2174,Bailarines y coreógrafos,2174,Bailarines y coreógrafos,mismo_codigo
+2175,Actores,2175,Actores,mismo_codigo
+2211,Investigadores y profesionistas en física y astro-,2211,Investigadores y especialistas en física,mismo_codigo
+2212,"Investigadores y profesionistas en matemáticas,",2212,Investigadores y especialistas en matemáti-,mismo_codigo
+2221,Biólogos y profesionistas en ciencias del mar y,2221,Biólogos y especialistas en ciencias del mar y,mismo_codigo
+2222,Químicos,2222,Químicos,mismo_codigo
+2223,Ecólogos y profesionistas en ciencias atmosféricas,2223,Ecólogos y especialistas en ciencias atmosféricas,mismo_codigo
+2231,Agrónomos,2231,Agrónomos,mismo_codigo
+2232,Veterinarios y zootecnistas,2232,Veterinarios y zootecnistas,mismo_codigo
+2233,"Profesionistas en forestación, silvicultura y similares",2233,Especialistas en forestación,mismo_codigo
+2234,Profesionistas en pesca y en acuacultura,2234,Especialistas en pesca y en acuacultura,mismo_codigo
+2241,Ingenieros eléctricos,2241,Ingenieros eléctricos,mismo_codigo
+2242,Ingenieros electrónicos,2242,Ingenieros electrónicos,mismo_codigo
+2251,Ingenieros químicos,2251,Ingenieros químicos,mismo_codigo
+2252,Ingenieros mecánicos,2252,Ingenieros mecánicos,mismo_codigo
+2253,Ingenieros industriales,2253,Ingenieros industriales,mismo_codigo
+2254,"Ingenieros en minas, metalurgia y petróleo",2254,"Ingenieros en minas, metalurgia y petróleo",mismo_codigo
+2261,Ingenieros civiles y de la construcción,2261,Ingenieros civiles y de la construcción,mismo_codigo
+2262,"Ingenieros en topografía, hidrología, geología y",2262,"Ingenieros en topografía, hidrología, geología",mismo_codigo
+2263,"Arquitectos, planificadores urbanos y del trans-",2263,"Arquitectos, planificadores urbanos y del",mismo_codigo
+2271,Desarrolladores y analistas de software y multi-,2271,Desarrolladores y analistas de software y mul-,mismo_codigo
+2272,Administradores de bases de datos y redes de,2272,Administradores de bases de datos y redes de,mismo_codigo
+2281,Ingenieros en comunicaciones y telecomunica-,2281,Ingenieros en comunicaciones y telecomuni-,mismo_codigo
+2311,Supervisores e inspectores educativos,2311,Supervisores e inspectores educativos,mismo_codigo
+2312,"Pedagogos, orientadores educativos y otros es-",2312,"Pedagogos, orientadores educativos y otros",mismo_codigo
+2321,Profesores universitarios y de enseñanza,2321,Profesores universitarios y de enseñanza,mismo_codigo
+2322,Profesores de preparatoria y equivalentes,2322,Profesores de preparatoria y equivalentes,mismo_codigo
+2331,Profesores de enseñanza secundaria,2331,Profesores de enseñanza secundaria,mismo_codigo
+2332,Profesores de enseñanza primaria,2332,Profesores de enseñanza primaria,mismo_codigo
+2333,Alfabetizadores,2333,Alfabetizadores,mismo_codigo
+2334,Profesores de enseñanza bilingüe (indígena),2334,Profesores de enseñanza bilingüe (indígena),mismo_codigo
+2335,Profesores de enseñanza preescolar,2335,Profesores de enseñanza preescolar,mismo_codigo
+2339,"Otros profesores de nivel básico, no clasificados",2339,"Otros profesores de nivel básico, no clasifica-",mismo_codigo
+2341,Profesores de personas con problemas de audi-,2341,Profesores de personas con problemas,mismo_codigo
+2342,Profesores de personas con problemas de apren-,2342,Profesores de personas con problemas,mismo_codigo
+2343,Otros profesores de enseñanza especial,2343,Otros profesores de enseñanza especial,mismo_codigo
+2399,"Otros profesores y especialistas en docencia, no",2391,"Otros profesores y especialistas en docencia,",renumerado
+2411,Médicos generales y familiares,2411,Médicos generales y familiares,mismo_codigo
+2412,Dentistas,2413,Dentistas,renumerado
+2421,Anestesiólogos,2412,Médicos especialistas,renumerado
+2422,Cirujanos,,,nuevo_en_2019
+2423,Ginecólogos y obstetras,,,nuevo_en_2019
+2424,Médicos internos,,,nuevo_en_2019
+2425,Patólogos,,,nuevo_en_2019
+2426,Pediatras,,,nuevo_en_2019
+2427,Psiquiatras,,,nuevo_en_2019
+2428,Radiólogos,,,nuevo_en_2019
+2429,Otros médicos especialistas,2412,Médicos especialistas,renumerado
+2431,Ingenieros biomédicos,2421,Ingenieros biomédicos,renumerado
+2432,Optometristas,2422,Optometristas,renumerado
+2433,Nutriólogos,2423,Nutriólogos,renumerado
+2434,Profesionistas en seguridad e higiene y salud pú-,2424,Especialistas en seguridad e higiene y salud,renumerado
+2435,Profesionistas en medicina tradicional,2425,Especialistas en medicina tradicional,renumerado
+2436,Enfermeras y paramédicos profesionales,2426,Enfermeras especialistas,renumerado
+2437,Fisioterapeutas y logopedas,2427,"Fisioterapeutas, audiólogos y logopedas",renumerado
+2438,Farmacólogos,2428,Farmacólogos,renumerado
+2511,"Auxiliares en administración, mercadotecnia, co-",2511,"Auxiliares en administración, mercadotecnia,",mismo_codigo
+2512,"Auxiliares en contabilidad, finanzas y agentes",2512,"Auxiliares en contabilidad, economía, finanzas",mismo_codigo
+2513,Tramitadores aduanales,2513,Tramitadores aduanales,mismo_codigo
+2514,"Valuadores, subastadores y rematadores",2514,"Valuadores, subastadores y rematadores",mismo_codigo
+2521,Oficiales del ministerio público y detectives,2521,Oficiales del ministerio público y detectives,mismo_codigo
+2522,Agentes aduanales y fronterizos,2522,Agentes aduanales y fronterizos,mismo_codigo
+2523,Agentes de recaudación tributaria y de expedición,2523,Agentes de recaudación tributaria y de licencias,mismo_codigo
+2524,"Inspectores en seguridad social, de precios",2524,"Inspectores en seguridad social, de precios",mismo_codigo
+2531,Auxiliares en ciencias sociales y humanistas,2531,Auxiliares en ciencias sociales y humanistas,mismo_codigo
+2532,Auxiliares en servicios jurídicos,2532,Auxiliares en servicios jurídicos,mismo_codigo
+2533,Monjas y predicadores,2533,Monjas y predicadores,mismo_codigo
+2541,Diseñadores de moda y vestuario,2541,Diseñadores de moda y vestuario,mismo_codigo
+2542,Diseñadores industriales,2542,Diseñadores industriales,mismo_codigo
+2543,Diseñadores gráficos,2543,Diseñadores gráficos,mismo_codigo
+2544,"Decoradores de interiores, jardines y diversos",2544,"Decoradores de interiores, jardines y diversos",mismo_codigo
+2551,"Locutores de radio, televisión y otros medios de",2551,"Locutores de radio, televisión y otros medios",mismo_codigo
+2552,Animadores y organizadores de eventos,2552,Animadores y organizadores de eventos,mismo_codigo
+2553,"Payasos, mimos y cirqueros",2553,"Payasos, mimos y cirqueros",mismo_codigo
+2561,Deportistas,2561,Deportistas,mismo_codigo
+2562,Entrenadores deportivos y directores técnicos,2562,Entrenadores deportivos y directores técnicos,mismo_codigo
+2563,Árbitros y jueces deportivos,2563,Árbitros y jueces deportivos,mismo_codigo
+2611,"Auxiliares y técnicos en física, astronomía, mate-",2611,"Auxiliares y técnicos en física, matemáticas,",mismo_codigo
+2612,"Auxiliares y técnicos en ciencias biológicas, quí-",2612,"Auxiliares y técnicos en ciencias biológicas,",mismo_codigo
+2613,Auxiliares y técnicos en agronomía,2613,Auxiliares y técnicos en agronomía,mismo_codigo
+2614,"Auxiliares y técnicos en veterinaria, pesca",2614,"Auxiliares y técnicos en veterinaria, pesca",mismo_codigo
+2621,Auxiliares y técnicos industriales y químicos,2621,Auxiliares y técnicos industriales y químicos,mismo_codigo
+2622,"Auxiliares y técnicos topógrafos, en hidrología y",2622,"Auxiliares y técnicos topógrafos, en hidrología",mismo_codigo
+2623,"Auxiliares y técnicos mineros, metalúrgicos y pe-",2623,"Auxiliares y técnicos mineros, metalúrgicos",mismo_codigo
+2624,"Auxiliares y técnicos en ingeniería civil, en cons-",2624,Auxiliares y técnicos en construcción y arqui-,mismo_codigo
+2625,Dibujantes técnicos,2625,Dibujantes técnicos,mismo_codigo
+2630,Supervisores de mecánicos y técnicos en man-,2630,Supervisores de mecánicos y técnicos en,mismo_codigo
+2631,Técnicos en mantenimiento y reparación de vehí-,2631,Técnicos en mantenimiento y reparación,mismo_codigo
+2632,Mecánicos en mantenimiento y reparación de ve-,2632,Mecánicos en mantenimiento y reparación,mismo_codigo
+2633,Técnicos en mantenimiento y reparación de ma-,2633,Técnicos en mantenimiento y reparación,mismo_codigo
+2634,Mecánicos en mantenimiento y reparación de,2634,Mecánicos en mantenimiento y reparación,mismo_codigo
+2635,Técnicos en mantenimiento y reparación de ins-,2635,Técnicos en mantenimiento y reparación,mismo_codigo
+2636,Mecánicos en mantenimiento y reparación de ins-,2636,Mecánicos en mantenimiento y reparación,mismo_codigo
+2637,"Técnicos en la instalación, reparación y manteni-",2637,"Técnicos en la instalación, reparación y man-",mismo_codigo
+2638,"Mecánicos en instalación, mantenimiento y repa-",2638,"Mecánicos en instalación, mantenimiento y re-",mismo_codigo
+2639,Otras ocupaciones de mecánicos y técnicos en el,2639,Otras ocupaciones de mecánicos y técnicos,mismo_codigo
+2640,"Supervisores de técnicos eléctricos, en electróni-",2640,"Supervisores de técnicos eléctricos, en elec-",mismo_codigo
+2641,Técnicos eléctricos,2641,Técnicos eléctricos,mismo_codigo
+2642,Electricistas y linieros,2642,Electricistas y linieros,mismo_codigo
+2643,Técnicos en instalación y reparación de equipos,2643,Técnicos en instalación y reparación de equi-,mismo_codigo
+2644,Trabajadores en instalación y reparación de equi-,2644,Trabajadores en instalación y reparación de equi-,mismo_codigo
+2645,Técnicos en reparación de equipos electromecá-,2645,Técnicos en reparación de equipos electrome-,mismo_codigo
+2646,Trabajadores en reparación de equipos electro-,2646,Trabajadores en reparación de equipos elec-,mismo_codigo
+2649,"Otros técnicos eléctricos, en electrónica y de",2649,"Otros técnicos eléctricos, en electrónica y de",mismo_codigo
+2651,"Técnicos en la instalación y reparación de redes,",2651,Técnicos en la instalación y reparación de re-,mismo_codigo
+2652,Técnicos en operaciones de equipos de radio,2652,Técnicos en operaciones de equipos de radio,mismo_codigo
+2653,Auxiliares y técnicos de equipos de grabación y,2653,Auxiliares y técnicos de equipos de grabación,mismo_codigo
+2654,"Auxiliares y técnicos de ingeniería de audio, soni-",2654,"Auxiliares y técnicos de ingeniería de audio,",mismo_codigo
+2655,Fotógrafos,2655,Fotógrafos,mismo_codigo
+2661,Controladores de tráfico aéreo,2661,Controladores de tráfico aéreo,mismo_codigo
+2662,Controladores de tráfico de otros transportes (te-,2662,Controladores de tráfico de otros transportes,mismo_codigo
+2711,Auxiliares y técnicos en pedagogía y en educación,2711,Auxiliares y técnicos en pedagogía y en,mismo_codigo
+2712,Instructores en estudios y capacitación artística,2712,Instructores en estudios y capacitación artística,mismo_codigo
+2713,Instructores en estudios y capacitación comercial,2713,Instructores en estudios y capacitación comer-,mismo_codigo
+2714,Instructores en idiomas extranjeros,2714,Instructores en idiomas extranjeros,mismo_codigo
+2715,,2715,,mismo_codigo
+2716,Instructores en educación física y deporte,2716,Profesores en educación física y deporte,mismo_codigo
+2811,Enfermeras (técnicas),2811,Enfermeras (técnicas),mismo_codigo
+2812,,2812,,mismo_codigo
+2813,Técnicos de laboratorios médicos,2813,Técnicos de laboratorios médicos,mismo_codigo
+2814,Técnicos y asistentes farmacéuticos,2814,Técnicos y asistentes farmacéuticos,mismo_codigo
+2815,Técnicos de prótesis médicas y dentales,2815,Técnicos de prótesis médicas y dentales,mismo_codigo
+2816,Técnicos dietistas y nutriólogos,2816,Técnicos dietistas y nutriólogos,mismo_codigo
+2817,Técnicos en medicina alternativa,2817,Técnicos en medicina alternativa,mismo_codigo
+2821,Auxiliares en enfermería y paramédicos,2821,Auxiliares en enfermería y paramédicos,mismo_codigo
+2822,Auxiliares y asistentes dentales,2822,Auxiliares y asistentes dentales,mismo_codigo
+2823,Auxiliares hospitalarios y de medicina,2823,Auxiliares hospitalarios y de medicina,mismo_codigo
+2824,Parteras,2824,Parteras,mismo_codigo
+2825,Técnicos en seguridad en el trabajo e higiene,2825,Técnicos en seguridad en el trabajo e higiene,mismo_codigo
+2826,"Curanderos, hierberos y hueseros",2826,"Curanderos, hierberos y hueseros",mismo_codigo
+2827,Fumigadores y controladores de plagas,2827,Fumigadores y controladores de plagas,mismo_codigo
+2991,Otros profesionistas no clasificados anteriormente,2991,Otros especialistas no clasificados anterior-,mismo_codigo
+2992,Otros técnicos no clasificados anteriormente,2992,Otros técnicos no clasificados anteriormente,mismo_codigo
+3101,"Supervisores de secretarias, capturistas, cajeros",3101,"Supervisores de secretarias, capturistas, ca-",mismo_codigo
+3111,Secretarias,3111,Secretarias,mismo_codigo
+3112,"Taquígrafos, mecanógrafos y similares",3112,"Taquígrafos, mecanógrafos y similares",mismo_codigo
+3113,Capturistas de datos,3113,Capturistas de datos,mismo_codigo
+3114,Operadores de máquinas de oficina,3114,Operadores de máquinas de oficina (fotoco-,mismo_codigo
+3115,Trabajadores de apoyo en actividades adminis-,3115,Trabajadores de apoyo en actividades admi-,mismo_codigo
+3121,"Cajeros, taquilleros, receptores de apuestas y si-",3121,"Cajeros, taquilleros y receptores de apuestas",mismo_codigo
+3122,"Cobradores, pagadores y prestamistas",3122,"Cobradores, pagadores y prestamistas",mismo_codigo
+3131,Trabajadores en archivo y correspondencia,3131,Trabajadores en archivo y correspondencia,mismo_codigo
+3132,Trabajadores en control de almacén y bodega,3132,Encargados y trabajadores en control de alma-,mismo_codigo
+3141,Despachadores de transporte,3141,Despachadores de transporte,mismo_codigo
+3142,Checadores y revisores de transporte,3142,Checadores y revisores de transporte,mismo_codigo
+3201,Supervisores de trabajadores que brindan y ma-,3201,Supervisores de trabajadores que brindan y,mismo_codigo
+3211,Recepcionistas y trabajadores que brindan infor-,3211,Recepcionistas y trabajadores que brindan in-,mismo_codigo
+3212,Trabajadores que brindan información por teléfo-,3212,Trabajadores que brindan información por te-,mismo_codigo
+3213,Telefonistas y telegrafistas,3213,Telefonistas y telegrafistas,mismo_codigo
+3221,Trabajadores en agencias de viajes,3221,Trabajadores en agencias de viajes,mismo_codigo
+3222,"Guías de turismo en museos, casinos, parques,",3222,"Guías de turismo en museos, casinos, par-",mismo_codigo
+3231,Encuestadores,3231,Encuestadores,mismo_codigo
+3232,Codificadores de información,3232,Codificadores de información,mismo_codigo
+3999,Otros trabajadores auxiliares en actividades admi-,3999,"Otras secretarias, capturistas, cajeros y traba-",mismo_codigo
+4111,Comerciantes en establecimientos,4111,Comerciantes en establecimientos,mismo_codigo
+4201,Encargados y supervisores de ventas de produc-,4201,Encargados y supervisores de ventas de pro-,mismo_codigo
+4211,"Empleados de ventas, despachadores y depen-",4211,"Empleados de ventas, despachadores y de-",mismo_codigo
+4212,"Anaqueleros, acomodadores y seleccionadores",4212,"Anaqueleros, acomodadores y seleccionado-",mismo_codigo
+4213,Vendedores por teléfono,4213,Vendedores por teléfono,mismo_codigo
+4214,Choferes vendedores,4214,Choferes vendedores,mismo_codigo
+4221,Agentes y representantes de ventas y consigna-,4221,Agentes y representantes de ventas y consig-,mismo_codigo
+4222,Agentes de seguros y servicios financieros (eje-,4222,Agentes de seguros y servicios financieros,mismo_codigo
+4223,Agentes de bienes raíces,4223,Agentes de bienes raíces,mismo_codigo
+4224,Vendedores por catálogo,4224,Vendedores por catálogo,mismo_codigo
+4231,Demostradores y promotores,4231,Demostradores y promotores,mismo_codigo
+4232,Edecanes,4232,Edecanes,mismo_codigo
+4233,"Modelos de moda, arte y publicidad",4233,"Modelos de moda, arte y publicidad",mismo_codigo
+4301,Supervisores en servicios de alquiler,4201,Encargados y supervisores de ventas de pro-,renumerado
+4311,Trabajadores en servicios de alquiler inmobiliario,4311,"Trabajadores en el alquiler inmobiliario (casas,",mismo_codigo
+4312,Trabajadores en servicios de alquiler de bienes,4312,Trabajadores en el alquiler de bienes muebles,mismo_codigo
+4999,"Otros comerciantes, empleados en ventas",4999,"Otros comerciantes, empleados en ventas",mismo_codigo
+5101,Supervisores en la preparación y servicio de ali-,5101,Supervisores en la preparación y servicio,mismo_codigo
+5111,Cocineros,5111,Cocineros,mismo_codigo
+5112,"Fonderos, vendedores y comerciantes de comida",5112,"Fonderos, vendedores y comerciantes de co-",mismo_codigo
+5113,Cocineros domésticos,5113,Cocineros domésticos,mismo_codigo
+5114,"Taqueros y preparadores de comida rápida, anto-",5114,"Taqueros y preparadores de comida rápida, an-",mismo_codigo
+5115,Cantineros,5115,Cantineros,mismo_codigo
+5116,Meseros,5116,Meseros,mismo_codigo
+5119,Otros trabajadores en la preparación y servicio de,,,nuevo_en_2019
+5201,Supervisores y encargados de trabajadores en,5201,Supervisores y encargados de trabajadores en,mismo_codigo
+5211,"Peluqueros, barberos, estilistas y peinadores",5211,"Peluqueros, barberos, estilistas y peinadores",mismo_codigo
+5212,"Maquillistas, manicuristas, pedicuristas y tatua-",5212,"Maquillistas, manicuristas, pedicuristas y ta-",mismo_codigo
+5213,Bañeros y masajistas,5213,Bañeros y masajistas,mismo_codigo
+5221,"Cuidadores de niños, personas con discapacidad",5221,"Cuidadores de niños, personas con discapaci-",mismo_codigo
+5222,"Cuidadores de niños, personas con discapacidad",5222,"Cuidadores de niños, personas con discapaci-",mismo_codigo
+5231,Azafatas y sobrecargos,5231,Azafatas y sobrecargos,mismo_codigo
+5241,Jardineros en establecimientos,5241,Jardineros en establecimientos,mismo_codigo
+5242,Jardineros en casas particulares,5242,Jardineros en casas particulares,mismo_codigo
+5251,"Astrólogos, adivinadores y afines",5251,"Astrólogos, adivinadores y afines",mismo_codigo
+5252,Trabajadoras y trabajadores sexuales,5252,Trabajadores dedicados a la prostitución,mismo_codigo
+5253,Trabajadores en servicios funerarios,5253,Trabajadores en servicios funerarios,mismo_codigo
+5254,Entrenadores de animales y ocupaciones,5254,Entrenadores de animales y ocupaciones,mismo_codigo
+5299,Otros trabajadores en servicios personales no,,,nuevo_en_2019
+5301,Supervisores en servicios de protección y vigilan-,5301,Supervisores en servicios de protección,mismo_codigo
+5311,Bomberos,5311,Bomberos,mismo_codigo
+5312,Policías y agentes de tránsito,5312,Policías y agentes de tránsito,mismo_codigo
+5313,Vigilantes y guardias en establecimientos,5313,Vigilantes y guardias en establecimientos,mismo_codigo
+5314,Vigilantes y porteros en casas particulares,5314,Vigilantes y porteros en casas particulares,mismo_codigo
+5319,Otros trabajadores en servicios de protección,,,nuevo_en_2019
+5401,"Supervisores de la Armada, Ejército y Fuerza Aé-",5401,Supervisores de las fuerzas armadas,mismo_codigo
+5411,Trabajadores de la Fuerza Aérea,5411,Trabajadores de la fuerza armada aérea,mismo_codigo
+5412,Trabajadores de la Armada,5412,Trabajadores de la fuerza armada marítima,mismo_codigo
+5413,Trabajadores del Ejército,5413,Trabajadores de la fuerza armada terrestre,mismo_codigo
+5419,"Otros trabajadores de la Armada, Ejército y Fuer-",,,nuevo_en_2019
+6101,"Supervisores, encargados y capataces agrope-",6101,"Supervisores, encargados y capataces agro-",mismo_codigo
+6111,Trabajadores en el cultivo de maíz y/o frijol,6111,Trabajadores en el cultivo de maíz y/o frijol,mismo_codigo
+6112,Trabajadores en el cultivo de hortalizas y verduras,6112,Trabajadores en el cultivo de hortalizas,mismo_codigo
+6113,"Trabajadores en el cultivo de café, cacao y tabaco",6113,"Trabajadores en el cultivo de café, cacao",mismo_codigo
+6114,Trabajadores en el cultivo de frutales,6114,Trabajadores en el cultivo de frutales,mismo_codigo
+6115,Trabajadores en el cultivo de flores,6115,Trabajadores en el cultivo de flores,mismo_codigo
+6116,Trabajadores en otros cultivos agrícolas,6116,Trabajadores en otros cultivos agrícolas,mismo_codigo
+6117,Trabajadores en actividades de beneficio de pro-,6117,Trabajadores en actividades de beneficio,mismo_codigo
+6119,"Otros trabajadores en actividades agrícolas, no",6119,"Otros trabajadores en actividades agrícolas,",mismo_codigo
+6121,Trabajadores en la cría de ganado bovino,6121,Trabajadores en la cría de ganado bovino,mismo_codigo
+6122,Trabajadores en la cría de porcinos,6122,Trabajadores en la cría de porcinos,mismo_codigo
+6123,Trabajadores en la cría avícola,6123,Trabajadores en la cría avícola,mismo_codigo
+6124,Trabajadores en la cría de caprinos y ovinos,6124,Trabajadores en la cría de caprinos y ovinos,mismo_codigo
+6125,Trabajadores en la cría de equinos,6125,Trabajadores en la cría de equinos,mismo_codigo
+6126,Trabajadores en la apicultura,6126,Trabajadores en la apicultura,mismo_codigo
+6127,Trabajadores en la cría y cuidado de otro tipo de,6127,Trabajadores en la cría y cuidado de otro tipo,mismo_codigo
+6128,Trabajadores en actividades de beneficio de pro-,6128,Trabajadores en actividades de beneficio de,mismo_codigo
+6129,Otros trabajadores en actividades ganaderas y en,6129,Otros trabajadores en actividades ganaderas,mismo_codigo
+6131,Trabajadores que combinan actividades agríco-,6131,Trabajadores que combinan actividades agrí-,mismo_codigo
+6201,"Supervisores, encargados y capataces de traba-",6201,"Supervisores, encargados y capataces de tra-",mismo_codigo
+6211,Trabajadores en actividades pesqueras,6211,Trabajadores en actividades pesqueras,mismo_codigo
+6212,Trabajadores en actividades de acuacultura,6212,Trabajadores en actividades de acuacultura,mismo_codigo
+6213,Trabajadores en actividades de beneficio de pro-,6213,Trabajadores en actividades de beneficio,mismo_codigo
+6221,"Taladores, trocadores, cortadores de árboles",6221,"Taladores, trocadores, cortadores de árboles y",mismo_codigo
+6222,"Caucheros, chicleros, resineros y similares",6222,"Caucheros, chicleros, resineros y similares",mismo_codigo
+6223,Trabajadores en viveros e invernaderos,6223,Trabajadores en viveros e invernaderos,mismo_codigo
+6224,"Trabajadores en actividades de plantación, refo-",6224,"Trabajadores en actividades de plantación, re-",mismo_codigo
+6225,Cortadores de leña,6225,Cortadores de leña,mismo_codigo
+6226,Trabajadores en actividades de recolección de,6226,Trabajadores en actividades de recolección de,mismo_codigo
+6227,Productores de carbón vegetal,6227,Productores de carbón vegetal,mismo_codigo
+6231,"Trabajadores en actividades de caza, trampería",6231,"Trabajadores en actividades de caza, trampe-",mismo_codigo
+6311,Operadores de maquinaria agropecuaria y forestal,6311,Operadores de maquinaria agropecuaria,mismo_codigo
+6999,"Otros trabajadores en actividades agrícolas, ga-",6999,"Otros trabajadores en actividades agrícolas,",mismo_codigo
+7101,"Supervisores de trabajadores en la extracción, al-",7101,"Supervisores de trabajadores en la extracción,",mismo_codigo
+7111,Mineros y trabajadores en la extracción en minas,7111,Mineros y trabajadores en la extracción en mi-,mismo_codigo
+7112,"Trabajadores en la extracción de cantera, arcilla,",7112,"Trabajadores en la extracción de cantera, arci-",mismo_codigo
+7113,Dinamiteros y buzos en perforación de pozos y,7113,Dinamiteros y buzos en perforación de pozos y,mismo_codigo
+7121,"Albañiles, mamposteros y afines",7121,"Albañiles, mamposteros y afines",mismo_codigo
+7122,"Techadores (colocadores de palapas, etcétera)",7122,"Techadores (colocadores de palapas, etcétera)",mismo_codigo
+7123,Carpinteros de obra negra,7123,Carpinteros de obra negra,mismo_codigo
+7131,"Yeseros, escayolistas y otros recubridores de te-",7131,"Yeseros, escayolistas y otros recubridores",mismo_codigo
+7132,"Instaladores de pisos, azulejos, mosaicos",7132,"Instaladores de pisos, azulejos, mosaicos",mismo_codigo
+7133,"Instaladores de material aislante, de impermeabi-",7133,"Instaladores de material aislante, de imper-",mismo_codigo
+7134,"Plomeros, fontaneros e instaladores de tubería",7134,"Plomeros, fontaneros e instaladores de tubería",mismo_codigo
+7135,Pintores de brocha gorda,7135,Pintores de brocha gorda,mismo_codigo
+7199,Otros trabajadores relacionados con la extracción,,,nuevo_en_2019
+7201,Supervisores de artesanos y trabajadores en el,7201,Supervisores de artesanos y trabajadores,mismo_codigo
+7211,"Moldeadores, torneros y troqueladores",7211,"Moldeadores, torneros y troqueladores",mismo_codigo
+7212,Soldadores y oxicortadores,7212,Soldadores y oxicortadores,mismo_codigo
+7213,"Hojalateros, chaperos, latoneros, cobreros",7213,"Hojalateros, chaperos, latoneros, cobreros",mismo_codigo
+7214,Montadores de estructuras metálicas,7214,Montadores de estructuras metálicas,mismo_codigo
+7221,,7221,"Herreros, balconeros, aluminadores y forjado-",mismo_codigo
+7222,"Cerrajeros, afiladores y pulidores de metales y",7222,"Cerrajeros, afiladores y pulidores de herra-",mismo_codigo
+7223,"Joyeros, orfebres, plateros y pulidores de meta-",7223,"Joyeros, orfebres, plateros y pulidores",mismo_codigo
+7299,Otros trabajadores relacionados con el tratamien-,,,nuevo_en_2019
+7301,Supervisores de artesanos y trabajadores en la,7301,Supervisores de artesanos y trabajadores en,mismo_codigo
+7311,"Carpinteros, ebanistas y cepilladores en la elabo-",7311,"Carpinteros, ebanistas y cepilladores en la ela-",mismo_codigo
+7312,Pintores y barnizadores de madera,7312,Pintores y barnizadores de madera,mismo_codigo
+7313,"Artesanos de productos de bejuco, vara, palma,",7313,"Artesanos de productos de bejuco, vara,",mismo_codigo
+7321,Artesanos y trabajadores en la elaboración de,7321,Artesanos y trabajadores en la elaboración,mismo_codigo
+7322,"Impresores, linotipistas, fotograbadores y encua-",7322,"Impresores, linotipistas, fotograbadores",mismo_codigo
+7323,Reveladores e impresores de fotografías,7323,Reveladores e impresores de fotografías,mismo_codigo
+7331,Trabajadores en la preparación de fibras e hilados,7331,Trabajadores en la preparación de fibras,mismo_codigo
+7332,Tejedores de fibras,7332,Tejedores de fibras,mismo_codigo
+7341,"Sastres y modistos, costureras y confecciona-",7341,"Sastres y modistos, costureras y confecciona-",mismo_codigo
+7342,Artesanos y confeccionadores de productos texti-,7342,Artesanos y confeccionadores de productos,mismo_codigo
+7343,Bordadores y deshiladores,7343,Bordadores y deshiladores,mismo_codigo
+7344,"Patronistas de productos textiles, cuero, piel",7344,Patronistas de productos textiles,mismo_codigo
+7351,Tapiceros,7351,Tapiceros,mismo_codigo
+7352,"Peleteros, cortadores, curtidores y teñidores de",7352,"Peleteros, cortadores, curtidores y teñidores",mismo_codigo
+7353,Zapateros artesanales,7353,Zapateros artesanales,mismo_codigo
+7399,Otros trabajadores relacionados con la elabora-,,,nuevo_en_2019
+7401,"elaboración de productos de hule, caucho, plásti-",7401,Supervisores de artesanos y trabajadores en,mismo_codigo
+7411,"productos de hule, caucho, plásticos y vulcaniza-",7411,Trabajadores en la elaboración y reparación,mismo_codigo
+7412,Trabajadores en la elaboración de sustancias y,7412,Trabajadores en la elaboración de sustancias,mismo_codigo
+7501,"y procesamiento de alimentos, bebidas y produc-",7501,Supervisores de trabajadores en la elabora-,mismo_codigo
+7511,Trabajadores en la elaboración de productos,7511,Trabajadores en la elaboración de productos,mismo_codigo
+7512,Trabajadores en la elaboración de productos lác-,7512,Trabajadores en la elaboración de productos,mismo_codigo
+7513,"Trabajadores en la elaboración de pan, tortilla, re-",7513,"Trabajadores en la elaboración de pan, torti-",mismo_codigo
+7514,Trabajadores en la elaboración de productos,7514,Trabajadores en la elaboración de productos a,mismo_codigo
+7515,Trabajadores en la elaboración de productos,7515,Trabajadores en la elaboración de productos,mismo_codigo
+7516,"Trabajadores en la elaboración de aceites, gra-",7516,"Trabajadores en la elaboración de aceites,",mismo_codigo
+7517,Trabajadores en la elaboración de bebidas alco-,7517,Trabajadores en la elaboración de bebidas al-,mismo_codigo
+7518,Trabajadores en la elaboración de productos de,7515,Trabajadores en la elaboración de productos a,renumerado
+7599,Otros trabajadores relacionados con la elaboración,,,nuevo_en_2019
+7601,Supervisores de artesanos y trabajadores en la,7601,Supervisores de artesanos y trabajadores en,mismo_codigo
+7611,Alfareros y trabajadores ceramistas,7611,Alfareros y trabajadores ceramistas,mismo_codigo
+7612,Trabajadores en la elaboración de productos de,7612,Trabajadores en la elaboración de produc-,mismo_codigo
+7613,Trabajadores del vidrio y similares,7613,Trabajadores del vidrio y similares,mismo_codigo
+7614,Trabajadores en la elaboración de productos de,7614,Trabajadores en la elaboración de productos,mismo_codigo
+7999,Otros trabajadores artesanales no clasificados,7999,"Otros trabajadores artesanales, no clasifica-",mismo_codigo
+8101,Supervisores de operadores de maquinaria in-,8101,Supervisores de operadores de maquinaria in-,mismo_codigo
+8111,Operadores de máquinas y equipos para la ex-,8111,Operadores de máquinas y equipos para la ex-,mismo_codigo
+8112,Operadores de máquinas y equipos para la ex-,8112,Operadores de máquinas y equipos para la ex-,mismo_codigo
+8113,Operadores de máquinas y equipos para la cap-,8113,Operadores de máquinas y equipos para la,mismo_codigo
+8114,Operadores de equipos portátiles especializados,8114,Operadores de equipos portátiles especializa-,mismo_codigo
+8121,"Operadores de hornos metalúrgicos, coladores y",8121,"Operadores de hornos metalúrgicos, colado-",mismo_codigo
+8122,"Operadores de máquinas pulidoras, galvanizado-",8122,"Operadores de máquinas pulidoras, galvaniza-",mismo_codigo
+8123,"Operadores de máquinas que cortan, perforan,",8123,"Operadores de máquinas que cortan, perfo-",mismo_codigo
+8131,Operadores de máquinas para la elaboración de,8131,Operadores de máquinas para la elaboración,mismo_codigo
+8132,Operadores de máquinas para la elaboración de,8132,Operadores de máquinas para la elaboración,mismo_codigo
+8133,Operadores de máquinas para la elaboración y,8133,Operadores de máquinas para la elaboración y,mismo_codigo
+8134,Operadores de máquinas para el tratamiento de,8134,Operadores de máquinas para el tratamiento,mismo_codigo
+8135,Operadores de máquinas y equipos para la refi-,8135,Operadores de máquinas y equipos para la re-,mismo_codigo
+8141,Operadores de máquinas para el tratamien-,8141,Operadores de máquinas para el tratamiento,mismo_codigo
+8142,,8142,Operadores de máquinas para la elabora-,mismo_codigo
+8143,Operadores de máquinas en la elaboración de,8143,Operadores de máquinas en la elaboración de,mismo_codigo
+8144,Operadores de máquinas para la impresión,8144,Operadores de máquinas para la impresión,mismo_codigo
+8145,Operadores de máquinas para la elaboración de,8145,Operadores de máquinas para la elaboración,mismo_codigo
+8151,Operadores de máquinas y equipos de hilar,8151,Operadores de máquinas y equipos de hilar,mismo_codigo
+8152,Operadores de máquinas para fabricar tejidos de,8152,Operadores de máquinas para fabricar tejidos,mismo_codigo
+8153,"Operadores de máquinas de costura, bordado y",8153,"Operadores de máquinas de costura, bordado",mismo_codigo
+8154,Operadores de máquinas en el tratamiento del,8154,Operadores de máquinas en el tratamiento del,mismo_codigo
+8155,"Operadores de máquinas de lavado, blanqueo,",8155,"Operadores de máquinas de lavado, blan-",mismo_codigo
+8161,Operadores de máquinas en la elaboración,8161,Operadores de máquinas en la elaboración de,mismo_codigo
+8162,Operadores de máquinas en la elaboración,8162,Operadores de máquinas en la elaboración de,mismo_codigo
+8163,Operadores de máquinas en la elaboración,8163,Operadores de máquinas en la elaboración de,mismo_codigo
+8171,Operadores de máquinas en la elaboración,8171,,mismo_codigo
+8172,Operadores de máquinas en la elaboración,8172,Operadores de máquinas en la elaboración,mismo_codigo
+8173,Operadores de máquinas en la elaboración,8173,Operadores de máquinas en la elaboración de,mismo_codigo
+8181,Operadores de máquinas e instalaciones,8181,Operadores de máquinas e instalaciones para,mismo_codigo
+8199,Otros operadores de instalaciones y maquinaria,8199,Otros operadores de instalaciones y maquina-,mismo_codigo
+8201,Supervisores en procesos de ensamblado y mon-,8201,Supervisores en procesos de ensamblado y,mismo_codigo
+8211,"Ensambladores y montadores de herramientas,",8211,"Ensambladores y montadores de herramientas,",mismo_codigo
+8212,Ensambladores y montadores de partes eléctri-,8212,Ensambladores y montadores de partes eléc-,mismo_codigo
+8301,Supervisores de conductores de transporte y de,8301,Supervisores de conductores de transporte y,mismo_codigo
+8311,Pilotos de aviación,8311,Pilotos de aviación,mismo_codigo
+8321,Capitanes y conductores de transporte marítimo,8321,Capitanes y conductores de transporte marítimo,mismo_codigo
+8322,Oficiales y marineros de cubierta y prácticos,8322,Oficiales y marineros de cubierta y prácticos,mismo_codigo
+8323,Oficiales maquinistas de transporte marítimo,8323,Oficiales maquinistas de transporte marítimo,mismo_codigo
+8324,Conductores de pequeñas embarcaciones (lan-,8324,Conductores de pequeñas embarcaciones,mismo_codigo
+8331,"Conductores de transporte en vías férreas (tren,",8331,Conductores de transporte en vías férreas,mismo_codigo
+8341,"Conductores de camiones, camionetas y",8341,"Conductores de camiones, camionetas y auto-",mismo_codigo
+8342,"Conductores de autobuses, camiones, camione-",8342,"Conductores de autobuses, camiones, camio-",mismo_codigo
+8343,Choferes en casas particulares,8343,Choferes en casas particulares,mismo_codigo
+8344,Conductores de motocicleta,8344,Conductores de motocicleta,mismo_codigo
+8349,Otros conductores de transporte terrestre con,8349,Otros conductores de transporte terrestre con,mismo_codigo
+8351,Conductores de maquinaria móvil para la cons-,8351,Conductores de maquinaria móvil para la,mismo_codigo
+8352,Conductores de maquinaria móvil para el movi-,8352,Conductores de maquinaria móvil para el mo-,mismo_codigo
+8999,"Otros operadores de maquinaria industrial, en-",8999,"Otros operadores de maquinaria industrial, en-",mismo_codigo
+9111,Trabajadores de apoyo en actividades agrícolas,9111,Trabajadores de apoyo en actividades agríco-,mismo_codigo
+9112,Trabajadores de apoyo en actividades,9112,Trabajadores de apoyo en actividades,mismo_codigo
+9113,Trabajadores de apoyo que realizan actividades,9113,Trabajadores de apoyo que realizan activida-,mismo_codigo
+9121,Trabajadores de apoyo en actividades silvícolas,9121,Trabajadores de apoyo en actividades silvíco-,mismo_codigo
+9122,Trabajadores de apoyo en actividades de acuicul-,9122,Trabajadores de apoyo en actividades,mismo_codigo
+9123,Trabajadores de apoyo en actividades de caza y,9123,Trabajadores de apoyo en actividades,mismo_codigo
+9124,Recolectores de leña y acarreadores de agua,9124,Recolectores de leña y acarreadores de agua,mismo_codigo
+9211,Trabajadores de apoyo en la minería,9211,Trabajadores de apoyo en la minería,mismo_codigo
+9212,Trabajadores de apoyo en la extracción de petró-,9212,Trabajadores de apoyo en la extracción,mismo_codigo
+9213,Ayudantes de dinamiteros y de buzos en perfora-,,,nuevo_en_2019
+9221,Trabajadores de apoyo en la construcción,9221,Trabajadores de apoyo en la construcción,mismo_codigo
+9222,Trabajadores de apoyo en plomería e instalación,9222,Trabajadores de apoyo en plomería e instala-,mismo_codigo
+9231,"Trabajadores de apoyo en la elaboración, repara-",9231,"Trabajadores de apoyo en la elaboración, re-",mismo_codigo
+9232,"Trabajadores de apoyo en la industria eléctrica,",9232,Trabajadores de apoyo en la industria eléctri-,mismo_codigo
+9233,"Trabajadores de apoyo en la industria química,",9233,"Trabajadores de apoyo en la industria química,",mismo_codigo
+9234,Trabajadores de apoyo en la industria de la ma-,9234,Trabajadores de apoyo en la industria de la,mismo_codigo
+9235,Trabajadores de apoyo en la industria textil y del,9235,Trabajadores de apoyo en la industria textil,mismo_codigo
+9236,Trabajadores de apoyo en la industria de alimen-,9236,Trabajadores de apoyo en la industria de ali-,mismo_codigo
+9237,Trabajadores de apoyo en la industria de la cerá-,9237,Trabajadores de apoyo en la industria de la ce-,mismo_codigo
+9239,"Trabajadores de apoyo en la industria, no clasifi-",9239,"Trabajadores de apoyo en la industria, no cla-",mismo_codigo
+9311,Ayudantes de conductores de transporte terrestre,9311,Ayudantes de conductores de transporte,mismo_codigo
+9312,Ayudantes de conductores de transporte en vías,9312,Ayudantes de conductores de transporte,mismo_codigo
+9321,Conductores de vehículos de transporte,9321,Conductores de vehículos de transporte,mismo_codigo
+9322,Conductores de transporte de tracción animal,9322,Conductores de transporte de tracción animal,mismo_codigo
+9331,Cargadores,9331,Cargadores,mismo_codigo
+9332,Cargadores por propina,9332,Cargadores por propina,mismo_codigo
+9411,Ayudantes en la preparación de alimentos,9411,Ayudantes en la preparación de alimentos,mismo_codigo
+9511,Vendedores ambulantes de periódicos y lotería,9511,Vendedores ambulantes de periódicos y lotería,mismo_codigo
+9512,Vendedores ambulantes de artículos diversos,9512,Vendedores ambulantes de artículos diversos,mismo_codigo
+9521,Preparadores y vendedores ambulantes de ali-,9521,Preparadores y vendedores ambulantes de,mismo_codigo
+9599,Otros vendedores ambulantes no clasificados an-,,,nuevo_en_2019
+9601,"Supervisores en limpieza, amas de llaves, mayor-",9601,"Supervisores en limpieza, amas de llaves, ma-",mismo_codigo
+9611,Trabajadores domésticos,9611,Trabajadores domésticos,mismo_codigo
+9621,Barrenderos y trabajadores de limpieza (excepto,9621,Barrenderos y trabajadores de limpieza (ex-,mismo_codigo
+9622,Recamaristas y camaristas,9622,Recamaristas y camaristas,mismo_codigo
+9623,Mozos de hotel y restaurante,9623,Mozos de hotel y restaurante,mismo_codigo
+9624,Limpiadores de calzado,9624,Limpiadores de calzado,mismo_codigo
+9631,Lavadores de vehículos en establecimientos,9631,Lavadores de vehículos en establecimientos,mismo_codigo
+9632,Lavadores de vehículos en vía pública,9632,Lavadores de vehículos en vía pública,mismo_codigo
+9633,Cuidadores y acomodadores de autos en esta-,9633,Cuidadores y acomodadores de autos en es-,mismo_codigo
+9634,Cuidadores de autos en la vía pública,9634,Cuidadores de autos por propina,mismo_codigo
+9641,Lavanderos en establecimientos,9641,Lavanderos en establecimientos,mismo_codigo
+9642,Planchadores y tintoreros en establecimientos,9642,Planchadores y tintoreros en establecimientos,mismo_codigo
+9643,Lavanderos y planchadores domésticos,9643,Lavanderos y planchadores domésticos,mismo_codigo
+9651,Ayudantes de jardineros,9651,,mismo_codigo
+9661,Recolectores de basura y material reciclable,9661,Recolectores de basura y material reciclable,mismo_codigo
+9662,Clasificadores de desechos,9662,Clasificadores de desechos,mismo_codigo
+9663,Recolectores de residuos peligrosos,9663,Recolectores de otros materiales,mismo_codigo
+9664,Recolectores de otros materiales,9663,Recolectores de otros materiales,renumerado
+9711,"Trabajadores de paquetería, maleteros y botones",9711,"Trabajadores de paquetería, maleteros y boto-",mismo_codigo
+9712,Empacadores de objetos y mercancías,9712,Empacadores de objetos y mercancías,mismo_codigo
+9713,Trabajadores de apoyo a la realización de espec-,9713,Trabajadores de apoyo a la realización de es-,mismo_codigo
+9721,Carteros (a pie o en bicicleta),9721,Carteros (a pie y en bicicleta),mismo_codigo
+9722,Repartidores de mensajería (a pie o en bicicleta),9722,Repartidores de mensajería (a pie y en bicicle-,mismo_codigo
+9723,Repartidores de mercancías (a pie o en bicicleta),9723,Repartidores de mercancías (a pie y en bicicleta),mismo_codigo
+9731,Lecturistas de medidores,9731,Lecturistas de medidores,mismo_codigo
+9732,Recolectores de dinero,9732,Recolectores de dinero,mismo_codigo
+9733,Elevadoristas y ascensoristas,9733,Elevadoristas y ascensoristas,mismo_codigo
+9899,Otros trabajadores en actividades elementales y,9899,Otros trabajadores en actividades elementales,mismo_codigo
+9999,Ocupaciones no especificadas,9999,Ocupaciones no especificadas,mismo_codigo
