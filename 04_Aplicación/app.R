@@ -5,6 +5,14 @@ library(shiny)
 library(haven)
 library(tidyverse)
 library(plotly)
+library(shinycssloaders)
+
+# Indicadores de carga (spinners) para todas las gráficas: color morado MCV
+options(
+  spinner.color = "#6950d8",
+  spinner.type = 8,
+  spinner.size = 0.8
+)
 
 # --- Parámetros del trimestre ENOE ---
 # Para actualizar la app a un nuevo trimestre solo se cambian estas dos
@@ -2110,7 +2118,7 @@ ui <- fluidPage(
           )),
         p(class = "chart-subtitle", paste0("Hombres | ENOE ", periodo_enoe))
       ),
-      plotlyOutput("g6_top10_h", height = "450px")
+      withSpinner(plotlyOutput("g6_top10_h", height = "450px"))
     ),
     column(
       6,
@@ -2123,7 +2131,7 @@ ui <- fluidPage(
           )),
         p(class = "chart-subtitle", paste0("Mujeres | ENOE ", periodo_enoe))
       ),
-      plotlyOutput("g6_top10_m", height = "450px")
+      withSpinner(plotlyOutput("g6_top10_m", height = "450px"))
     )
   ),
   fluidRow(
@@ -2195,7 +2203,7 @@ ui <- fluidPage(
           })
         )
       ),
-      plotlyOutput("g7_divisiones", height = "300px")
+      withSpinner(plotlyOutput("g7_divisiones", height = "300px"))
     )
   ),
   fluidRow(
@@ -2336,7 +2344,7 @@ ui <- fluidPage(
     class = "chart-header",
     uiOutput("treemap_titulo")
   ),
-  plotlyOutput("treemap", height = "700px"),
+  withSpinner(plotlyOutput("treemap", height = "700px")),
 
   # --- Panel de descripción al hacer click ---
   uiOutput("panel_descripcion_ia"),
@@ -2364,7 +2372,7 @@ ui <- fluidPage(
             span("Mujeres"))
         )
       ),
-      plotlyOutput("g1_total_alta_exp", height = "380px")
+      withSpinner(plotlyOutput("g1_total_alta_exp", height = "380px"))
     ),
     column(
       6,
@@ -2386,7 +2394,7 @@ ui <- fluidPage(
           })
         )
       ),
-      plotlyOutput("g2_pct_exposicion", height = "380px")
+      withSpinner(plotlyOutput("g2_pct_exposicion", height = "380px"))
     )
   ),
   fluidRow(
@@ -2449,7 +2457,7 @@ ui <- fluidPage(
             span("Mujeres"))
         )
       ),
-      plotlyOutput("g3_ingreso_grad", height = "380px")
+      withSpinner(plotlyOutput("g3_ingreso_grad", height = "380px"))
     ),
     column(
       6,
@@ -2471,7 +2479,7 @@ ui <- fluidPage(
             span("Mujeres"))
         )
       ),
-      plotlyOutput("g4_informalidad", height = "380px")
+      withSpinner(plotlyOutput("g4_informalidad", height = "380px"))
     )
   ),
   fluidRow(
@@ -2537,7 +2545,7 @@ ui <- fluidPage(
             span("Mujeres"))
         )
       ),
-      plotlyOutput("g5_escolaridad", height = "380px")
+      withSpinner(plotlyOutput("g5_escolaridad", height = "380px"))
     )
   ),
   fluidRow(
@@ -2611,7 +2619,7 @@ ui <- fluidPage(
                " | Clasificación SINCO 4 dígitos")
       )
     ),
-    plotlyOutput("treemap_cuidados", height = "500px")
+    withSpinner(plotlyOutput("treemap_cuidados", height = "500px"))
   ),
 
   # ==========================================================
@@ -2672,7 +2680,7 @@ ui <- fluidPage(
             )
           )
         ),
-        plotlyOutput("g_internet", height = "300px"),
+        withSpinner(plotlyOutput("g_internet", height = "300px")),
         div(
           style = paste0(
             "background-color: #ff6260; color: white; ",
@@ -2722,7 +2730,7 @@ ui <- fluidPage(
             )
           )
         ),
-        plotlyOutput("g_celular", height = "300px"),
+        withSpinner(plotlyOutput("g_celular", height = "300px")),
         div(
           style = paste0(
             "background-color: #ff6260; color: white; ",
@@ -2790,7 +2798,7 @@ ui <- fluidPage(
           )
         )
       ),
-      plotlyOutput("g_apps_usos", height = "420px")
+      withSpinner(plotlyOutput("g_apps_usos", height = "420px"))
     ),
     p(
       class = "parrafo",
@@ -2843,7 +2851,7 @@ ui <- fluidPage(
             )
           )
         ),
-        plotlyOutput("g_stem_campos", height = "360px")
+        withSpinner(plotlyOutput("g_stem_campos", height = "360px"))
       ),
       column(
         6,
@@ -2872,7 +2880,7 @@ ui <- fluidPage(
             })
           )
         ),
-        plotlyOutput("g_stem_exposicion", height = "360px")
+        withSpinner(plotlyOutput("g_stem_exposicion", height = "360px"))
       )
     ),
     br(),

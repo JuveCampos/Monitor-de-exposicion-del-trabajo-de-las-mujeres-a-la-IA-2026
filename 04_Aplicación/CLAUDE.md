@@ -203,3 +203,11 @@ Desde el 16 de octubre de 2026 el catalogo viene de `05_Reproduccion_R/salidas/0
   cero, con la correspondencia SINCO 2019 a CIUO-08 corregida por la tabla
   de equivalencia 2011-2019 del INEGI. No alimenta la app todavia; ver su
   README y `salidas/10_verificacion.md`.
+
+### Indicadores de carga en las graficas (16 de octubre de 2026)
+
+Las 15 salidas `plotlyOutput()` van envueltas en `shinycssloaders::withSpinner()`.
+La configuracion es global al inicio de `app.R` (`options(spinner.color = "#6950d8",
+spinner.type = 8, spinner.size = 0.8)`), asi que una grafica nueva solo necesita
+el envoltorio. rsconnect detecta el paquete por la llamada a `library()`; no hay
+que tocar `deploy.R`.
