@@ -2,7 +2,7 @@
 
 ## Que es este proyecto
 
-App Shiny interactiva tipo narrativa/scrollytelling que visualiza la exposicion a la inteligencia artificial en el mercado laboral mexicano con perspectiva de genero. Usa datos de la ENOE (trimestre vigente: 2026-T2), ENDUTIH 2024 y la clasificacion SINCO a 4 digitos. Proyecto para el dataton "DataAccion: Dataton Regional para la Igualdad 2026".
+App Shiny interactiva tipo narrativa/scrollytelling que visualiza la exposicion a la inteligencia artificial en el mercado laboral mexicano con perspectiva de genero. Usa datos de la ENOE (trimestre vigente: 2026-T2), ENDUTIH 2025 y la clasificacion SINCO a 4 digitos. Proyecto para el dataton "DataAccion: Dataton Regional para la Igualdad 2026".
 
 IMPORTANTE: el periodo y los archivos de datos estan parametrizados al inicio de `app.R` (`periodo_enoe`, `archivo_enoe`, `archivo_stem_campos`, `archivo_stem_4d`). REGLA DEL PROYECTO: la app muestra SOLO el trimestre mas reciente. Para actualizar a un nuevo trimestre: (1) generar los .dta con `00_Códigos/Scripts_procesamiento_ENOE_R/01_procesar_enoe_sinco.R` y `04_procesar_enoe_stem.R` (ambos aceptan `<año> <trimestre>`; el 04 acepta un tercer argumento con la carpeta de DBF), (2) copiarlos a esta carpeta, (3) cambiar esas variables, (4) BORRAR los .dta del trimestre anterior (aqui y en `01_Datos/03_enoe_procesada/`; quedan recuperables en el historial de git).
 
@@ -15,7 +15,7 @@ IMPORTANTE: el periodo y los archivos de datos estan parametrizados al inicio de
 | `zcalculos_Y2026T02_4d_stem.dta` | Ocupados con formacion STEM por sexo y SINCO 4d (mismas columnas), de `04_procesar_enoe_stem.R` |
 | `zcalculos_Y2026T02_stem_campos.dta` | Ocupados por sexo y campo de formacion (`campo_stem`: 0_NoSTEM, 1_S, 2_T, 3_E, 4_M) |
 | `www/ilustraciones/*.jpg` | Imagenes del hero y de las bandas de seccion. Hoy fotos de stock provisionales (creditos en `www/ilustraciones/CREDITOS.md`); se sustituiran por ilustraciones encargadas |
-| `catalogos_sinco/sinco_con_exposicion_ia.csv` | Catalogo SINCO con 483 ocupaciones, scores de exposicion IA y columna `descripcion_ia_es` (410 con traducciones) |
+| `catalogos_sinco/sinco_con_exposicion_ia.csv` | Copia sin uso directo (la app carga `sinco_con_exposicion_ia_es.csv`). 493 codigos (490 grupos unitarios SINCO 2019 + 3 operativos ENOE), generado por `05_Reproduccion_R/04_catalogo_exposicion.R`, scores de exposicion IA y columna `descripcion_ia_es` (410 con traducciones) |
 | `www/andres-siimon-BBqVpTE4vw4-unsplash.jpg` | Imagen hero header (Unsplash) |
 | `www/artboard_1.png.webp` | Logo DataAccion |
 | `www/clave_logo.png` | Logo Clave Igualdad (footer) |
@@ -42,7 +42,7 @@ IMPORTANTE: el periodo y los archivos de datos estan parametrizados al inicio de
 2. Exposicion minima (#7bc96a)
 3. Mixto (#ffffbf)
 4. Exposicion baja, alta variabilidad de tareas (#fee08b)
-5. Exposicion moderada, variabilidad mixta de tareas (#fdae61)
+5. Exposicion moderada, alta variabilidad de tareas (#fdae61)
 6. Exposicion significativa, alta variabilidad de tareas (#f46d43)
 7. Exposicion maxima, baja variabilidad de tareas (rojo #d73027)
 8. Sin informacion (gris #cccccc) - para NAs
@@ -95,9 +95,9 @@ IMPORTANTE: el periodo y los archivos de datos estan parametrizados al inicio de
 7. Top 10 ocupaciones mujeres en exposicion alta (barras horizontales)
 
 ### Graficas ENDUTIH (Seccion Brecha tecnologica)
-- Series de tiempo: acceso a internet y celular por sexo (2021-2024)
-- Cards de brecha: diferencia H-M en 2024 (color rojo #d64f4f, emojis wifi/telefono)
-- Barras horizontales: uso de apps en celular por sexo con anotaciones "Total"
+- Series de tiempo: acceso a internet y celular por sexo (2021-2025; fuente ENDUTIH 2025, reporte de resultados 19/26, graficas 3 y 13; el dato 2021 viene de la presentacion ENDUTIH 2024)
+- Cards de brecha: diferencia H-M en el anio mas reciente (`anio_endutih`, hoy 2025; color coral #ff6260)
+- Barras horizontales: uso de apps en celular inteligente por sexo con anotaciones "Total" (ENDUTIH 2025, grafica 16)
 
 ### Titulos y leyendas
 - Estan fuera de plotly, como HTML en la UI (div.chart-header con fondo blanco)
@@ -123,8 +123,19 @@ IMPORTANTE: el periodo y los archivos de datos estan parametrizados al inicio de
 ### Estilo visual MCV (desde el 15 de octubre de 2026)
 - El sitio se publicara en el sitio de Mexico, ¿Como vamos?, asi que la app sigue su identidad: Ubuntu, morado #6950d8 dominante, lila #a99be9, verde #00b783, coral #ff6260, amarillo #ffbd41, texto oscuro #231f20, fondo #F4F2FB y tarjetas blancas redondeadas.
 - Hero: flex con logos (MCV blanco + Clave Igualdad en caja blanca), titulo a la izquierda e ilustracion a la derecha (`.hero-ilustracion`, `ilustraciones/hero.jpg`).
-- `banda_ilustrada(imagen, texto)`: banda de 210 px con imagen de fondo y leyenda sobre franja morada; abre las secciones Exposicion, Cuidados, Brecha tecnologica y Normativa. Las imagenes estan en `www/ilustraciones/`.
+- `banda_ilustrada(imagen, texto, posicion = "center", alto = 220)`: banda de 220 px por defecto (`posicion` es el `background-position` para recortar la foto y `alto` la altura en px; Cuidados usa `center 35%` y 380 px para que se entienda la escena) con imagen de fondo y leyenda sobre franja morada; abre las secciones Exposicion, Cuidados, Brecha tecnologica y Normativa. Las imagenes estan en `www/ilustraciones/`.
 - Hombres = verde #00b783 (opacity 0.5), Mujeres = morado #6950d8 en todas las graficas y leyendas. Tablas normativas con encabezados morados. Footer morado con ligas amarillas y la franja de adscripcion a MCV activa.
+
+### Encabezado del sitio de MCV (16 de octubre de 2026)
+- `encabezado_mcv()` en `app.R` reproduce el encabezado de mexicocomovamos.mx: barra morada con redes, liga "Mexico, how are we doing?" y buscador (formulario GET a mexicocomovamos.mx/?s=), cintilla decorativa (`www/mcv_cintilla.png`, imagen de temporada del sitio; hoy Día de Muertos, sustituir el PNG cuando cambie) y menú principal con las mismas secciones y ligas del sitio (lista `menu_mcv`; submenús por hover en CSS puro; sin el tercer nivel de los semaforos sectoriales). Logo central `www/logo_mcv_hall.svg`. Iconos con Font Awesome 6 desde cdnjs. Todas las ligas abren en pestana nueva.
+- En el hero ya solo va el logo de Clave Igualdad (el de MCV queda en el encabezado y en el footer).
+
+### Sistema de diseno (16 de octubre de 2026)
+- Variables CSS en `:root` de `app.R`: `--ancho-texto` (920 px) para prosa, `--ancho-graficas` (1120 px) y `--ancho-relativo` (88 %) para gráficas; ninguna gráfica ocupa el 100 % del ancho. La regla `.container-fluid > .row, > .chart-header, > .plotly` aplica ese ancho a todo lo que cuelga directo de `fluidPage`.
+- Clases en lugar de estilos en línea: `.bloque-texto` (prosa centrada), `.parrafo` (18 px, interlineado 1.75, 20 px abajo), `.nota-grafica` (texto de apoyo bajo una gráfica, 16 px), `.titulo-seccion` (h3 con `scroll-margin-top` para el menú fijo).
+- Fondo de plotly transparente por CSS (`.main-svg`, `.bglayer .bg`, `.legend .bg` con `!important`), asi el fondo de las gráficas es el de la página (#F4F2FB). Los `chart-header` (título, subtítulo y leyenda) y las `.nota-grafica` (texto de apoyo bajo cada gráfica) son tarjetas blancas con sombra suave sobre el fondo lila; el `chart-header` conserva la regla morada a la izquierda.
+- Hero `.hero` a todo lo ancho (truco `100vw` + `margin-left: calc(-50vw + 50%)`): logos, eyebrow amarilla, h1 con `<span class='acento'>` amarillo, subtítulo, tres tarjetas `.cifra` (personas ocupadas, % de mujeres y de hombres en exposición significativa o máxima; variables `personas_ocupadas_hero`, `pct_alta_hero_m`, `pct_alta_hero_h`), imagen con crédito y semicírculos decorativos (`.hero::after`, radial-gradient repetido, guiño a los semicirculos de MCV).
+- Menú `.nav-secciones` fijo (`position: sticky`) bajo el hero, sustituye al recuadro "Dimensiones". Los ids de sección siguen siendo `sec-resumen`, `sec-exposicion`, `sec-brecha`, `sec-normativa`, `sec-conclusion`.
 
 ## Estilos CSS clave
 
@@ -164,11 +175,31 @@ Al cambiar de trimestre hay que actualizar las dos variables del inicio de `app.
 
 ## Origen de los datos de exposicion
 
-Los scores de exposicion IA provienen de Gmyrek et al. (2025) ILO WP140, mapeados via SINCO → CIUO-08. Las descripciones por ocupacion (`descripcion_ia_es`) fueron generadas con scripts en `05_Tareas/01_catalogos/scripts/` (agregacion + traduccion via Ollama/Gemma4).
+Los scores de exposicion IA provienen de Gmyrek et al. (2025) ILO WP140, mapeados via SINCO → CIUO-08. Las descripciones por ocupacion (`descripcion_ia_es`) se arman en `05_Reproduccion_R/05_descripciones_en.R` y `06_traducir_claude.R` (traduccion con Claude via `claude -p`, cache en `salidas/06_traducciones_claude_cache.csv`). Hasta octubre de 2026 se generaban con scripts de Python y traduccion con Ollama/Gemma4 (legado en `01_Datos/01_catalogos/scripts/`).
 
-Desde julio de 2026 el catalogo (488 ocupaciones) incluye 68 clasificaciones PROVISIONALES (columna `clasificacion_provisional`): 28 por mapeo manual a ocupacion CIUO analoga (`mapeo_manual_propuesto.csv`) y 40 por imputacion modal jerarquica (categoria modal de las hermanas del subgrupo/grupo/division). Se generan con `00_Códigos/Scripts_procesamiento_ENOE_R/02_ocupaciones_sin_score.R` (catalogo de grises + textos) y se integran con `03_integrar_provisionales.R`. El hover agrega "(provisional)" y el panel "(clasificacion provisional)" a esas ocupaciones; sus descripciones explican el metodo. Quedan 10 sin clasificar (7 visibles en datos 2026-T1: 6 militares + ocupaciones no especificadas 9999), en gris, con descripcion que explica por que no son imputables.
+Desde el 16 de octubre de 2026 el catalogo viene de `05_Reproduccion_R/salidas/08_catalogo_app.csv` (crosswalk SINCO 2019 corregido con la equivalencia 2011-2019 del INEGI; traducciones con Claude). Incluye 62 clasificaciones PROVISIONALES (columna `clasificacion_provisional`): 25 por mapeo manual a ocupacion CIUO analoga (`05_Reproduccion_R/insumos/mapeo_manual_ciuo.csv`) y 37 por imputacion modal jerarquica (categoria modal de las hermanas del subgrupo/grupo/division). Se generan con `05_Reproduccion_R/08_provisionales_catalogo_app.R`; los scripts 02 y 03 de `00_Códigos/Scripts_procesamiento_ENOE_R/` quedan como legado del catalogo anterior.
 
 ## Placeholders pendientes
 
 - "Visualizacion mujeres en STEM" (seccion Brecha tecnologica)
-- Link "esta liga" en footer (nota metodologica, sin URL aun)
+- Liga a la nota metodologica en el footer: silenciada (comentada) desde el 16 de octubre de 2026 hasta resolver la ficha metodologica; el pie solo deja el correo de contacto
+
+### Tabla de tareas al seleccionar una ocupacion (16 de octubre de 2026)
+
+- `catalogos_sinco/tareas_por_ocupacion.csv`: una fila por tarea evaluada por
+  Gmyrek et al. (2025) para las CIUO-08 de cada grupo unitario del catalogo
+  vigente, en espanol (traducidas con Claude; columna `traducida`), con
+  `score_tarea_2025`, `nivel_tarea` (Alta >= 0.6, Media >= 0.4, Baja) y la
+  justificacion de la tarea mas expuesta. Lo genera
+  `00_Códigos/Scripts_procesamiento_ENOE_R/07_tareas_por_ocupacion_app.R` a
+  partir del Excel de Gmyrek y de la cache de traducciones de
+  `05_Reproduccion_R/salidas/06_traducciones_claude_cache.csv`.
+- `construir_tabla_tareas(tareas_sel, desc)` (definida al inicio de app.R)
+  arma la tabla (tarea, barra y puntuacion, con scroll a 330px) mas la
+  justificacion y un `<details>` con la descripcion completa. El panel
+  `output$panel_descripcion_ia` la usa cuando hay tareas para la ocupacion;
+  si no (provisionales, grises, o sin archivo) muestra el parrafo de siempre.
+- Carpeta `05_Reproduccion_R/` (raiz del repo): flujo completo en R desde
+  cero, con la correspondencia SINCO 2019 a CIUO-08 corregida por la tabla
+  de equivalencia 2011-2019 del INEGI. No alimenta la app todavia; ver su
+  README y `salidas/10_verificacion.md`.

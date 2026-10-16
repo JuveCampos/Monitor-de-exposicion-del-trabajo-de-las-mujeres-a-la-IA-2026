@@ -40,6 +40,94 @@ bd <- read_dta(archivo_enoe) %>%
   ) %>%
   left_join(cat_1, by = c("sinco4d" = "unitario_4d"))
 
+# --- Tareas evaluadas por ocupación (tabla que se muestra al seleccionar) ---
+# Archivo generado por 05_Reproduccion_R/08_provisionales_catalogo_app.R
+# (salida 08_tareas_app.csv): una fila por tarea de las CIUO-08
+# correspondientes, con su puntuación 2025 (Gmyrek et al., 2025) en español.
+# Si el archivo no existe, el panel muestra solo el párrafo descriptivo.
+archivo_tareas <- "catalogos_sinco/tareas_por_ocupacion.csv"
+tareas_ocup <- NULL
+if (file.exists(archivo_tareas)) {
+  tareas_ocup <- read_csv(archivo_tareas, show_col_types = FALSE) %>%
+    mutate(unitario_4d = str_pad(as.character(unitario_4d), 4, "left", "0"))
+}
+
+# Arma la tabla de tareas de una ocupación: tarea, barra y puntuación, con
+# la descripción completa plegada debajo. `tareas_sel` trae las filas de la
+# ocupación ya ordenadas de mayor a menor puntuación
+construir_tabla_tareas <- function(tareas_sel, desc) {
+  colores_nivel <- c(Alta = "#6950d8", Media = "#ffbd41", Baja = "#c9c4e6")
+  titulos_ciuo <- paste(unique(tareas_sel$ciuo_titulo), collapse = "; ")
+  n_sin_traducir <- sum(!tareas_sel$traducida)
+  justificacion <- tareas_sel$justificacion_es[1]
+
+  filas <- lapply(seq_len(nrow(tareas_sel)), function(i) {
+    t <- tareas_sel[i, ]
+    ancho <- paste0(round(100 * t$score_tarea_2025), "%")
+    tags$tr(
+      tags$td(
+        style = "padding: 5px 8px; border-bottom: 1px solid #eee; line-height: 1.35;",
+        t$tarea
+      ),
+      tags$td(
+        style = "padding: 5px 8px; border-bottom: 1px solid #eee; width: 150px;",
+        div(
+          style = "display: flex; align-items: center; gap: 8px;",
+          div(
+            style = "flex: 1; height: 9px; background: #efedf7; border-radius: 5px; overflow: hidden;",
+            div(style = paste0("width: ", ancho, "; height: 100%; background: ",
+                               colores_nivel[[t$nivel_tarea]], ";"))
+          ),
+          tags$span(style = "font-variant-numeric: tabular-nums; min-width: 34px; text-align: right;",
+                    sprintf("%.2f", t$score_tarea_2025))
+        )
+      )
+    )
+  })
+
+  tagList(
+    p(
+      style = "color: #444; font-size: 13px; line-height: 1.5; margin: 8px 0 6px 0;",
+      paste0(
+        "Tareas evaluadas por Gmyrek et al. (2025) para la ocupación CIUO-08 ",
+        "correspondiente (", titulos_ciuo, "). Cada tarea recibe una ",
+        "puntuación de 0 a 1 según qué tanto podría realizarla la IA generativa: ",
+        "morado, 0.6 o más; amarillo, entre 0.4 y 0.6; gris, menos de 0.4."
+      )
+    ),
+    div(
+      style = "max-height: 330px; overflow-y: auto; border: 1px solid #e6e3f2; border-radius: 6px; background: #fff;",
+      tags$table(
+        style = "width: 100%; border-collapse: collapse; font-size: 12.5px; color: #333;",
+        tags$thead(
+          tags$tr(
+            tags$th(style = "text-align: left; padding: 6px 8px; background: #f4f2fb; position: sticky; top: 0;",
+                    "Tarea"),
+            tags$th(style = "text-align: left; padding: 6px 8px; background: #f4f2fb; position: sticky; top: 0;",
+                    "Puntuación")
+          )
+        ),
+        tags$tbody(filas)
+      )
+    ),
+    if (!is.na(justificacion) && justificacion != "") {
+      p(
+        style = "color: #555; font-size: 12.5px; line-height: 1.5; margin: 10px 0 0 0;",
+        tags$b("Sobre la tarea más expuesta: "), justificacion
+      )
+    },
+    if (n_sin_traducir > 0) {
+      p(style = "color: #888; font-size: 11px; font-style: italic; margin: 6px 0 0 0;",
+        paste0(n_sin_traducir, " tarea(s) se muestran en inglés porque aún no se traducen."))
+    },
+    tags$details(
+      style = "margin-top: 8px; font-size: 12.5px; color: #555;",
+      tags$summary(style = "cursor: pointer; color: #6950d8;", "Ver la descripción completa"),
+      p(style = "line-height: 1.5; margin: 6px 0 0 0;", desc)
+    )
+  )
+}
+
 # --- Función de flexión de género en títulos de ocupación ---
 # Transforma palabras con género gramatical según el sexo
 # seleccionado, conservando unitario_titulo como original.
@@ -422,7 +510,7 @@ traduccion_exposicion <- c(
   "Minimal Exposure"     = "Exposición mínima",
   "Mixto"                = "Mixto",
   "Exposed: Gradient 1"  = "Exposición baja, alta variabilidad de tareas",
-  "Exposed: Gradient 2"  = "Exposición moderada, variabilidad mixta de tareas",
+  "Exposed: Gradient 2"  = "Exposición moderada, alta variabilidad de tareas",
   "Exposed: Gradient 3"  = "Exposición significativa, alta variabilidad de tareas",
   "Exposed: Gradient 4"  = "Exposición máxima, baja variabilidad de tareas"
 )
@@ -443,7 +531,7 @@ niveles_exposicion_es <- c(
   "Exposición mínima",
   "Mixto",
   "Exposición baja, alta variabilidad de tareas",
-  "Exposición moderada, variabilidad mixta de tareas",
+  "Exposición moderada, alta variabilidad de tareas",
   "Exposición significativa, alta variabilidad de tareas",
   "Exposición máxima, baja variabilidad de tareas"
 )
@@ -453,7 +541,7 @@ colores_exposicion <- c(
   "Exposición mínima"    = "#7bc96a",
   "Mixto"                = "#ffffbf",
   "Exposición baja, alta variabilidad de tareas"          = "#fee08b",
-  "Exposición moderada, variabilidad mixta de tareas"     = "#fdae61",
+  "Exposición moderada, alta variabilidad de tareas"     = "#fdae61",
   "Exposición significativa, alta variabilidad de tareas" = "#f46d43",
   "Exposición máxima, baja variabilidad de tareas"        = "#d73027"
 )
@@ -484,68 +572,64 @@ opciones_sector <- c(
 etiquetas_sexo <- c("1" = "Hombres", "2" = "Mujeres")
 colores_sexo <- c("Hombres" = "#00b783", "Mujeres" = "#6950d8")
 
-# --- Datos ENDUTIH 2024: uso de apps en celular por sexo ---
+# --- Datos ENDUTIH 2025: uso de apps en celular inteligente por sexo ---
+# Fuente: INEGI, ENDUTIH 2025, Reporte de resultados 19/26 (16 de junio de
+# 2026), gráfica 16 "Personas usuarias de teléfono celular inteligente, según
+# sexo y tipo de aplicación que usaron". Porcentaje de personas usuarias de
+# celular inteligente.
 datos_apps <- tibble::tribble(
   ~uso,                                    ~mujeres, ~hombres, ~total,
   "Mensajería instantánea",                 91.0,     90.2,     90.6,
-  "Acceder a redes sociales",               77.7,     78.0,     77.9,
-  "Acceder a contenidos de audio y video",  76.7,     79.4,     78.0,
-  "Tránsito y navegación asistida",         44.3,     55.2,     49.5,
-  "Adquirir bienes o servicios",            33.0,     39.0,     35.8,
-  "Acceder a Banca móvil",                  31.1,     36.0,     33.4,
-  "Editar fotos o videos",                  29.2,     25.4,     27.4,
-  "Jugar",                                  26.9,     37.9,     32.1
+  "Acceder a redes sociales",               80.4,     80.4,     80.4,
+  "Acceder a contenidos de audio y video",  76.4,     79.4,     77.8,
+  "Tránsito y navegación asistida",         47.6,     57.0,     52.0,
+  "Adquirir bienes o servicios",            35.3,     38.9,     37.0,
+  "Acceder a Banca móvil",                  36.4,     40.9,     38.5,
+  "Editar fotos o videos",                  31.3,     25.7,     28.7,
+  "Jugar",                                  28.9,     38.3,     33.3
 ) %>%
   arrange(total) %>%
   mutate(uso = factor(uso, levels = uso))
 
-# --- Datos ENDUTIH 2024: acceso a internet y celular ---
+# --- Datos ENDUTIH: usuarios de internet y de celular por sexo ---
+# 2021: INEGI, presentación de resultados ENDUTIH 2024. 2022 a 2025: INEGI,
+# ENDUTIH 2025, Reporte de resultados 19/26 (16 de junio de 2026), gráfica 3
+# (internet) y gráfica 13 (celular).
+anio_endutih <- 2025L
 datos_endutih <- tibble::tribble(
   ~indicador, ~sexo, ~valor, ~anio, ~fuente,
-  "Usuarios de internet", "Hombres", 76.5, 2021L,
-    "INEGI, ENDUTIH 2024",
-  "Usuarios de internet", "Mujeres", 74.8, 2021L,
-    "INEGI, ENDUTIH 2024",
-  "Usuarios de internet", "Hombres", 79.3, 2022L,
-    "INEGI, ENDUTIH 2024",
-  "Usuarios de internet", "Mujeres", 78.1, 2022L,
-    "INEGI, ENDUTIH 2024",
-  "Usuarios de internet", "Mujeres", 81.4, 2023L,
-    "INEGI, ENDUTIH 2024",
-  "Usuarios de internet", "Hombres", 81.0, 2023L,
-    "INEGI, ENDUTIH 2024",
-  "Usuarios de internet", "Hombres", 84.1, 2024L,
-    "INEGI, ENDUTIH 2024",
-  "Usuarios de internet", "Mujeres", 82.3, 2024L,
-    "INEGI, ENDUTIH 2024",
-  "Usuarios de teléfono celular", "Hombres", 79.0, 2021L,
-    "INEGI, ENDUTIH 2024",
-  "Usuarios de teléfono celular", "Mujeres", 77.7, 2021L,
-    "INEGI, ENDUTIH 2024",
-  "Usuarios de teléfono celular", "Hombres", 80.1, 2022L,
-    "INEGI, ENDUTIH 2024",
-  "Usuarios de teléfono celular", "Mujeres", 78.5, 2022L,
-    "INEGI, ENDUTIH 2024",
-  "Usuarios de teléfono celular", "Mujeres", 81.8, 2023L,
-    "INEGI, ENDUTIH 2024",
-  "Usuarios de teléfono celular", "Hombres", 80.9, 2023L,
-    "INEGI, ENDUTIH 2024",
-  "Usuarios de teléfono celular", "Hombres", 82.5, 2024L,
-    "INEGI, ENDUTIH 2024",
-  "Usuarios de teléfono celular", "Mujeres", 81.1, 2024L,
-    "INEGI, ENDUTIH 2024"
+  "Usuarios de internet", "Hombres", 76.5, 2021L, "INEGI, ENDUTIH 2024",
+  "Usuarios de internet", "Mujeres", 74.8, 2021L, "INEGI, ENDUTIH 2024",
+  "Usuarios de internet", "Hombres", 79.3, 2022L, "INEGI, ENDUTIH 2025",
+  "Usuarios de internet", "Mujeres", 78.1, 2022L, "INEGI, ENDUTIH 2025",
+  "Usuarios de internet", "Hombres", 81.0, 2023L, "INEGI, ENDUTIH 2025",
+  "Usuarios de internet", "Mujeres", 81.4, 2023L, "INEGI, ENDUTIH 2025",
+  "Usuarios de internet", "Hombres", 84.1, 2024L, "INEGI, ENDUTIH 2025",
+  "Usuarios de internet", "Mujeres", 82.3, 2024L, "INEGI, ENDUTIH 2025",
+  "Usuarios de internet", "Hombres", 86.6, 2025L, "INEGI, ENDUTIH 2025",
+  "Usuarios de internet", "Mujeres", 85.6, 2025L, "INEGI, ENDUTIH 2025",
+  "Usuarios de teléfono celular", "Hombres", 79.0, 2021L, "INEGI, ENDUTIH 2024",
+  "Usuarios de teléfono celular", "Mujeres", 77.7, 2021L, "INEGI, ENDUTIH 2024",
+  "Usuarios de teléfono celular", "Hombres", 80.1, 2022L, "INEGI, ENDUTIH 2025",
+  "Usuarios de teléfono celular", "Mujeres", 78.5, 2022L, "INEGI, ENDUTIH 2025",
+  "Usuarios de teléfono celular", "Hombres", 80.9, 2023L, "INEGI, ENDUTIH 2025",
+  "Usuarios de teléfono celular", "Mujeres", 81.8, 2023L, "INEGI, ENDUTIH 2025",
+  "Usuarios de teléfono celular", "Hombres", 82.5, 2024L, "INEGI, ENDUTIH 2025",
+  "Usuarios de teléfono celular", "Mujeres", 81.1, 2024L, "INEGI, ENDUTIH 2025",
+  "Usuarios de teléfono celular", "Hombres", 84.8, 2025L, "INEGI, ENDUTIH 2025",
+  "Usuarios de teléfono celular", "Mujeres", 84.5, 2025L, "INEGI, ENDUTIH 2025"
 )
 
-# Calcular brechas 2024
+# Calcular brechas del año más reciente de la ENDUTIH
 brecha_internet <- datos_endutih %>%
-  filter(indicador == "Usuarios de internet", anio == 2024) %>%
+  filter(indicador == "Usuarios de internet", anio == anio_endutih) %>%
   pivot_wider(names_from = sexo, values_from = valor) %>%
   mutate(brecha = Hombres - Mujeres) %>%
   pull(brecha)
 
 brecha_celular <- datos_endutih %>%
   filter(
-    indicador == "Usuarios de teléfono celular", anio == 2024
+    indicador == "Usuarios de teléfono celular", anio == anio_endutih
   ) %>%
   pivot_wider(names_from = sexo, values_from = valor) %>%
   mutate(brecha = Hombres - Mujeres) %>%
@@ -578,10 +662,57 @@ bd_por_sexo_exp <- bd_por_sexo_exp %>%
   mutate(pct_ocup = total_ocup / sum(total_ocup) * 100) %>%
   ungroup()
 
+# Población ocupada en alguno de los cuatro gradientes de exposición, para
+# compararla con el 34% que Gmyrek et al. (2025, WP140) estiman para las
+# economías de ingresos altos. "Mixto" no cuenta como gradiente.
+niveles_gradientes <- c(
+  "Exposición baja, alta variabilidad de tareas",
+  "Exposición moderada, alta variabilidad de tareas",
+  "Exposición significativa, alta variabilidad de tareas",
+  "Exposición máxima, baja variabilidad de tareas"
+)
+pct_gradientes_total <- bd %>%
+  filter(sex %in% c(1, 2), ocup > 0) %>%
+  summarise(
+    p = 100 * sum(ocup[exposicion_ia_es %in% niveles_gradientes],
+                  na.rm = TRUE) / sum(ocup, na.rm = TRUE)
+  ) %>%
+  pull(p)
+pct_gradientes_total <- paste0(
+  format(round(pct_gradientes_total, 1), nsmall = 1), "%"
+)
+pct_mixto_total <- bd %>%
+  filter(sex %in% c(1, 2), ocup > 0) %>%
+  summarise(
+    p = 100 * sum(ocup[exposicion_ia_es %in% "Mixto"], na.rm = TRUE) /
+      sum(ocup, na.rm = TRUE)
+  ) %>%
+  pull(p)
+pct_mixto_total <- paste0(format(round(pct_mixto_total, 1), nsmall = 1), "%")
+
 # Top 10 ocupaciones en exposición significativa/máxima por sexo
 niveles_alta_exp <- c(
   "Exposición significativa, alta variabilidad de tareas",
   "Exposición máxima, baja variabilidad de tareas"
+)
+
+# Cifras que se muestran en el hero
+personas_ocupadas_hero <- paste0(
+  format(round(sum(bd$ocup[bd$sex %in% c(1, 2)], na.rm = TRUE) / 1e6, 1),
+         nsmall = 1),
+  " M"
+)
+pct_alta_sexo <- bd_por_sexo_exp %>%
+  filter(exposicion_ia_es %in% niveles_alta_exp) %>%
+  group_by(sexo_label) %>%
+  summarise(p = sum(pct_ocup), .groups = "drop")
+pct_alta_hero_m <- paste0(
+  format(round(pct_alta_sexo$p[pct_alta_sexo$sexo_label == "Mujeres"], 1),
+         nsmall = 1), "%"
+)
+pct_alta_hero_h <- paste0(
+  format(round(pct_alta_sexo$p[pct_alta_sexo$sexo_label == "Hombres"], 1),
+         nsmall = 1), "%"
 )
 
 bd_top10 <- bd %>%
@@ -970,14 +1101,203 @@ generar_treemap <- function(datos, sexo_val, titulo_sexo,
     event_register("plotly_click")
 }
 
+# --- Encabezado del sitio de México, ¿cómo vamos? ---
+# Reproduce la barra superior (redes, liga en inglés y buscador), la cintilla
+# decorativa y el menú principal de mexicocomovamos.mx, con las mismas
+# secciones y ligas del sitio (tomadas el 16 de octubre de 2026). La cintilla
+# es una imagen de temporada en el sitio de MCV (hoy la de Día de Muertos);
+# para cambiarla basta sustituir www/mcv_cintilla.png.
+mcv_url <- "https://mexicocomovamos.mx/"
+menu_mcv <- list(
+  list(
+    titulo = "México, ¿cómo vamos?", url = paste0(mcv_url, "equipo/"),
+    items = list(
+      c("Nosotras", "equipo/"),
+      c("Misión y visión", "mision/"),
+      c("Expertas y expertos", "expertos/"),
+      c("Informes anuales", "informe-de-labores/"),
+      c("Escuela de Economía", "escuela-de-economia/"),
+      c("Glosario", "glosario/"),
+      c("Agenda semanal", "agenda-semanal/"),
+      c("Contacto", "contacto/"),
+      c("Newsletter", "newsletter/"),
+      c("Mexico, how are we doing?", "what-we-do/")
+    )
+  ),
+  list(
+    titulo = "Semáforos económicos", url = paste0(mcv_url, "semaforo-nacional/"),
+    items = list(
+      c("Semáforo nacional", "semaforo-nacional/"),
+      c("Crecimiento económico", "semaforo-nacional/crecimiento-economico/"),
+      c("Generación de puestos de trabajo formales",
+        "semaforo-nacional/generacion-puestos-trabajo/"),
+      c("Inflación", "semaforo-nacional/inflacion/"),
+      c("Inversión", "semaforo-nacional/inversion/"),
+      c("Inversión extranjera directa",
+        "semaforo-nacional/inversion-extranjera-directa/"),
+      c("Participación laboral", "semaforo-nacional/participacion-laboral/"),
+      c("Productividad laboral", "semaforo-nacional/productividad/"),
+      c("Competitividad", "semaforo-nacional/competitividad/"),
+      c("Desempeño de las exportaciones",
+        "semaforo-nacional/desempeno-exportaciones/"),
+      c("Valor agregado de exportación", "semaforo-nacional/valor-agregado/"),
+      c("Seguridad en tu ciudad", "semaforo-nacional/estado-de-derecho/"),
+      c("¿Mejorará el clima de negocios?",
+        "semaforo-nacional/estado-de-derecho-percepcion-clima-de-negocios/"),
+      c("¿Es momento de invertir?",
+        paste0("semaforo-nacional/estado-de-derecho-percepcion-momento-",
+               "para-realizar-inversiones/")),
+      c("Acceso al financiamiento", "semaforo-nacional/acceso-credito/"),
+      c("Deuda pública", "semaforo-nacional/deuda-publica/"),
+      c("Pobreza laboral", "semaforo-nacional/pobreza-laboral/"),
+      c("Informalidad laboral", "semaforo-nacional/informalidad-laboral/"),
+      c("Semáforos estatales", "semaforos-estatales/"),
+      c("Semáforos sectoriales", "semaforos-sectoriales/"),
+      c("Datos", "datos-semaforos/")
+    )
+  ),
+  list(
+    titulo = "Índice de progreso social",
+    url = paste0(mcv_url, "indice-de-progreso-social/"), items = list()
+  ),
+  list(
+    titulo = "Micrositios", url = paste0(mcv_url, "micrositios/"),
+    items = list(
+      c("Mercado laboral y brechas de género", "mercado-laboral-y-genero/"),
+      c("Censos económicos", "censos-economicos/"),
+      c("ENIGH: ingresos, gastos, pobreza y desigualdad",
+        "enigh-reimaginemos-el-panorama/"),
+      c("Inflación y política monetaria", "inflacion/"),
+      c("Peso mexicano", "peso-mexicano/"),
+      c("Norteamérica", "micrositios/norteamerica/"),
+      c("Otros micrositios", "micrositios/")
+    )
+  ),
+  list(titulo = "__logo__"),
+  list(
+    titulo = "Fichas por estado", url = paste0(mcv_url, "fichas-por-estado"),
+    items = list()
+  ),
+  list(
+    titulo = "Publicaciones y medios", url = paste0(mcv_url, "publicaciones/"),
+    items = list(
+      c("Publicaciones MCV", "categoria/publicaciones/"),
+      c("Especiales", "publicaciones/#especiales"),
+      c("Comunicados", "publicaciones/#comunicados"),
+      c("Animal Político", "categoria/animal-politico/"),
+      c("Expansión", "categoria/expansion/"),
+      c("Aristegui Noticias", "categoria/aristegui-noticias/"),
+      c("Nexos", "categoria/nexos/"),
+      c("Este País", "categoria/este-pais/"),
+      c("Opiniones de expertos", "expertos/pregunta/207/")
+    )
+  ),
+  list(
+    titulo = "Gráficas e infografías",
+    url = paste0(mcv_url, "categoria/infobites/"),
+    items = list(
+      c("Infografías", "infografias/"),
+      c("Publicaciones cortas", "categoria/infobites/")
+    )
+  ),
+  list(
+    titulo = "México frente al 2030",
+    url = paste0(mcv_url, "mexico-frente-al-2030/"), items = list()
+  )
+)
+
+encabezado_mcv <- function() {
+  item_menu <- function(x) {
+    if (identical(x$titulo, "__logo__")) {
+      return(tags$li(
+        class = "mcv-logo-item",
+        tags$a(
+          href = mcv_url, target = "_blank",
+          tags$img(src = "logo_mcv_hall.svg", alt = "México, ¿cómo vamos?")
+        )
+      ))
+    }
+    tiene_sub <- length(x$items) > 0
+    tags$li(
+      class = ifelse(tiene_sub, "mcv-item mcv-con-sub", "mcv-item"),
+      tags$a(
+        href = x$url, target = "_blank",
+        x$titulo,
+        if (tiene_sub) tags$span(class = "mcv-caret", HTML("&#9662;"))
+      ),
+      if (tiene_sub) tags$ul(
+        class = "mcv-sub",
+        lapply(x$items, function(it) tags$li(tags$a(
+          href = paste0(mcv_url, it[2]), target = "_blank", it[1]
+        )))
+      )
+    )
+  }
+  div(
+    class = "mcv-encabezado",
+    # Barra superior: redes, liga en inglés y buscador
+    div(
+      class = "mcv-barra",
+      div(
+        class = "mcv-barra-contenido",
+        div(
+          class = "mcv-redes",
+          tags$a(href = "https://twitter.com/mexicocomovamos", target = "_blank",
+                 `aria-label` = "Twitter", tags$i(class = "fab fa-twitter")),
+          tags$a(href = "https://www.facebook.com/MexicoComoVamos",
+                 target = "_blank", `aria-label` = "Facebook",
+                 tags$i(class = "fab fa-facebook")),
+          tags$a(href = "https://www.youtube.com/user/MexicoComoVamos",
+                 target = "_blank", `aria-label` = "YouTube",
+                 tags$i(class = "fab fa-youtube")),
+          tags$a(href = "https://www.instagram.com/mexicocomovamos/",
+                 target = "_blank", `aria-label` = "Instagram",
+                 tags$i(class = "fab fa-instagram")),
+          tags$a(href = "https://github.com/mexicocomovamos", target = "_blank",
+                 `aria-label` = "GitHub", tags$i(class = "fab fa-github"))
+        ),
+        div(
+          class = "mcv-barra-derecha",
+          tags$a(
+            class = "mcv-ingles", href = paste0(mcv_url, "what-we-do/"),
+            target = "_blank", HTML("Mexico, how are we doing? &#127482;&#127480;")
+          ),
+          tags$form(
+            class = "mcv-buscador", method = "get", action = mcv_url,
+            target = "_blank", role = "search",
+            tags$input(type = "text", name = "s", placeholder = "¿BUSCAS ALGO?",
+                       `aria-label` = "Buscar en mexicocomovamos.mx"),
+            tags$button(type = "submit", `aria-label` = "Buscar",
+                        tags$i(class = "fas fa-search"))
+          )
+        )
+      )
+    ),
+    # Cintilla decorativa
+    div(class = "mcv-cintilla", `aria-hidden` = "true"),
+    # Menú principal
+    tags$nav(
+      class = "mcv-menu",
+      tags$ul(lapply(menu_mcv, item_menu))
+    )
+  )
+}
+
 # --- Banda ilustrada ---
 # Imagen de apertura de cada sección, con una leyenda corta sobre una
 # franja morada. Las imágenes viven en www/ilustraciones/; hoy son fotos
 # de stock provisionales y se sustituirán por ilustraciones encargadas.
-banda_ilustrada <- function(imagen, texto) {
+# `posicion` recorta la foto (background-position); por defecto al centro.
+# `alto` es la altura de la banda en píxeles (220 por defecto).
+banda_ilustrada <- function(imagen, texto, posicion = "center",
+                            alto = 220) {
   div(
     class = "banda-ilustrada",
-    style = paste0("background-image: url('ilustraciones/", imagen, "');"),
+    style = paste0(
+      "background-image: url('ilustraciones/", imagen, "'); ",
+      "background-position: ", posicion, "; ",
+      "height: ", alto, "px;"
+    ),
     div(class = "banda-texto", texto)
   )
 }
@@ -992,32 +1312,297 @@ ui <- fluidPage(
       ),
       rel = "stylesheet"
     ),
+    tags$link(
+      href = paste0(
+        "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/",
+        "6.5.1/css/all.min.css"
+      ),
+      rel = "stylesheet"
+    ),
     tags$style(HTML("
+      :root {
+        --mcv-morado: #6950d8;
+        --mcv-morado-oscuro: #4f3bb5;
+        --mcv-amarillo: #ffbd41;
+        --fondo: #F4F2FB;
+        --tinta: #231f20;
+        --ancho-texto: 920px;
+        --ancho-graficas: 1120px;
+        --ancho-relativo: 88%;
+      }
       body {
         font-family: 'Ubuntu', sans-serif;
-        font-size: 19px;
-        background-color: #F4F2FB;
+        font-size: 18px;
+        background-color: var(--fondo);
+        color: var(--tinta);
       }
-      .hero-header {
-        max-width: 960px;
-        margin: 30px auto 25px auto;
-        background-color: #6950d8;
-        border-radius: 12px;
-        padding: 40px 40px 36px 40px;
+      /* Ritmo vertical y anchos de lectura */
+      .bloque-texto {
+        max-width: var(--ancho-texto);
+        margin: 0 auto;
+        padding: 8px 24px;
+      }
+      .parrafo {
+        font-family: 'Ubuntu', sans-serif;
+        color: #333;
+        line-height: 1.75;
+        margin: 0 0 20px 0;
+      }
+      /* Texto de apoyo bajo cada gráfica: tarjeta blanca con sombra suave */
+      .nota-grafica {
+        padding: 18px 24px;
+        margin: 8px 15px 30px 15px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 2px 12px rgba(35, 31, 32, 0.07);
+      }
+      .nota-grafica .parrafo {
+        font-size: 16px;
+        color: #444;
+      }
+      .nota-grafica .parrafo:last-child {
+        margin-bottom: 0;
+      }
+      .col-sm-12 > .nota-grafica,
+      .bloque-texto.nota-grafica {
+        max-width: var(--ancho-texto);
+        margin: 8px auto 30px auto;
+      }
+      .titulo-seccion {
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 1.55em;
+        margin: 26px 0 18px 0;
+        scroll-margin-top: 64px;
+      }
+      h4 {
+        font-family: 'Ubuntu', sans-serif;
+        margin: 30px 0 12px 0;
+      }
+      /* Las gráficas ocupan 88% del ancho (hasta 1120 px), nunca el 100% */
+      .container-fluid > .row,
+      .container-fluid > .chart-header,
+      .container-fluid > .plotly,
+      .container-fluid > .shiny-html-output,
+      .bloque-graficas {
+        max-width: var(--ancho-graficas);
+        width: var(--ancho-relativo);
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .container-fluid > .plotly {
+        margin-bottom: 24px;
+      }
+      /* Fondo de las gráficas igual al de la página */
+      .js-plotly-plot .plotly .main-svg {
+        background: transparent !important;
+      }
+      .js-plotly-plot .plotly .bglayer .bg,
+      .js-plotly-plot .plotly .legend .bg {
+        fill: transparent !important;
+      }
+      /* Encabezado del sitio de MCV */
+      .mcv-encabezado {
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        font-family: 'Ubuntu', sans-serif;
+        position: relative;
+        z-index: 60;
+      }
+      .mcv-barra {
+        background-color: var(--mcv-morado);
+        color: #fff;
+        padding: 6px 0 14px 0;
+      }
+      .mcv-barra-contenido {
+        max-width: 1380px;
+        margin: 0 auto;
+        padding: 0 28px;
         display: flex;
         align-items: center;
-        gap: 30px;
+        justify-content: space-between;
+        gap: 16px;
         flex-wrap: wrap;
       }
+      .mcv-redes a {
+        color: #fff;
+        font-size: 13px;
+        margin-right: 18px;
+      }
+      .mcv-barra-derecha {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+      }
+      .mcv-ingles {
+        color: #fff;
+        font-size: 11.5px;
+        text-decoration: none;
+      }
+      .mcv-ingles:hover {
+        color: var(--mcv-amarillo);
+        text-decoration: none;
+      }
+      .mcv-buscador {
+        display: flex;
+        margin: 0;
+      }
+      .mcv-buscador input {
+        font: bold 10px/11px 'Ubuntu', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0;
+        color: var(--mcv-morado);
+        background-color: #ece5ee;
+        border: none;
+        border-radius: 20px 0 0 20px;
+        padding: 6px 10px 6px 14px;
+        width: 180px;
+        outline: none;
+      }
+      .mcv-buscador input::placeholder {
+        color: var(--mcv-morado);
+      }
+      .mcv-buscador button {
+        color: var(--mcv-morado);
+        background-color: #ece5ee;
+        border: none;
+        border-radius: 0 20px 20px 0;
+        padding: 0 14px;
+        font-size: 11px;
+      }
+      .mcv-cintilla {
+        height: 22px;
+        margin-top: -12px;
+        background-image: url('mcv_cintilla.png');
+        background-repeat: repeat-x;
+        background-size: auto 22px;
+        background-position: left top;
+        position: relative;
+        z-index: 2;
+        pointer-events: none;
+      }
+      .mcv-menu {
+        background-color: #ffffff;
+        padding: 18px 0 14px 0;
+      }
+      .mcv-menu > ul {
+        list-style: none;
+        margin: 0 auto;
+        padding: 0 16px;
+        max-width: 1240px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+      .mcv-menu .mcv-item {
+        position: relative;
+        width: 8.4rem;
+        font: bold 11.5px/13px 'Ubuntu', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0;
+        text-align: left;
+      }
+      .mcv-menu .mcv-item > a {
+        display: block;
+        color: #333333;
+        text-decoration: none;
+        padding: 8px 6px;
+        white-space: normal;
+      }
+      .mcv-menu .mcv-item > a:hover {
+        color: var(--mcv-morado);
+      }
+      .mcv-caret {
+        font-size: 9px;
+        margin-left: 4px;
+        color: var(--mcv-morado);
+      }
+      .mcv-logo-item {
+        margin: 0 22px;
+      }
+      .mcv-logo-item img {
+        height: 70px;
+        width: auto;
+        display: block;
+      }
+      .mcv-sub {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 15rem;
+        max-height: 70vh;
+        overflow-y: auto;
+        background-color: #fff;
+        border: 1px solid #ece5ee;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+        list-style: none;
+        margin: 0;
+        padding: 8px 0;
+        z-index: 70;
+      }
+      .mcv-con-sub:hover .mcv-sub {
+        display: block;
+      }
+      .mcv-sub li a {
+        display: block;
+        padding: 8px 16px;
+        color: #333333;
+        font: bold 11px/13px 'Ubuntu', sans-serif;
+        text-transform: uppercase;
+        text-decoration: none;
+      }
+      .mcv-sub li a:hover {
+        color: var(--mcv-morado);
+      }
+      @media (max-width: 991px) {
+        .mcv-menu .mcv-item { display: none; }
+        .mcv-barra-derecha { display: none; }
+      }
+      /* Hero a todo lo ancho, estilo MCV */
+      .hero {
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        background-color: var(--mcv-morado);
+        position: relative;
+        overflow: hidden;
+        padding: 52px 0 70px 0;
+      }
+      .hero::after {
+        content: '';
+        position: absolute;
+        left: 0; right: 0; bottom: 0;
+        height: 70px;
+        background-image: radial-gradient(
+          circle at 50% 100%,
+          rgba(255,255,255,0.10) 0 68px,
+          transparent 69px
+        );
+        background-size: 140px 70px;
+        background-repeat: repeat-x;
+        background-position: 0 100%;
+        pointer-events: none;
+      }
+      .hero-contenido {
+        max-width: var(--ancho-graficas);
+        width: var(--ancho-relativo);
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 48px;
+        flex-wrap: wrap;
+        position: relative;
+        z-index: 1;
+      }
       .hero-texto {
-        flex: 1 1 420px;
+        flex: 1 1 460px;
         text-align: left;
       }
       .hero-logos {
         display: flex;
         align-items: center;
         gap: 14px;
-        margin-bottom: 22px;
+        margin-bottom: 26px;
       }
       .hero-logos img {
         height: 34px;
@@ -1030,20 +1615,123 @@ ui <- fluidPage(
         padding: 4px 8px;
         height: 42px;
       }
+      .hero-eyebrow {
+        color: var(--mcv-amarillo);
+        font-size: 13px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-weight: 500;
+        margin-bottom: 14px;
+      }
+      .hero h1 {
+        color: #ffffff;
+        font-size: 2.7em;
+        font-weight: 700;
+        line-height: 1.12;
+        letter-spacing: -0.5px;
+        margin: 0 0 16px 0;
+        text-wrap: balance;
+      }
+      .hero h1 .acento {
+        color: var(--mcv-amarillo);
+      }
+      .hero-sub {
+        color: rgba(255,255,255,0.9);
+        font-size: 1.05em;
+        line-height: 1.55;
+        margin: 0 0 28px 0;
+        max-width: 580px;
+      }
+      .hero-cifras {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+      .cifra {
+        background-color: rgba(255,255,255,0.10);
+        border: 1px solid rgba(255,255,255,0.28);
+        border-radius: 10px;
+        padding: 12px 16px;
+        flex: 1 1 150px;
+        max-width: 200px;
+      }
+      .cifra .numero {
+        color: var(--mcv-amarillo);
+        font-size: 1.7em;
+        font-weight: 700;
+        line-height: 1.1;
+      }
+      .cifra .etiqueta {
+        color: #ffffff;
+        font-size: 12.5px;
+        line-height: 1.35;
+        margin-top: 5px;
+        opacity: 0.92;
+      }
       .hero-ilustracion {
-        flex: 0 1 300px;
-        height: 240px;
-        border-radius: 12px;
-        overflow: hidden;
+        flex: 0 1 400px;
+      }
+      .hero-ilustracion .marco {
+        height: 320px;
+        border-radius: 16px;
         background-size: cover;
         background-position: center;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        box-shadow: 0 14px 34px rgba(0,0,0,0.28);
+        border: 6px solid rgba(255,255,255,0.16);
+      }
+      .hero-ilustracion .credito {
+        color: rgba(255,255,255,0.72);
+        font-size: 11.5px;
+        text-align: right;
+        margin-top: 8px;
+      }
+      /* Menú de secciones fijo bajo el hero */
+      .nav-secciones {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        background-color: var(--mcv-morado-oscuro);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+      }
+      .nav-secciones ul {
+        list-style: none;
+        margin: 0 auto;
+        padding: 0;
+        max-width: var(--ancho-graficas);
+        width: var(--ancho-relativo);
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0 4px;
+      }
+      .nav-secciones a {
+        display: block;
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 500;
+        text-decoration: none;
+        padding: 13px 18px;
+        letter-spacing: 0.3px;
+      }
+      .nav-secciones a::before {
+        content: '▸  ';
+        color: var(--mcv-amarillo);
+      }
+      .nav-secciones a:hover {
+        background-color: rgba(255,255,255,0.12);
+        color: #ffffff;
+        text-decoration: none;
+      }
+      .intro {
+        margin-top: 40px;
       }
       /* Bandas ilustradas que abren cada sección (estilo MCV) */
       .banda-ilustrada {
-        max-width: 960px;
-        height: 210px;
-        margin: 10px auto 0 auto;
+        max-width: var(--ancho-texto);
+        height: 220px;
+        margin: 44px auto 0 auto;
         border-radius: 12px;
         background-size: cover;
         background-position: center;
@@ -1071,18 +1759,6 @@ ui <- fluidPage(
         letter-spacing: 0.5px;
         text-transform: uppercase;
         text-align: center;
-      }
-      .hero-header h2 {
-        color: #ffffff;
-        font-size: 2.2em;
-        font-weight: 700;
-        margin: 0 0 10px 0;
-      }
-      .hero-header p {
-        color: #ffffff;
-        font-size: 1em;
-        margin: 0;
-        opacity: 0.9;
       }
       .card-section {
         background-color: white;
@@ -1113,18 +1789,18 @@ ui <- fluidPage(
       }
       .chart-title {
         font-family: 'Ubuntu', sans-serif;
-        font-size: 16px;
+        font-size: 17px;
         font-weight: 500;
         color: #231f20;
-        margin: 0 0 2px 0;
-        text-align: center;
+        margin: 0 0 3px 0;
+        text-align: left;
       }
       .chart-subtitle {
         font-family: 'Ubuntu', sans-serif;
-        font-size: 12px;
-        color: #888;
-        margin: 0 0 8px 0;
-        text-align: center;
+        font-size: 12.5px;
+        color: #777;
+        margin: 0 0 6px 0;
+        text-align: left;
       }
       .highlight {
         color: #000;
@@ -1140,17 +1816,24 @@ ui <- fluidPage(
         padding: 3px 10px;
         border-radius: 4px;
       }
+      /* Título, subtítulo y leyenda de cada gráfica: tarjeta blanca con
+         sombra suave y regla morada a la izquierda */
       .chart-header {
-        padding: 12px 15px 8px 15px;
-        background-color: white;
-        border-radius: 8px 8px 0 0;
-        box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+        padding: 12px 18px 8px 16px;
+        margin: 26px 15px 10px 15px;
+        background-color: #ffffff;
+        border-left: 4px solid var(--mcv-morado);
+        border-radius: 0 10px 10px 0;
+        box-shadow: 0 2px 12px rgba(35, 31, 32, 0.07);
+      }
+      .container-fluid > .chart-header {
+        margin-top: 26px;
       }
       .leyenda-sexo {
         display: flex;
         gap: 18px;
-        justify-content: center;
-        padding: 4px 0 6px 0;
+        justify-content: flex-start;
+        padding: 2px 0 4px 0;
       }
       .leyenda-sexo .leyenda-item {
         font-size: 12px;
@@ -1214,43 +1897,109 @@ ui <- fluidPage(
   # Ver git history para el código completo.
   # --- FIN SILENCIADO ---
 
-  # --- Título general del dashboard ---
+  # --- Encabezado del sitio de MCV (barra, cintilla y menú) ---
+  encabezado_mcv(),
+
+  # --- Hero a todo lo ancho (estilo MCV) ---
   div(
-    class = "hero-header",
+    class = "hero",
     div(
-      class = "hero-texto",
+      class = "hero-contenido",
       div(
-        class = "hero-logos",
-        tags$img(
-          src = "logo_mcv_blanco.svg",
-          alt = "México, ¿Cómo Vamos?"
+        class = "hero-texto",
+        div(
+          class = "hero-logos",
+          tags$img(
+            class = "logo-clave",
+            src = "clave_logo.png",
+            alt = "Clave Igualdad"
+          )
         ),
-        tags$img(
-          class = "logo-clave",
-          src = "clave_logo.png",
-          alt = "Clave Igualdad"
+        div(
+          class = "hero-eyebrow",
+          "Monitor 2026 · Mujeres, trabajo e inteligencia artificial"
+        ),
+        h1(HTML(paste0(
+          "Monitor de exposición del ",
+          "<span class='acento'>trabajo de las mujeres</span> a la IA"
+        ))),
+        p(
+          class = "hero-sub",
+          paste0(
+            "Qué tan expuestas están a la IA generativa las ocupaciones ",
+            "donde trabajan las mujeres en México, y con qué brechas ",
+            "tecnológicas enfrentan esa transición. ENOE ", periodo_enoe,
+            ", clasificación SINCO a 4 dígitos."
+          )
+        ),
+        div(
+          class = "hero-cifras",
+          div(
+            class = "cifra",
+            div(class = "numero", personas_ocupadas_hero),
+            div(class = "etiqueta",
+                paste0("personas ocupadas en México, ENOE ", periodo_enoe))
+          ),
+          div(
+            class = "cifra",
+            div(class = "numero", pct_alta_hero_m),
+            div(class = "etiqueta",
+                "de las mujeres ocupadas trabajan en exposición significativa o máxima")
+          ),
+          div(
+            class = "cifra",
+            div(class = "numero", pct_alta_hero_h),
+            div(class = "etiqueta",
+                "de los hombres ocupados están en esas mismas categorías")
+          )
         )
       ),
-      h2(paste0(
-        "Monitor de exposición del trabajo ",
-        "de las mujeres a la IA"
-      )),
-      p(paste0("ENOE ", periodo_enoe, " | Clasificación SINCO a 4 dígitos"))
-    ),
-    div(
-      class = "hero-ilustracion",
-      style = "background-image: url('ilustraciones/hero.jpg');"
+      div(
+        class = "hero-ilustracion",
+        div(
+          class = "marco",
+          style = "background-image: url('ilustraciones/hero.jpg');"
+        ),
+        div(
+          class = "credito",
+          "Imagen provisional: Christina @wocintechchat (Unsplash)"
+        )
+      )
+    )
+  ),
+
+  # --- Menú de secciones (fijo al hacer scroll) ---
+  tags$nav(
+    class = "nav-secciones",
+    tags$ul(
+      lapply(
+        list(
+          c("sec-resumen", "Resumen ejecutivo"),
+          c("sec-exposicion", "Exposición a la IA"),
+          c("sec-brecha", "Brecha tecnológica"),
+          c("sec-normativa", "Normativa"),
+          c("sec-conclusion", "Conclusión")
+        ),
+        function(x) {
+          tags$li(tags$a(
+            href = paste0("#", x[1]),
+            onclick = paste0(
+              "document.getElementById('", x[1],
+              "').scrollIntoView({behavior:'smooth', block:'start'}); ",
+              "return false;"
+            ),
+            x[2]
+          ))
+        }
+      )
     )
   ),
 
   # --- Texto introductorio ---
   div(
-    style = paste0(
-      "padding: 20px 25px; max-width: 960px; ",
-      "margin: 20px auto;"
-    ),
+    class = "bloque-texto intro",
     p(
-      style = "font-family: 'Ubuntu'; color: #333; line-height: 1.6;",
+      class = "parrafo",
       HTML(paste0(
         "La inteligencia artificial (IA) ya está cambiando ",
         "tareas y ocupaciones, pero ",
@@ -1263,7 +2012,7 @@ ui <- fluidPage(
       ))
     ),
     p(
-      style = "font-family: 'Ubuntu'; color: #333; line-height: 1.6;",
+      class = "parrafo",
       HTML(paste0(
         "¿Qué entendemos por exposición a la IA? Se refiere ",
         "al <span class='highlight'>potencial de ",
@@ -1276,7 +2025,7 @@ ui <- fluidPage(
       ))
     ),
     p(
-      style = "font-family: 'Ubuntu'; color: #333; line-height: 1.6;",
+      class = "parrafo",
       HTML(paste0(
         "Esta herramienta busca mostrar a las personas ",
         "tomadoras de decisiones en qué casos este cambio ",
@@ -1289,69 +2038,6 @@ ui <- fluidPage(
   ),
 
   # --- Menú de navegación ---
-  div(
-    style = paste0(
-      "padding: 15px 25px; max-width: 960px; ",
-      "margin: 0 auto 15px auto; ",
-      "background-color: #f5f5f5; border-radius: 8px; ",
-      "text-align: center;"
-    ),
-    p(
-      style = paste0(
-        "font-family: 'Ubuntu'; margin-bottom: 4px; ",
-        "font-size: 15px;"
-      ),
-      HTML("<span class='title-highlight'>Dimensiones</span>")
-    ),
-    p(
-      style = paste0(
-        "font-family: 'Ubuntu'; font-size: 12px; ",
-        "color: #888; margin: 0 0 10px 0;"
-      ),
-      "Selecciona una sección para ir directamente a ella."
-    ),
-    HTML(paste0(
-      "<div style='display:flex; flex-direction:column; ",
-      "align-items:center; gap:6px;'>",
-      "<a href='#sec-resumen' ",
-      "style='color:#6950d8; font-family:Ubuntu; ",
-      "font-size:14px;' ",
-      "onclick=\"document.getElementById(",
-      "'sec-resumen').scrollIntoView(",
-      "{behavior:'smooth'}); return false;\">",
-      "Resumen ejecutivo</a>",
-      "<a href='#sec-exposicion' ",
-      "style='color:#6950d8; font-family:Ubuntu; ",
-      "font-size:14px;' ",
-      "onclick=\"document.getElementById(",
-      "'sec-exposicion').scrollIntoView(",
-      "{behavior:'smooth'}); return false;\">",
-      "Exposición a la IA</a>",
-      "<a href='#sec-brecha' ",
-      "style='color:#6950d8; font-family:Ubuntu; ",
-      "font-size:14px;' ",
-      "onclick=\"document.getElementById(",
-      "'sec-brecha').scrollIntoView(",
-      "{behavior:'smooth'}); return false;\">",
-      "Brecha tecnológica</a>",
-      "<a href='#sec-normativa' ",
-      "style='color:#6950d8; font-family:Ubuntu; ",
-      "font-size:14px;' ",
-      "onclick=\"document.getElementById(",
-      "'sec-normativa').scrollIntoView(",
-      "{behavior:'smooth'}); return false;\">",
-      "Normativa</a>",
-      "<a href='#sec-conclusion' ",
-      "style='color:#6950d8; font-family:Ubuntu; ",
-      "font-size:14px;' ",
-      "onclick=\"document.getElementById(",
-      "'sec-conclusion').scrollIntoView(",
-      "{behavior:'smooth'}); return false;\">",
-      "Conclusión</a>",
-      "</div>"
-    ))
-  ),
-
   # --- DataAcción branding ---
   div(
     style = paste0(
@@ -1378,17 +2064,14 @@ ui <- fluidPage(
   # SECCIÓN: Resumen ejecutivo
   # ==========================================================
   div(
-    style = paste0(
-      "padding: 20px 25px; max-width: 960px; ",
-      "margin: 20px auto;"
-    ),
+    class = "bloque-texto",
     h3(
       id = "sec-resumen",
-      style = "font-family: 'Ubuntu';",
+      class = "titulo-seccion",
       HTML("<span class='title-highlight'>Resumen ejecutivo</span>")
     ),
     p(
-      style = "font-family: 'Ubuntu'; color: #333; line-height: 1.6;",
+      class = "parrafo",
       HTML(paste0(
         "El Monitor de Exposición a la IA permite identificar ",
         "dónde podrían aparecer tensiones antes de que se ",
@@ -1447,9 +2130,9 @@ ui <- fluidPage(
     column(
       6,
       div(
-        style = "padding: 10px 15px 30px 15px;",
+        class = "nota-grafica",
         p(
-          style = "font-family: 'Ubuntu'; color: #333; line-height: 1.6;",
+          class = "parrafo",
           HTML(paste0(
             "Las 10 ocupaciones con mayor población masculina ",
             "en las categorías de exposición significativa y ",
@@ -1466,9 +2149,9 @@ ui <- fluidPage(
     column(
       6,
       div(
-        style = "padding: 10px 15px 30px 15px;",
+        class = "nota-grafica",
         p(
-          style = "font-family: 'Ubuntu'; color: #333; line-height: 1.6;",
+          class = "parrafo",
           HTML(paste0(
             "Las 10 ocupaciones con mayor población femenina ",
             "en las categorías de exposición significativa y ",
@@ -1519,13 +2202,19 @@ ui <- fluidPage(
     column(
       12,
       div(
-        style = "padding: 10px 15px 30px 15px;",
+        class = "nota-grafica",
         p(
-          style = "font-family: 'Ubuntu'; color: #333; line-height: 1.6;",
+          class = "parrafo",
           HTML(paste0(
             "El grupo expuesto de manera directa a la IA generativa ",
             "es más pequeño en México que en las economías de ",
-            "ingresos altos. Las divisiones 1 a 3 del SINCO ",
+            "ingresos altos: la OIT estima que en esas economías ",
+            "34% del empleo cae en alguno de los cuatro gradientes ",
+            "de exposición (Gmyrek et al., 2025), contra ",
+            pct_gradientes_total, " en México, sin contar el ",
+            pct_mixto_total, " de la población ocupada en ocupaciones ",
+            "de correspondencia mixta que no se asignan a un gradiente. ",
+            "Las divisiones 1 a 3 del SINCO ",
             "(funcionarios y directivos, profesionistas y técnicos, ",
             "y oficinistas) reúnen a ",
             "<span class='highlight'>", personas_escritorio_total,
@@ -1546,21 +2235,18 @@ ui <- fluidPage(
   # SECCIÓN 1: Exposición a la IA
   # ==========================================================
   div(
-    style = paste0(
-      "padding: 20px 25px; max-width: 960px; ",
-      "margin: 20px auto;"
-    ),
+    class = "bloque-texto",
     banda_ilustrada(
       "exposicion.jpg",
       "La exposición a la IA no se reparte igual entre ocupaciones ni entre hombres y mujeres."
     ),
     h3(
       id = "sec-exposicion",
-      style = "font-family: 'Ubuntu';",
+      class = "titulo-seccion",
       HTML("<span class='title-highlight'>Exposición a la IA</span>")
     ),
     p(
-      style = "font-family: 'Ubuntu'; color: #333; line-height: 1.6;",
+      class = "parrafo",
       HTML(paste0(
         "Medir la exposición a la IA es importante porque ",
         "permite entender ",
@@ -1584,7 +2270,7 @@ ui <- fluidPage(
       ))
     ),
     p(
-      style = "font-family: 'Ubuntu'; color: #333; line-height: 1.6;",
+      class = "parrafo",
       HTML(paste0(
         "Conocer la variabilidad de las tareas permite ",
         "entender si la exposición a la IA afecta de manera ",
@@ -1656,7 +2342,6 @@ ui <- fluidPage(
   uiOutput("panel_descripcion_ia"),
 
   # --- Gráficas comparativas ---
-br(), br(), 
   # Fila 1: Gráficas 1 y 2
   fluidRow(
     column(
@@ -1708,9 +2393,9 @@ br(), br(),
     column(
       6,
       div(
-        style = "padding: 10px 15px 30px 15px;",
+        class = "nota-grafica",
         p(
-          style = "font-family: 'Ubuntu'; color: #333; line-height: 1.6;",
+          class = "parrafo",
           paste0(
             "Esta gráfica muestra el total de personas ocupadas ",
             "en las dos categorías de mayor exposición a la IA: ",
@@ -1726,9 +2411,9 @@ br(), br(),
     column(
       6,
       div(
-        style = "padding: 10px 15px 30px 15px;",
+        class = "nota-grafica",
         p(
-          style = "font-family: 'Ubuntu'; color: #333; line-height: 1.6;",
+          class = "parrafo",
           paste0(
             "La distribución porcentual permite comparar la ",
             "estructura de exposición entre hombres y mujeres ",
@@ -1749,7 +2434,7 @@ br(), br(),
       div(
         class = "chart-header",
         p(class = "chart-title",
-          "Ingreso mediano ponderado por gradiente"),
+          "Ingreso mediano típico por gradiente"),
         p(class = "chart-subtitle",
           paste0("Personal ocupado, por sexo | ENOE ", periodo_enoe)),
         div(
@@ -1793,13 +2478,15 @@ br(), br(),
     column(
       6,
       div(
-        style = "padding: 10px 15px 30px 15px;",
+        class = "nota-grafica",
         p(
-          style = "font-family: 'Ubuntu'; color: #333; line-height: 1.6;",
+          class = "parrafo",
           paste0(
-            "El ingreso mediano ponderado por gradiente de ",
-            "exposición revela cómo se relacionan los ingresos ",
-            "con el nivel de exposición a la IA. ",
+            "El ingreso mediano típico de cada gradiente (el ",
+            "promedio, ponderado por empleo, de las medianas de ",
+            "ingreso de sus ocupaciones) muestra cómo se ",
+            "relacionan los ingresos con el nivel de exposición ",
+            "a la IA. ",
             "Ocupaciones con mayor exposición tienden a ",
             "concentrar trabajadores de mayores ingresos, lo ",
             "cual tiene implicaciones sobre qué segmentos ",
@@ -1811,9 +2498,9 @@ br(), br(),
     column(
       6,
       div(
-        style = "padding: 10px 15px 30px 15px;",
+        class = "nota-grafica",
         p(
-          style = "font-family: 'Ubuntu'; color: #333; line-height: 1.6;",
+          class = "parrafo",
           paste0(
             "La tasa de informalidad laboral ponderada por ",
             "gradiente de exposición muestra si las ocupaciones ",
@@ -1857,12 +2544,9 @@ br(), br(),
     column(
       12,
       div(
-        style = paste0(
-          "padding: 10px 25px 30px 25px; ",
-          "max-width: 960px; margin: 0 auto;"
-        ),
+        class = "bloque-texto nota-grafica",
         p(
-          style = "font-family: 'Ubuntu'; color: #333; line-height: 1.6;",
+          class = "parrafo",
           HTML(paste0(
             "La escolaridad promedio ponderada por gradiente ",
             "permite observar si la exposición a la IA está ",
@@ -1880,29 +2564,28 @@ br(), br(),
 
   # --- Subsección: Cuidados ---
   div(
-    style = paste0(
-      "padding: 20px 25px; max-width: 960px; ",
-      "margin: 20px auto;"
-    ),
+    class = "bloque-texto",
     banda_ilustrada(
       "cuidados.jpg",
-      "Los cuidados son el trabajo que la IA no va a hacer, y sigue recayendo sobre las mujeres."
+      "Los cuidados son el trabajo que la IA no va a hacer, y sigue recayendo sobre las mujeres.",
+      posicion = "center 35%",
+      alto = 380
     ),
     h3(
-      style = "font-family: 'Ubuntu';",
+      class = "titulo-seccion",
       HTML("<span class='title-highlight'>Cuidados</span>")
     ),
     p(
-      style = "font-family: 'Ubuntu'; color: #333; line-height: 1.6;",
+      class = "parrafo",
       HTML(paste0(
         "Si bien los cuidados son un tema que merece ",
         "tratarse en su propia dimensión, es importante ",
         "tomar en cuenta este contexto. Como se observa ",
         "en el treemap, ",
         "<span class='highlight'>las ocupaciones de cuidados ",
-        "presentan niveles bajos de exposición a la IA</span>, ",
-        "lo que sugiere que estas labores —predominantemente ",
-        "realizadas por mujeres— no serán fácilmente ",
+        "presentan niveles bajos o mixtos de exposición a la IA</span>, ",
+        "lo que sugiere que estas labores, predominantemente ",
+        "realizadas por mujeres, no serán fácilmente ",
         "automatizadas. Sin embargo, ",
         "<span class='highlight'>la distribución desigual ",
         "de los cuidados sigue siendo una de las principales ",
@@ -1935,21 +2618,18 @@ br(), br(),
   # SECCIÓN 2: Brecha tecnológica
   # ==========================================================
   div(
-    style = paste0(
-      "padding: 20px 25px; max-width: 960px; ",
-      "margin: 20px auto;"
-    ),
+    class = "bloque-texto",
     banda_ilustrada(
       "brecha.jpg",
       "Sin conectividad ni formación, la misma exposición se vive desde puntos de partida distintos."
     ),
     h3(
       id = "sec-brecha",
-      style = "font-family: 'Ubuntu';",
+      class = "titulo-seccion",
       HTML("<span class='title-highlight'>Brecha tecnológica</span>")
     ),
     p(
-      style = "font-family: 'Ubuntu'; color: #333; line-height: 1.6;",
+      class = "parrafo",
       HTML(paste0(
         "<span class='highlight'>No todas las trabajadoras ",
         "enfrentan la exposición a la IA desde el mismo ",
@@ -1970,7 +2650,7 @@ br(), br(),
           p(class = "chart-title", "Usuarios de internet"),
           p(
             class = "chart-subtitle",
-            "Porcentaje por sexo | ENDUTIH 2024"
+            "Porcentaje por sexo | ENDUTIH 2025"
           ),
           div(
             class = "leyenda-sexo",
@@ -1997,13 +2677,13 @@ br(), br(),
           style = paste0(
             "background-color: #ff6260; color: white; ",
             "border-radius: 6px; padding: 12px 16px; ",
-            "margin: 20px 15px 0 15px; ",
+            "margin: 20px 15px 36px 15px; ",
             "font-family: 'Ubuntu'; text-align: center;"
           ),
           p(
             style = "margin: 0; font-size: 14px; font-weight: 500;",
             HTML(paste0(
-              "Brecha 2024: ",
+              "Brecha 2025: ",
               format(abs(brecha_internet), nsmall = 1),
               " pp (Hombres > Mujeres)"
             ))
@@ -2020,7 +2700,7 @@ br(), br(),
           ),
           p(
             class = "chart-subtitle",
-            "Porcentaje por sexo | ENDUTIH 2024"
+            "Porcentaje por sexo | ENDUTIH 2025"
           ),
           div(
             class = "leyenda-sexo",
@@ -2047,13 +2727,13 @@ br(), br(),
           style = paste0(
             "background-color: #ff6260; color: white; ",
             "border-radius: 6px; padding: 12px 16px; ",
-            "margin: 20px 15px 0 15px; ",
+            "margin: 20px 15px 36px 15px; ",
             "font-family: 'Ubuntu'; text-align: center;"
           ),
           p(
             style = "margin: 0; font-size: 14px; font-weight: 500;",
             HTML(paste0(
-              "Brecha 2024: ",
+              "Brecha 2025: ",
               format(abs(brecha_celular), nsmall = 1),
               " pp (Hombres > Mujeres)"
             ))
@@ -2061,17 +2741,16 @@ br(), br(),
         )
       )
     ),
-    br(), br(), 
     p(
-      style = "font-family: 'Ubuntu'; color: #333; line-height: 1.6;",
+      class = "parrafo",
       HTML(paste0(
-        "Otro punto a tener en cuenta es que, de acuerdo ",
-        "con distintos estudios, ",
-        "<span class='highlight'>las mujeres usan la ",
-        "tecnología para cumplir necesidades prácticas de ",
-        "género</span>: ayudar en las tareas, buscar ",
-        "recetas, mientras que los hombres dedican más de ",
-        "su uso al ámbito laboral."
+        "Otro punto a tener en cuenta es que el tipo de uso ",
+        "también difiere. La ENDUTIH 2025 muestra que ",
+        "<span class='highlight'>las mujeres usan más las ",
+        "aplicaciones de mensajería y de edición de fotos y ",
+        "video, mientras que los hombres usan más las de ",
+        "navegación, banca móvil, compras y juegos</span>. ",
+        "La gráfica siguiente muestra estas diferencias."
       ))
     ),
     # --- Gráfica: Uso de apps en celular por sexo ---
@@ -2089,7 +2768,7 @@ br(), br(),
         ),
         p(
           class = "chart-subtitle",
-          "ENDUTIH 2024 | INEGI"
+          "ENDUTIH 2025 | INEGI"
         ),
         div(
           class = "leyenda-sexo",
@@ -2114,7 +2793,7 @@ br(), br(),
       plotlyOutput("g_apps_usos", height = "420px")
     ),
     p(
-      style = "font-family: 'Ubuntu'; color: #333; line-height: 1.6;",
+      class = "parrafo",
       HTML(paste0(
         "Hablar de mujeres en STEM, en este contexto, ",
         "<span class='highlight'>no es un tema aparte: es ",
@@ -2198,7 +2877,7 @@ br(), br(),
     ),
     br(),
     p(
-      style = "font-family: 'Ubuntu'; color: #333; line-height: 1.6;",
+      class = "parrafo",
       HTML(paste0(
         "La ENOE permite identificar a las personas ocupadas que ",
         "estudiaron una carrera en ciencias, tecnología, ingeniería ",
@@ -2227,21 +2906,18 @@ br(), br(),
   # SECCIÓN 3: Normativa
   # ==========================================================
   div(
-    style = paste0(
-      "padding: 20px 25px; max-width: 960px; ",
-      "margin: 20px auto;"
-    ),
+    class = "bloque-texto",
     banda_ilustrada(
       "normativa.jpg",
       "Las normas que ya existen marcan el terreno para que la transición no amplíe las brechas."
     ),
     h3(
       id = "sec-normativa",
-      style = "font-family: 'Ubuntu';",
+      class = "titulo-seccion",
       HTML("<span class='title-highlight'>Normativa</span>")
     ),
     p(
-      style = "font-family: 'Ubuntu'; color: #333; line-height: 1.6;",
+      class = "parrafo",
       HTML(paste0(
         "Tener esta información a la mano importa porque ",
         "muestra que la exposición del trabajo de las ",
@@ -2419,17 +3095,14 @@ br(), br(),
   # SECCIÓN 4: Conclusión
   # ==========================================================
   div(
-    style = paste0(
-      "padding: 20px 25px; max-width: 960px; ",
-      "margin: 20px auto;"
-    ),
+    class = "bloque-texto",
     h3(
       id = "sec-conclusion",
-      style = "font-family: 'Ubuntu';",
+      class = "titulo-seccion",
       HTML("<span class='title-highlight'>Conclusión</span>")
     ),
     p(
-      style = "font-family: 'Ubuntu'; color: #333; line-height: 1.6;",
+      class = "parrafo",
       HTML(paste0(
         "Es indudable que la inteligencia artificial va a ",
         "transformar el mundo del trabajo, y ",
@@ -2439,7 +3112,7 @@ br(), br(),
       ))
     ),
     p(
-      style = "font-family: 'Ubuntu'; color: #333; line-height: 1.6;",
+      class = "parrafo",
       HTML(paste0(
         "De la misma manera, estamos convencidas de que ",
         "el camino puede ser otro: uno en el que ",
@@ -2450,7 +3123,7 @@ br(), br(),
       ))
     ),
     p(
-      style = "font-family: 'Ubuntu'; color: #333; line-height: 1.6;",
+      class = "parrafo",
       HTML(paste0(
         "Al crear esta herramienta, quisimos pensar la ",
         "conversación en ",
@@ -2528,14 +3201,16 @@ br(), br(),
             "color: rgba(255,255,255,0.8); ",
             "font-size: 13px; margin: 0;"
           ),
+          # SILENCIADO (16 de octubre de 2026): liga a la nota metodológica
+          # en el pie; se reactiva cuando se resuelva la ficha metodológica.
+          # "Puedes descargar la nota metodológica en ",
+          # "<a href='https://github.com/JuveCampos/",
+          # "Monitor-de-exposicion-del-trabajo-de-las-mujeres",
+          # "-a-la-IA-2026/blob/main/notametodologica.pdf' ",
+          # "target='_blank' style='color: #ffbd41;'>",
+          # "esta liga</a>. ",
           HTML(paste0(
-            "Puedes descargar la nota metodológica en ",
-            "<a href='https://github.com/JuveCampos/",
-            "Monitor-de-exposicion-del-trabajo-de-las-mujeres",
-            "-a-la-IA-2026/blob/main/notametodologica.pdf' ",
-            "target='_blank' style='color: #ffbd41;'>",
-            "esta liga</a>. Para mayor información, ",
-            "escribe a ",
+            "Para mayor información, escribe a ",
             "<a href='mailto:patricia@claveigualdad.org' ",
             "style='color: #ffbd41;'>",
             "patricia@claveigualdad.org</a>"
@@ -2659,6 +3334,11 @@ server <- function(input, output, session) {
 
     desc <- fila$descripcion_ia_es[1]
     nombre <- fila$unitario_titulo[1]
+    tareas_sel <- if (is.null(tareas_ocup)) {
+      tibble()
+    } else {
+      tareas_ocup %>% filter(unitario_4d == codigo) %>% arrange(orden_tarea)
+    }
     exposicion <- fila$exposicion_ia_es[1]
     if (is.na(exposicion)) exposicion <- "Sin información"
     if (isTRUE(fila$clasificacion_provisional[1]) &&
@@ -2741,13 +3421,19 @@ server <- function(input, output, session) {
           )
         )
       ),
-      p(
-        style = paste0(
-          "color: #444; font-size: 13px; ",
-          "line-height: 1.5; margin: 8px 0 0 0;"
-        ),
-        desc
-      )
+      # Tabla de tareas si hay archivo de tareas para esta ocupación; si no,
+      # el párrafo descriptivo
+      if (nrow(tareas_sel) > 0) {
+        construir_tabla_tareas(tareas_sel, desc)
+      } else {
+        p(
+          style = paste0(
+            "color: #444; font-size: 13px; ",
+            "line-height: 1.5; margin: 8px 0 0 0;"
+          ),
+          desc
+        )
+      }
     )
   })
 
@@ -2877,7 +3563,7 @@ server <- function(input, output, session) {
         xaxis = list(
           title = "",
           tickfont = list(family = "Ubuntu", size = 11),
-          tickvals = c(2021, 2022, 2023, 2024),
+          tickvals = c(2021, 2022, 2023, 2024, 2025),
           showgrid = FALSE,
           fixedrange = TRUE
         ),
@@ -2893,8 +3579,8 @@ server <- function(input, output, session) {
         showlegend = FALSE,
         font = list(family = "Ubuntu"),
         margin = list(l = 50, r = 10, t = 10, b = 30),
-        plot_bgcolor = "white",
-        paper_bgcolor = "white"
+        plot_bgcolor = "rgba(0,0,0,0)",
+        paper_bgcolor = "rgba(0,0,0,0)"
       ) %>%
       config(displayModeBar = FALSE)
   })
@@ -2958,7 +3644,7 @@ server <- function(input, output, session) {
         xaxis = list(
           title = "",
           tickfont = list(family = "Ubuntu", size = 11),
-          tickvals = c(2021, 2022, 2023, 2024),
+          tickvals = c(2021, 2022, 2023, 2024, 2025),
           showgrid = FALSE,
           fixedrange = TRUE
         ),
@@ -2974,8 +3660,8 @@ server <- function(input, output, session) {
         showlegend = FALSE,
         font = list(family = "Ubuntu"),
         margin = list(l = 50, r = 10, t = 10, b = 30),
-        plot_bgcolor = "white",
-        paper_bgcolor = "white"
+        plot_bgcolor = "rgba(0,0,0,0)",
+        paper_bgcolor = "rgba(0,0,0,0)"
       ) %>%
       config(displayModeBar = FALSE)
   })
@@ -3078,8 +3764,8 @@ server <- function(input, output, session) {
         font = list(family = "Ubuntu"),
         margin = list(l = 10, r = 50, t = 10, b = 10),
         annotations = total_annotations,
-        plot_bgcolor = "white",
-        paper_bgcolor = "white",
+        plot_bgcolor = "rgba(0,0,0,0)",
+        paper_bgcolor = "rgba(0,0,0,0)",
         bargap = 0.15,
         bargroupgap = 0.05
       ) %>%

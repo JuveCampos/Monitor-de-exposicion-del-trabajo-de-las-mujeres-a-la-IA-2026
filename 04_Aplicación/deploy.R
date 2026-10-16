@@ -16,19 +16,32 @@ cuenta <- "juvecamposf"
 nombre_app <- "dataton_genero_2026_exposicion_ia_trabajos"
 
 # Lista explícita de archivos que suben. Todo lo que no esté aquí se queda
-# fuera: assets/ (no se usa en la app), la imagen de Unsplash, el catálogo
-# sinco_con_exposicion_ia.csv sin flexión de género, CLAUDE.md, el .Rproj y
-# los archivos ocultos. Con esto el bundle pesa ~1.5 MB en lugar de ~4.5 MB.
+# fuera: assets/ (no se usa en la app), la foto suelta de Unsplash, el
+# catálogo sinco_con_exposicion_ia.csv (copia sin uso directo), CLAUDE.md,
+# el .Rproj y los archivos ocultos. Actualizar esta lista cuando app.R lea
+# un archivo nuevo.
 archivos_app <- c(
   "app.R",
-  "zcalculos_Y2026T01_4d.dta",
+  # Datos de la ENOE del trimestre vigente (general y bloque STEM)
+  "zcalculos_Y2026T02_4d.dta",
+  "zcalculos_Y2026T02_4d_stem.dta",
+  "zcalculos_Y2026T02_stem_campos.dta",
+  # Catálogo de exposición y tareas por ocupación (05_Reproduccion_R)
   "catalogos_sinco/sinco_con_exposicion_ia_es.csv",
+  "catalogos_sinco/tareas_por_ocupacion.csv",
+  # Logos y encabezado del sitio de MCV
   "www/artboard_1.png.webp",
   "www/clave_logo.png",
-  # Los logos de MCV van aunque la franja de adscripción esté silenciada, para
-  # no tener que redesplegar cuando se reactive.
   "www/logo_mcv.svg",
-  "www/logo_mcv_blanco.svg"
+  "www/logo_mcv_blanco.svg",
+  "www/logo_mcv_hall.svg",
+  "www/mcv_cintilla.png",
+  # Fotos de las bandas de sección (ver www/ilustraciones/CREDITOS.md)
+  "www/ilustraciones/hero.jpg",
+  "www/ilustraciones/exposicion.jpg",
+  "www/ilustraciones/cuidados.jpg",
+  "www/ilustraciones/brecha.jpg",
+  "www/ilustraciones/normativa.jpg"
 )
 
 # --- Verificaciones previas ---------------------------------------------------
@@ -64,7 +77,7 @@ periodo_declarado <- sub('.*"(.*)".*', "\\1",
 archivo_declarado <- sub('.*"(.*)".*', "\\1",
                          grep("^archivo_enoe <-", lineas_app, value = TRUE)[1])
 
-# "2026-T1" debe corresponder con "Y2026T01" del nombre del archivo.
+# "2026-T2" debe corresponder con "Y2026T02" del nombre del archivo.
 periodo_esperado <- sub("^.*Y(\\d{4})T0?(\\d).*$", "\\1-T\\2",
                         archivo_declarado)
 if (!identical(periodo_declarado, periodo_esperado)) {
