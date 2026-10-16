@@ -57,7 +57,7 @@ traduccion_exposicion <- c(
   "Minimal Exposure"     = "Exposición mínima",
   "Mixto"                = "Mixto",
   "Exposed: Gradient 1"  = "Exposición baja, alta variabilidad de tareas",
-  "Exposed: Gradient 2"  = "Exposición moderada, variabilidad mixta de tareas",
+  "Exposed: Gradient 2"  = "Exposición moderada, alta variabilidad de tareas",
   "Exposed: Gradient 3"  = "Exposición significativa, alta variabilidad de tareas",
   "Exposed: Gradient 4"  = "Exposición máxima, baja variabilidad de tareas"
 )

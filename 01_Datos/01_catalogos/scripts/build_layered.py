@@ -14,14 +14,22 @@ import csv
 from collections import defaultdict
 from statistics import mean
 
-BASE = '/Users/jorgejuvenalcamposferreira/Documents/Claude Encargos/36-dataton-genero/05_Tareas/01_catalogos'
+import os
+from pathlib import Path
+
+# Carpeta 01_Datos/01_catalogos del repositorio (se puede cambiar con la
+# variable de entorno CATALOGOS_DIR para correr en una copia de prueba)
+BASE = str(Path(os.environ.get(
+    'CATALOGOS_DIR', Path(__file__).resolve().parent.parent
+)))
+GMYREK_UNIQUE = f'{BASE}/datasets/gmyrek_2025_ciuo4d_unique.csv'
 
 # ---------- Cargar tabla maestra actual y scores Gmyrek ----------
 rows = list(csv.DictReader(open(f'{BASE}/sinco_con_exposicion_ia.csv', encoding='utf-8')))
 print(f'Filas iniciales: {len(rows)}')
 
 scores_gmyrek = {}
-with open('/tmp/gmyrek_2025_ciuo4d_unique.csv', encoding='utf-8') as f:
+with open(GMYREK_UNIQUE, encoding='utf-8') as f:
     for r in csv.DictReader(f):
         if r['mean_score_2025'] not in ('','NA'):
             scores_gmyrek[r['ISCO_08']] = r
@@ -52,7 +60,12 @@ for r in rows:
         r['metodo_score'] = ''
     tiene_score = r['mean_score_ia_2025'] != ''
     r.setdefault('score_imputado','FALSE')
-    r['metodo_score'] = 'directo' if tiene_score else ''
+    if tiene_score:
+        # Los CIUO heredados del subgrupo (regla del parser) se marcan aparte
+        r['metodo_score'] = ('directo_heredado_3d'
+                             if r.get('ciuo_heredado_3d') == 'TRUE' else 'directo')
+    else:
+        r['metodo_score'] = ''
 
     if tiene_score:
         r['estado_score'] = 'disponible'

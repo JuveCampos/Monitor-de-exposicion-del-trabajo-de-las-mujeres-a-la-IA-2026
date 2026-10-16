@@ -1,664 +1,664 @@
-sinco_4d,sinco_titulo,ciuo_4d,ciuo_titulo
-1111,Altas autoridades gubernamentales y jurisdiccionales,1112,Personal directivo de la administración pública
-1112,Legisladores,1111,Miembros del poder legislativo
-1113,Presidentes y autoridades municipales,1113,Jefes de pequeñas poblaciones
-1121,Presidentes y directores generales en instituciones públicas,1112,Personal directivo de la administración pública
-1122,Presidentes y directores generales en instituciones y empresas privadas,1120,Directores generales y gerentes generales
-1129,"Otros presidentes y directores generales, no clasificados anteriormente",,No tiene correspondencia
-1131,Directores de organizaciones políticas,1114,Dirigentes de organizaciones que presentan un interés especial
-1132,Directores de organizaciones sindicales,1114,Dirigentes de organizaciones que presentan un interés especial
-1133,Directores de organizaciones empresariales,1114,Dirigentes de organizaciones que presentan un interés especial
-1134,Directores de organizaciones agrarias,1114,Dirigentes de organizaciones que presentan un interés especial
-1135,Directores de organizaciones civiles y religiosas,1114,Dirigentes de organizaciones que presentan un interés especial
-1211,"Directores y gerentes en administración, recursos humanos y mercadotecnia",1212,Directores de recursos humanos
-1212,"Directores y gerentes en servicios contables, financieros, banca y seguros",1213,Directores de políticas y planificación
-1212,"Directores y gerentes en servicios contables, financieros, banca y seguros",1221,Directores de ventas y comercialización
-1212,"Directores y gerentes en servicios contables, financieros, banca y seguros",1219,Directores de administración y servicios no clasificados bajo otros epígrafes
-1212,"Directores y gerentes en servicios contables, financieros, banca y seguros",1211,Directores financieros
-1212,"Directores y gerentes en servicios contables, financieros, banca y seguros",1346,"Gerentes de sucursales de bancos, de servicios financieros y de seguros"
-1221,"Directores y gerentes en servicios de salud, protección civil y medio ambiente",1342,Directores de servicios de salud
-1221,"Directores y gerentes en servicios de salud, protección civil y medio ambiente",1349,Directores y gerentes de servicios profesionales no clasificados bajo otros epígrafes
-1222,Directores y gerentes en desarrollo social y económico,1344,Directores  de servicios de bienestar social
-1223,Directores y gerentes en centros de enseñanza y capacitación,1345,Directores de servicios de educación
-1224,"Jueces de juzgado, directores y gerentes en servicios legales y procuración de justicia",2612,Jueces
-1224,"Jueces de juzgado, directores y gerentes en servicios legales y procuración de justicia",1349,Directores y gerentes de servicios profesionales no clasificados bajo otros epígrafes
-1225,Comandantes de las fuerzas armadas,0110,Oficiales de las fuerzas armadas
-1226,Directores en servicios de vigilancia y seguridad,1439,Gerentes de servicios no clasificados bajo otros epígrafes
-1311,"Directores y gerentes en producción agropecuaria, silvícola y pesquera",1311,Directores de producción agropecuaria y silvicultura
-1311,"Directores y gerentes en producción agropecuaria, silvícola y pesquera",1312,Directores de producción de piscicultura y pesca
-1312,"Directores y gerentes en producción minera, petrolera y gas",1322,Directores de explotaciones de minería
-1313,Directores y gerentes en generación y provisión de energía eléctrica y agua,,No tiene correspondencia
-1314,Directores y gerentes en producción manufacturera,1321,Directores de industrias manufactureras
-1315,"Directores y gerentes en construcción, reparación y mantenimiento",1323,Directores de empresas de construcción
-1321,Directores y gerentes en informática,1330,Directores de servicios de tecnología de la información y las comunicaciones
-1322,Directores y gerentes en comunicación y telecomunicaciones,1330,Directores de servicios de tecnología de la información y las comunicaciones
-1323,Directores y gerentes en servicios de transporte,1324,"Directores de empresas de abastecimiento, distribución y afines"
-1324,Directores y gerentes en centros de investigación y desarrollo tecnológico,1223,Directores de investigación y desarrollo
-1411,"Directores y gerentes de ventas, comercialización y alquiler",1420,Gerentes de comercios al por mayor y al por menor
-1412,Directores y gerentes de restaurantes y hoteles,1411,Gerentes de hoteles
-1412,Directores y gerentes de restaurantes y hoteles,1412,Gerentes de restaurantes
-1421,"Directores y productores artísticos de cine, teatro y afines",2654,"Directores de cine, de teatro y afines"
-1422,"Directores y gerentes de museos, cines y otros establecimientos deportivos y culturales",1431,"Gerentes de centros deportivos, de esparcimiento y culturales"
-1422,"Directores y gerentes de museos, cines y otros establecimientos deportivos y culturales",1341,Directores de servicios de cuidados infantiles
-1423,Directores y gerentes en servicios funerarios y otros servicios,1343,Directores de servicios de cuidado de las personas de edad
-1423,Directores y gerentes en servicios funerarios y otros servicios,1439,Gerentes de servicios no clasificados bajo otros epígrafes
-1511,"Coordinadores y jefes de área en administración, recursos humanos y mercadotecnia",1212,Directores de recursos humanos
-1511,"Coordinadores y jefes de área en administración, recursos humanos y mercadotecnia",1213,Directores de políticas y planificación
-1512,"Coordinadores y jefes de área en servicios contables, financieros, banca y seguros",1211,Directores financieros
-1512,"Coordinadores y jefes de área en servicios contables, financieros, banca y seguros",1346,"Gerentes de sucursales de bancos, de servicios financieros y de seguros"
-1521,"Coordinadores y jefes de área en servicios de salud, protección civil y medio ambiente",1342,Directores de servicios de salud
-1521,"Coordinadores y jefes de área en servicios de salud, protección civil y medio ambiente",1343,Directores de servicios de cuidado de las personas de edad
-1522,Coordinadores y jefes de área en desarrollo social y económico,1344,Directores  de servicios de bienestar social
-1523,Coordinadores y jefes de área en centros de enseñanza y capacitación,1345,Directores de servicios de educación
-1524,"Coordinadores y jefes de área en servicios legales, jueces calificadores y fiscales",2612,Jueces
-1524,"Coordinadores y jefes de área en servicios legales, jueces calificadores y fiscales",1349,Directores y gerentes de servicios profesionales no clasificados bajo otros epígrafes
-1525,"Capitanes, tenientes y jefes de área de las fuerzas armadas",0210,Suboficiales de las fuerzas armadas
-1526,Coordinadores y jefes de área en servicios de vigilancia y seguridad,1439,Gerentes de servicios no clasificados bajo otros epígrafes
-1611,"Coordinadores y jefes de área en producción agropecuaria, silvícola y pesquera",1311,Directores de producción agropecuaria y silvicultura
-1611,"Coordinadores y jefes de área en producción agropecuaria, silvícola y pesquera",1312,Directores de producción de piscicultura y pesca
-1612,"Coordinadores y jefes de área en producción minera, petrolera y gas",1322,Directores de explotaciones de minería
-1613,Coordinadores y jefes de área en generación y provisión de energía eléctrica y agua,,No tiene correspondencia
-1614,Coordinadores y jefes de área en producción manufacturera,1321,Directores de industrias manufactureras
-1615,"Coordinadores y jefes de área en construcción, reparación y mantenimiento",1323,Directores de empresas de construcción
-1619,"Otros coordinadores y jefes de área en producción agropecuaria, industrial, construcción y mantenimiento, no clasificados anteriormente",,No tiene correspondencia
-1621,Coordinadores y jefes de área en informática,1330,Directores de servicios de tecnología de la información y las comunicaciones
-1622,Coordinadores y jefes de área en comunicación y telecomunicaciones,1330,Directores de servicios de tecnología de la información y las comunicaciones
-1623,Coordinadores y jefes de área en servicios de transporte,1324,"Directores de empresas de abastecimiento, distribución y afines"
-1624,Coordinadores y jefes de área en centros de investigación y desarrollo tecnológico,1223,Directores de investigación y desarrollo
-1629,"Otros coordinadores y jefes de área  en informática, telecomunicaciones, transporte y en investigación y desarrollo tecnológico, no clasificados anteriormente",,No tiene correspondencia
-1711,"Coordinadores y jefes de área de ventas, comercialización y alquiler",1221,Directores de ventas y comercialización
-1711,"Coordinadores y jefes de área de ventas, comercialización y alquiler",1222,Directores de publicidad y relaciones públicas
-1711,"Coordinadores y jefes de área de ventas, comercialización y alquiler",1420,Gerentes de comercios al por mayor y al por menor
-1712,Coordinadores y jefes de área de restaurantes y hoteles,1411,Gerentes de hoteles
-1712,Coordinadores y jefes de área de restaurantes y hoteles,1412,Gerentes de restaurantes
-1721,"Coordinadores y jefes de área en actividades artísticas, de cine, teatro y afines",2654,"Directores de cine, de teatro y afines"
-1722,"Coordinadores y jefes de área en museos, cines, deportivos y servicios culturales",1431,"Gerentes de centros deportivos, de esparcimiento y culturales"
-1723,Coordinadores y jefes de área en servicios funerarios y otros servicios,1439,Gerentes de servicios no clasificados bajo otros epígrafes
-1999,"Otros directores, funcionarios, gerentes, coordinadores y jefes de área, no clasificados anteriormente",,No tiene correspondencia
-2111,Administradores y especialistas en recursos humanos y sistemas de gestión,2421,Analistas de gestión y organización
-2111,Administradores y especialistas en recursos humanos y sistemas de gestión,2422,Especialistas en políticas de administración
-2111,Administradores y especialistas en recursos humanos y sistemas de gestión,2423,Especialistas en políticas y servicios de personal y afines
-2111,Administradores y especialistas en recursos humanos y sistemas de gestión,2424,Especialistas en formación del personal
-2112,"Especialistas y consultores en mercadotecnia, publicidad, comunicación y comercio exterior",2431,Profesionales de la publicidad y la comercialización
-2112,"Especialistas y consultores en mercadotecnia, publicidad, comunicación y comercio exterior",2432,Profesionales de relaciones públicas
-2113,Especialistas en hotelería y turismo,2422,Especialistas en políticas de administración
-2121,Contadores y auditores,2411,Contables
-2122,Asesores y analistas en finanzas,2412,Asesores financieros y en inversiones
-2122,Asesores y analistas en finanzas,2413,Analistas financieros
-2123,"Economistas, consultores e investigadores en política económica",2631,Economistas
-2131,"Antropólogos, arqueólogos e historiadores",2633,"Filósofos, historiadores y especialistas en ciencias políticas"
-2131,"Antropólogos, arqueólogos e historiadores",2632,"Sociólogos, antropólogos y afines"
-2132,Investigadores y especialistas en sociología y desarrollo social,2632,"Sociólogos, antropólogos y afines"
-2132,Investigadores y especialistas en sociología y desarrollo social,2164,Urbanistas e ingenieros de tránsito
-2133,Investigadores y especialistas en ciencias políticas y administración pública,2633,"Filósofos, historiadores y especialistas en ciencias políticas"
-2134,Geógrafos,2632,"Sociólogos, antropólogos y afines"
-2135,Abogados,2611,Abogados
-2135,Abogados,2619,Profesionales en derecho no clasificados bajo otros epígrafes
-2141,Investigadores y especialistas en filosofía y letras (filólogos),2633,"Filósofos, historiadores y especialistas en ciencias políticas"
-2142,Psicólogos,2634,Psicólogos
-2143,Especialistas en trabajo social,2635,Profesionales del trabajo social
-2144,"Especialistas en archivonomía, biblioteconomía y museografía",2621,Archivistas y curadores de museos
-2144,"Especialistas en archivonomía, biblioteconomía y museografía",2622,"Bibliotecarios, documentalistas y afines"
-2145,"Sacerdotes, pastores y otros teólogos",2636,Profesionales religiosos
-2151,Escritores y críticos literarios,2641,Autores y otros escritores
-2152,Periodistas y redactores,2642,Periodistas
-2153,Traductores e intérpretes,2643,"Traductores, intérpretes y lingüistas"
-2161,Pintores,2651,Artistas de artes plásticas
-2162,"Dibujantes y diseñadores artísticos, ilustradores y grabadores",2651,Artistas de artes plásticas
-2163,Escultores,2651,Artistas de artes plásticas
-2164,Escenógrafos,,No tiene correspondencia
-2171,Compositores y arreglistas,2652,"Músicos, cantantes y compositores"
-2172,Músicos,2652,"Músicos, cantantes y compositores"
-2173,Cantantes,2652,"Músicos, cantantes y compositores"
-2174,Bailarines y coreógrafos,2653,Bailarines y coreógrafos
-2175,Actores,2655,Actores
-2211,Investigadores y especialistas en física,2111,Físicos y astrónomos
-2212,"Investigadores y especialistas en matemáticas, estadística y actuaría",2120,"Matemáticos, actuarios y estadísticos"
-2221,Biólogos y especialistas en ciencias del mar y oceanógrafos,2131,"Biólogos, botánicos, zoólogos y afines"
-2222,Químicos,2113,Químicos
-2223,Ecólogos y especialistas en ciencias atmosféricas,2112,Meteorólogos
-2223,Ecólogos y especialistas en ciencias atmosféricas,2133,Profesionales de la protección medio ambiental
-2231,Agrónomos,2132,Agrónomos y afines
-2232,Veterinarios y zootecnistas,2250,Veterinarios
-2233,Especialistas en forestación,2132,Agrónomos y afines
-2234,Especialistas en pesca y en acuacultura,2131,"Biólogos, botánicos, zoólogos y afines"
-2234,Especialistas en pesca y en acuacultura,2133,Profesionales de la protección medioambiental
-2241,Ingenieros eléctricos,2151,Ingenieros electricistas
-2242,Ingenieros electrónicos,2152,Ingenieros electrónicos
-2251,Ingenieros químicos,2145,Ingenieros químicos
-2252,Ingenieros mecánicos,2144,Ingenieros mecánicos
-2253,Ingenieros industriales,2141,Ingenieros industriales y de producción
-2254,"Ingenieros en minas, metalurgia y petróleo",2146,"Ingenieros de minas, metalúrgicos y afines"
-2261,Ingenieros civiles y de la construcción,2142,Ingenieros civiles
-2262,"Ingenieros en topografía, hidrología, geología y geodesia",2114,Geólogos y geofísicos
-2262,"Ingenieros en topografía, hidrología, geología y geodesia",2149,Ingenieros no clasificados bajo otros epígrafes
-2262,"Ingenieros en topografía, hidrología, geología y geodesia",2165,Cartógrafos y agrimensores
-2263,"Arquitectos, planificadores urbanos y del transporte",2161,Arquitectos
-2263,"Arquitectos, planificadores urbanos y del transporte",2162,Arquitectos paisajistas
-2263,"Arquitectos, planificadores urbanos y del transporte",2164,Urbanistas e ingenieros de tránsito
-2271,Desarrolladores y analistas de software y multimedia,2511,Analistas de sistemas
-2271,Desarrolladores y analistas de software y multimedia,2512,Desarrolladores de software
-2271,Desarrolladores y analistas de software y multimedia,2513,Desarrolladores Web y multimedia
-2271,Desarrolladores y analistas de software y multimedia,2514,Programadores de aplicaciones
-2271,Desarrolladores y analistas de software y multimedia,2519,Desarrolladores y analistas de software y multimedia y analistas no clasificados bajo otros epígrafes
-2272,Administradores de bases de datos y redes de computadora,2521,Diseñadores y administradores de bases de datos
-2272,Administradores de bases de datos y redes de computadora,2522,Administradores de sistemas
-2272,Administradores de bases de datos y redes de computadora,2523,Profesionales en redes de computadores
-2272,Administradores de bases de datos y redes de computadora,2529,Especialistas en bases de datos y en redes de computadores no clasificados bajo otros epígrafes
-2281,Ingenieros en comunicaciones y telecomunicaciones,2153,Ingenieros en telecomunicaciones
-2311,Supervisores e inspectores educativos,2351,Especialistas en métodos pedagógicos
-2312,"Pedagogos, orientadores educativos y otros especialistas en ciencias educativas",2351,Especialistas en métodos pedagógicos
-2321,Profesores universitarios y de enseñanza superior,2310,Profesores de universidades y de la enseñanza superior
-2321,Profesores universitarios y de enseñanza superior,2320,Profesores de formación profesional
-2322,Profesores de preparatoria y equivalentes,2320,Profesores de formación profesional
-2331,Profesores de enseñanza secundaria,2330,Profesores de enseñanza secundaria
-2332,Profesores de enseñanza primaria,2341,Maestros de enseñanza primaria
-2333,Alfabetizadores,,No tiene correspondencia
-2334,Profesores de enseñanza bilingüe (indígena),,
-2335,Profesores de enseñanza preescolar,2342,Maestros preescolares
-2339,"Otros profesores de nivel básico, no clasificados anteriormente",2359,Profesionales de la enseñanza no clasificados bajo otros epígrafes
-2341,Profesores de personas con problemas de audición y lenguaje,2352,Educadores para necesidades especiales
-2342,Profesores de personas con problemas de aprendizaje,2352,Educadores para necesidades especiales
-2343,Otros profesores de enseñanza especial,2359,Profesionales de la enseñanza no clasificados bajo otros epígrafes
-2391,"Otros profesores y especialistas en docencia, no clasificados anteriormente",,No tiene correspondencia
-2411,Médicos generales y familiares,2211,Médicos generales
-2412,Médicos especialistas,2212,Médicos especialistas
-2413,Dentistas,2261,Dentistas
-2421,Ingenieros biomédicos,,No tiene correspondencia
-2422,Optometristas,2267,Optometristas
-2423,Nutriólogos,2265,Dietistas y nutricionistas
-2424,Especialistas en seguridad e higiene y salud pública,2263,Profesionales de la salud y la higiene laboral y ambiental
-2425,Especialistas en medicina tradicional y alternativa,2230,Profesionales de medicina tradicional y alternativa
-2426,Enfermeras especialistas,2221,Profesionales de enfermería
-2427,"Fisioterapeutas, audiólogos y logopedas",2264,Fisioterapeutas
-2427,"Fisioterapeutas, audiólogos y logopedas",2266,Audiólogos y logopedas
-2428,Farmacólogos,2262,Farmacéuticos
-2511,"Auxiliares en administración, mercadotecnia, comercialización y comercio exterior",3323,Agentes de compras
-2511,"Auxiliares en administración, mercadotecnia, comercialización y comercio exterior",3343,Secretarios administrativos y ejecutivos
-2512,"Auxiliares en contabilidad, economía, finanzas y agentes de bolsa",3312,Oficiales de préstamos y créditos
-2512,"Auxiliares en contabilidad, economía, finanzas y agentes de bolsa",3313,Tenedores de libros
-2512,"Auxiliares en contabilidad, economía, finanzas y agentes de bolsa",4311,Empleados de contabilidad y cálculo de costos
-2512,"Auxiliares en contabilidad, economía, finanzas y agentes de bolsa",4312,"Empleados de servicios estadísticos, financieros y de seguros"
-2512,"Auxiliares en contabilidad, economía, finanzas y agentes de bolsa",4313,Empleados encargados de las nóminas
-2513,Tramitadores aduanales,3331,Declarantes o gestores de aduana
-2514,"Valuadores, subastadores y rematadores",3315,Tasadores
-2521,Oficiales del ministerio público y detectives,3355,Inspectores de policía y detectives
-2522,Agentes aduanales y fronterizos,3351,Agentes de aduana e inspectores de fronteras
-2523,Agentes de recaudación tributaria y de licencias,3352,Agentes de administración tributaria
-2523,Agentes de recaudación tributaria y de licencias,3354,Agentes de servicios de expedición de licencias y permisos
-2524,"Inspectores en seguridad social, de precios y otros inspectores públicos",3353,Agentes de servicios de seguridad social
-2524,"Inspectores en seguridad social, de precios y otros inspectores públicos",3359,Agentes de la administración pública para la aplicacion de la ley y afines no clasificados bajo otros epígrafes
-2531,Auxiliares en ciencias sociales y humanistas,3412,Trabajadores y asistentes sociales de nivel medio
-2531,Auxiliares en ciencias sociales y humanistas,3433,"Técnicos en galerías de arte, museos y bibliotecas"
-2531,Auxiliares en ciencias sociales y humanistas,4411,Empleados de bibliotecas
-2532,Auxiliares en servicios jurídicos,3411,Profesionales de nivel medio del derecho y servicios legales y afines
-2532,Auxiliares en servicios jurídicos,3342,Secretarios jurídicos
-2533,Monjas y predicadores,3413,Auxiliares laicos de las religiones
-2541,Diseñadores de moda y vestuario,2163,Diseñadores de productos y de prendas
-2542,Diseñadores industriales,2163,Diseñadores de productos y de prendas
-2543,Diseñadores gráficos,2166,Diseñadores gráficos y multimedia
-2544,"Decoradores de interiores, jardines y diversos materiales (tazas, llaveros, etcétera)",3432,Diseñadores y decoradores de interior
-2551,"Locutores de radio, televisión y otros medios de comunicación",2656,"Locutores de radio, televisión y otros medios de comunicación"
-2552,Animadores y organizadores de eventos,2656,"Locutores de radio, televisión y otros medios de comunicación"
-2552,Animadores y organizadores de eventos,3332,Organizadores de conferencias y eventos
-2553,"Payasos, mimos y cirqueros",2659,Artistas creativos e interpretativos no clasificados bajo otros epígrafes
-2561,Deportistas,3421,Atletas y deportistas
-2562,Entrenadores deportivos y directores técnicos,3422,"Entrenadores, instructores y árbitros de actividades deportivas"
-2563,Árbitros y jueces deportivos,3422,"Entrenadores, instructores y árbitros de actividades deportivas"
-2611,"Auxiliares y técnicos en física, matemáticas, estadística y actuaría",3111,Técnicos en ciencias físicas y químicas
-2611,"Auxiliares y técnicos en física, matemáticas, estadística y actuaría",3314,"Profesionales de nivel medio de servicios estadísticos, matemáticos y afines"
-2611,"Auxiliares y técnicos en física, matemáticas, estadística y actuaría",4312,"Empleados de servicios estadísticos, financieros y de seguros"
-2612,"Auxiliares y técnicos en ciencias biológicas, químicas y del medio ambiente",3111,Técnicos en ciencias físicas y químicas
-2612,"Auxiliares y técnicos en ciencias biológicas, químicas y del medio ambiente",3141,Técnicos en ciencias biológicas (excluyendo la medicina)
-2613,Auxiliares y técnicos en agronomía,3143,Técnicos forestales
-2613,Auxiliares y técnicos en agronomía,3142,Técnicos agropecuarios
-2614,"Auxiliares y técnicos en veterinaria, pesca y forestación",3240,Técnicos y asistentes veterinarios
-2621,Auxiliares y técnicos industriales y químicos,3116,Técnicos en química industrial
-2622,"Auxiliares y técnicos topógrafos, en hidrología y geología",3119,Técnicos en ciencias físicas y en ingeniería no clasificados bajo otros epígrafes
-2623,"Auxiliares y técnicos mineros, metalúrgicos y petroleros",3117,Técnicos en ingeniería de minas y metalurgia
-2624,Auxiliares y técnicos en construcción y arquitectura,3112,Técnicos en ingeniería civil
-2625,Dibujantes técnicos,3118,Delineantes y dibujantes técnicos
-2625,Dibujantes técnicos,7316,"Redactores de carteles, pintores decorativos y grabadores"
-2630,"Supervisores de mecánicos y técnicos en mantenimiento y reparación de equipos mecánicos, vehículos  de motor, instrumentos industriales y equipo de refrigeración",3115,Técnicos en ingeniería mecánica
-2631,Técnicos en mantenimiento y reparación de vehículos de motor,7231,Mecánicos y reparadores de vehículos de motor
-2632,Mecánicos en mantenimiento y reparación de vehículos de motor,7232,Mecánicos y reparadores de motores de avión
-2633,Técnicos en mantenimiento y reparación de maquinaria e instrumentos industriales,3115,Técnicos en ingeniería mecánica
-2634,Mecánicos en mantenimiento y reparación de maquinaria e instrumentos industriales,7233,Mecánicos y reparadores de máquinas agrícolas e industriales
-2634,Mecánicos en mantenimiento y reparación de maquinaria e instrumentos industriales,7234,Reparadores de bicicletas y afines
-2635,Técnicos en mantenimiento y reparación de instrumentos de precisión y musicales,7311,Mecánicos y reparadores de instrumentos de precisión
-2636,Mecánicos en mantenimiento y reparación de instrumentos de precisión y musicales,7312,Fabricantes y afinadores de instrumentos musicales
-2636,Mecánicos en mantenimiento y reparación de instrumentos de precisión y musicales,7222,Herramentistas y afines
-2637,"Técnicos en la instalación, reparación y mantenimiento de equipos de refrigeración, climas y aire acondicionado",7127,Mecánicos-montadores de instalaciones de refrigeración y climatización
-2638,"Mecánicos en  instalación, mantenimiento y reparación de equipos de refrigeración, climas y aire acondicionado.",7127,Mecánicos-montadores de instalaciones de refrigeración y climatización
-2639,"Otras ocupaciones de mecánicos y técnicos en el mantenimiento y reparación de equipos mecánicos, vehículos de motor e instrumentos industriales, no clasificados anteriormente",,No tiene correspondencia
-2640,"Supervisores de técnicos eléctricos, en electrónica y de equipos en telecomunicaciones y electromecánicos",,No tiene correspondencia
-2641,Técnicos eléctricos,3113,Electrotécnicos
-2641,Técnicos eléctricos,3114,Técnicos en electrónica
-2642,Electricistas y linieros,7411,Electricistas de obras y afines
-2642,Electricistas y linieros,7413,Instaladores y reparadores de líneas eléctricas
-2642,Electricistas y linieros,7421,Mecánicos y reparadores en electrónica
-2643,"Técnicos en instalación y reparación de equipos electrónicos, telecomunicaciones y electrodoméstico (excepto equipos informáticos)",7421,Mecánicos y reparadores en electrónica
-2644,"Trabajadores en instalación y reparación de equipos electrónicos, telecomunicaciones y electrodoméstico (excepto equipos informáticos)",7421,Mecánicos y reparadores en electrónica
-2645,Técnicos en reparación de equipos electromecánicos,7412,Mecánicos y ajustadores electricistas
-2645,Técnicos en reparación de equipos electromecánicos,7421,Mecánicos y reparadores en electrónica
-2646,Trabajadores en reparación de equipos electromecánicos,7412,Mecánicos y ajustadores electricistas
-2646,Trabajadores en reparación de equipos electromecánicos,7421,Mecánicos y reparadores en electrónica
-2649,"Otros técnicos eléctricos, en electrónica y de equipos en telecomunicaciones y electromecánicos, no clasificados anteriormente",,No tiene correspondencia
-2651,"Técnicos en la instalación y reparación de redes, equipos y en sistemas computacionales",3511,Técnicos en operaciones de tecnología de la información y las comunicaciones
-2651,"Técnicos en la instalación y reparación de redes, equipos y en sistemas computacionales",3512,Técnicos en asistencia al usuario de tecnología de la información y las comunicaciones
-2651,"Técnicos en la instalación y reparación de redes, equipos y en sistemas computacionales",3513,Técnicos en redes y sistemas de computadores
-2651,"Técnicos en la instalación y reparación de redes, equipos y en sistemas computacionales",3514,Técnicos de la Web
-2652,Técnicos en operaciones de equipos de radio,3521,Técnicos de radiodifusión y grabación audio visual
-2652,Técnicos en operaciones de equipos de radio,3522,Técnicos de ingeniería de las telecomunicaciones
-2653,Auxiliares y técnicos de equipos de grabación y reproducción de video,3521,Técnicos de radiodifusión y grabación audio visual
-2654,"Auxiliares y técnicos de ingeniería de audio, sonido e iluminación",3521,Técnicos de radiodifusión y grabación audio visual
-2655,Fotógrafos,3431,Fotógrafos
-2661,Controladores de tráfico aéreo,3154,Controladores de tráfico aéreo
-2662,"Controladores de tráfico de otros transportes (terrestre, ferroviario y marítimo)",8312,"Guardafrenos, guardagujas y agentes de maniobras"
-2711,Auxiliares y técnicos en pedagogía y en educación,,No tiene correspondencia
-2712,Instructores en estudios y capacitación artística,2354,Otros profesores de música
-2712,Instructores en estudios y capacitación artística,2355,Otros profesores de artes
-2713,Instructores en estudios y capacitación comercial y administrativa,2359,Profesionales de la enseñanza no clasificados bajo otros epígrafes
-2713,Instructores en estudios y capacitación comercial y administrativa,2356,Instructores en tecnología de la información
-2714,Instructores en idiomas extranjeros,2353,Otros profesores de idiomas
-2715,Instructores y capacitadores en oficios y para el trabajo,2359,Profesionales de la enseñanza no clasificados bajo otros epígrafes
-2715,Instructores y capacitadores en oficios y para el trabajo,5165,Instructores de autoescuela
-2716,Profesores en educación física y deporte,3423,Instructores de educación física y actividades recreativas
-2811,Enfermeras (técnicas),3221,Profesionales de nivel medio de enfermería
-2811,Enfermeras (técnicas),3253,Trabajadores comunitarios de la salud
-2812,"Técnicos en aparatos de diagnóstico, tratamiento médico, podólogos y fisioterapeutas",3211,Técnicos en aparatos de diagnóstico y tratamiento médico
-2812,"Técnicos en aparatos de diagnóstico, tratamiento médico, podólogos y fisioterapeutas",3254,Técnicos en optometría y ópticos
-2812,"Técnicos en aparatos de diagnóstico, tratamiento médico, podólogos y fisioterapeutas",3255,Técnicos y asistentes fisioterapeutas
-2812,"Técnicos en aparatos de diagnóstico, tratamiento médico, podólogos y fisioterapeutas",3259,Profesionales de la salud de nivel medio no clasificados bajo otros epígrafes
-2813,Técnicos de laboratorios médicos,3212,Técnicos de laboratorios médicos
-2814,Técnicos y asistentes farmacéuticos,3213,Técnicos y asistentes farmacéuticos
-2815,Técnicos de prótesis médicas y dentales,3214,Técnicos de prótesis médicas y dentales
-2816,Técnicos dietistas y nutriólogos,2265,Dietistas y nutricionistas
-2817,Técnicos en medicina alternativa,2230,Profesionales de medicina tradicional y alternativa
-2821,Auxiliares en enfermería y paramédicos,2240,Practicantes paramédicos
-2821,Auxiliares en enfermería y paramédicos,3252,Técnicos en documentación sanitaria
-2821,Auxiliares en enfermería y paramédicos,3253,Trabajadores comunitarios de la salud
-2821,Auxiliares en enfermería y paramédicos,3256,Practicantes y asistentes médicos
-2821,Auxiliares en enfermería y paramédicos,3344,Secretarios médicos
-2821,Auxiliares en enfermería y paramédicos,5321,Trabajadores de los cuidados personales en instituciones
-2821,Auxiliares en enfermería y paramédicos,5322,Trabajadores de los cuidados personales a domicilio
-2822,Auxiliares y asistentes dentales,3251,Dentistas auxiliares y ayudantes de odontología
-2823,Auxiliares hospitalarios y de medicina,3258,Ayudantes de ambulancias
-2823,Auxiliares hospitalarios y de medicina,5321,Trabajadores de los cuidados personales en instituciones
-2824,Parteras,3222,Profesionales de nivel medio de partería
-2825,Técnicos en seguridad en el trabajo e higiene,3257,"Inspectores de la salud laboral,  medioambiental y afines"
-2826,"Curanderos, hierberos y hueseros",3230,Profesionales de nivel medio de medicina tradicional y alternativa
-2827,Fumigadores y controladores de plagas,7544,Fumigadores y otros controladores de plagas y malas hierbas
-2991,Otros especialistas no clasificados anteriormente,,No tiene correspondencia
-2992,Otros técnicos no clasificados anteriormente,,No tiene correspondencia
-3101,"Supervisores de secretarias, capturistas, cajeros y trabajadores de control de archivo y transporte",3341,Supervisores de secretaria
-3111,Secretarias,3343,Secretarios administrativos y ejecutivos
-3111,Secretarias,3344,Secretarios médicos
-3111,Secretarias,4120,Secretarios (general)
-3112,"Taquígrafos, mecanógrafos y similares",4131,Operadores de máquinas de procesamiento de texto y mecanógrafos
-3112,"Taquígrafos, mecanógrafos y similares",4414,Escribientes públicos y afines
-3113,Capturistas de datos,4132,Grabadores de datos
-3114,"Operadores de máquinas de oficina (fotocopiadora, etcétera)",4131,Operadores de máquinas de procesamiento de texto y mecanógrafos
-3115,Trabajadores de apoyo en actividades administrativas diversas,4110,Oficinistas generales
-3121,"Cajeros, taquilleros y receptores de apuestas",4211,Cajeros de bancos y afines
-3121,"Cajeros, taquilleros y receptores de apuestas",4212,Receptores de apuestas y afines
-3121,"Cajeros, taquilleros y receptores de apuestas",5230,Cajeros y expendedores de billetes
-3122,"Cobradores, pagadores y prestamistas",4214,Cobradores y afines
-3122,"Cobradores, pagadores y prestamistas",5112,Revisores y cobradores de los transportes públicos
-3122,"Cobradores, pagadores y prestamistas",4213,Prestamistas
-3131,Trabajadores en archivo y correspondencia,4415,Empleados de archivos
-3132,Encargados y trabajadores en control de almacén y bodega,4321,Empleados de control de abastecimientos e inventario
-3132,Encargados y trabajadores en control de almacén y bodega,4322,Empleados de servicios de apoyo a la producción
-3141,Despachadores de transporte,4323,Empleados de servicios de transporte
-3142,Checadores y revisores de transporte,5112,Revisores y cobradores de los transportes públicos
-3201,Supervisores de trabajadores que brindan y manejan información,3341,Supervisores de secretaría
-3211,Recepcionistas y trabajadores que brindan información (de forma personal),4224,Recepcionistas de hoteles
-3211,Recepcionistas y trabajadores que brindan información (de forma personal),4225,Empleados de ventanillas de informaciones
-3211,Recepcionistas y trabajadores que brindan información (de forma personal),4226,Recepcionistas (general)
-3212,Trabajadores que brindan información por teléfono (centro de llamadas) y anunciadores,4222,Empleados de centros de llamadas
-3213,Telefonistas y telegrafistas,4223,Telefonistas
-3213,Telefonistas y telegrafistas,4131,Operadores de máquinas de procesamiento de texto y mecanógrafos
-3221,Trabajadores en agencias de viajes,4221,Empleados de agencias de viajes
-3222,"Guías de turismo en museos, casinos, parques, cines y otros centros recreativos",5113,Guías de turismo
-3231,Encuestadores,4227,Entrevistadores de encuestas y de investigaciones de mercados
-3232,Codificadores de información,4413,"Codificadores de datos, correctores de pruebas de imprenta y afines"
-3999,"Otras secretarias, capturistas, cajeros y trabajadores que brindan información, no clasificados anteriormente",4416,Empleados del servicio de personal
-3999,"Otras secretarias, capturistas, cajeros y trabajadores que brindan información, no clasificados anteriormente",4419,Personal de apoyo administrativo no clasificado bajo otros epígrafes
-3999,"Otras secretarias, capturistas, cajeros y trabajadores que brindan información, no clasificados anteriormente",4229,Empleados de servicios de información al cliente no clasificados bajo otros epígrafes
-4111,Comerciantes en establecimientos,5221,Comerciantes de tiendas
-4111,Comerciantes en establecimientos,5211,Vendedores de quioscos y de puestos de mercado
-4201,Encargados y supervisores de ventas de productos y de servicios financieros y de alquiler,5222,Supervisores de tiendas y almacenes
-4211,"Empleados de ventas, despachadores y dependientes en comercios",5223,Asistentes de venta de tiendas y almacenes
-4212,"Anaqueleros, acomodadores y seleccionadores de mercancías y alimentadores de máquinas expendedoras",5211,Vendedores de quioscos y de puestos de mercado
-4212,"Anaqueleros, acomodadores y seleccionadores de mercancías y alimentadores de máquinas expendedoras",5245,Expendedores de gasolineras
-4212,"Anaqueleros, acomodadores y seleccionadores de mercancías y alimentadores de máquinas expendedoras",5223,Asistentes de venta de tiendas y almacenes
-4213,Vendedores por teléfono,5244,Vendedores por teléfono
-4214,Choferes vendedores,5223,Asistentes de venta de tiendas y almacenes
-4221,Agentes y representantes de ventas y consignatarios,2433,Profesionales de ventas técnicas y médicas (excluyendo la TIC)
-4221,Agentes y representantes de ventas y consignatarios,2434,Profesionales de ventas de tecnología de la información y las comunicaciones
-4221,Agentes y representantes de ventas y consignatarios,3322,Representantes comerciales
-4221,Agentes y representantes de ventas y consignatarios,3324,Agentes de compras y consignatarios
-4222,Agentes de seguros y servicios financieros (ejecutivos de cuenta),3321,Agentes de seguros
-4222,Agentes de seguros y servicios financieros (ejecutivos de cuenta),3311,"Agentes de bolsa, cambio y otros servicios financieros"
-4222,Agentes de seguros y servicios financieros (ejecutivos de cuenta),4312,"Empleados de servicios estadísticos, financieros y de seguros"
-4223,Agentes de bienes raíces,3334,Agentes inmobiliarios
-4224,Vendedores por catálogo,3322,Representantes comerciales
-4231,Demostradores y promotores,5242,Demostradores de tiendas
-4232,Edecanes,5242,Demostradores de tiendas
-4233,"Modelos de moda, arte y publicidad",5241,"Modelos de moda, arte y publicidad"
-4311,"Trabajadores en el alquiler inmobiliario (casas, terrenos, etcétera)",3334,Agentes inmobiliarios
-4312,"Trabajadores en el alquiler de bienes muebles (loza, películas, video juegos, etcétera)",,No tiene correspondencia
-4999,"Otros comerciantes, empleados en ventas y agentes de ventas en establecimientos, no clasificados anteriormente",,No tiene correspondencia
-5101,"Supervisores en la preparación y servicio de alimentos y bebidas, así como en servicios de esparcimiento y de hotelería",3434,Chefs
-5101,"Supervisores en la preparación y servicio de alimentos y bebidas, así como en servicios de esparcimiento y de hotelería",5120,Cocineros
-5101,"Supervisores en la preparación y servicio de alimentos y bebidas, así como en servicios de esparcimiento y de hotelería",5131,Camareros de mesas
-5101,"Supervisores en la preparación y servicio de alimentos y bebidas, así como en servicios de esparcimiento y de hotelería",5132,Camareros de barra
-5101,"Supervisores en la preparación y servicio de alimentos y bebidas, así como en servicios de esparcimiento y de hotelería",5246,Vendedores de comidas al mostrador
-5111,Cocineros,5120,Cocineros
-5112,"Fonderos, vendedores y comerciantes de comida",5120,Cocineros
-5113,Cocineros domésticos,5120,Cocineros
-5114,"Taqueros y preparadores de comida rápida, antojitos, pizzas, hot dogs, jugos, café, etcétera",5246,Vendedores de comidas al mostrador
-5114,"Taqueros y preparadores de comida rápida, antojitos, pizzas, hot dogs, jugos, café, etcétera",9411,Cocineros de comidas rápidas
-5115,Cantineros,5132,Camareros de barra
-5116,Meseros,5131,Camareros de mesas
-5201,Supervisores y encargados de trabajadores en cuidados personales y del hogar,,
-5211,"Peluqueros, barberos, estilistas y peinadores",5141,Peluqueros
-5212,"Maquillistas, manicuristas, pedicuristas y tatuadores",5142,Especialistas en tratamientos de belleza y afines
-5213,Bañeros y masajistas,5142,Especialistas en tratamientos de belleza y afines
-5221,"Cuidadores de niños, personas con discapacidad y ancianos en establecimientos",5311,Cuidadores de niños
-5221,"Cuidadores de niños, personas con discapacidad y ancianos en establecimientos",5321,Trabajadores de los cuidados personales en instituciones
-5221,"Cuidadores de niños, personas con discapacidad y ancianos en establecimientos",5312,Auxiliares de maestros
-5222,"Cuidadores de niños, personas con discapacidad y ancianos en casas particulares",5311,Cuidadores de niños
-5222,"Cuidadores de niños, personas con discapacidad y ancianos en casas particulares",5162,Acompañantes y ayudantes de cámara
-5231,Azafatas y sobrecargos,5111,Auxiliares de servicio de abordo
-5241,Jardineros en establecimientos,6113,"Agricultores y trabajadores calificados de huertas, invernaderos, viveros y jardines"
-5242,Jardineros en casas particulares,6113,"Agricultores y trabajadores calificados de huertas, invernaderos, viveros y jardines"
-5251,"Astrólogos, adivinadores y afines",5161,"Astrólogos, adivinadores y afines"
-5252,Trabajadores dedicados a la prostitución,5169,Trabajadores de servicios personales no clasificados bajo otros epígrafes
-5253,Trabajadores en servicios funerarios,5163,Personal de pompas fúnebres y embalsamadores
-5254,Entrenadores de animales y ocupaciones relacionadas con el cuidado de mascotas,5164,Cuidadores de animales
-5254,Entrenadores de animales y ocupaciones relacionadas con el cuidado de mascotas,6129,Criadores y trabajadores pecuarios calificados de la cría de animales no clasificados bajo otros epígrafes
-5301,Supervisores en servicios de protección y vigilancia,,
-5311,Bomberos,5411,Bomberos
-5312,Policías y agentes de tránsito,5412,Policías
-5313,Vigilantes y guardias en establecimientos,5413,Guardianes de prisión
-5313,Vigilantes y guardias en establecimientos,5414,Guardias de protección
-5314,Vigilantes y porteros en casas particulares,5414,Guardias de protección
-5401,Supervisores de las fuerzas armadas,0210,Suboficiales de las fuerzas armadas
-5411,Trabajadores de la fuerza armada aérea,0310,Otros miembros de las fuerzas armadas
-5412,Trabajadores de la fuerza armada marítima,0310,Otros miembros de las fuerzas armadas
-5413,Trabajadores de la fuerza armada terrestre,0310,Otros miembros de las fuerzas armadas
-5999,"Otras ocupaciones en servicios personales y vigilancia, no clasificadas anteriormente",5419,Personal de los servicios de protección no clasificados bajo otros epígrafes
-6101,"Supervisores, encargados y capataces agropecuarios",,
-6111,Trabajadores en el cultivo de maíz y/o frijol,6111,Agricultores y trabajadores calificados de cultivos extensivos
-6111,Trabajadores en el cultivo de maíz y/o frijol,6114,Agricultores y trabajadores calificados de cultivos mixtos
-6111,Trabajadores en el cultivo de maíz y/o frijol,6310,Trabajadores agrícolas de subsistencia
-6112,Trabajadores en el cultivo de hortalizas y verduras,6114,Agricultores y trabajadores calificados de cultivos mixtos
-6112,Trabajadores en el cultivo de hortalizas y verduras,6310,Trabajadores agrícolas de subsistencia
-6112,Trabajadores en el cultivo de hortalizas y verduras,6112,Agricultores y trabajadores calificados de plantaciones de árboles y arbustos
-6113,"Trabajadores en el cultivo de café, cacao y tabaco",6114,Agricultores y trabajadores calificados de cultivos mixtos
-6113,"Trabajadores en el cultivo de café, cacao y tabaco",6310,Trabajadores agrícolas de subsistencia
-6113,"Trabajadores en el cultivo de café, cacao y tabaco",6112,Agricultores y trabajadores calificados de plantaciones de árboles y arbustos
-6114,Trabajadores en el cultivo de frutales,6114,Agricultores y trabajadores calificados de cultivos mixtos
-6115,Trabajadores en el cultivo de flores,6113,"Agricultores y trabajadores calificados de huertas, invernaderos, viveros y jardines"
-6115,Trabajadores en el cultivo de flores,6310,Trabajadores agrícolas de subsistencia
-6115,Trabajadores en el cultivo de flores,6111,Agricultores y trabajadores calificados de cultivos extensivos
-6115,Trabajadores en el cultivo de flores,6114,Agricultores y trabajadores calificados de cultivos mixtos
-6116,Trabajadores en otros cultivos agrícolas,,No tiene correspondencia
-6117,Trabajadores en actividades de beneficio de productos agrícolas,,
-6119,"Otros trabajadores en actividades agrícolas, no clasificados anteriormente",,
-6121,Trabajadores en la cría de ganado bovino,6121,Criadores de ganado
-6121,Trabajadores en la cría de ganado bovino,6320,Trabajadores pecuarios de subsistencia
-6122,Trabajadores en la cría de porcinos,6121,Criadores de ganado
-6122,Trabajadores en la cría de porcinos,6320,Trabajadores pecuarios de subsistencia
-6123,Trabajadores en la cría avícola,6122,Avicultores y trabajadores calificados de la avicultura
-6123,Trabajadores en la cría avícola,6320,Trabajadores pecuarios de subsistencia
-6124,Trabajadores en la cría de caprinos y ovinos,6121,Criadores de ganado
-6124,Trabajadores en la cría de caprinos y ovinos,6320,Trabajadores pecuarios de subsistencia
-6125,Trabajadores en la cría de equinos,6121,Criadores de ganado
-6125,Trabajadores en la cría de equinos,6320,Trabajadores pecuarios de subsistencia
-6126,Trabajadores en la apicultura,6123,Apicultores y sericultores y trabajadores calificados de la apicultura y la sericultura
-6127,Trabajadores en la cría y cuidado de otro tipo de animales,6129,Criadores y trabajadores pecuarios calificados de la cría de animales no clasificados bajo otros epígrafes
-6128,Trabajadores en actividades de beneficio de productos pecuarios,,No tiene correspondencia
-6129,"Otros trabajadores en actividades ganaderas y en la cría de animales, no clasificados anteriormente",6129,Criadores y trabajadores pecuarios calificados de la cría de animales no clasificados bajo otros epígrafes
-6131,Trabajadores que combinan actividades agrícolas con ganaderas,6130,Productores y trabajadores calificados de explotaciones agropecuarias mixtas cuya producción se destina al mercado
-6131,Trabajadores que combinan actividades agrícolas con ganaderas,6330,Trabajadores agropecuarios de subsistencia
-6201,"Supervisores, encargados y capataces de trabajadores en actividades pesqueras, acuícolas, forestales, caza y similares",,
-6211,Trabajadores en actividades pesqueras,6222,Pescadores de agua dulce y en aguas costeras
-6211,Trabajadores en actividades pesqueras,6223,Pescadores de alta mar
-6211,Trabajadores en actividades pesqueras,6340,"Pescadores, cazadores, tramperos y recolectores de subsistencia"
-6212,Trabajadores en actividades de acuacultura,6221,Trabajadores de explotaciones de acuicultura
-6213,Trabajadores en actividades de beneficio de productos pesqueros o acuícolas,,No tiene correspondencia
-6221,"Taladores, trocadores, cortadores de árboles y similares",6210,Trabajadores forestales calificados y afines
-6222,"Caucheros, chicleros, resineros y similares",6210,Trabajadores forestales calificados y afines
-6223,Trabajadores en viveros e invernaderos,6113,"Agricultores y trabajadores calificados de huertas, invernaderos, viveros y jardines"
-6224,"Trabajadores en actividades de plantación, reforestación y conservación de bosques",6210,Trabajadores forestales calificados y afines
-6225,Cortadores de leña,6340,"Pescadores, cazadores, tramperos y recolectores de subsistencia"
-6226,"Trabajadores en actividades de recolección de plantas, hierbas y raíces no cultivadas",6340,"Pescadores, cazadores, tramperos y recolectores de subsistencia"
-6227,Productores de carbón vegetal,6340,"Pescadores, cazadores, tramperos y recolectores de subsistencia"
-6227,Productores de carbón vegetal,6210,Trabajadores forestales calificados y afines
-6231,"Trabajadores en actividades de caza, trampería y similares",6224,Cazadores y tramperos
-6231,"Trabajadores en actividades de caza, trampería y similares",6340,"Pescadores, cazadores, tramperos y recolectores de subsistencia"
-6311,Operadores de maquinaria agropecuaria y forestal,8341,Operadores de maquinaria agrícola y forestal móvil
-6999,"Otros trabajadores en actividades agrícolas, ganaderas, forestales, caza y pesca, no clasificados anteriormente",,No tiene correspondencia
-7101,"Supervisores de trabajadores en la extracción, albañiles y en acabados de la construcción",3121,Supervisores en ingeniería de minas
-7101,"Supervisores de trabajadores en la extracción, albañiles y en acabados de la construcción",3123,Supervisores de la construcción
-7111,Mineros y trabajadores en la extracción en minas de minerales metálicos,8111,Mineros y operadores de instalaciones mineras
-7112,"Trabajadores en la extracción de cantera, arcilla, arena, piedra y grava",8111,Mineros y operadores de instalaciones mineras
-7113,Dinamiteros y buzos en perforación de pozos y en la construcción,7541,Buzos
-7113,Dinamiteros y buzos en perforación de pozos y en la construcción,7542,Dinamiteros y pegadores
-7121,"Albañiles, mamposteros y afines",7111,Constructores de casas
-7121,"Albañiles, mamposteros y afines",7112,Albañiles
-7121,"Albañiles, mamposteros y afines",7113,"Mamposteros, tronzadores, labrantes y grabadores de piedra"
-7121,"Albañiles, mamposteros y afines",7114,"Operarios en cemento armado, enfoscadores y afines"
-7122,"Techadores (colocadores de palapas, etcétera)",7121,Techadores
-7123,Carpinteros de obra negra,7115,Carpinteros de armar y de obra blanca
-7131,"Yeseros, escayolistas y otros recubridores de techos y paredes",7123,Revocadores
-7132,"Instaladores de pisos, azulejos, mosaicos y baldosas",7122,Parqueteros y colocadores de suelos
-7133,"Instaladores de material aislante, de impermeabilización, vidrio y otros materiales",7124,Instaladores de material aislante y de insonorización
-7133,"Instaladores de material aislante, de impermeabilización, vidrio y otros materiales",7125,Cristaleros
-7134,"Plomeros, fontaneros e instaladores de tubería",7126,Fontaneros e instaladores de tuberías
-7135,Pintores de brocha gorda,7131,Pintores y empapeladores
-7201,Supervisores de artesanos y trabajadores en el tratamiento y elaboración de productos de metal,,
-7211,"Moldeadores, torneros y troqueladores",7211,Moldeadores y macheros
-7212,Soldadores y oxicortadores,7212,Soldadores y oxicortadores
-7213,"Hojalateros, chaperos, latoneros, cobreros y pintores de metales",7213,Chapistas y caldereros
-7213,"Hojalateros, chaperos, latoneros, cobreros y pintores de metales",7132,Barnizadores y afines
-7214,Montadores de estructuras metálicas,7214,Montadores de estructuras metálicas
-7214,Montadores de estructuras metálicas,7215,Aparejadores y empalmadores de cables
-7221,"Herreros, balconeros, aluminadores y forjadores",7221,Herreros y forjadores
-7222,"Cerrajeros, afiladores y pulidores de herramientas",7222,Herramentistas y afines
-7223,"Joyeros, orfebres, plateros y pulidores de metal",7313,"Joyeros, orfebres y plateros"
-7223,"Joyeros, orfebres, plateros y pulidores de metal",7224,Pulidores de metales y afiladores de herramientas
-7301,"Supervisores de artesanos y trabajadores en la elaboración de productos de madera, papel, textiles y de cuero y piel",,
-7311,"Carpinteros, ebanistas y cepilladores en la elaboración de productos de madera",7521,Operarios del tratamiento de la madera
-7311,"Carpinteros, ebanistas y cepilladores en la elaboración de productos de madera",7317,"Artesanos en madera, cestería y materiales similares"
-7311,"Carpinteros, ebanistas y cepilladores en la elaboración de productos de madera",7522,Ebanistas y afines
-7311,"Carpinteros, ebanistas y cepilladores en la elaboración de productos de madera",7523,Reguladores y operadores de máquinas de labrar madera
-7312,Pintores y barnizadores de madera,7317,"Artesanos en madera, cestería y materiales similares"
-7313,"Artesanos de productos de bejuco, vara, palma, carrizo y mimbre, excepto madera",7317,"Artesanos en madera, cestería y materiales similares"
-7321,Artesanos y trabajadores en la elaboración de productos de papel y cartón,7319,Artesanos no clasificados bajo otros epígrafes
-7322,"Impresores, linotipistas, fotograbadores y encuadernadores",7321,"Cajistas, tipógrafos y afines"
-7322,"Impresores, linotipistas, fotograbadores y encuadernadores",7322,Impresores
-7322,"Impresores, linotipistas, fotograbadores y encuadernadores",7323,Encuadernadores y afines
-7323,Reveladores e impresores de fotografías,8132,Operadores de máquinas para fabricar productos fotográficos
-7331,Trabajadores en la preparación de fibras e hilados,7318,"Artesanos de los tejidos, el cuero y materiales similares"
-7332,Tejedores de fibras,7318,"Artesanos de los tejidos, el cuero y materiales similares"
-7341,"Sastres y modistos, costureras y confeccionadores de prendas de vestir",7531,"Sastres, modistos, peleteros y sombrereros"
-7341,"Sastres y modistos, costureras y confeccionadores de prendas de vestir",7533,"Costureros, bordadores y afines"
-7342,Artesanos y confeccionadores de productos textiles,7318,"Artesanos de los tejidos, el cuero y materiales similares"
-7342,Artesanos y confeccionadores de productos textiles,7531,"Sastres, modistos, peleteros y sombrereros"
-7343,Bordadores y deshiladores,7533,"Costureros, bordadores y afines"
-7344,Patronistas de productos textiles,7532,Patronistas y cortadores de tela y afines
-7351,Tapiceros,7534,"Tapiceros, colchoneros y afines"
-7352,"Peleteros, cortadores, curtidores y teñidores de cuero, piel y similares",7535,"Apelambradores, pellejeros y curtidores"
-7352,"Peleteros, cortadores, curtidores y teñidores de cuero, piel y similares",7531,"Sastres, modistos, peleteros y sombrereros"
-7353,Zapateros artesanales,7536,Zapateros y afines
-7401,"Supervisores de artesanos y trabajadores en la elaboración de productos de hule, caucho, plásticos y de sustancias químicas",3122,Supervisores de industrias manufactureras
-7401,"Supervisores de artesanos y trabajadores en la elaboración de productos de hule, caucho, plásticos y de sustancias químicas",7543,Clasificadores y probadores de productos (excluyendo alimentos y bebidas)
-7411,"Trabajadores en la elaboración y reparación de productos de hule, caucho, plásticos y vulcanización de neumáticos",8141,Operadores de máquinas para fabricar productos de caucho
-7411,"Trabajadores en la elaboración y reparación de productos de hule, caucho, plásticos y vulcanización de neumáticos",8142,Operadores de máquinas para fabricar productos de material plástico
-7412,Trabajadores en la elaboración de sustancias y compuestos químicos,8131,Operadores de plantas y máquinas de productos químicos
-7501,"Supervisores de trabajadores en la elaboración y procesamiento de alimentos, bebidas y productos de tabaco",,
-7511,"Trabajadores en la elaboración de productos de carne, pescado y sus derivados",7511,"Carniceros, pescaderos y afines"
-7512,Trabajadores en la elaboración de productos lácteos,7513,Operarios de la elaboración de productos lácteos
-7513,"Trabajadores en la elaboración de pan, tortilla, repostería, y otros productos de cereales y harinas",7512,"Panaderos, pasteleros y confiteros"
-7514,Trabajadores en la elaboración de productos a base de frutas y verduras,7514,"Operarios de la conservación de frutas, legumbres, verduras y afines"
-7515,"Trabajadores en la elaboración de productos a base de azúcar, chocolate, confitería y tabaco",7512,"Panaderos, pasteleros y confiteros"
-7515,"Trabajadores en la elaboración de productos a base de azúcar, chocolate, confitería y tabaco",7516,Preparadores y elaboradores de tabaco y sus productos
-7516,"Trabajadores en la elaboración de aceites, grasas, sal y especias",7514,"Operarios de la conservación de frutas, legumbres, verduras y afines"
-7517,Trabajadores en la elaboración de bebidas alcohólicas y no alcohólicas,7514,"Operarios de la conservación de frutas, legumbres, verduras y afines"
-7601,"Supervisores de artesanos y trabajadores en la elaboración de productos de cerámica, vidrio, azulejo y similares",,
-7611,Alfareros y trabajadores ceramistas,7314,"Alfareros y afines (barro, arcilla y abrasivos)"
-7612,"Trabajadores en la elaboración de productos de cemento, cal, yeso, azulejo, piedra y ladrilleros",7314,"Alfareros y afines (barro, arcilla y abrasivos)"
-7613,Trabajadores del vidrio y similares,7315,"Sopladores, modeladores, laminadores, cortadores y pulidores de vidrio"
-7614,"Trabajadores en la elaboración de productos de hueso, concha, coral y similares",7319,Artesanos no clasificados bajo otros epígrafes
-7999,"Otros trabajadores artesanales, no clasificados anteriormente",7549,"Oficiales, operarios y artesanos de artes mecánicas y de otros oficios no clasificados bajo otros epígrafes"
-8101,Supervisores de operadores de maquinaria industrial,3122,Supervisores de industrias manufactureras
-8111,Operadores de máquinas y equipos para la extracción y beneficio en minas y canteras,8112,Operadores de instalaciones de procesamiento de minerales y rocas
-8112,Operadores de máquinas y equipos para la extracción en pozos petroleros,8113,Perforadores y sondistas de pozos y afines
-8113,"Operadores de máquinas y equipos para la captación, bombeo y distribución de agua",8113,Perforadores y sondistas de pozos y afines
-8114,Operadores de equipos portátiles especializados para la construcción,8342,Operadores de máquinas de movimiento de tierras y afines
-8121,"Operadores de hornos metalúrgicos, coladores y laminadores y operadores de máquinas trefiladoras y estiradoras de metales",3135,Controladores de procesos de producción de metales
-8121,"Operadores de hornos metalúrgicos, coladores y laminadores y operadores de máquinas trefiladoras y estiradoras de metales",8121,Operadores de instalaciones de procesamiento de metales
-8122,"Operadores de máquinas pulidoras, galvanizadoras y recubridoras de metal",8122,"Operadores de máquinas pulidoras, galvanizadoras y recubridoras de metales"
-8123,"Operadores de máquinas que cortan, perforan, doblan, troquelan, sueldan, etc., piezas y productos metálicos",8121,Operadores de instalaciones de procesamiento de metales
-8131,Operadores de máquinas para la elaboración de productos químicos,3133,Controladores de instalaciones de procesamiento de productos químicos
-8131,Operadores de máquinas para la elaboración de productos químicos,8131,Operadores de plantas y máquinas de productos químicos
-8131,Operadores de máquinas para la elaboración de productos químicos,8183,"Operadores de máquinas de embalaje, embotellamiento y etiquetado"
-8132,Operadores de máquinas para la elaboración de productos farmacéuticos y cosméticos,3133,Controladores de instalaciones de procesamiento de productos químicos
-8132,Operadores de máquinas para la elaboración de productos farmacéuticos y cosméticos,8183,"Operadores de máquinas de embalaje, embotellamiento y etiquetado"
-8133,Operadores de máquinas para la elaboración y ensamble de productos de plástico y hule,8141,Operadores de máquinas para fabricar productos de caucho
-8133,Operadores de máquinas para la elaboración y ensamble de productos de plástico y hule,8142,Operadores de máquinas para fabricar productos de material plástico
-8133,Operadores de máquinas para la elaboración y ensamble de productos de plástico y hule,8183,"Operadores de máquinas de embalaje, embotellamiento y etiquetado"
-8134,Operadores de máquinas para el tratamiento de agua,3132,"Operadores de incineradores, instalaciones de tratamiento de agua y afines"
-8135,Operadores de máquinas y equipos para la refinación del petróleo y gas,3134,Operadores de instalaciones de refinación de petróleo y gas natural
-8141,Operadores de máquinas para el tratamiento de la madera y elaboración de aglomerados y triplay,8172,Operadores de instalaciones de procesamiento de la madera
-8142,"Operadores de máquinas para la elaboración de productos de madera, bejuco, mimbre  y similares",7523,Reguladores y operadores de máquinas de labrar madera
-8142,"Operadores de máquinas para la elaboración de productos de madera, bejuco, mimbre  y similares",8183,"Operadores de máquinas de embalaje, embotellamiento y etiquetado"
-8143,"Operadores de máquinas en la elaboración de celulosa, papel y similares",8171,Operadores de instalaciones para la preparación de pasta para papel y papel
-8143,"Operadores de máquinas en la elaboración de celulosa, papel y similares",8183,"Operadores de máquinas de embalaje, embotellamiento y etiquetado"
-8144,Operadores de máquinas para la impresión y encuadernación,8143,Operadores de máquinas para fabricar productos de papel
-8145,Operadores de máquinas para la elaboración de productos a base de papel y cartón,8143,Operadores de máquinas para fabricar productos de papel
-8151,Operadores de máquinas y equipos de hilar y bobinar fibras textiles naturales y sintéticas,8151,"Operadores de máquinas de preparación de fibras, hilado y devanado"
-8151,Operadores de máquinas y equipos de hilar y bobinar fibras textiles naturales y sintéticas,8183,"Operadores de máquinas de embalaje, embotellamiento y etiquetado"
-8152,"Operadores de máquinas para fabricar tejidos de punto, telas y alfombras",8152,Operadores de telares y otras máquinas tejedoras
-8152,"Operadores de máquinas para fabricar tejidos de punto, telas y alfombras",8183,"Operadores de máquinas de embalaje, embotellamiento y etiquetado"
-8153,"Operadores de máquinas de costura, bordado y de corte para la confección de productos textiles y prendas de vestir",8153,Operadores de máquinas de coser
-8153,"Operadores de máquinas de costura, bordado y de corte para la confección de productos textiles y prendas de vestir",8183,"Operadores de máquinas de embalaje, embotellamiento y etiquetado"
-8154,"Operadores de máquinas en el tratamiento del cuero, piel y la elaboración de calzado",8155,Operadores de máquinas de tratamiento de pieles y cueros
-8154,"Operadores de máquinas en el tratamiento del cuero, piel y la elaboración de calzado",8156,Operadores de máquinas para la fabricación de calzado y afines
-8154,"Operadores de máquinas en el tratamiento del cuero, piel y la elaboración de calzado",8183,"Operadores de máquinas de embalaje, embotellamiento y etiquetado"
-8155,"Operadores de máquinas de lavado, blanqueo, teñido, estampado, afelpado, planchado y acabado de productos textiles, cuero, piel y similares",8154,"Operadores de máquinas de blanqueamiento, teñido y limpieza de tejidos"
-8155,"Operadores de máquinas de lavado, blanqueo, teñido, estampado, afelpado, planchado y acabado de productos textiles, cuero, piel y similares",8157,Operadores de máquinas lavarropas
-8161,"Operadores de máquinas en la elaboración de alimentos, aceites, grasas, sal y especias",8160,Operadores de máquinas para elaborar alimentos y productos afines
-8161,"Operadores de máquinas en la elaboración de alimentos, aceites, grasas, sal y especias",8183,"Operadores de máquinas de embalaje, embotellamiento y etiquetado"
-8162,Operadores de máquinas en la elaboración de tabaco,8160,Operadores de máquinas para elaborar alimentos y productos afines
-8162,Operadores de máquinas en la elaboración de tabaco,8183,"Operadores de máquinas de embalaje, embotellamiento y etiquetado"
-8163,Operadores de máquinas en la elaboración de bebidas alcohólicas y no alcohólicas,8160,Operadores de máquinas para elaborar alimentos y productos afines
-8163,Operadores de máquinas en la elaboración de bebidas alcohólicas y no alcohólicas,8183,"Operadores de máquinas de embalaje, embotellamiento y etiquetado"
-8171,"Operadores de máquinas en la elaboración de cemento, cal, yeso y productos de cemento",8114,Operadores de máquinas para fabricar cemento y otros productos minerales
-8171,"Operadores de máquinas en la elaboración de cemento, cal, yeso y productos de cemento",8183,"Operadores de máquinas de embalaje, embotellamiento y etiquetado"
-8172,"Operadores de máquinas en la elaboración de productos de cerámica, mosaico, azulejo y similares",8181,Operadores de instalaciones de vidriería y cerámica
-8172,"Operadores de máquinas en la elaboración de productos de cerámica, mosaico, azulejo y similares",8183,"Operadores de máquinas de embalaje, embotellamiento y etiquetado"
-8173,Operadores de máquinas en la elaboración de vidrio y productos de vidrio y similares,8181,Operadores de instalaciones de vidriería y cerámica
-8173,Operadores de máquinas en la elaboración de vidrio y productos de vidrio y similares,8183,"Operadores de máquinas de embalaje, embotellamiento y etiquetado"
-8181,Operadores de máquinas e instalaciones para la generación de energía,3131,Operadores de instalaciones de producción de energía
-8181,Operadores de máquinas e instalaciones para la generación de energía,8182,Operadores de máquinas de vapor y calderas
-8199,"Otros operadores de instalaciones y maquinaria fija industrial, no clasificados anteriormente",3139,Técnicos en control de procesos no clasificados bajo otros epígrafes
-8201,"Supervisores en procesos de ensamblado y montaje de  maquinaria, herramientas y productos metálicos y electrónicos",3122,Supervisores de industrias manufactureras
-8201,"Supervisores en procesos de ensamblado y montaje de  maquinaria, herramientas y productos metálicos y electrónicos",7543,Clasificadores y probadores de productos (excluyendo alimentos y bebidas)
-8211,"Ensambladores y montadores de herramientas, maquinaria, equipos y productos metálicos",8211,Ensambladores de maquinaria mecánica
-8212,Ensambladores y montadores de partes eléctricas y electrónicas,8212,Ensambladores de equipos eléctricos y electrónicos
-8301,Supervisores de conductores de transporte y de maquinaria móvil,,
-8311,Pilotos de aviación,3153,Pilotos de aviación y afines
-8321,Capitanes y conductores de transporte marítimo,3152,"Capitanes, oficiales de cubierta y prácticos"
-8322,Oficiales y marineros de cubierta y prácticos,3152,"Capitanes, oficiales de cubierta y prácticos"
-8322,Oficiales y marineros de cubierta y prácticos,8350,Marineros de cubierta y afines
-8323,Oficiales maquinistas de transporte marítimo,3151,Oficiales maquinistas en navegación
-8324,"Conductores de pequeñas embarcaciones (lanchas, botes, trajineras, etcétera)",8350,Marineros de cubierta y afines
-8331,"Conductores de transporte en vías férreas (tren, metro y tren ligero)",8311,Maquinistas de locomotoras
-8341,"Conductores de camiones, camionetas y automóviles de carga",8332,Conductores de camiones pesados
-8342,"Conductores de autobuses, camiones, camionetas, taxis y automóviles de pasajeros",8331,Conductores de autobuses y tranvías
-8342,"Conductores de autobuses, camiones, camionetas, taxis y automóviles de pasajeros",8322,"Conductores de automóviles, taxis y camionetas"
-8343,Choferes en casas particulares,8322,"Conductores de automóviles, taxis y camionetas"
-8344,Conductores de motocicleta,8321,Conductores de motocicletas
-8349,"Otros conductores de transporte terrestre con motor, no clasificados anteriormente",,No tiene correspondencia
-8351,Conductores de maquinaria móvil para la construcción y minería,8342,Operadores de máquinas de movimiento de tierras y afines
-8352,"Conductores de maquinaria móvil para el movimiento de mercancías en fábricas, puertos, comercios, etcétera",8343,"Operadores de grúas, aparatos elevadores y afines"
-8352,"Conductores de maquinaria móvil para el movimiento de mercancías en fábricas, puertos, comercios, etcétera",8344,Operadores de autoelevadoras
-8999,"Otros operadores de maquinaria industrial, ensambladores y conductores de transporte, no clasificados anteriormente",8189,Operadores de máquinas y de instalaciones fijas no clasificados bajo otros epígrafes
-8999,"Otros operadores de maquinaria industrial, ensambladores y conductores de transporte, no clasificados anteriormente",8219,Ensambladores no clasificados bajo otros epígrafes
-9111,Trabajadores de apoyo en actividades agrícolas,9211,Peones de explotaciones agrícolas
-9112,Trabajadores de apoyo en actividades ganaderas,9212,Peones de explotaciones ganaderas
-9113,Trabajadores de apoyo que realizan actividades agrícolas y ganaderas,9213,Peones de explotaciones de cultivos mixtos y ganaderos
-9121,Trabajadores de apoyo en actividades silvícolas y forestales,9215,Peones forestales
-9122,Trabajadores de apoyo en actividades de acuicultura y pesca,9216,Peones de pesca y acuicultura
-9123,Trabajadores de apoyo en actividades de caza y captura,9216,Peones de pesca y acuicultura
-9124,Recolectores de leña y acarreadores de agua,9624,Acarreadores de agua y recolectores  de  leña
-9211,Trabajadores de apoyo en la minería,9311,Peones de minas y canteras
-9212,Trabajadores de apoyo en la extracción,9311,Peones de minas y canteras
-9221,Trabajadores de apoyo en la construcción,9313,Peones de la construcción de edificios
-9222,Trabajadores de apoyo en plomería e instalación de tuberías,9312,Peones de obras públicas y mantenimiento
-9222,Trabajadores de apoyo en plomería e instalación de tuberías,9313,Peones de la construcción de edificios
-9231,"Trabajadores de apoyo en la elaboración, reparación y mantenimiento mecánico de equipos, maquinaria y productos de metal y de precisión",9321,Empacadores manuales
-9231,"Trabajadores de apoyo en la elaboración, reparación y mantenimiento mecánico de equipos, maquinaria y productos de metal y de precisión",9329,Peones de la industria manufacturera no clasificados bajo otros epígrafes
-9232,"Trabajadores de apoyo en la industria eléctrica, electrónica y comunicaciones",9321,Empacadores manuales
-9232,"Trabajadores de apoyo en la industria eléctrica, electrónica y comunicaciones",9329,Peones de la industria manufacturera no clasificados bajo otros epígrafes
-9233,"Trabajadores de apoyo en la industria química, petroquímica y plásticos",9321,Empacadores manuales
-9233,"Trabajadores de apoyo en la industria química, petroquímica y plásticos",9329,Peones de la industria manufacturera no clasificados bajo otros epígrafes
-9234,"Trabajadores de apoyo en la industria de la madera, papel y cartón",9321,Empacadores manuales
-9234,"Trabajadores de apoyo en la industria de la madera, papel y cartón",9329,Peones de la industria manufacturera no clasificados bajo otros epígrafes
-9235,Trabajadores de apoyo en la industria textil y del zapato,9321,Empacadores manuales
-9235,Trabajadores de apoyo en la industria textil y del zapato,9329,Peones de la industria manufacturera no clasificados bajo otros epígrafes
-9236,"Trabajadores de apoyo en la industria de alimentos, bebidas y productos de tabaco",9321,Empacadores manuales
-9236,"Trabajadores de apoyo en la industria de alimentos, bebidas y productos de tabaco",9329,Peones de la industria manufacturera no clasificados bajo otros epígrafes
-9237,"Trabajadores de apoyo en la industria de la cerámica, vidrio y similares",9321,Empacadores manuales
-9239,"Trabajadores de apoyo en la industria, no clasificados anteriormente",9329,Peones de la industria manufacturera no clasificados bajo otros epígrafes
-9311,Ayudantes de conductores de transporte terrestre con motor,8332,Conductores de camiones pesados
-9311,Ayudantes de conductores de transporte terrestre con motor,8331,Conductores de autobuses y tranvías
-9311,Ayudantes de conductores de transporte terrestre con motor,8322,"Conductores de automóviles, taxis y camionetas"
-9312,Ayudantes de conductores de transporte en vías férreas,8312,"Guardafrenos, guardagujas y agentes de maniobras"
-9321,Conductores de vehículos de transporte en bicicleta,9331,Conductores de vehículos accionados a pedal o a brazo
-9322,"Conductores de transporte de tracción animal (carretas, arrieros, etcétera)",9332,Conductores de vehículos y máquinas de tracción animal
-9331,Cargadores,9333,Peones de carga
-9332,Cargadores por propina,9334,Reponedores de estanterías
-9332,Cargadores por propina,9333,Peones de carga
-9411,Ayudantes en la preparación de alimentos,9412,Ayudantes de cocina
-9511,Vendedores ambulantes de periódicos y lotería,9520,Vendedores ambulantes (excluyendo de comida)
-9512,Vendedores ambulantes de artículos diversos (excluyendo los de venta de alimentos),5243,Vendedores puerta a puerta
-9512,Vendedores ambulantes de artículos diversos (excluyendo los de venta de alimentos),9520,Vendedores ambulantes (excluyendo de comida)
-9521,Preparadores y vendedores ambulantes de alimentos,5212,Vendedores ambulantes de productos comestibles
-9601,"Supervisores en limpieza, amas de llaves, mayordomos y en estacionamientos",5151,"Supervisores de mantenimiento y limpieza en oficinas, hoteles y otros establecimientos"
-9601,"Supervisores en limpieza, amas de llaves, mayordomos y en estacionamientos",5152,Ecónomos y mayordomos domésticos
-9611,Trabajadores domésticos,9111,Limpiadores y asistentes domésticos
-9621,Barrenderos y trabajadores de limpieza  (excepto en hoteles y restaurantes),9613,Barrenderos y afines
-9621,Barrenderos y trabajadores de limpieza  (excepto en hoteles y restaurantes),9123,Lavadores de ventanas
-9621,Barrenderos y trabajadores de limpieza  (excepto en hoteles y restaurantes),7133,Limpiadores de fachadas y deshollinadores
-9621,Barrenderos y trabajadores de limpieza  (excepto en hoteles y restaurantes),9129,Otro personal de limpieza
-9622,Recamaristas y camaristas,9112,"Limpiadores y asistentes de oficinas, hoteles y otros establecimientos"
-9623,Mozos de hotel y restaurante,9112,"Limpiadores y asistentes de oficinas, hoteles y otros establecimientos"
-9624,Limpiadores de calzado,9510,Trabajadores ambulantes de servicios y afines
-9631,Lavadores de vehículos en establecimientos,9122,Lavadores de vehículos
-9632,Lavadores de vehículos en vía pública,9510,Trabajadores ambulantes de servicios y afines
-9633,Cuidadores y acomodadores de autos en estacionamientos,5414,Guardias de protección
-9633,Cuidadores y acomodadores de autos en estacionamientos,5169,Trabajadores de servicios personales no clasificados bajo otros epígrafes
-9634,Cuidadores de autos por propina,,No tiene correspondencia
-9641,Lavanderos en establecimientos,8157,Operadores de máquinas lavarropas
-9642,Planchadores y tintoreros en establecimientos,9121,Lavanderos y planchadores manuales
-9643,Lavanderos y planchadores domésticos,9121,Lavanderos y planchadores manuales
-9651,Ayudantes de jardineros,9214,Peones de jardinería y horticultura
-9661,Recolectores de basura y material reciclable,9611,Recolectores de basura y material reciclable
-9662,Clasificadores de desechos,9612,Clasificadores de desechos
-9663,Recolectores de otros materiales,9622,Personas que realizan trabajos varios
-9711,"Trabajadores de paquetería, maleteros y botones de hotel",9621,"Mensajeros, mandaderos, maleteros y repartidores"
-9712,Empacadores de objetos y mercancías,9621,"Mensajeros, mandaderos, maleteros y repartidores"
-9713,"Trabajadores de apoyo a la realización de espectáculos, deportes y en parques de diversiones",9621,"Mensajeros, mandaderos, maleteros y repartidores"
-9721,Carteros (a pie y en bicicleta),4412,Empleados de servicios de correos
-9722,Repartidores de mensajería (a pie y en bicicleta) y mandaderos,9621,"Mensajeros, mandaderos, maleteros y repartidores"
-9723,Repartidores de mercancías (a pie y en bicicleta),9621,"Mensajeros, mandaderos, maleteros y repartidores"
-9731,Lecturistas de medidores,9623,Recolectores de dinero en aparatos de venta automática y lectores de medidores
-9732,Recolectores de dinero,9623,Recolectores de dinero en aparatos de venta automática y lectores de medidores
-9733,Elevadoristas y ascensoristas,,No tiene correspondencia
-9899,"Otros trabajadores en actividades elementales y de apoyo, no clasificados anteriormente",9629,Ocupaciones elementales no clasificadas bajo otros epígrafes
-9999,Ocupaciones no especificadas,,No tiene correspondencia
+sinco_4d,sinco_titulo,ciuo_4d,ciuo_titulo,origen
+1111,Altas autoridades gubernamentales y jurisdiccionales,1112,Personal directivo de la administración pública,directo
+1112,Legisladores,1111,Miembros del poder legislativo,directo
+1113,Presidentes y autoridades municipales,1113,Jefes de pequeñas poblaciones,directo
+1121,Presidentes y directores generales en instituciones públicas,1112,Personal directivo de la administración pública,directo
+1122,Presidentes y directores generales en instituciones y empresas privadas,1120,Directores generales y gerentes generales,directo
+1129,"Otros presidentes y directores generales, no clasificados anteriormente",,No tiene correspondencia,sin_correspondencia_explicita
+1131,Directores de organizaciones políticas,1114,Dirigentes de organizaciones que presentan un interés especial,directo
+1132,Directores de organizaciones sindicales,1114,Dirigentes de organizaciones que presentan un interés especial,heredado_3d
+1133,Directores de organizaciones empresariales,1114,Dirigentes de organizaciones que presentan un interés especial,heredado_3d
+1134,Directores de organizaciones agrarias,1114,Dirigentes de organizaciones que presentan un interés especial,heredado_3d
+1135,Directores de organizaciones civiles y religiosas,1114,Dirigentes de organizaciones que presentan un interés especial,heredado_3d
+1211,"Directores y gerentes en administración, recursos humanos y mercadotecnia",1212,Directores de recursos humanos,directo
+1212,"Directores y gerentes en servicios contables, financieros, banca y seguros",1213,Directores de políticas y planificación,directo
+1212,"Directores y gerentes en servicios contables, financieros, banca y seguros",1221,Directores de ventas y comercialización,adicional_1n
+1212,"Directores y gerentes en servicios contables, financieros, banca y seguros",1219,Directores de administración y servicios no clasificados bajo otros epígrafes,adicional_1n
+1212,"Directores y gerentes en servicios contables, financieros, banca y seguros",1211,Directores financieros,adicional_1n
+1212,"Directores y gerentes en servicios contables, financieros, banca y seguros",1346,"Gerentes de sucursales de bancos, de servicios financieros y de seguros",adicional_1n
+1221,"Directores y gerentes en servicios de salud, protección civil y medio ambiente",1342,Directores de servicios de salud,directo
+1221,"Directores y gerentes en servicios de salud, protección civil y medio ambiente",1349,Directores y gerentes de servicios profesionales no clasificados bajo otros epígrafes,adicional_1n
+1222,Directores y gerentes en desarrollo social y económico,1344,Directores  de servicios de bienestar social,directo
+1223,Directores y gerentes en centros de enseñanza y capacitación,1345,Directores de servicios de educación,directo
+1224,"Jueces de juzgado, directores y gerentes en servicios legales y procuración de justicia",2612,Jueces,directo
+1224,"Jueces de juzgado, directores y gerentes en servicios legales y procuración de justicia",1349,Directores y gerentes de servicios profesionales no clasificados bajo otros epígrafes,adicional_1n
+1225,Comandantes de las fuerzas armadas,0110,Oficiales de las fuerzas armadas,directo
+1226,Directores en servicios de vigilancia y seguridad,1439,Gerentes de servicios no clasificados bajo otros epígrafes,directo
+1311,"Directores y gerentes en producción agropecuaria, silvícola y pesquera",1311,Directores de producción agropecuaria y silvicultura,directo
+1311,"Directores y gerentes en producción agropecuaria, silvícola y pesquera",1312,Directores de producción de piscicultura y pesca,adicional_1n
+1312,"Directores y gerentes en producción minera, petrolera y gas",1322,Directores de explotaciones de minería,directo
+1313,Directores y gerentes en generación y provisión de energía eléctrica y agua,,No tiene correspondencia,sin_correspondencia_explicita
+1314,Directores y gerentes en producción manufacturera,1321,Directores de industrias manufactureras,directo
+1315,"Directores y gerentes en construcción, reparación y mantenimiento",1323,Directores de empresas de construcción,directo
+1321,Directores y gerentes en informática,1330,Directores de servicios de tecnología de la información y las comunicaciones,directo
+1322,Directores y gerentes en comunicación y telecomunicaciones,1330,Directores de servicios de tecnología de la información y las comunicaciones,heredado_3d
+1323,Directores y gerentes en servicios de transporte,1324,"Directores de empresas de abastecimiento, distribución y afines",directo
+1324,Directores y gerentes en centros de investigación y desarrollo tecnológico,1223,Directores de investigación y desarrollo,directo
+1411,"Directores y gerentes de ventas, comercialización y alquiler",1420,Gerentes de comercios al por mayor y al por menor,directo
+1412,Directores y gerentes de restaurantes y hoteles,1411,Gerentes de hoteles,directo
+1412,Directores y gerentes de restaurantes y hoteles,1412,Gerentes de restaurantes,adicional_1n
+1421,"Directores y productores artísticos de cine, teatro y afines",2654,"Directores de cine, de teatro y afines",directo
+1422,"Directores y gerentes de museos, cines y otros establecimientos deportivos y culturales",1431,"Gerentes de centros deportivos, de esparcimiento y culturales",directo
+1422,"Directores y gerentes de museos, cines y otros establecimientos deportivos y culturales",1341,Directores de servicios de cuidados infantiles,adicional_1n
+1423,Directores y gerentes en servicios funerarios y otros servicios,1343,Directores de servicios de cuidado de las personas de edad,directo
+1423,Directores y gerentes en servicios funerarios y otros servicios,1439,Gerentes de servicios no clasificados bajo otros epígrafes,adicional_1n
+1511,"Coordinadores y jefes de área en administración, recursos humanos y mercadotecnia",1212,Directores de recursos humanos,directo
+1511,"Coordinadores y jefes de área en administración, recursos humanos y mercadotecnia",1213,Directores de políticas y planificación,adicional_1n
+1512,"Coordinadores y jefes de área en servicios contables, financieros, banca y seguros",1211,Directores financieros,directo
+1512,"Coordinadores y jefes de área en servicios contables, financieros, banca y seguros",1346,"Gerentes de sucursales de bancos, de servicios financieros y de seguros",adicional_1n
+1521,"Coordinadores y jefes de área en servicios de salud, protección civil y medio ambiente",1342,Directores de servicios de salud,directo
+1521,"Coordinadores y jefes de área en servicios de salud, protección civil y medio ambiente",1343,Directores de servicios de cuidado de las personas de edad,adicional_1n
+1522,Coordinadores y jefes de área en desarrollo social y económico,1344,Directores  de servicios de bienestar social,directo
+1523,Coordinadores y jefes de área en centros de enseñanza y capacitación,1345,Directores de servicios de educación,directo
+1524,"Coordinadores y jefes de área en servicios legales, jueces calificadores y fiscales",2612,Jueces,directo
+1524,"Coordinadores y jefes de área en servicios legales, jueces calificadores y fiscales",1349,Directores y gerentes de servicios profesionales no clasificados bajo otros epígrafes,adicional_1n
+1525,"Capitanes, tenientes y jefes de área de las fuerzas armadas",0210,Suboficiales de las fuerzas armadas,directo
+1526,Coordinadores y jefes de área en servicios de vigilancia y seguridad,1439,Gerentes de servicios no clasificados bajo otros epígrafes,directo
+1611,"Coordinadores y jefes de área en producción agropecuaria, silvícola y pesquera",1311,Directores de producción agropecuaria y silvicultura,directo
+1611,"Coordinadores y jefes de área en producción agropecuaria, silvícola y pesquera",1312,Directores de producción de piscicultura y pesca,adicional_1n
+1612,"Coordinadores y jefes de área en producción minera, petrolera y gas",1322,Directores de explotaciones de minería,directo
+1613,Coordinadores y jefes de área en generación y provisión de energía eléctrica y agua,,No tiene correspondencia,sin_correspondencia_explicita
+1614,Coordinadores y jefes de área en producción manufacturera,1321,Directores de industrias manufactureras,directo
+1615,"Coordinadores y jefes de área en construcción, reparación y mantenimiento",1323,Directores de empresas de construcción,directo
+1619,"Otros coordinadores y jefes de área en producción agropecuaria, industrial, construcción y mantenimiento, no clasificados anteriormente",,No tiene correspondencia,sin_correspondencia_explicita
+1621,Coordinadores y jefes de área en informática,1330,Directores de servicios de tecnología de la información y las comunicaciones,directo
+1622,Coordinadores y jefes de área en comunicación y telecomunicaciones,1330,Directores de servicios de tecnología de la información y las comunicaciones,directo
+1623,Coordinadores y jefes de área en servicios de transporte,1324,"Directores de empresas de abastecimiento, distribución y afines",directo
+1624,Coordinadores y jefes de área en centros de investigación y desarrollo tecnológico,1223,Directores de investigación y desarrollo,directo
+1629,"Otros coordinadores y jefes de área  en informática, telecomunicaciones, transporte y en investigación y desarrollo tecnológico, no clasificados anteriormente",,No tiene correspondencia,sin_correspondencia_explicita
+1711,"Coordinadores y jefes de área de ventas, comercialización y alquiler",1221,Directores de ventas y comercialización,directo
+1711,"Coordinadores y jefes de área de ventas, comercialización y alquiler",1222,Directores de publicidad y relaciones públicas,adicional_1n
+1711,"Coordinadores y jefes de área de ventas, comercialización y alquiler",1420,Gerentes de comercios al por mayor y al por menor,adicional_1n
+1712,Coordinadores y jefes de área de restaurantes y hoteles,1411,Gerentes de hoteles,directo
+1712,Coordinadores y jefes de área de restaurantes y hoteles,1412,Gerentes de restaurantes,adicional_1n
+1721,"Coordinadores y jefes de área en actividades artísticas, de cine, teatro y afines",2654,"Directores de cine, de teatro y afines",directo
+1722,"Coordinadores y jefes de área en museos, cines, deportivos y servicios culturales",1431,"Gerentes de centros deportivos, de esparcimiento y culturales",directo
+1723,Coordinadores y jefes de área en servicios funerarios y otros servicios,1439,Gerentes de servicios no clasificados bajo otros epígrafes,directo
+1999,"Otros directores, funcionarios, gerentes, coordinadores y jefes de área, no clasificados anteriormente",,No tiene correspondencia,sin_correspondencia_explicita
+2111,Administradores y especialistas en recursos humanos y sistemas de gestión,2421,Analistas de gestión y organización,directo
+2111,Administradores y especialistas en recursos humanos y sistemas de gestión,2422,Especialistas en políticas de administración,adicional_1n
+2111,Administradores y especialistas en recursos humanos y sistemas de gestión,2423,Especialistas en políticas y servicios de personal y afines,adicional_1n
+2111,Administradores y especialistas en recursos humanos y sistemas de gestión,2424,Especialistas en formación del personal,adicional_1n
+2112,"Especialistas y consultores en mercadotecnia, publicidad, comunicación y comercio exterior",2431,Profesionales de la publicidad y la comercialización,directo
+2112,"Especialistas y consultores en mercadotecnia, publicidad, comunicación y comercio exterior",2432,Profesionales de relaciones públicas,adicional_1n
+2113,Especialistas en hotelería y turismo,2422,Especialistas en políticas de administración,directo
+2121,Contadores y auditores,2411,Contables,directo
+2122,Asesores y analistas en finanzas,2412,Asesores financieros y en inversiones,directo
+2122,Asesores y analistas en finanzas,2413,Analistas financieros,adicional_1n
+2123,"Economistas, consultores e investigadores en política económica",2631,Economistas,directo
+2131,"Antropólogos, arqueólogos e historiadores",2633,"Filósofos, historiadores y especialistas en ciencias políticas",directo
+2131,"Antropólogos, arqueólogos e historiadores",2632,"Sociólogos, antropólogos y afines",adicional_1n
+2132,Investigadores y especialistas en sociología y desarrollo social,2632,"Sociólogos, antropólogos y afines",directo
+2132,Investigadores y especialistas en sociología y desarrollo social,2164,Urbanistas e ingenieros de tránsito,adicional_1n
+2133,Investigadores y especialistas en ciencias políticas y administración pública,2633,"Filósofos, historiadores y especialistas en ciencias políticas",directo
+2134,Geógrafos,2632,"Sociólogos, antropólogos y afines",directo
+2135,Abogados,2611,Abogados,directo
+2135,Abogados,2619,Profesionales en derecho no clasificados bajo otros epígrafes,adicional_1n
+2141,Investigadores y especialistas en filosofía y letras (filólogos),2633,"Filósofos, historiadores y especialistas en ciencias políticas",directo
+2142,Psicólogos,2634,Psicólogos,directo
+2143,Especialistas en trabajo social,2635,Profesionales del trabajo social,directo
+2144,"Especialistas en archivonomía, biblioteconomía y museografía",2621,Archivistas y curadores de museos,directo
+2144,"Especialistas en archivonomía, biblioteconomía y museografía",2622,"Bibliotecarios, documentalistas y afines",adicional_1n
+2145,"Sacerdotes, pastores y otros teólogos",2636,Profesionales religiosos,directo
+2151,Escritores y críticos literarios,2641,Autores y otros escritores,directo
+2152,Periodistas y redactores,2642,Periodistas,directo
+2153,Traductores e intérpretes,2643,"Traductores, intérpretes y lingüistas",directo
+2161,Pintores,2651,Artistas de artes plásticas,directo
+2162,"Dibujantes y diseñadores artísticos, ilustradores y grabadores",2651,Artistas de artes plásticas,heredado_3d
+2163,Escultores,2651,Artistas de artes plásticas,heredado_3d
+2164,Escenógrafos,,No tiene correspondencia,sin_correspondencia_explicita
+2171,Compositores y arreglistas,2652,"Músicos, cantantes y compositores",directo
+2172,Músicos,2652,"Músicos, cantantes y compositores",heredado_3d
+2173,Cantantes,2652,"Músicos, cantantes y compositores",heredado_3d
+2174,Bailarines y coreógrafos,2653,Bailarines y coreógrafos,directo
+2175,Actores,2655,Actores,directo
+2211,Investigadores y especialistas en física,2111,Físicos y astrónomos,directo
+2212,"Investigadores y especialistas en matemáticas, estadística y actuaría",2120,"Matemáticos, actuarios y estadísticos",directo
+2221,Biólogos y especialistas en ciencias del mar y oceanógrafos,2131,"Biólogos, botánicos, zoólogos y afines",directo
+2222,Químicos,2113,Químicos,directo
+2223,Ecólogos y especialistas en ciencias atmosféricas,2112,Meteorólogos,directo
+2223,Ecólogos y especialistas en ciencias atmosféricas,2133,Profesionales de la protección medio ambiental,adicional_1n
+2231,Agrónomos,2132,Agrónomos y afines,directo
+2232,Veterinarios y zootecnistas,2250,Veterinarios,directo
+2233,Especialistas en forestación,2132,Agrónomos y afines,directo
+2234,Especialistas en pesca y en acuacultura,2131,"Biólogos, botánicos, zoólogos y afines",directo
+2234,Especialistas en pesca y en acuacultura,2133,Profesionales de la protección medioambiental,adicional_1n
+2241,Ingenieros eléctricos,2151,Ingenieros electricistas,directo
+2242,Ingenieros electrónicos,2152,Ingenieros electrónicos,directo
+2251,Ingenieros químicos,2145,Ingenieros químicos,directo
+2252,Ingenieros mecánicos,2144,Ingenieros mecánicos,directo
+2253,Ingenieros industriales,2141,Ingenieros industriales y de producción,directo
+2254,"Ingenieros en minas, metalurgia y petróleo",2146,"Ingenieros de minas, metalúrgicos y afines",directo
+2261,Ingenieros civiles y de la construcción,2142,Ingenieros civiles,directo
+2262,"Ingenieros en topografía, hidrología, geología y geodesia",2114,Geólogos y geofísicos,directo
+2262,"Ingenieros en topografía, hidrología, geología y geodesia",2149,Ingenieros no clasificados bajo otros epígrafes,adicional_1n
+2262,"Ingenieros en topografía, hidrología, geología y geodesia",2165,Cartógrafos y agrimensores,adicional_1n
+2263,"Arquitectos, planificadores urbanos y del transporte",2161,Arquitectos,directo
+2263,"Arquitectos, planificadores urbanos y del transporte",2162,Arquitectos paisajistas,adicional_1n
+2263,"Arquitectos, planificadores urbanos y del transporte",2164,Urbanistas e ingenieros de tránsito,adicional_1n
+2271,Desarrolladores y analistas de software y multimedia,2511,Analistas de sistemas,directo
+2271,Desarrolladores y analistas de software y multimedia,2512,Desarrolladores de software,adicional_1n
+2271,Desarrolladores y analistas de software y multimedia,2513,Desarrolladores Web y multimedia,adicional_1n
+2271,Desarrolladores y analistas de software y multimedia,2514,Programadores de aplicaciones,adicional_1n
+2271,Desarrolladores y analistas de software y multimedia,2519,Desarrolladores y analistas de software y multimedia y analistas no clasificados bajo otros epígrafes,adicional_1n
+2272,Administradores de bases de datos y redes de computadora,2521,Diseñadores y administradores de bases de datos,directo
+2272,Administradores de bases de datos y redes de computadora,2522,Administradores de sistemas,adicional_1n
+2272,Administradores de bases de datos y redes de computadora,2523,Profesionales en redes de computadores,adicional_1n
+2272,Administradores de bases de datos y redes de computadora,2529,Especialistas en bases de datos y en redes de computadores no clasificados bajo otros epígrafes,adicional_1n
+2281,Ingenieros en comunicaciones y telecomunicaciones,2153,Ingenieros en telecomunicaciones,directo
+2311,Supervisores e inspectores educativos,2351,Especialistas en métodos pedagógicos,directo
+2312,"Pedagogos, orientadores educativos y otros especialistas en ciencias educativas",2351,Especialistas en métodos pedagógicos,heredado_3d
+2321,Profesores universitarios y de enseñanza superior,2310,Profesores de universidades y de la enseñanza superior,directo
+2321,Profesores universitarios y de enseñanza superior,2320,Profesores de formación profesional,adicional_1n
+2322,Profesores de preparatoria y equivalentes,2320,Profesores de formación profesional,directo
+2331,Profesores de enseñanza secundaria,2330,Profesores de enseñanza secundaria,directo
+2332,Profesores de enseñanza primaria,2341,Maestros de enseñanza primaria,directo
+2333,Alfabetizadores,,No tiene correspondencia,sin_correspondencia_explicita
+2334,Profesores de enseñanza bilingüe (indígena),,,sin_ciuo_en_tabla
+2335,Profesores de enseñanza preescolar,2342,Maestros preescolares,directo
+2339,"Otros profesores de nivel básico, no clasificados anteriormente",2359,Profesionales de la enseñanza no clasificados bajo otros epígrafes,directo
+2341,Profesores de personas con problemas de audición y lenguaje,2352,Educadores para necesidades especiales,directo
+2342,Profesores de personas con problemas de aprendizaje,2352,Educadores para necesidades especiales,heredado_3d
+2343,Otros profesores de enseñanza especial,2359,Profesionales de la enseñanza no clasificados bajo otros epígrafes,directo
+2391,"Otros profesores y especialistas en docencia, no clasificados anteriormente",,No tiene correspondencia,sin_correspondencia_explicita
+2411,Médicos generales y familiares,2211,Médicos generales,directo
+2412,Médicos especialistas,2212,Médicos especialistas,directo
+2413,Dentistas,2261,Dentistas,directo
+2421,Ingenieros biomédicos,,No tiene correspondencia,sin_correspondencia_explicita
+2422,Optometristas,2267,Optometristas,directo
+2423,Nutriólogos,2265,Dietistas y nutricionistas,directo
+2424,Especialistas en seguridad e higiene y salud pública,2263,Profesionales de la salud y la higiene laboral y ambiental,directo
+2425,Especialistas en medicina tradicional y alternativa,2230,Profesionales de medicina tradicional y alternativa,directo
+2426,Enfermeras especialistas,2221,Profesionales de enfermería,directo
+2427,"Fisioterapeutas, audiólogos y logopedas",2264,Fisioterapeutas,directo
+2427,"Fisioterapeutas, audiólogos y logopedas",2266,Audiólogos y logopedas,adicional_1n
+2428,Farmacólogos,2262,Farmacéuticos,directo
+2511,"Auxiliares en administración, mercadotecnia, comercialización y comercio exterior",3323,Agentes de compras,directo
+2511,"Auxiliares en administración, mercadotecnia, comercialización y comercio exterior",3343,Secretarios administrativos y ejecutivos,adicional_1n
+2512,"Auxiliares en contabilidad, economía, finanzas y agentes de bolsa",3312,Oficiales de préstamos y créditos,directo
+2512,"Auxiliares en contabilidad, economía, finanzas y agentes de bolsa",3313,Tenedores de libros,adicional_1n
+2512,"Auxiliares en contabilidad, economía, finanzas y agentes de bolsa",4311,Empleados de contabilidad y cálculo de costos,adicional_1n
+2512,"Auxiliares en contabilidad, economía, finanzas y agentes de bolsa",4312,"Empleados de servicios estadísticos, financieros y de seguros",adicional_1n
+2512,"Auxiliares en contabilidad, economía, finanzas y agentes de bolsa",4313,Empleados encargados de las nóminas,adicional_1n
+2513,Tramitadores aduanales,3331,Declarantes o gestores de aduana,directo
+2514,"Valuadores, subastadores y rematadores",3315,Tasadores,directo
+2521,Oficiales del ministerio público y detectives,3355,Inspectores de policía y detectives,directo
+2522,Agentes aduanales y fronterizos,3351,Agentes de aduana e inspectores de fronteras,directo
+2523,Agentes de recaudación tributaria y de licencias,3352,Agentes de administración tributaria,directo
+2523,Agentes de recaudación tributaria y de licencias,3354,Agentes de servicios de expedición de licencias y permisos,adicional_1n
+2524,"Inspectores en seguridad social, de precios y otros inspectores públicos",3353,Agentes de servicios de seguridad social,directo
+2524,"Inspectores en seguridad social, de precios y otros inspectores públicos",3359,Agentes de la administración pública para la aplicacion de la ley y afines no clasificados bajo otros epígrafes,adicional_1n
+2531,Auxiliares en ciencias sociales y humanistas,3412,Trabajadores y asistentes sociales de nivel medio,directo
+2531,Auxiliares en ciencias sociales y humanistas,3433,"Técnicos en galerías de arte, museos y bibliotecas",adicional_1n
+2531,Auxiliares en ciencias sociales y humanistas,4411,Empleados de bibliotecas,adicional_1n
+2532,Auxiliares en servicios jurídicos,3411,Profesionales de nivel medio del derecho y servicios legales y afines,directo
+2532,Auxiliares en servicios jurídicos,3342,Secretarios jurídicos,adicional_1n
+2533,Monjas y predicadores,3413,Auxiliares laicos de las religiones,directo
+2541,Diseñadores de moda y vestuario,2163,Diseñadores de productos y de prendas,directo
+2542,Diseñadores industriales,2163,Diseñadores de productos y de prendas,heredado_3d
+2543,Diseñadores gráficos,2166,Diseñadores gráficos y multimedia,directo
+2544,"Decoradores de interiores, jardines y diversos materiales (tazas, llaveros, etcétera)",3432,Diseñadores y decoradores de interior,directo
+2551,"Locutores de radio, televisión y otros medios de comunicación",2656,"Locutores de radio, televisión y otros medios de comunicación",directo
+2552,Animadores y organizadores de eventos,2656,"Locutores de radio, televisión y otros medios de comunicación",directo
+2552,Animadores y organizadores de eventos,3332,Organizadores de conferencias y eventos,adicional_1n
+2553,"Payasos, mimos y cirqueros",2659,Artistas creativos e interpretativos no clasificados bajo otros epígrafes,directo
+2561,Deportistas,3421,Atletas y deportistas,directo
+2562,Entrenadores deportivos y directores técnicos,3422,"Entrenadores, instructores y árbitros de actividades deportivas",directo
+2563,Árbitros y jueces deportivos,3422,"Entrenadores, instructores y árbitros de actividades deportivas",heredado_3d
+2611,"Auxiliares y técnicos en física, matemáticas, estadística y actuaría",3111,Técnicos en ciencias físicas y químicas,directo
+2611,"Auxiliares y técnicos en física, matemáticas, estadística y actuaría",3314,"Profesionales de nivel medio de servicios estadísticos, matemáticos y afines",adicional_1n
+2611,"Auxiliares y técnicos en física, matemáticas, estadística y actuaría",4312,"Empleados de servicios estadísticos, financieros y de seguros",adicional_1n
+2612,"Auxiliares y técnicos en ciencias biológicas, químicas y del medio ambiente",3111,Técnicos en ciencias físicas y químicas,directo
+2612,"Auxiliares y técnicos en ciencias biológicas, químicas y del medio ambiente",3141,Técnicos en ciencias biológicas (excluyendo la medicina),adicional_1n
+2613,Auxiliares y técnicos en agronomía,3143,Técnicos forestales,directo
+2613,Auxiliares y técnicos en agronomía,3142,Técnicos agropecuarios,adicional_1n
+2614,"Auxiliares y técnicos en veterinaria, pesca y forestación",3240,Técnicos y asistentes veterinarios,directo
+2621,Auxiliares y técnicos industriales y químicos,3116,Técnicos en química industrial,directo
+2622,"Auxiliares y técnicos topógrafos, en hidrología y geología",3119,Técnicos en ciencias físicas y en ingeniería no clasificados bajo otros epígrafes,directo
+2623,"Auxiliares y técnicos mineros, metalúrgicos y petroleros",3117,Técnicos en ingeniería de minas y metalurgia,directo
+2624,Auxiliares y técnicos en construcción y arquitectura,3112,Técnicos en ingeniería civil,directo
+2625,Dibujantes técnicos,3118,Delineantes y dibujantes técnicos,directo
+2625,Dibujantes técnicos,7316,"Redactores de carteles, pintores decorativos y grabadores",adicional_1n
+2630,"Supervisores de mecánicos y técnicos en mantenimiento y reparación de equipos mecánicos, vehículos  de motor, instrumentos industriales y equipo de refrigeración",3115,Técnicos en ingeniería mecánica,directo
+2631,Técnicos en mantenimiento y reparación de vehículos de motor,7231,Mecánicos y reparadores de vehículos de motor,directo
+2632,Mecánicos en mantenimiento y reparación de vehículos de motor,7232,Mecánicos y reparadores de motores de avión,directo
+2633,Técnicos en mantenimiento y reparación de maquinaria e instrumentos industriales,3115,Técnicos en ingeniería mecánica,directo
+2634,Mecánicos en mantenimiento y reparación de maquinaria e instrumentos industriales,7233,Mecánicos y reparadores de máquinas agrícolas e industriales,directo
+2634,Mecánicos en mantenimiento y reparación de maquinaria e instrumentos industriales,7234,Reparadores de bicicletas y afines,adicional_1n
+2635,Técnicos en mantenimiento y reparación de instrumentos de precisión y musicales,7311,Mecánicos y reparadores de instrumentos de precisión,directo
+2636,Mecánicos en mantenimiento y reparación de instrumentos de precisión y musicales,7312,Fabricantes y afinadores de instrumentos musicales,directo
+2636,Mecánicos en mantenimiento y reparación de instrumentos de precisión y musicales,7222,Herramentistas y afines,adicional_1n
+2637,"Técnicos en la instalación, reparación y mantenimiento de equipos de refrigeración, climas y aire acondicionado",7127,Mecánicos-montadores de instalaciones de refrigeración y climatización,directo
+2638,"Mecánicos en  instalación, mantenimiento y reparación de equipos de refrigeración, climas y aire acondicionado.",7127,Mecánicos-montadores de instalaciones de refrigeración y climatización,directo
+2639,"Otras ocupaciones de mecánicos y técnicos en el mantenimiento y reparación de equipos mecánicos, vehículos de motor e instrumentos industriales, no clasificados anteriormente",,No tiene correspondencia,sin_correspondencia_explicita
+2640,"Supervisores de técnicos eléctricos, en electrónica y de equipos en telecomunicaciones y electromecánicos",,No tiene correspondencia,sin_correspondencia_explicita
+2641,Técnicos eléctricos,3113,Electrotécnicos,directo
+2641,Técnicos eléctricos,3114,Técnicos en electrónica,adicional_1n
+2642,Electricistas y linieros,7411,Electricistas de obras y afines,directo
+2642,Electricistas y linieros,7413,Instaladores y reparadores de líneas eléctricas,adicional_1n
+2642,Electricistas y linieros,7421,Mecánicos y reparadores en electrónica,adicional_1n
+2643,"Técnicos en instalación y reparación de equipos electrónicos, telecomunicaciones y electrodoméstico (excepto equipos informáticos)",7421,Mecánicos y reparadores en electrónica,directo
+2644,"Trabajadores en instalación y reparación de equipos electrónicos, telecomunicaciones y electrodoméstico (excepto equipos informáticos)",7421,Mecánicos y reparadores en electrónica,heredado_3d
+2645,Técnicos en reparación de equipos electromecánicos,7412,Mecánicos y ajustadores electricistas,directo
+2645,Técnicos en reparación de equipos electromecánicos,7421,Mecánicos y reparadores en electrónica,adicional_1n
+2646,Trabajadores en reparación de equipos electromecánicos,7412,Mecánicos y ajustadores electricistas,directo
+2646,Trabajadores en reparación de equipos electromecánicos,7421,Mecánicos y reparadores en electrónica,adicional_1n
+2649,"Otros técnicos eléctricos, en electrónica y de equipos en telecomunicaciones y electromecánicos, no clasificados anteriormente",,No tiene correspondencia,sin_correspondencia_explicita
+2651,"Técnicos en la instalación y reparación de redes, equipos y en sistemas computacionales",3511,Técnicos en operaciones de tecnología de la información y las comunicaciones,directo
+2651,"Técnicos en la instalación y reparación de redes, equipos y en sistemas computacionales",3512,Técnicos en asistencia al usuario de tecnología de la información y las comunicaciones,adicional_1n
+2651,"Técnicos en la instalación y reparación de redes, equipos y en sistemas computacionales",3513,Técnicos en redes y sistemas de computadores,adicional_1n
+2651,"Técnicos en la instalación y reparación de redes, equipos y en sistemas computacionales",3514,Técnicos de la Web,adicional_1n
+2652,Técnicos en operaciones de equipos de radio,3521,Técnicos de radiodifusión y grabación audio visual,directo
+2652,Técnicos en operaciones de equipos de radio,3522,Técnicos de ingeniería de las telecomunicaciones,adicional_1n
+2653,Auxiliares y técnicos de equipos de grabación y reproducción de video,3521,Técnicos de radiodifusión y grabación audio visual,directo
+2654,"Auxiliares y técnicos de ingeniería de audio, sonido e iluminación",3521,Técnicos de radiodifusión y grabación audio visual,heredado_3d
+2655,Fotógrafos,3431,Fotógrafos,directo
+2661,Controladores de tráfico aéreo,3154,Controladores de tráfico aéreo,directo
+2662,"Controladores de tráfico de otros transportes (terrestre, ferroviario y marítimo)",8312,"Guardafrenos, guardagujas y agentes de maniobras",directo
+2711,Auxiliares y técnicos en pedagogía y en educación,,No tiene correspondencia,sin_correspondencia_explicita
+2712,Instructores en estudios y capacitación artística,2354,Otros profesores de música,directo
+2712,Instructores en estudios y capacitación artística,2355,Otros profesores de artes,adicional_1n
+2713,Instructores en estudios y capacitación comercial y administrativa,2359,Profesionales de la enseñanza no clasificados bajo otros epígrafes,directo
+2713,Instructores en estudios y capacitación comercial y administrativa,2356,Instructores en tecnología de la información,adicional_1n
+2714,Instructores en idiomas extranjeros,2353,Otros profesores de idiomas,directo
+2715,Instructores y capacitadores en oficios y para el trabajo,2359,Profesionales de la enseñanza no clasificados bajo otros epígrafes,directo
+2715,Instructores y capacitadores en oficios y para el trabajo,5165,Instructores de autoescuela,adicional_1n
+2716,Profesores en educación física y deporte,3423,Instructores de educación física y actividades recreativas,directo
+2811,Enfermeras (técnicas),3221,Profesionales de nivel medio de enfermería,directo
+2811,Enfermeras (técnicas),3253,Trabajadores comunitarios de la salud,adicional_1n
+2812,"Técnicos en aparatos de diagnóstico, tratamiento médico, podólogos y fisioterapeutas",3211,Técnicos en aparatos de diagnóstico y tratamiento médico,directo
+2812,"Técnicos en aparatos de diagnóstico, tratamiento médico, podólogos y fisioterapeutas",3254,Técnicos en optometría y ópticos,adicional_1n
+2812,"Técnicos en aparatos de diagnóstico, tratamiento médico, podólogos y fisioterapeutas",3255,Técnicos y asistentes fisioterapeutas,adicional_1n
+2812,"Técnicos en aparatos de diagnóstico, tratamiento médico, podólogos y fisioterapeutas",3259,Profesionales de la salud de nivel medio no clasificados bajo otros epígrafes,adicional_1n
+2813,Técnicos de laboratorios médicos,3212,Técnicos de laboratorios médicos,directo
+2814,Técnicos y asistentes farmacéuticos,3213,Técnicos y asistentes farmacéuticos,directo
+2815,Técnicos de prótesis médicas y dentales,3214,Técnicos de prótesis médicas y dentales,directo
+2816,Técnicos dietistas y nutriólogos,2265,Dietistas y nutricionistas,directo
+2817,Técnicos en medicina alternativa,2230,Profesionales de medicina tradicional y alternativa,directo
+2821,Auxiliares en enfermería y paramédicos,2240,Practicantes paramédicos,directo
+2821,Auxiliares en enfermería y paramédicos,3252,Técnicos en documentación sanitaria,adicional_1n
+2821,Auxiliares en enfermería y paramédicos,3253,Trabajadores comunitarios de la salud,adicional_1n
+2821,Auxiliares en enfermería y paramédicos,3256,Practicantes y asistentes médicos,adicional_1n
+2821,Auxiliares en enfermería y paramédicos,3344,Secretarios médicos,adicional_1n
+2821,Auxiliares en enfermería y paramédicos,5321,Trabajadores de los cuidados personales en instituciones,adicional_1n
+2821,Auxiliares en enfermería y paramédicos,5322,Trabajadores de los cuidados personales a domicilio,adicional_1n
+2822,Auxiliares y asistentes dentales,3251,Dentistas auxiliares y ayudantes de odontología,directo
+2823,Auxiliares hospitalarios y de medicina,3258,Ayudantes de ambulancias,directo
+2823,Auxiliares hospitalarios y de medicina,5321,Trabajadores de los cuidados personales en instituciones,adicional_1n
+2824,Parteras,3222,Profesionales de nivel medio de partería,directo
+2825,Técnicos en seguridad en el trabajo e higiene,3257,"Inspectores de la salud laboral,  medioambiental y afines",directo
+2826,"Curanderos, hierberos y hueseros",3230,Profesionales de nivel medio de medicina tradicional y alternativa,directo
+2827,Fumigadores y controladores de plagas,7544,Fumigadores y otros controladores de plagas y malas hierbas,directo
+2991,Otros especialistas no clasificados anteriormente,,No tiene correspondencia,sin_correspondencia_explicita
+2992,Otros técnicos no clasificados anteriormente,,No tiene correspondencia,sin_correspondencia_explicita
+3101,"Supervisores de secretarias, capturistas, cajeros y trabajadores de control de archivo y transporte",3341,Supervisores de secretaria,directo
+3111,Secretarias,3343,Secretarios administrativos y ejecutivos,directo
+3111,Secretarias,3344,Secretarios médicos,adicional_1n
+3111,Secretarias,4120,Secretarios (general),adicional_1n
+3112,"Taquígrafos, mecanógrafos y similares",4131,Operadores de máquinas de procesamiento de texto y mecanógrafos,directo
+3112,"Taquígrafos, mecanógrafos y similares",4414,Escribientes públicos y afines,adicional_1n
+3113,Capturistas de datos,4132,Grabadores de datos,directo
+3114,"Operadores de máquinas de oficina (fotocopiadora, etcétera)",4131,Operadores de máquinas de procesamiento de texto y mecanógrafos,directo
+3115,Trabajadores de apoyo en actividades administrativas diversas,4110,Oficinistas generales,directo
+3121,"Cajeros, taquilleros y receptores de apuestas",4211,Cajeros de bancos y afines,directo
+3121,"Cajeros, taquilleros y receptores de apuestas",4212,Receptores de apuestas y afines,adicional_1n
+3121,"Cajeros, taquilleros y receptores de apuestas",5230,Cajeros y expendedores de billetes,adicional_1n
+3122,"Cobradores, pagadores y prestamistas",4214,Cobradores y afines,directo
+3122,"Cobradores, pagadores y prestamistas",5112,Revisores y cobradores de los transportes públicos,adicional_1n
+3122,"Cobradores, pagadores y prestamistas",4213,Prestamistas,adicional_1n
+3131,Trabajadores en archivo y correspondencia,4415,Empleados de archivos,directo
+3132,Encargados y trabajadores en control de almacén y bodega,4321,Empleados de control de abastecimientos e inventario,directo
+3132,Encargados y trabajadores en control de almacén y bodega,4322,Empleados de servicios de apoyo a la producción,adicional_1n
+3141,Despachadores de transporte,4323,Empleados de servicios de transporte,directo
+3142,Checadores y revisores de transporte,5112,Revisores y cobradores de los transportes públicos,directo
+3201,Supervisores de trabajadores que brindan y manejan información,3341,Supervisores de secretaría,directo
+3211,Recepcionistas y trabajadores que brindan información (de forma personal),4224,Recepcionistas de hoteles,directo
+3211,Recepcionistas y trabajadores que brindan información (de forma personal),4225,Empleados de ventanillas de informaciones,adicional_1n
+3211,Recepcionistas y trabajadores que brindan información (de forma personal),4226,Recepcionistas (general),adicional_1n
+3212,Trabajadores que brindan información por teléfono (centro de llamadas) y anunciadores,4222,Empleados de centros de llamadas,directo
+3213,Telefonistas y telegrafistas,4223,Telefonistas,directo
+3213,Telefonistas y telegrafistas,4131,Operadores de máquinas de procesamiento de texto y mecanógrafos,adicional_1n
+3221,Trabajadores en agencias de viajes,4221,Empleados de agencias de viajes,directo
+3222,"Guías de turismo en museos, casinos, parques, cines y otros centros recreativos",5113,Guías de turismo,directo
+3231,Encuestadores,4227,Entrevistadores de encuestas y de investigaciones de mercados,directo
+3232,Codificadores de información,4413,"Codificadores de datos, correctores de pruebas de imprenta y afines",directo
+3999,"Otras secretarias, capturistas, cajeros y trabajadores que brindan información, no clasificados anteriormente",4416,Empleados del servicio de personal,directo
+3999,"Otras secretarias, capturistas, cajeros y trabajadores que brindan información, no clasificados anteriormente",4419,Personal de apoyo administrativo no clasificado bajo otros epígrafes,adicional_1n
+3999,"Otras secretarias, capturistas, cajeros y trabajadores que brindan información, no clasificados anteriormente",4229,Empleados de servicios de información al cliente no clasificados bajo otros epígrafes,adicional_1n
+4111,Comerciantes en establecimientos,5221,Comerciantes de tiendas,directo
+4111,Comerciantes en establecimientos,5211,Vendedores de quioscos y de puestos de mercado,adicional_1n
+4201,Encargados y supervisores de ventas de productos y de servicios financieros y de alquiler,5222,Supervisores de tiendas y almacenes,directo
+4211,"Empleados de ventas, despachadores y dependientes en comercios",5223,Asistentes de venta de tiendas y almacenes,directo
+4212,"Anaqueleros, acomodadores y seleccionadores de mercancías y alimentadores de máquinas expendedoras",5211,Vendedores de quioscos y de puestos de mercado,directo
+4212,"Anaqueleros, acomodadores y seleccionadores de mercancías y alimentadores de máquinas expendedoras",5245,Expendedores de gasolineras,adicional_1n
+4212,"Anaqueleros, acomodadores y seleccionadores de mercancías y alimentadores de máquinas expendedoras",5223,Asistentes de venta de tiendas y almacenes,adicional_1n
+4213,Vendedores por teléfono,5244,Vendedores por teléfono,directo
+4214,Choferes vendedores,5223,Asistentes de venta de tiendas y almacenes,directo
+4221,Agentes y representantes de ventas y consignatarios,2433,Profesionales de ventas técnicas y médicas (excluyendo la TIC),directo
+4221,Agentes y representantes de ventas y consignatarios,2434,Profesionales de ventas de tecnología de la información y las comunicaciones,adicional_1n
+4221,Agentes y representantes de ventas y consignatarios,3322,Representantes comerciales,adicional_1n
+4221,Agentes y representantes de ventas y consignatarios,3324,Agentes de compras y consignatarios,adicional_1n
+4222,Agentes de seguros y servicios financieros (ejecutivos de cuenta),3321,Agentes de seguros,directo
+4222,Agentes de seguros y servicios financieros (ejecutivos de cuenta),3311,"Agentes de bolsa, cambio y otros servicios financieros",adicional_1n
+4222,Agentes de seguros y servicios financieros (ejecutivos de cuenta),4312,"Empleados de servicios estadísticos, financieros y de seguros",adicional_1n
+4223,Agentes de bienes raíces,3334,Agentes inmobiliarios,directo
+4224,Vendedores por catálogo,3322,Representantes comerciales,directo
+4231,Demostradores y promotores,5242,Demostradores de tiendas,directo
+4232,Edecanes,5242,Demostradores de tiendas,heredado_3d
+4233,"Modelos de moda, arte y publicidad",5241,"Modelos de moda, arte y publicidad",directo
+4311,"Trabajadores en el alquiler inmobiliario (casas, terrenos, etcétera)",3334,Agentes inmobiliarios,directo
+4312,"Trabajadores en el alquiler de bienes muebles (loza, películas, video juegos, etcétera)",,No tiene correspondencia,sin_correspondencia_explicita
+4999,"Otros comerciantes, empleados en ventas y agentes de ventas en establecimientos, no clasificados anteriormente",,No tiene correspondencia,sin_correspondencia_explicita
+5101,"Supervisores en la preparación y servicio de alimentos y bebidas, así como en servicios de esparcimiento y de hotelería",3434,Chefs,directo
+5101,"Supervisores en la preparación y servicio de alimentos y bebidas, así como en servicios de esparcimiento y de hotelería",5120,Cocineros,adicional_1n
+5101,"Supervisores en la preparación y servicio de alimentos y bebidas, así como en servicios de esparcimiento y de hotelería",5131,Camareros de mesas,adicional_1n
+5101,"Supervisores en la preparación y servicio de alimentos y bebidas, así como en servicios de esparcimiento y de hotelería",5132,Camareros de barra,adicional_1n
+5101,"Supervisores en la preparación y servicio de alimentos y bebidas, así como en servicios de esparcimiento y de hotelería",5246,Vendedores de comidas al mostrador,adicional_1n
+5111,Cocineros,5120,Cocineros,directo
+5112,"Fonderos, vendedores y comerciantes de comida",5120,Cocineros,heredado_3d
+5113,Cocineros domésticos,5120,Cocineros,heredado_3d
+5114,"Taqueros y preparadores de comida rápida, antojitos, pizzas, hot dogs, jugos, café, etcétera",5246,Vendedores de comidas al mostrador,directo
+5114,"Taqueros y preparadores de comida rápida, antojitos, pizzas, hot dogs, jugos, café, etcétera",9411,Cocineros de comidas rápidas,adicional_1n
+5115,Cantineros,5132,Camareros de barra,directo
+5116,Meseros,5131,Camareros de mesas,directo
+5201,Supervisores y encargados de trabajadores en cuidados personales y del hogar,,,sin_ciuo_en_tabla
+5211,"Peluqueros, barberos, estilistas y peinadores",5141,Peluqueros,directo
+5212,"Maquillistas, manicuristas, pedicuristas y tatuadores",5142,Especialistas en tratamientos de belleza y afines,directo
+5213,Bañeros y masajistas,5142,Especialistas en tratamientos de belleza y afines,heredado_3d
+5221,"Cuidadores de niños, personas con discapacidad y ancianos en establecimientos",5311,Cuidadores de niños,directo
+5221,"Cuidadores de niños, personas con discapacidad y ancianos en establecimientos",5321,Trabajadores de los cuidados personales en instituciones,adicional_1n
+5221,"Cuidadores de niños, personas con discapacidad y ancianos en establecimientos",5312,Auxiliares de maestros,adicional_1n
+5222,"Cuidadores de niños, personas con discapacidad y ancianos en casas particulares",5311,Cuidadores de niños,directo
+5222,"Cuidadores de niños, personas con discapacidad y ancianos en casas particulares",5162,Acompañantes y ayudantes de cámara,adicional_1n
+5231,Azafatas y sobrecargos,5111,Auxiliares de servicio de abordo,directo
+5241,Jardineros en establecimientos,6113,"Agricultores y trabajadores calificados de huertas, invernaderos, viveros y jardines",directo
+5242,Jardineros en casas particulares,6113,"Agricultores y trabajadores calificados de huertas, invernaderos, viveros y jardines",heredado_3d
+5251,"Astrólogos, adivinadores y afines",5161,"Astrólogos, adivinadores y afines",directo
+5252,Trabajadores dedicados a la prostitución,5169,Trabajadores de servicios personales no clasificados bajo otros epígrafes,directo
+5253,Trabajadores en servicios funerarios,5163,Personal de pompas fúnebres y embalsamadores,directo
+5254,Entrenadores de animales y ocupaciones relacionadas con el cuidado de mascotas,5164,Cuidadores de animales,directo
+5254,Entrenadores de animales y ocupaciones relacionadas con el cuidado de mascotas,6129,Criadores y trabajadores pecuarios calificados de la cría de animales no clasificados bajo otros epígrafes,adicional_1n
+5301,Supervisores en servicios de protección y vigilancia,,,sin_ciuo_en_tabla
+5311,Bomberos,5411,Bomberos,directo
+5312,Policías y agentes de tránsito,5412,Policías,directo
+5313,Vigilantes y guardias en establecimientos,5413,Guardianes de prisión,directo
+5313,Vigilantes y guardias en establecimientos,5414,Guardias de protección,adicional_1n
+5314,Vigilantes y porteros en casas particulares,5414,Guardias de protección,directo
+5401,Supervisores de las fuerzas armadas,0210,Suboficiales de las fuerzas armadas,directo
+5411,Trabajadores de la fuerza armada aérea,0310,Otros miembros de las fuerzas armadas,directo
+5412,Trabajadores de la fuerza armada marítima,0310,Otros miembros de las fuerzas armadas,heredado_3d
+5413,Trabajadores de la fuerza armada terrestre,0310,Otros miembros de las fuerzas armadas,heredado_3d
+5999,"Otras ocupaciones en servicios personales y vigilancia, no clasificadas anteriormente",5419,Personal de los servicios de protección no clasificados bajo otros epígrafes,directo
+6101,"Supervisores, encargados y capataces agropecuarios",,,sin_ciuo_en_tabla
+6111,Trabajadores en el cultivo de maíz y/o frijol,6111,Agricultores y trabajadores calificados de cultivos extensivos,directo
+6111,Trabajadores en el cultivo de maíz y/o frijol,6114,Agricultores y trabajadores calificados de cultivos mixtos,adicional_1n
+6111,Trabajadores en el cultivo de maíz y/o frijol,6310,Trabajadores agrícolas de subsistencia,adicional_1n
+6112,Trabajadores en el cultivo de hortalizas y verduras,6114,Agricultores y trabajadores calificados de cultivos mixtos,directo
+6112,Trabajadores en el cultivo de hortalizas y verduras,6310,Trabajadores agrícolas de subsistencia,adicional_1n
+6112,Trabajadores en el cultivo de hortalizas y verduras,6112,Agricultores y trabajadores calificados de plantaciones de árboles y arbustos,adicional_1n
+6113,"Trabajadores en el cultivo de café, cacao y tabaco",6114,Agricultores y trabajadores calificados de cultivos mixtos,directo
+6113,"Trabajadores en el cultivo de café, cacao y tabaco",6310,Trabajadores agrícolas de subsistencia,adicional_1n
+6113,"Trabajadores en el cultivo de café, cacao y tabaco",6112,Agricultores y trabajadores calificados de plantaciones de árboles y arbustos,adicional_1n
+6114,Trabajadores en el cultivo de frutales,6114,Agricultores y trabajadores calificados de cultivos mixtos,directo
+6115,Trabajadores en el cultivo de flores,6113,"Agricultores y trabajadores calificados de huertas, invernaderos, viveros y jardines",directo
+6115,Trabajadores en el cultivo de flores,6310,Trabajadores agrícolas de subsistencia,adicional_1n
+6115,Trabajadores en el cultivo de flores,6111,Agricultores y trabajadores calificados de cultivos extensivos,adicional_1n
+6115,Trabajadores en el cultivo de flores,6114,Agricultores y trabajadores calificados de cultivos mixtos,adicional_1n
+6116,Trabajadores en otros cultivos agrícolas,,No tiene correspondencia,sin_correspondencia_explicita
+6117,Trabajadores en actividades de beneficio de productos agrícolas,,,sin_ciuo_en_tabla
+6119,"Otros trabajadores en actividades agrícolas, no clasificados anteriormente",,,sin_ciuo_en_tabla
+6121,Trabajadores en la cría de ganado bovino,6121,Criadores de ganado,directo
+6121,Trabajadores en la cría de ganado bovino,6320,Trabajadores pecuarios de subsistencia,adicional_1n
+6122,Trabajadores en la cría de porcinos,6121,Criadores de ganado,directo
+6122,Trabajadores en la cría de porcinos,6320,Trabajadores pecuarios de subsistencia,adicional_1n
+6123,Trabajadores en la cría avícola,6122,Avicultores y trabajadores calificados de la avicultura,directo
+6123,Trabajadores en la cría avícola,6320,Trabajadores pecuarios de subsistencia,adicional_1n
+6124,Trabajadores en la cría de caprinos y ovinos,6121,Criadores de ganado,directo
+6124,Trabajadores en la cría de caprinos y ovinos,6320,Trabajadores pecuarios de subsistencia,adicional_1n
+6125,Trabajadores en la cría de equinos,6121,Criadores de ganado,directo
+6125,Trabajadores en la cría de equinos,6320,Trabajadores pecuarios de subsistencia,adicional_1n
+6126,Trabajadores en la apicultura,6123,Apicultores y sericultores y trabajadores calificados de la apicultura y la sericultura,directo
+6127,Trabajadores en la cría y cuidado de otro tipo de animales,6129,Criadores y trabajadores pecuarios calificados de la cría de animales no clasificados bajo otros epígrafes,directo
+6128,Trabajadores en actividades de beneficio de productos pecuarios,,No tiene correspondencia,sin_correspondencia_explicita
+6129,"Otros trabajadores en actividades ganaderas y en la cría de animales, no clasificados anteriormente",6129,Criadores y trabajadores pecuarios calificados de la cría de animales no clasificados bajo otros epígrafes,directo
+6131,Trabajadores que combinan actividades agrícolas con ganaderas,6130,Productores y trabajadores calificados de explotaciones agropecuarias mixtas cuya producción se destina al mercado,directo
+6131,Trabajadores que combinan actividades agrícolas con ganaderas,6330,Trabajadores agropecuarios de subsistencia,adicional_1n
+6201,"Supervisores, encargados y capataces de trabajadores en actividades pesqueras, acuícolas, forestales, caza y similares",,,sin_ciuo_en_tabla
+6211,Trabajadores en actividades pesqueras,6222,Pescadores de agua dulce y en aguas costeras,directo
+6211,Trabajadores en actividades pesqueras,6223,Pescadores de alta mar,adicional_1n
+6211,Trabajadores en actividades pesqueras,6340,"Pescadores, cazadores, tramperos y recolectores de subsistencia",adicional_1n
+6212,Trabajadores en actividades de acuacultura,6221,Trabajadores de explotaciones de acuicultura,directo
+6213,Trabajadores en actividades de beneficio de productos pesqueros o acuícolas,,No tiene correspondencia,sin_correspondencia_explicita
+6221,"Taladores, trocadores, cortadores de árboles y similares",6210,Trabajadores forestales calificados y afines,directo
+6222,"Caucheros, chicleros, resineros y similares",6210,Trabajadores forestales calificados y afines,directo
+6223,Trabajadores en viveros e invernaderos,6113,"Agricultores y trabajadores calificados de huertas, invernaderos, viveros y jardines",directo
+6224,"Trabajadores en actividades de plantación, reforestación y conservación de bosques",6210,Trabajadores forestales calificados y afines,directo
+6225,Cortadores de leña,6340,"Pescadores, cazadores, tramperos y recolectores de subsistencia",directo
+6226,"Trabajadores en actividades de recolección de plantas, hierbas y raíces no cultivadas",6340,"Pescadores, cazadores, tramperos y recolectores de subsistencia",heredado_3d
+6227,Productores de carbón vegetal,6340,"Pescadores, cazadores, tramperos y recolectores de subsistencia",directo
+6227,Productores de carbón vegetal,6210,Trabajadores forestales calificados y afines,adicional_1n
+6231,"Trabajadores en actividades de caza, trampería y similares",6224,Cazadores y tramperos,directo
+6231,"Trabajadores en actividades de caza, trampería y similares",6340,"Pescadores, cazadores, tramperos y recolectores de subsistencia",adicional_1n
+6311,Operadores de maquinaria agropecuaria y forestal,8341,Operadores de maquinaria agrícola y forestal móvil,directo
+6999,"Otros trabajadores en actividades agrícolas, ganaderas, forestales, caza y pesca, no clasificados anteriormente",,No tiene correspondencia,sin_correspondencia_explicita
+7101,"Supervisores de trabajadores en la extracción, albañiles y en acabados de la construcción",3121,Supervisores en ingeniería de minas,directo
+7101,"Supervisores de trabajadores en la extracción, albañiles y en acabados de la construcción",3123,Supervisores de la construcción,adicional_1n
+7111,Mineros y trabajadores en la extracción en minas de minerales metálicos,8111,Mineros y operadores de instalaciones mineras,directo
+7112,"Trabajadores en la extracción de cantera, arcilla, arena, piedra y grava",8111,Mineros y operadores de instalaciones mineras,heredado_3d
+7113,Dinamiteros y buzos en perforación de pozos y en la construcción,7541,Buzos,directo
+7113,Dinamiteros y buzos en perforación de pozos y en la construcción,7542,Dinamiteros y pegadores,adicional_1n
+7121,"Albañiles, mamposteros y afines",7111,Constructores de casas,directo
+7121,"Albañiles, mamposteros y afines",7112,Albañiles,adicional_1n
+7121,"Albañiles, mamposteros y afines",7113,"Mamposteros, tronzadores, labrantes y grabadores de piedra",adicional_1n
+7121,"Albañiles, mamposteros y afines",7114,"Operarios en cemento armado, enfoscadores y afines",adicional_1n
+7122,"Techadores (colocadores de palapas, etcétera)",7121,Techadores,directo
+7123,Carpinteros de obra negra,7115,Carpinteros de armar y de obra blanca,directo
+7131,"Yeseros, escayolistas y otros recubridores de techos y paredes",7123,Revocadores,directo
+7132,"Instaladores de pisos, azulejos, mosaicos y baldosas",7122,Parqueteros y colocadores de suelos,directo
+7133,"Instaladores de material aislante, de impermeabilización, vidrio y otros materiales",7124,Instaladores de material aislante y de insonorización,directo
+7133,"Instaladores de material aislante, de impermeabilización, vidrio y otros materiales",7125,Cristaleros,adicional_1n
+7134,"Plomeros, fontaneros e instaladores de tubería",7126,Fontaneros e instaladores de tuberías,directo
+7135,Pintores de brocha gorda,7131,Pintores y empapeladores,directo
+7201,Supervisores de artesanos y trabajadores en el tratamiento y elaboración de productos de metal,,,sin_ciuo_en_tabla
+7211,"Moldeadores, torneros y troqueladores",7211,Moldeadores y macheros,directo
+7212,Soldadores y oxicortadores,7212,Soldadores y oxicortadores,directo
+7213,"Hojalateros, chaperos, latoneros, cobreros y pintores de metales",7213,Chapistas y caldereros,directo
+7213,"Hojalateros, chaperos, latoneros, cobreros y pintores de metales",7132,Barnizadores y afines,adicional_1n
+7214,Montadores de estructuras metálicas,7214,Montadores de estructuras metálicas,directo
+7214,Montadores de estructuras metálicas,7215,Aparejadores y empalmadores de cables,adicional_1n
+7221,"Herreros, balconeros, aluminadores y forjadores",7221,Herreros y forjadores,directo
+7222,"Cerrajeros, afiladores y pulidores de herramientas",7222,Herramentistas y afines,directo
+7223,"Joyeros, orfebres, plateros y pulidores de metal",7313,"Joyeros, orfebres y plateros",directo
+7223,"Joyeros, orfebres, plateros y pulidores de metal",7224,Pulidores de metales y afiladores de herramientas,adicional_1n
+7301,"Supervisores de artesanos y trabajadores en la elaboración de productos de madera, papel, textiles y de cuero y piel",,,sin_ciuo_en_tabla
+7311,"Carpinteros, ebanistas y cepilladores en la elaboración de productos de madera",7521,Operarios del tratamiento de la madera,directo
+7311,"Carpinteros, ebanistas y cepilladores en la elaboración de productos de madera",7317,"Artesanos en madera, cestería y materiales similares",adicional_1n
+7311,"Carpinteros, ebanistas y cepilladores en la elaboración de productos de madera",7522,Ebanistas y afines,adicional_1n
+7311,"Carpinteros, ebanistas y cepilladores en la elaboración de productos de madera",7523,Reguladores y operadores de máquinas de labrar madera,adicional_1n
+7312,Pintores y barnizadores de madera,7317,"Artesanos en madera, cestería y materiales similares",directo
+7313,"Artesanos de productos de bejuco, vara, palma, carrizo y mimbre, excepto madera",7317,"Artesanos en madera, cestería y materiales similares",heredado_3d
+7321,Artesanos y trabajadores en la elaboración de productos de papel y cartón,7319,Artesanos no clasificados bajo otros epígrafes,directo
+7322,"Impresores, linotipistas, fotograbadores y encuadernadores",7321,"Cajistas, tipógrafos y afines",directo
+7322,"Impresores, linotipistas, fotograbadores y encuadernadores",7322,Impresores,adicional_1n
+7322,"Impresores, linotipistas, fotograbadores y encuadernadores",7323,Encuadernadores y afines,adicional_1n
+7323,Reveladores e impresores de fotografías,8132,Operadores de máquinas para fabricar productos fotográficos,directo
+7331,Trabajadores en la preparación de fibras e hilados,7318,"Artesanos de los tejidos, el cuero y materiales similares",directo
+7332,Tejedores de fibras,7318,"Artesanos de los tejidos, el cuero y materiales similares",heredado_3d
+7341,"Sastres y modistos, costureras y confeccionadores de prendas de vestir",7531,"Sastres, modistos, peleteros y sombrereros",directo
+7341,"Sastres y modistos, costureras y confeccionadores de prendas de vestir",7533,"Costureros, bordadores y afines",adicional_1n
+7342,Artesanos y confeccionadores de productos textiles,7318,"Artesanos de los tejidos, el cuero y materiales similares",directo
+7342,Artesanos y confeccionadores de productos textiles,7531,"Sastres, modistos, peleteros y sombrereros",adicional_1n
+7343,Bordadores y deshiladores,7533,"Costureros, bordadores y afines",directo
+7344,Patronistas de productos textiles,7532,Patronistas y cortadores de tela y afines,directo
+7351,Tapiceros,7534,"Tapiceros, colchoneros y afines",directo
+7352,"Peleteros, cortadores, curtidores y teñidores de cuero, piel y similares",7535,"Apelambradores, pellejeros y curtidores",directo
+7352,"Peleteros, cortadores, curtidores y teñidores de cuero, piel y similares",7531,"Sastres, modistos, peleteros y sombrereros",adicional_1n
+7353,Zapateros artesanales,7536,Zapateros y afines,directo
+7401,"Supervisores de artesanos y trabajadores en la elaboración de productos de hule, caucho, plásticos y de sustancias químicas",3122,Supervisores de industrias manufactureras,directo
+7401,"Supervisores de artesanos y trabajadores en la elaboración de productos de hule, caucho, plásticos y de sustancias químicas",7543,Clasificadores y probadores de productos (excluyendo alimentos y bebidas),adicional_1n
+7411,"Trabajadores en la elaboración y reparación de productos de hule, caucho, plásticos y vulcanización de neumáticos",8141,Operadores de máquinas para fabricar productos de caucho,directo
+7411,"Trabajadores en la elaboración y reparación de productos de hule, caucho, plásticos y vulcanización de neumáticos",8142,Operadores de máquinas para fabricar productos de material plástico,adicional_1n
+7412,Trabajadores en la elaboración de sustancias y compuestos químicos,8131,Operadores de plantas y máquinas de productos químicos,directo
+7501,"Supervisores de trabajadores en la elaboración y procesamiento de alimentos, bebidas y productos de tabaco",,,sin_ciuo_en_tabla
+7511,"Trabajadores en la elaboración de productos de carne, pescado y sus derivados",7511,"Carniceros, pescaderos y afines",directo
+7512,Trabajadores en la elaboración de productos lácteos,7513,Operarios de la elaboración de productos lácteos,directo
+7513,"Trabajadores en la elaboración de pan, tortilla, repostería, y otros productos de cereales y harinas",7512,"Panaderos, pasteleros y confiteros",directo
+7514,Trabajadores en la elaboración de productos a base de frutas y verduras,7514,"Operarios de la conservación de frutas, legumbres, verduras y afines",directo
+7515,"Trabajadores en la elaboración de productos a base de azúcar, chocolate, confitería y tabaco",7512,"Panaderos, pasteleros y confiteros",directo
+7515,"Trabajadores en la elaboración de productos a base de azúcar, chocolate, confitería y tabaco",7516,Preparadores y elaboradores de tabaco y sus productos,adicional_1n
+7516,"Trabajadores en la elaboración de aceites, grasas, sal y especias",7514,"Operarios de la conservación de frutas, legumbres, verduras y afines",directo
+7517,Trabajadores en la elaboración de bebidas alcohólicas y no alcohólicas,7514,"Operarios de la conservación de frutas, legumbres, verduras y afines",heredado_3d
+7601,"Supervisores de artesanos y trabajadores en la elaboración de productos de cerámica, vidrio, azulejo y similares",,,sin_ciuo_en_tabla
+7611,Alfareros y trabajadores ceramistas,7314,"Alfareros y afines (barro, arcilla y abrasivos)",directo
+7612,"Trabajadores en la elaboración de productos de cemento, cal, yeso, azulejo, piedra y ladrilleros",7314,"Alfareros y afines (barro, arcilla y abrasivos)",heredado_3d
+7613,Trabajadores del vidrio y similares,7315,"Sopladores, modeladores, laminadores, cortadores y pulidores de vidrio",directo
+7614,"Trabajadores en la elaboración de productos de hueso, concha, coral y similares",7319,Artesanos no clasificados bajo otros epígrafes,directo
+7999,"Otros trabajadores artesanales, no clasificados anteriormente",7549,"Oficiales, operarios y artesanos de artes mecánicas y de otros oficios no clasificados bajo otros epígrafes",directo
+8101,Supervisores de operadores de maquinaria industrial,3122,Supervisores de industrias manufactureras,directo
+8111,Operadores de máquinas y equipos para la extracción y beneficio en minas y canteras,8112,Operadores de instalaciones de procesamiento de minerales y rocas,directo
+8112,Operadores de máquinas y equipos para la extracción en pozos petroleros,8113,Perforadores y sondistas de pozos y afines,directo
+8113,"Operadores de máquinas y equipos para la captación, bombeo y distribución de agua",8113,Perforadores y sondistas de pozos y afines,directo
+8114,Operadores de equipos portátiles especializados para la construcción,8342,Operadores de máquinas de movimiento de tierras y afines,directo
+8121,"Operadores de hornos metalúrgicos, coladores y laminadores y operadores de máquinas trefiladoras y estiradoras de metales",3135,Controladores de procesos de producción de metales,directo
+8121,"Operadores de hornos metalúrgicos, coladores y laminadores y operadores de máquinas trefiladoras y estiradoras de metales",8121,Operadores de instalaciones de procesamiento de metales,adicional_1n
+8122,"Operadores de máquinas pulidoras, galvanizadoras y recubridoras de metal",8122,"Operadores de máquinas pulidoras, galvanizadoras y recubridoras de metales",directo
+8123,"Operadores de máquinas que cortan, perforan, doblan, troquelan, sueldan, etc., piezas y productos metálicos",8121,Operadores de instalaciones de procesamiento de metales,directo
+8131,Operadores de máquinas para la elaboración de productos químicos,3133,Controladores de instalaciones de procesamiento de productos químicos,directo
+8131,Operadores de máquinas para la elaboración de productos químicos,8131,Operadores de plantas y máquinas de productos químicos,adicional_1n
+8131,Operadores de máquinas para la elaboración de productos químicos,8183,"Operadores de máquinas de embalaje, embotellamiento y etiquetado",adicional_1n
+8132,Operadores de máquinas para la elaboración de productos farmacéuticos y cosméticos,3133,Controladores de instalaciones de procesamiento de productos químicos,directo
+8132,Operadores de máquinas para la elaboración de productos farmacéuticos y cosméticos,8183,"Operadores de máquinas de embalaje, embotellamiento y etiquetado",adicional_1n
+8133,Operadores de máquinas para la elaboración y ensamble de productos de plástico y hule,8141,Operadores de máquinas para fabricar productos de caucho,directo
+8133,Operadores de máquinas para la elaboración y ensamble de productos de plástico y hule,8142,Operadores de máquinas para fabricar productos de material plástico,adicional_1n
+8133,Operadores de máquinas para la elaboración y ensamble de productos de plástico y hule,8183,"Operadores de máquinas de embalaje, embotellamiento y etiquetado",adicional_1n
+8134,Operadores de máquinas para el tratamiento de agua,3132,"Operadores de incineradores, instalaciones de tratamiento de agua y afines",directo
+8135,Operadores de máquinas y equipos para la refinación del petróleo y gas,3134,Operadores de instalaciones de refinación de petróleo y gas natural,directo
+8141,Operadores de máquinas para el tratamiento de la madera y elaboración de aglomerados y triplay,8172,Operadores de instalaciones de procesamiento de la madera,directo
+8142,"Operadores de máquinas para la elaboración de productos de madera, bejuco, mimbre  y similares",7523,Reguladores y operadores de máquinas de labrar madera,directo
+8142,"Operadores de máquinas para la elaboración de productos de madera, bejuco, mimbre  y similares",8183,"Operadores de máquinas de embalaje, embotellamiento y etiquetado",adicional_1n
+8143,"Operadores de máquinas en la elaboración de celulosa, papel y similares",8171,Operadores de instalaciones para la preparación de pasta para papel y papel,directo
+8143,"Operadores de máquinas en la elaboración de celulosa, papel y similares",8183,"Operadores de máquinas de embalaje, embotellamiento y etiquetado",adicional_1n
+8144,Operadores de máquinas para la impresión y encuadernación,8143,Operadores de máquinas para fabricar productos de papel,directo
+8145,Operadores de máquinas para la elaboración de productos a base de papel y cartón,8143,Operadores de máquinas para fabricar productos de papel,directo
+8151,Operadores de máquinas y equipos de hilar y bobinar fibras textiles naturales y sintéticas,8151,"Operadores de máquinas de preparación de fibras, hilado y devanado",directo
+8151,Operadores de máquinas y equipos de hilar y bobinar fibras textiles naturales y sintéticas,8183,"Operadores de máquinas de embalaje, embotellamiento y etiquetado",adicional_1n
+8152,"Operadores de máquinas para fabricar tejidos de punto, telas y alfombras",8152,Operadores de telares y otras máquinas tejedoras,directo
+8152,"Operadores de máquinas para fabricar tejidos de punto, telas y alfombras",8183,"Operadores de máquinas de embalaje, embotellamiento y etiquetado",adicional_1n
+8153,"Operadores de máquinas de costura, bordado y de corte para la confección de productos textiles y prendas de vestir",8153,Operadores de máquinas de coser,directo
+8153,"Operadores de máquinas de costura, bordado y de corte para la confección de productos textiles y prendas de vestir",8183,"Operadores de máquinas de embalaje, embotellamiento y etiquetado",adicional_1n
+8154,"Operadores de máquinas en el tratamiento del cuero, piel y la elaboración de calzado",8155,Operadores de máquinas de tratamiento de pieles y cueros,directo
+8154,"Operadores de máquinas en el tratamiento del cuero, piel y la elaboración de calzado",8156,Operadores de máquinas para la fabricación de calzado y afines,adicional_1n
+8154,"Operadores de máquinas en el tratamiento del cuero, piel y la elaboración de calzado",8183,"Operadores de máquinas de embalaje, embotellamiento y etiquetado",adicional_1n
+8155,"Operadores de máquinas de lavado, blanqueo, teñido, estampado, afelpado, planchado y acabado de productos textiles, cuero, piel y similares",8154,"Operadores de máquinas de blanqueamiento, teñido y limpieza de tejidos",directo
+8155,"Operadores de máquinas de lavado, blanqueo, teñido, estampado, afelpado, planchado y acabado de productos textiles, cuero, piel y similares",8157,Operadores de máquinas lavarropas,adicional_1n
+8161,"Operadores de máquinas en la elaboración de alimentos, aceites, grasas, sal y especias",8160,Operadores de máquinas para elaborar alimentos y productos afines,directo
+8161,"Operadores de máquinas en la elaboración de alimentos, aceites, grasas, sal y especias",8183,"Operadores de máquinas de embalaje, embotellamiento y etiquetado",adicional_1n
+8162,Operadores de máquinas en la elaboración de tabaco,8160,Operadores de máquinas para elaborar alimentos y productos afines,directo
+8162,Operadores de máquinas en la elaboración de tabaco,8183,"Operadores de máquinas de embalaje, embotellamiento y etiquetado",adicional_1n
+8163,Operadores de máquinas en la elaboración de bebidas alcohólicas y no alcohólicas,8160,Operadores de máquinas para elaborar alimentos y productos afines,directo
+8163,Operadores de máquinas en la elaboración de bebidas alcohólicas y no alcohólicas,8183,"Operadores de máquinas de embalaje, embotellamiento y etiquetado",adicional_1n
+8171,"Operadores de máquinas en la elaboración de cemento, cal, yeso y productos de cemento",8114,Operadores de máquinas para fabricar cemento y otros productos minerales,directo
+8171,"Operadores de máquinas en la elaboración de cemento, cal, yeso y productos de cemento",8183,"Operadores de máquinas de embalaje, embotellamiento y etiquetado",adicional_1n
+8172,"Operadores de máquinas en la elaboración de productos de cerámica, mosaico, azulejo y similares",8181,Operadores de instalaciones de vidriería y cerámica,directo
+8172,"Operadores de máquinas en la elaboración de productos de cerámica, mosaico, azulejo y similares",8183,"Operadores de máquinas de embalaje, embotellamiento y etiquetado",adicional_1n
+8173,Operadores de máquinas en la elaboración de vidrio y productos de vidrio y similares,8181,Operadores de instalaciones de vidriería y cerámica,directo
+8173,Operadores de máquinas en la elaboración de vidrio y productos de vidrio y similares,8183,"Operadores de máquinas de embalaje, embotellamiento y etiquetado",adicional_1n
+8181,Operadores de máquinas e instalaciones para la generación de energía,3131,Operadores de instalaciones de producción de energía,directo
+8181,Operadores de máquinas e instalaciones para la generación de energía,8182,Operadores de máquinas de vapor y calderas,adicional_1n
+8199,"Otros operadores de instalaciones y maquinaria fija industrial, no clasificados anteriormente",3139,Técnicos en control de procesos no clasificados bajo otros epígrafes,directo
+8201,"Supervisores en procesos de ensamblado y montaje de  maquinaria, herramientas y productos metálicos y electrónicos",3122,Supervisores de industrias manufactureras,directo
+8201,"Supervisores en procesos de ensamblado y montaje de  maquinaria, herramientas y productos metálicos y electrónicos",7543,Clasificadores y probadores de productos (excluyendo alimentos y bebidas),adicional_1n
+8211,"Ensambladores y montadores de herramientas, maquinaria, equipos y productos metálicos",8211,Ensambladores de maquinaria mecánica,directo
+8212,Ensambladores y montadores de partes eléctricas y electrónicas,8212,Ensambladores de equipos eléctricos y electrónicos,directo
+8301,Supervisores de conductores de transporte y de maquinaria móvil,,,sin_ciuo_en_tabla
+8311,Pilotos de aviación,3153,Pilotos de aviación y afines,directo
+8321,Capitanes y conductores de transporte marítimo,3152,"Capitanes, oficiales de cubierta y prácticos",directo
+8322,Oficiales y marineros de cubierta y prácticos,3152,"Capitanes, oficiales de cubierta y prácticos",directo
+8322,Oficiales y marineros de cubierta y prácticos,8350,Marineros de cubierta y afines,adicional_1n
+8323,Oficiales maquinistas de transporte marítimo,3151,Oficiales maquinistas en navegación,directo
+8324,"Conductores de pequeñas embarcaciones (lanchas, botes, trajineras, etcétera)",8350,Marineros de cubierta y afines,directo
+8331,"Conductores de transporte en vías férreas (tren, metro y tren ligero)",8311,Maquinistas de locomotoras,directo
+8341,"Conductores de camiones, camionetas y automóviles de carga",8332,Conductores de camiones pesados,directo
+8342,"Conductores de autobuses, camiones, camionetas, taxis y automóviles de pasajeros",8331,Conductores de autobuses y tranvías,directo
+8342,"Conductores de autobuses, camiones, camionetas, taxis y automóviles de pasajeros",8322,"Conductores de automóviles, taxis y camionetas",adicional_1n
+8343,Choferes en casas particulares,8322,"Conductores de automóviles, taxis y camionetas",directo
+8344,Conductores de motocicleta,8321,Conductores de motocicletas,directo
+8349,"Otros conductores de transporte terrestre con motor, no clasificados anteriormente",,No tiene correspondencia,sin_correspondencia_explicita
+8351,Conductores de maquinaria móvil para la construcción y minería,8342,Operadores de máquinas de movimiento de tierras y afines,directo
+8352,"Conductores de maquinaria móvil para el movimiento de mercancías en fábricas, puertos, comercios, etcétera",8343,"Operadores de grúas, aparatos elevadores y afines",directo
+8352,"Conductores de maquinaria móvil para el movimiento de mercancías en fábricas, puertos, comercios, etcétera",8344,Operadores de autoelevadoras,adicional_1n
+8999,"Otros operadores de maquinaria industrial, ensambladores y conductores de transporte, no clasificados anteriormente",8189,Operadores de máquinas y de instalaciones fijas no clasificados bajo otros epígrafes,directo
+8999,"Otros operadores de maquinaria industrial, ensambladores y conductores de transporte, no clasificados anteriormente",8219,Ensambladores no clasificados bajo otros epígrafes,adicional_1n
+9111,Trabajadores de apoyo en actividades agrícolas,9211,Peones de explotaciones agrícolas,directo
+9112,Trabajadores de apoyo en actividades ganaderas,9212,Peones de explotaciones ganaderas,directo
+9113,Trabajadores de apoyo que realizan actividades agrícolas y ganaderas,9213,Peones de explotaciones de cultivos mixtos y ganaderos,directo
+9121,Trabajadores de apoyo en actividades silvícolas y forestales,9215,Peones forestales,directo
+9122,Trabajadores de apoyo en actividades de acuicultura y pesca,9216,Peones de pesca y acuicultura,directo
+9123,Trabajadores de apoyo en actividades de caza y captura,9216,Peones de pesca y acuicultura,heredado_3d
+9124,Recolectores de leña y acarreadores de agua,9624,Acarreadores de agua y recolectores  de  leña,directo
+9211,Trabajadores de apoyo en la minería,9311,Peones de minas y canteras,directo
+9212,Trabajadores de apoyo en la extracción,9311,Peones de minas y canteras,heredado_3d
+9221,Trabajadores de apoyo en la construcción,9313,Peones de la construcción de edificios,directo
+9222,Trabajadores de apoyo en plomería e instalación de tuberías,9312,Peones de obras públicas y mantenimiento,directo
+9222,Trabajadores de apoyo en plomería e instalación de tuberías,9313,Peones de la construcción de edificios,adicional_1n
+9231,"Trabajadores de apoyo en la elaboración, reparación y mantenimiento mecánico de equipos, maquinaria y productos de metal y de precisión",9321,Empacadores manuales,directo
+9231,"Trabajadores de apoyo en la elaboración, reparación y mantenimiento mecánico de equipos, maquinaria y productos de metal y de precisión",9329,Peones de la industria manufacturera no clasificados bajo otros epígrafes,adicional_1n
+9232,"Trabajadores de apoyo en la industria eléctrica, electrónica y comunicaciones",9321,Empacadores manuales,directo
+9232,"Trabajadores de apoyo en la industria eléctrica, electrónica y comunicaciones",9329,Peones de la industria manufacturera no clasificados bajo otros epígrafes,adicional_1n
+9233,"Trabajadores de apoyo en la industria química, petroquímica y plásticos",9321,Empacadores manuales,directo
+9233,"Trabajadores de apoyo en la industria química, petroquímica y plásticos",9329,Peones de la industria manufacturera no clasificados bajo otros epígrafes,adicional_1n
+9234,"Trabajadores de apoyo en la industria de la madera, papel y cartón",9321,Empacadores manuales,directo
+9234,"Trabajadores de apoyo en la industria de la madera, papel y cartón",9329,Peones de la industria manufacturera no clasificados bajo otros epígrafes,adicional_1n
+9235,Trabajadores de apoyo en la industria textil y del zapato,9321,Empacadores manuales,directo
+9235,Trabajadores de apoyo en la industria textil y del zapato,9329,Peones de la industria manufacturera no clasificados bajo otros epígrafes,adicional_1n
+9236,"Trabajadores de apoyo en la industria de alimentos, bebidas y productos de tabaco",9321,Empacadores manuales,directo
+9236,"Trabajadores de apoyo en la industria de alimentos, bebidas y productos de tabaco",9329,Peones de la industria manufacturera no clasificados bajo otros epígrafes,adicional_1n
+9237,"Trabajadores de apoyo en la industria de la cerámica, vidrio y similares",9321,Empacadores manuales,directo
+9239,"Trabajadores de apoyo en la industria, no clasificados anteriormente",9329,Peones de la industria manufacturera no clasificados bajo otros epígrafes,directo
+9311,Ayudantes de conductores de transporte terrestre con motor,8332,Conductores de camiones pesados,directo
+9311,Ayudantes de conductores de transporte terrestre con motor,8331,Conductores de autobuses y tranvías,adicional_1n
+9311,Ayudantes de conductores de transporte terrestre con motor,8322,"Conductores de automóviles, taxis y camionetas",adicional_1n
+9312,Ayudantes de conductores de transporte en vías férreas,8312,"Guardafrenos, guardagujas y agentes de maniobras",directo
+9321,Conductores de vehículos de transporte en bicicleta,9331,Conductores de vehículos accionados a pedal o a brazo,directo
+9322,"Conductores de transporte de tracción animal (carretas, arrieros, etcétera)",9332,Conductores de vehículos y máquinas de tracción animal,directo
+9331,Cargadores,9333,Peones de carga,directo
+9332,Cargadores por propina,9334,Reponedores de estanterías,directo
+9332,Cargadores por propina,9333,Peones de carga,adicional_1n
+9411,Ayudantes en la preparación de alimentos,9412,Ayudantes de cocina,directo
+9511,Vendedores ambulantes de periódicos y lotería,9520,Vendedores ambulantes (excluyendo de comida),directo
+9512,Vendedores ambulantes de artículos diversos (excluyendo los de venta de alimentos),5243,Vendedores puerta a puerta,directo
+9512,Vendedores ambulantes de artículos diversos (excluyendo los de venta de alimentos),9520,Vendedores ambulantes (excluyendo de comida),adicional_1n
+9521,Preparadores y vendedores ambulantes de alimentos,5212,Vendedores ambulantes de productos comestibles,directo
+9601,"Supervisores en limpieza, amas de llaves, mayordomos y en estacionamientos",5151,"Supervisores de mantenimiento y limpieza en oficinas, hoteles y otros establecimientos",directo
+9601,"Supervisores en limpieza, amas de llaves, mayordomos y en estacionamientos",5152,Ecónomos y mayordomos domésticos,adicional_1n
+9611,Trabajadores domésticos,9111,Limpiadores y asistentes domésticos,directo
+9621,Barrenderos y trabajadores de limpieza  (excepto en hoteles y restaurantes),9613,Barrenderos y afines,directo
+9621,Barrenderos y trabajadores de limpieza  (excepto en hoteles y restaurantes),9123,Lavadores de ventanas,adicional_1n
+9621,Barrenderos y trabajadores de limpieza  (excepto en hoteles y restaurantes),7133,Limpiadores de fachadas y deshollinadores,adicional_1n
+9621,Barrenderos y trabajadores de limpieza  (excepto en hoteles y restaurantes),9129,Otro personal de limpieza,adicional_1n
+9622,Recamaristas y camaristas,9112,"Limpiadores y asistentes de oficinas, hoteles y otros establecimientos",directo
+9623,Mozos de hotel y restaurante,9112,"Limpiadores y asistentes de oficinas, hoteles y otros establecimientos",heredado_3d
+9624,Limpiadores de calzado,9510,Trabajadores ambulantes de servicios y afines,directo
+9631,Lavadores de vehículos en establecimientos,9122,Lavadores de vehículos,directo
+9632,Lavadores de vehículos en vía pública,9510,Trabajadores ambulantes de servicios y afines,directo
+9633,Cuidadores y acomodadores de autos en estacionamientos,5414,Guardias de protección,directo
+9633,Cuidadores y acomodadores de autos en estacionamientos,5169,Trabajadores de servicios personales no clasificados bajo otros epígrafes,adicional_1n
+9634,Cuidadores de autos por propina,,No tiene correspondencia,sin_correspondencia_explicita
+9641,Lavanderos en establecimientos,8157,Operadores de máquinas lavarropas,directo
+9642,Planchadores y tintoreros en establecimientos,9121,Lavanderos y planchadores manuales,directo
+9643,Lavanderos y planchadores domésticos,9121,Lavanderos y planchadores manuales,heredado_3d
+9651,Ayudantes de jardineros,9214,Peones de jardinería y horticultura,directo
+9661,Recolectores de basura y material reciclable,9611,Recolectores de basura y material reciclable,directo
+9662,Clasificadores de desechos,9612,Clasificadores de desechos,directo
+9663,Recolectores de otros materiales,9622,Personas que realizan trabajos varios,directo
+9711,"Trabajadores de paquetería, maleteros y botones de hotel",9621,"Mensajeros, mandaderos, maleteros y repartidores",directo
+9712,Empacadores de objetos y mercancías,9621,"Mensajeros, mandaderos, maleteros y repartidores",heredado_3d
+9713,"Trabajadores de apoyo a la realización de espectáculos, deportes y en parques de diversiones",9621,"Mensajeros, mandaderos, maleteros y repartidores",heredado_3d
+9721,Carteros (a pie y en bicicleta),4412,Empleados de servicios de correos,directo
+9722,Repartidores de mensajería (a pie y en bicicleta) y mandaderos,9621,"Mensajeros, mandaderos, maleteros y repartidores",directo
+9723,Repartidores de mercancías (a pie y en bicicleta),9621,"Mensajeros, mandaderos, maleteros y repartidores",heredado_3d
+9731,Lecturistas de medidores,9623,Recolectores de dinero en aparatos de venta automática y lectores de medidores,directo
+9732,Recolectores de dinero,9623,Recolectores de dinero en aparatos de venta automática y lectores de medidores,directo
+9733,Elevadoristas y ascensoristas,,No tiene correspondencia,sin_correspondencia_explicita
+9899,"Otros trabajadores en actividades elementales y de apoyo, no clasificados anteriormente",9629,Ocupaciones elementales no clasificadas bajo otros epígrafes,directo
+9999,Ocupaciones no especificadas,,No tiene correspondencia,sin_correspondencia_explicita

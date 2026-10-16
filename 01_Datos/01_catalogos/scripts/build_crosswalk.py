@@ -13,7 +13,15 @@ import openpyxl
 import csv
 from collections import defaultdict
 
-BASE = '/Users/jorgejuvenalcamposferreira/Documents/Claude Encargos/36-dataton-genero/05_Tareas/01_catalogos'
+import os
+from pathlib import Path
+
+# Carpeta 01_Datos/01_catalogos del repositorio (se puede cambiar con la
+# variable de entorno CATALOGOS_DIR para correr en una copia de prueba)
+BASE = str(Path(os.environ.get(
+    'CATALOGOS_DIR', Path(__file__).resolve().parent.parent
+)))
+GMYREK_UNIQUE = f'{BASE}/datasets/gmyrek_2025_ciuo4d_unique.csv'
 
 wb = openpyxl.load_workbook(f'{BASE}/sinco_tablas_comparativas.xlsx', read_only=True, data_only=True)
 ws = wb['SINCO-CIUO']
@@ -58,6 +66,7 @@ for row in ws.iter_rows(min_row=7, values_only=True):
                     'sinco_titulo': cur_sinco_4d[1],
                     'ciuo_4d': ciuo_code.zfill(4),
                     'ciuo_titulo': ciuo_tit or '',
+                    'origen': 'directo',
                 })
                 last_ciuo_in_3d = (ciuo_code.zfill(4), ciuo_tit or '')
             elif is_no_corr:
@@ -67,6 +76,7 @@ for row in ws.iter_rows(min_row=7, values_only=True):
                     'sinco_titulo': cur_sinco_4d[1],
                     'ciuo_4d': '',
                     'ciuo_titulo': 'No tiene correspondencia',
+                    'origen': 'sin_correspondencia_explicita',
                 })
                 last_ciuo_in_3d = None  # ese nodo no debe heredarse
             else:
@@ -77,6 +87,7 @@ for row in ws.iter_rows(min_row=7, values_only=True):
                         'sinco_titulo': cur_sinco_4d[1],
                         'ciuo_4d': last_ciuo_in_3d[0],
                         'ciuo_titulo': last_ciuo_in_3d[1],
+                        'origen': 'heredado_3d',
                     })
                 else:
                     # no hay nada que heredar → sin correspondencia implícita
@@ -85,6 +96,7 @@ for row in ws.iter_rows(min_row=7, values_only=True):
                         'sinco_titulo': cur_sinco_4d[1],
                         'ciuo_4d': '',
                         'ciuo_titulo': '',
+                        'origen': 'sin_ciuo_en_tabla',
                     })
     else:
         # fila sin SINCO: puede ser (a) huérfana con CIUO adicional del SINCO 4d vigente, o (b) vacía
@@ -94,6 +106,7 @@ for row in ws.iter_rows(min_row=7, values_only=True):
                 'sinco_titulo': cur_sinco_4d[1],
                 'ciuo_4d': ciuo_code.zfill(4),
                 'ciuo_titulo': ciuo_tit or '',
+                'origen': 'adicional_1n',
             })
             # NO actualizamos last_ciuo_in_3d: la herencia para 4ds siguientes
             # se basa en la "primera" correspondencia, no en la última adicional.
@@ -123,13 +136,15 @@ print(f'  tras dedup: {len(crosswalk)} pares')
 
 out1 = f'{BASE}/crosswalk_sinco_ciuo08_long.csv'
 with open(out1, 'w', encoding='utf-8', newline='') as f:
-    w = csv.DictWriter(f, fieldnames=['sinco_4d','sinco_titulo','ciuo_4d','ciuo_titulo'])
+    w = csv.DictWriter(f, fieldnames=['sinco_4d','sinco_titulo','ciuo_4d','ciuo_titulo','origen'])
     w.writeheader(); w.writerows(crosswalk)
 print('Escrito:', out1)
+from collections import Counter as _C
+print('  origen de los pares:', dict(_C(r['origen'] for r in crosswalk)))
 
 # ---------- Join con scores Gmyrek ----------
 scores = {}
-with open('/tmp/gmyrek_2025_ciuo4d_unique.csv', encoding='utf-8') as f:
+with open(GMYREK_UNIQUE, encoding='utf-8') as f:
     for r in csv.DictReader(f):
         scores[r['ISCO_08']] = r
 
@@ -141,6 +156,9 @@ with open(f'{BASE}/sinco_2019_jerarquico.csv', encoding='utf-8') as f:
 sinco_pairs = defaultdict(list)
 for pair in crosswalk:
     sinco_pairs[pair['sinco_4d']].append(pair)
+# SINCO cuyo CIUO proviene de la regla de herencia (ninguna fila propia)
+sinco_heredados = {s for s, ps in sinco_pairs.items()
+                   if ps and all(p['origen'] == 'heredado_3d' for p in ps if p['ciuo_4d'])}
 
 final_rows = []
 for s4, base in sinco_jer.items():
@@ -168,6 +186,7 @@ for s4, base in sinco_jer.items():
         'potencial_ia_2025': potencial,
         'score_minimo': round(min(vals),4) if vals else '',
         'score_maximo': round(max(vals),4) if vals else '',
+        'ciuo_heredado_3d': 'TRUE' if s4 in sinco_heredados else 'FALSE',
     })
 
 n_total = len(final_rows)
@@ -184,6 +203,20 @@ for r in sin:
     print(f"  {r['unitario_4d']} {r['unitario_titulo'][:55]:55s} → CIUOs=[{r['ciuo08_4d_correspondientes']}]")
 
 out2 = f'{BASE}/sinco_con_exposicion_ia.csv'
+# Conservar las columnas que agregan pasos posteriores (p. ej. descripcion_ia_es
+# de 01_agregar_descripciones.py / 02_traducir_descripciones.py) si ya existe
+# una versión previa del catálogo, para que regenerarlo no las borre.
+import os as _os
+if _os.path.exists(out2):
+    with open(out2, encoding='utf-8') as f:
+        previo = {r['unitario_4d']: r for r in csv.DictReader(f)}
+    extra = [c for c in (next(iter(previo.values())).keys() if previo else [])
+             if c not in final_rows[0]]
+    for r in final_rows:
+        for c in extra:
+            r[c] = previo.get(r['unitario_4d'], {}).get(c, '')
+    if extra:
+        print('Columnas conservadas del catálogo previo:', extra)
 fields = list(final_rows[0].keys())
 with open(out2, 'w', encoding='utf-8', newline='') as f:
     w = csv.DictWriter(f, fieldnames=fields)
