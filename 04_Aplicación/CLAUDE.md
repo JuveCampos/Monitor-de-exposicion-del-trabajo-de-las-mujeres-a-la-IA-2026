@@ -171,7 +171,7 @@ App ligera (~266KB datos). Compatible con plan Free o Starter de shinyapps.io (1
 
 Se despliega con `Rscript deploy.R` desde esta carpeta (cuenta `juvecamposf`, app `dataton_genero_2026_exposicion_ia_trabajos`). El script trae una lista explicita de `appFiles` (7 archivos, ~1.4 MB) y deja fuera `assets/`, la imagen de Unsplash y el catalogo `sinco_con_exposicion_ia.csv` sin flexion, que no se usan. Antes de subir verifica que existan los archivos, que `app.R` parsee, que la cuenta este configurada y que `periodo_enoe` coincida con el trimestre del nombre del `.dta`.
 
-Al cambiar de trimestre hay que actualizar las dos variables del inicio de `app.R` (`periodo_enoe` y `archivo_enoe`) y el nombre del `.dta` en `archivos_app` de `deploy.R`.
+Al cambiar de trimestre hay que actualizar las dos variables del inicio de `app.R` (`periodo_enoe` y `archivo_enoe`) y el nombre del `.dta` en `archivos_app` de `deploy.R`. Tambien hay que actualizar a mano `pct_alta_m_regla_alterna` (maximo del rango de sensibilidad de la cifra principal, hoy 12.5%): se obtiene corriendo `Rscript 00_Códigos/Scripts_procesamiento_ENOE_R/05_sensibilidad_mixto.R` desde la raiz del repositorio, que regenera `03_Archivos/sensibilidad_mixto_<periodo>.md`.
 
 ## Origen de los datos de exposicion
 

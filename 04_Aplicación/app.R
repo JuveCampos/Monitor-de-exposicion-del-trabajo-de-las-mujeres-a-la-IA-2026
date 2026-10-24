@@ -20,6 +20,14 @@ options(
 # 00_Códigos/Scripts_procesamiento_ENOE_R/01_procesar_enoe_sinco.R)
 periodo_enoe <- "2026-T2"
 archivo_enoe <- "zcalculos_Y2026T02_4d.dta"
+# Rango de sensibilidad del indicador principal (mujeres ocupadas en
+# exposición significativa o máxima) según la regla con que se tratan las
+# ocupaciones "Mixto". El valor con la regla actual lo calcula la app; aquí
+# va el máximo con las reglas alternativas (R1 primer CIUO, R2 unión de
+# tareas). Fuente: 03_Archivos/sensibilidad_mixto_2026T2.md, generado con
+# 00_Códigos/Scripts_procesamiento_ENOE_R/05_sensibilidad_mixto.R.
+# Actualizar al cambiar de trimestre o de catálogo.
+pct_alta_m_regla_alterna <- "12.5%"
 # Formación STEM (salidas de 04_procesar_enoe_stem.R, mismo trimestre)
 archivo_stem_campos <- "zcalculos_Y2026T02_stem_campos.dta"
 archivo_stem_4d <- "zcalculos_Y2026T02_4d_stem.dta"
@@ -722,6 +730,20 @@ pct_alta_hero_h <- paste0(
   format(round(pct_alta_sexo$p[pct_alta_sexo$sexo_label == "Hombres"], 1),
          nsmall = 1), "%"
 )
+# Valor absoluto que acompaña a cada porcentaje del hero, para que la
+# magnitud se entienda sin inflarla
+personas_alta_sexo <- bd_por_sexo_exp %>%
+  filter(exposicion_ia_es %in% niveles_alta_exp) %>%
+  group_by(sexo_label) %>%
+  summarise(n = sum(total_ocup), .groups = "drop")
+personas_alta_hero_m <- paste0(
+  format(round(personas_alta_sexo$n[personas_alta_sexo$sexo_label == "Mujeres"] / 1e6, 2),
+         nsmall = 2), " millones"
+)
+personas_alta_hero_h <- paste0(
+  format(round(personas_alta_sexo$n[personas_alta_sexo$sexo_label == "Hombres"] / 1e6, 2),
+         nsmall = 2), " millones"
+)
 
 bd_top10 <- bd %>%
   filter(
@@ -1371,6 +1393,54 @@ ui <- fluidPage(
       .nota-grafica .parrafo:last-child {
         margin-bottom: 0;
       }
+      /* Caja fija de alcance (qué mide y qué no mide): tarjeta blanca con regla
+         morada a la izquierda */
+      .caja-alcance {
+        background-color: #ffffff;
+        border-left: 5px solid #6950D8;
+        border-radius: 10px;
+        box-shadow: 0 2px 12px rgba(35, 31, 32, 0.07);
+        padding: 18px 24px 8px 24px;
+        margin: 8px 0 30px 0;
+      }
+      .caja-alcance h4 {
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 1.1em;
+        font-weight: 700;
+        margin: 0 0 12px 0;
+      }
+      .caja-alcance ul {
+        padding-left: 20px;
+        margin: 0;
+      }
+      .caja-alcance li {
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 16px;
+        color: #444;
+        line-height: 1.65;
+        margin-bottom: 12px;
+      }
+      .caja-alcance li strong {
+        color: #231f20;
+      }
+      /* Referencias al final de la conclusión */
+      .referencias h4 {
+        font-size: 1.1em;
+        margin-top: 24px;
+      }
+      .referencias p {
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 13.5px;
+        color: #555;
+        line-height: 1.5;
+        margin: 0 0 8px 0;
+        padding-left: 1.5em;
+        text-indent: -1.5em;
+      }
+      .referencias a {
+        color: #6950D8;
+        word-break: break-all;
+      }
       .col-sm-12 > .nota-grafica,
       .bloque-texto.nota-grafica {
         max-width: var(--ancho-texto);
@@ -1952,13 +2022,15 @@ ui <- fluidPage(
             class = "cifra",
             div(class = "numero", pct_alta_hero_m),
             div(class = "etiqueta",
-                "de las mujeres ocupadas trabajan en exposición significativa o máxima")
+                paste0("de las mujeres ocupadas (", personas_alta_hero_m,
+                       ") trabajan en exposición significativa o máxima"))
           ),
           div(
             class = "cifra",
             div(class = "numero", pct_alta_hero_h),
             div(class = "etiqueta",
-                "de los hombres ocupados están en esas mismas categorías")
+                paste0("de los hombres ocupados (", personas_alta_hero_h,
+                       ") están en esas mismas categorías"))
           )
         )
       ),
@@ -2027,9 +2099,11 @@ ui <- fluidPage(
         "transformación de las tareas</span> dentro ",
         "de una ocupación debido a las herramientas de ",
         "inteligencia artificial. Una ocupación con mayor ",
-        "exposición está en ",
-        "<span class='highlight'>mayor riesgo de ser ",
-        "automatizada</span> por la IA."
+        "exposición es aquella en la que la IA generativa ya ",
+        "puede hacer una parte mayor de sus tareas. Eso ",
+        "<span class='highlight'>no significa que el puesto ",
+        "vaya a desaparecer</span>: la evidencia disponible ",
+        "indica que lo más probable es que cambie."
       ))
     ),
     p(
@@ -2290,6 +2364,47 @@ ui <- fluidPage(
         "tareas, transformación del puesto o necesidad de ",
         "reconversión profesional</span>."
       ))
+    ),
+    # Caja fija de alcance: qué mide el índice, qué no mide, de cuándo
+    # son las puntuaciones y con qué rango leer la cifra principal.
+    # Sustento: 03_Archivos/criticas_estudios_exposicion_ia_2026-10-16.md
+    div(
+      class = "caja-alcance",
+      h4("Qué mide este Monitor y qué no mide"),
+      tags$ul(
+        tags$li(HTML(paste0(
+          "<strong>Mide</strong> la fracción de las tareas de cada ",
+          "ocupación que la IA generativa podría realizar hoy, según el ",
+          "índice de la Organización Internacional del Trabajo (Gmyrek ",
+          "et al., 2025), y la cruza con las ocupaciones donde trabajan ",
+          "hombres y mujeres en México según la ENOE."
+        ))),
+        tags$li(HTML(paste0(
+          "<strong>No mide</strong> cuántos empleos van a desaparecer ",
+          "ni cuándo. Que una tarea sea técnicamente automatizable no ",
+          "implica que resulte rentable automatizarla ni que las empresas ",
+          "lo hagan (Svanberg et al., 2024; Acemoglu, 2024). Solo el ",
+          "gradiente de exposición máxima con baja variabilidad de tareas ",
+          "se asocia con sustitución; los gradientes de alta variabilidad ",
+          "apuntan a puestos que cambian, no que desaparecen."
+        ))),
+        tags$li(HTML(paste0(
+          "<strong>Las puntuaciones son de 2025</strong> y se mantienen ",
+          "fijas; el empleo se actualiza cada trimestre con la ENOE ",
+          "(hoy ENOE ", periodo_enoe, "). Los cambios entre trimestres ",
+          "reflejan cambios en la estructura del empleo, no en la ",
+          "tecnología."
+        ))),
+        tags$li(HTML(paste0(
+          "<strong>La cifra principal es un rango.</strong> ",
+          pct_alta_hero_m, " de las mujeres ocupadas (",
+          personas_alta_hero_m, ") trabajan en exposición significativa ",
+          "o máxima con la regla actual para las ocupaciones mixtas, y ",
+          "hasta ", pct_alta_m_regla_alterna, " con reglas alternativas. ",
+          "Conviene leerla como un orden de magnitud y no como un valor ",
+          "exacto."
+        )))
+      )
     )
   ),
 
@@ -3133,6 +3248,43 @@ ui <- fluidPage(
     p(
       class = "parrafo",
       HTML(paste0(
+        "Esa convicción tiene sustento en lo que la evidencia muestra ",
+        "hasta hoy. Los estudios que siguen a trabajadores reales ",
+        "después de la llegada de los modelos de lenguaje encuentran ",
+        "<span class='highlight'>efectos pequeños</span>: en Dinamarca, ",
+        "con registros administrativos de 25,000 personas en ",
+        "ocupaciones expuestas, no se observan cambios en ingresos ni ",
+        "en horas (Humlum y Vestergaard, 2025), y en Estados Unidos la ",
+        "composición ocupacional no se ha movido de forma distinta a la ",
+        "de transiciones tecnológicas previas (Gimbel et al., 2025). El ",
+        "único efecto claro aparece en la contratación de personas ",
+        "jóvenes en las ocupaciones más expuestas (Brynjolfsson, Chandar ",
+        "y Chen, 2025). Además, el potencial de la IA para ",
+        "<span class='highlight'>complementar el trabajo es varias veces ",
+        "mayor que el de sustituirlo</span>, incluso en las ocupaciones ",
+        "feminizadas (Gmyrek, Berg y Bescond, 2023)."
+      ))
+    ),
+    p(
+      class = "parrafo",
+      HTML(paste0(
+        "Por eso el mensaje de este Monitor tiene dos partes que van ",
+        "juntas. Las mujeres están ",
+        "<span class='highlight'>sobrerrepresentadas en las ocupaciones ",
+        "más expuestas</span>, que son también las de mayor ingreso, ",
+        "formalidad y escolaridad, y están ",
+        "<span class='highlight'>subrepresentadas en los puestos que ",
+        "diseñan la tecnología</span>. Las ocupaciones donde la IA no ",
+        "llega, como los cuidados y la limpieza, no están protegidas: ",
+        "son empleos de bajo ingreso y alta informalidad que pueden ",
+        "quedar fuera de las ganancias de productividad. La pregunta no ",
+        "es cuántos empleos de mujeres van a desaparecer, sino quién se ",
+        "queda con las ganancias de la transformación."
+      ))
+    ),
+    p(
+      class = "parrafo",
+      HTML(paste0(
         "Al crear esta herramienta, quisimos pensar la ",
         "conversación en ",
         "<span class='highlight'>clave de oportunidad para ",
@@ -3149,6 +3301,57 @@ ui <- fluidPage(
         "<span class='highlight'>una transición más ",
         "justa</span>."
       ))
+    ),
+    # Referencias citadas en los textos de la app (formato APA)
+    div(
+      class = "referencias",
+      h4("Referencias"),
+      p(HTML(paste0(
+        "Acemoglu, D. (2024). <em>The simple macroeconomics of AI</em> ",
+        "(NBER Working Paper No. 32487). National Bureau of Economic ",
+        "Research. <a href='https://www.nber.org/papers/w32487' ",
+        "target='_blank'>https://www.nber.org/papers/w32487</a>"
+      ))),
+      p(HTML(paste0(
+        "Brynjolfsson, E., Chandar, B., & Chen, R. (2025). <em>Canaries ",
+        "in the coal mine? Six facts about the recent employment effects ",
+        "of artificial intelligence</em>. Stanford Digital Economy Lab. ",
+        "<a href='https://digitaleconomy.stanford.edu/publication/",
+        "canaries-in-the-coal-mine-six-facts-about-the-recen' ",
+        "target='_blank'>https://digitaleconomy.stanford.edu/publication/",
+        "canaries-in-the-coal-mine-six-facts-about-the-recen</a>"
+      ))),
+      p(HTML(paste0(
+        "Gimbel, M., Kinder, M., Kendall, J., & Lee, M. (2025). ",
+        "<em>Evaluating the impact of AI on the labor market: Current ",
+        "state of affairs</em>. The Budget Lab at Yale."
+      ))),
+      p(HTML(paste0(
+        "Gmyrek, P., Berg, J., & Bescond, D. (2023). <em>Generative AI ",
+        "and jobs: A global analysis of potential effects on job quantity ",
+        "and quality</em> (ILO Working Paper No. 96). International Labour ",
+        "Organization. <a href='https://doi.org/10.54394/FHEM8239' ",
+        "target='_blank'>https://doi.org/10.54394/FHEM8239</a>"
+      ))),
+      p(HTML(paste0(
+        "Gmyrek, P., Berg, J., Kamiński, K., Konopczyński, F., Ładna, A., ",
+        "Nafradi, B., Rosłaniec, K., & Troszyński, M. (2025). ",
+        "<em>Generative AI and jobs: A refined global index of ",
+        "occupational exposure</em> (ILO Working Paper No. 140). ",
+        "International Labour Organization. ",
+        "<a href='https://doi.org/10.54394/HETP0387' target='_blank'>",
+        "https://doi.org/10.54394/HETP0387</a>"
+      ))),
+      p(HTML(paste0(
+        "Humlum, A., & Vestergaard, E. (2025). <em>Large language models, ",
+        "small labor market effects</em> (NBER Working Paper No. 33777). ",
+        "National Bureau of Economic Research."
+      ))),
+      p(HTML(paste0(
+        "Svanberg, M., Li, W., Fleming, M., Goehring, B., & Thompson, N. ",
+        "(2024). <em>Beyond AI exposure: Which tasks are cost-effective ",
+        "to automate with computer vision?</em> MIT FutureTech."
+      )))
     )
   ),
 
